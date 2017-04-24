@@ -1,8 +1,9 @@
 ### ** 添加记录：**
+**20170424**
+　　1. 设置id为可以同时输入多个id，用","隔开。每一个id对应
 **20170215**
 　　1. 设置sepValue的默认参数为”,”
 　　2. `<script>`新增“&&”
-
 **20170109 **
 　　1. 在`<filters>[<filter>]`中添加`type：sizeIs, sizeBigger, sizeSmaller`
 **20161213**
@@ -11,28 +12,26 @@
 　　1.	在`<script>`中添加IsValueEmpty类型
 　　2.	在`<skipResults>[<resultFile>]`和`<filters>[<filter>]`中添加group
 **20161028**
-　1.	添加subscripts
+　　1.	添加subscripts
 **20160909**
-　2.	把`<resultFile>`中参数` <isInfile> `修改为 `<isInputTask>`
+　　1.	把`<resultFile>`中参数` <isInfile> `修改为 `<isInputTask>`
 **20160812**
-　1.	标签`<appendIn>`添加方法@removesuffix
+　　1.	标签`<appendIn>`添加方法@removesuffix
 **20160804**
-　1.	标签`<script>`添加属性isLoop，该属性指定输入的value是否循环
+　　1.	标签`<script>`添加属性isLoop，该属性指定输入的value是否循环
 **20160622**
-　1.	标签`<filter>`添加属性 type，用于指定过滤的类型
+　　1.	标签`<filter>`添加属性 type，用于指定过滤的类型
 **20160617**
-　1.	添加支持重定向符"<"
+　　1.	添加支持重定向符"<"
 **20160616**
-1.	修改标签`<descript>`为`<description>`
-修改标签`<iscoverparam>`为`<isCoverParam>`
-修改标签`<skipresult>`为`<skipResults>`
-修改标签`<resultfile>`为`<resultFile>`
-修改表情`<isRedirect>`为`<isCopyToTmp>`
-2.	添加参数`<appendIn>[<appendFile>]`用于把一些第三方文件放入临时文件夹中。主要是bwa mapping时，需要把索引文件全都放入临时文件夹中。
-
+　　1.	修改标签`<descript>`为`<description>`
+　　　修改标签`<iscoverparam>`为`<isCoverParam>`
+　　　修改标签`<skipresult>`为`<skipResults>`
+　　　修改标签`<resultfile>`为`<resultFile>`
+　　　修改表情`<isRedirect>`为`<isCopyToTmp>`
+　　2.	添加参数`<appendIn>[<appendFile>]`用于把一些第三方文件放入临时文件夹中。主要是bwa mapping时，需要把索引文件全都放入临时文件夹中。
 **20160615**
 　　`<resultFile>`中添加参数 `<isInfile>` 用于检查输入文件部分是否存在，主要用于bwa index，samtools faidx。
-
 **20160614**
 　　添加参数` <iscoverparam> `用于groovy是否覆盖已有参数。
 &nbsp;
@@ -214,15 +213,20 @@
 ### **核心属性配置：**
 **`<templet>[<script>]：`**参数配置单。通过一系列 `<scritpt> `按照顺序组装出cmd命令，并运行。
 **`<script>`**里面的参数比较复杂。有以下属性：
-　　**id：**需要的参数名称，即为param中的参数名。如果"id"不存在，则表示该参数无论何时都会加入cmd中。如id="minLenBp",
+　　**id：**需要的参数名称，即为param中的参数名。如果"id"不存在，则表示该参数无论何时都会加入cmd中。如id="minLenBp"。如果需要输入多个id，用","隔开，输入多个id可用于配合**value**实现，具体见**value**例3和例4。
 　　**param：**参数名，如"-r", "-t" 这种。
 　　例1：`<script param="cp"/> `因为没有"id"表示无论如何都会将"cp"加入cmd命令
 　　例2：`<script id="minLen" param="-cp"/> `会组合成命令片段 "-cp ${minLen}"。如果minLen对应的值为10，则组合成命令片段"-cp 10"
 　　例3：`<script id="minLen" /> `会组合成命令片段 "${minLen}"。如果minLen对应的值为10，则组合成命令片段"10"
-　　**value：**该id所对应的值。一般来说输入的参数可能会做一些调整。
-　　例1：某个参数片段为 –out ${value}，意思给定value为A，则我们希望实际片段为 -out A。这时候由于不需要对value进行修改，所以value可以为空，或者写成 "%s"，其中"%s"是java format中的一个通配符。
-　　例2：某个参数片段为 -out ${value}.sam，意思给定value为A，则我们希望实际片段为 - out A.sam。这时候需要在value后面添加".sam"的后缀，那么就可以写成：
+　　**value：**该id所对应的值。一般来说输入的参数可能会做一些调整。如果我们需要定制一个涉及到多个id的文件夹或文件名，还可以使用多个id配合多个%s的形式进行高度定制化，见例3。
+　　例1：某个参数片段为 –out ${value}，即给定value为A，则我们希望实际片段为 -out A。这时候由于不需要对value进行修改，所以value可以为空，或者写成 "%s"，其中"%s"是java format中的一个通配符。
+　　例2：某个参数片段为 -out ${value}.sam，即给定value为A，则我们希望实际片段为 - out A.sam。这时候需要在value后面添加".sam"的后缀，那么就可以写成：
 　　`<script id="prefix" param="-in" value="%s.sam"/>` (注意这只是一个案例，实际在写输出的时候还需要 type 属性的配合，后面会讲)
+　　例3：某个参数片段为-out ${value}-anywordsf-${value}.sam，即给定value为A，则我们希望实际片段为 - out A-anywordsf-A.sam。这时候我们需要引入多id的形式，可以写成：
+　　`<script id="prefix,prefix" param="-in" value="%s_anywords_s%s.sam"/>`
+　　例4：某个参数片段为-out ${value1}_anywords_${value2}.sam，即给定value1为A，value2为B则我们希望实际片段为 - out A-anywordsf-B.sam。这时候我们也需要多id的形式，可以写成：
+　　`<script id="prefix1,prefix2" param="-in" value="%s_-anywordsf-s%s.sam"/>`
+　　注意在这里，id为prefix1和prefix2，后面的%s都是一样的。按照顺序第一个%s对应prefix1的值，第二个%s对应prefix2的值。
 　　**type：**参数的类型，有String，Boolean，Compare，Input，Output，OutInput这几种类型
 　　<span style="color:blue"> String</span>：默认值，表示输入的参数为字符串，包括文字，整数，小数等都认为是字符串。譬如 "-a 3" "-prefix treat" 这种都是String类型。
 　　例：`<script id="minLen" param="-cp" type="String"/> ` 结果同上
