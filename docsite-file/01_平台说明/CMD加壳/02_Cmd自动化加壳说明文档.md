@@ -56,7 +56,10 @@
 
  **2.1 文件夹格式 **
 　　ScriptXml放在指定的文件夹中，目前放在 /media/nbfs/nbCloud/public/task/scriptmodule/ 中，本路径可在 NBCService 工程的 service_path.properties 中配置。
-　　在scriptmodule中，每个文件夹表示一个task，在文件夹内部，可以有至多3个文件夹，分别为Prepare，Run，Summary。每个文件夹中可以放置多个相应的xml文件，xml文件中会标记运行的顺序，Task在运行时会依次调用xml生成cmd命令并运行。因此在Prepare、Run、Summary这三个阶段中，均可顺序执行多个cmd命令，后一个可以利用前一个的输出文件作为输入。
+　　在scriptmodule中，每个文件夹表示一个task，在文件夹内部，可以有4类文件夹：
+　　1. 运行程序的文件夹，分别为Prepare，Run，Summary。每个文件夹中可以放置多个相应的xml文件，xml文件中会标记运行的顺序，Task在运行时会依次调用xml生成cmd命令并运行。因此在Prepare、Run、Summary这三个阶段中，均可顺序执行多个cmd命令，后一个可以利用前一个的输出文件作为输入。
+　　2. 配置跳过的文件夹，skip文件夹。在该文件夹中配置xml后，如果task运行时相应的container中中存在已定义的结果文件，则当前container会跳过执行。其xml配置方式与 1. 运行程序的文件夹 中的skipResult一致。
+　　3. 存放软件和脚本的文件夹，scripts、software文件夹。这两个文件夹中可以放置当前task的相关脚本和软件。
 
 		例子：
 		../scriptmodule/FastQC/Prepare
@@ -68,6 +71,14 @@
 		---------------------/Summary
 		---------------------------/calculate_mapping_rate.xml
 		---------------------------/change_file_name.xml
+		--------以下可选-----------------------
+		---------------------/scripts
+		---------------------------/perl-script.pl
+		---------------------------/python-script.py
+		---------------------/skip
+		---------------------------/skipRun.xml
+		---------------------/software
+		---------------------------/software1
  **2.2 Xml文件详细说明 **
 　　理论上应该使用XSD作为xml的描述说明文档，但为了简明，我这里采用自定义的中文来描述
 　　每一个xml会调用一个cmd/groovy命令。以下是一个调用cmd命令cp的简单例子。
