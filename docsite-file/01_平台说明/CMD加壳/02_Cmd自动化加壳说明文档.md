@@ -1,4 +1,6 @@
 ### ** 添加记录：**
+**20170520**
+　　1. 过时标签`<order>`，`<taskType>`，`<stage>`
 **20170424**
 　　1. 设置id为可以同时输入多个id，用","隔开。每一个id对应
 **20170215**
@@ -56,30 +58,25 @@
 
  **2.1 文件夹格式 **
 　　ScriptXml放在指定的文件夹中，目前放在 /media/nbfs/nbCloud/public/task/scriptmodule/ 中，本路径可在 NBCService 工程的 service_path.properties 中配置。
-　　在scriptmodule中，每个文件夹表示一个task，在文件夹内部，可以有4类文件夹：
-　　1. 运行程序的文件夹，分别为Prepare，Run，Summary。每个文件夹中可以放置多个相应的xml文件，xml文件中会标记运行的顺序，Task在运行时会依次调用xml生成cmd命令并运行。因此在Prepare、Run、Summary这三个阶段中，均可顺序执行多个cmd命令，后一个可以利用前一个的输出文件作为输入。
-　　2. 配置跳过的文件夹，skip文件夹。在该文件夹中配置xml后，如果task运行时相应的container中中存在已定义的结果文件，则当前container会跳过执行。其xml配置方式与 1. 运行程序的文件夹 中的skipResult一致。
-　　3. 存放软件和脚本的文件夹，scripts、software文件夹。这两个文件夹中可以放置当前task的相关脚本和软件。
+　　在scriptmodule中，每个文件夹表示一个task，在文件夹内部，可以有至多3个文件夹，分别为Prepare，Run，Summary。每个文件夹中可以放置多个相应的xml文件，xml文件中会标记运行的顺序，Task在运行时会依次调用xml生成cmd命令并运行。因此在Prepare、Run、Summary这三个阶段中，均可顺序执行多个cmd命令，后一个可以利用前一个的输出文件作为输入。
 
 		例子：
 		../scriptmodule/FastQC/Prepare
-		---------------------------/index_make.xml
-		---------------------------/copy_file.xml
+		---------------------------/1.index_make.xml
+		---------------------------/2.copy_file.xml
 		---------------------/Run
-		---------------------------/mapping.xml
-		---------------------------/modify_result.xml
+		---------------------------/1.mapping.xml
+		---------------------------/2.modify_result.xml
 		---------------------/Summary
-		---------------------------/calculate_mapping_rate.xml
-		---------------------------/change_file_name.xml
-		--------以下可选-----------------------
-		---------------------/scripts
-		---------------------------/perl-script.pl
-		---------------------------/python-script.py
-		---------------------/skip
-		---------------------------/skipRun.xml
-		---------------------/software
-		---------------------------/software1
- **2.2 Xml文件详细说明 **
+		---------------------------/1.calculate_mapping_rate.xml
+		---------------------------/2.change_file_name.xml
+ **2.2 Xml运行顺序**
+　　在一个stage文件夹中可以放入多个xml，我们一般要求文件名以数字开头加"."开头，以此来标识文件的顺序。下列xml会按照顺序依次执行。
+　　1.index_make.xml，2.mapping.xml，3.statistics.ml
+　　在部分操作中我们可能需要在已经排好序的xml中插入新的xml，这时候我们可以采取小数点的形式来标识。如下运行顺序：
+1.index_make.xml，2.mapping.xml，<b>2.1.getUnmappedReads.xml</b>, 3.statistics.ml
+　　注意序号 2<2.2<2.11<2.11.1，同时序号不支持负数。目前最多支持到 1.1.1三个数字。此外注意不要出现相同的数字标识。
+ **2.4 Xml文件详细说明 **
 　　理论上应该使用XSD作为xml的描述说明文档，但为了简明，我这里采用自定义的中文来描述
 　　每一个xml会调用一个cmd/groovy命令。以下是一个调用cmd命令cp的简单例子。
 ```
@@ -88,10 +85,7 @@
 <!-- 注释 -->
 		<name>test script2</name>
 		<description>this is a test script model.</ description >
-		<order>2</order>
 		<scriptType>cmd</scriptType>
-		<taskType>Other</taskType>
-		<stage>Run</stage>
 <!-- 注释，设置cpu和内存使用 -->
 		<resource cpu="@sizenodup(@id(prefix))" mem="@filesize(@id(infile))" />
 		<templet>
@@ -116,12 +110,9 @@
 　　其中属性总共有：
 ```<name>
 < description >
-<order>
 <scriptType>
 <script>
 <isCoverParam >
-<taskType>
-<stage>
 <isSupportHdfs>
 <resource> 
 <filters>[<filter>]
@@ -130,7 +121,7 @@
 <appendIn>[<appendFile>]
 ```
 　　这几项，注意上面的xml例子中并没有展示全部的属性。
-　　在这些属性中，`<name>`, `< description>`, `<order>`,` <scriptType>`, `<script>`, `<isCoverParam>`, `<taskType>`,` <stage>`,` <isSupportHdfs>`为简单属性，只需简单配置，`<resource>, <filters>[<filter>]`为复杂属性，配置起来相对复杂。`<templet>[<script>]，<skipResults>[<resultFile>]，<appendIn>[<appendFile>]`
+　　在这些属性中，`<name>`, `< description>`, ` <scriptType>`, `<script>`, `<isCoverParam>`, ` <isSupportHdfs>`为简单属性，只需简单配置，`<resource>, <filters>[<filter>]`为复杂属性，配置起来相对复杂。`<templet>[<script>]，<skipResults>[<resultFile>]，<appendIn>[<appendFile>]`
 为核心属性，配置最复杂。
 `<script>`, `<isCoverParam>` 为groovy特有
 &nbsp;
@@ -139,8 +130,6 @@
 　　例子：`<name>my script</name>`
 `< description>`：脚本的描述，可随便填写
 　　例子：`< description >this is a test script model.</ description>`
-`<order>`：执行顺序。譬如在Run中可以顺序执行多个xml文件，根据这个来规范执行xml的顺序
-　　例子：`<order>1</order>`
 `<scriptType>`：脚本类型
 　　目前有 groovy、cmd两种。groovy表示调用groovy的脚本，cmd表示执行第三方cmd程序。我们会有这种需求，譬如RNA-Seq-Mapping中，给定物种、版本、数据库，自动获得染色体文件和索引路径等。由于这个需要调用平台自带的数据库，因此我们提供了相关的groovy脚本，放在指定的文件夹中，在这里就可以调用相应的groovy脚本。
 　　例子：`<scriptType>groovy</scriptType>`
@@ -149,11 +138,7 @@
 `<isCoverParam>`：默认为false。仅当`<scriptType>`为groovy时使用，意思groovy所产生的参数是否覆盖已有参数。譬如我们会使用groovy脚本，来给定物种版本数据库，从而获得chrseq.fa文件。但是如果用户选择了第三方的chrseq.fa文件，我们就希望使用用户自己选择的chrseq.fa文件，而不是用groovy的。
 所以如果本值设置为true，就会覆盖用户的选择; false，只有当不存在该参数，或参数的值为空时，才会输入本参数。
 例子：`<isCoverParam>false</isCoverParam>`
-`<taskType>`：待删除，与task名保持一致
-　　例子：`<taskType>DifGene</taskType>`
-`<stage>`：待删除，本xml在哪个时期运行
-　　例子：`<stage>Run</stage>`
-`<isSupportHdfs>`： 是否支持hdfs路径，默认为false，不支持就会把文件路径修改为/media/nbfs下，支持的话就是直接使用 /hdfs:// 这种形式
+`<isSupportHdfs>`： 是否支持hdfs路径，默认为false，不支持就会把文件路径修改为/media/nbfs下，支持的话就是直接使用 hdfs:// 这种形式。仅使用hdfs私有云的烈冰公司开发的软件才有可能配置该参数。
 　　例子：`<isSupportHdfs>true</isSupportHdfs>`
 &nbsp;
 **复杂属性配置：**
@@ -241,7 +226,11 @@
 　　**type：**参数的类型，有String，Boolean，Compare，Input，Output，OutInput这几种类型
 　　<span style="color:blue"> String</span>：默认值，表示输入的参数为字符串，包括文字，整数，小数等都认为是字符串。譬如 "-a 3" "-prefix treat" 这种都是String类型。
 　　例：`<script id="minLen" param="-cp" type="String"/> ` 结果同上
-　　<span style="color:blue">Selection</span>：主要用于subscripts（`<templet>[<script>]`结束后有详细介绍），表示输入的值需要和value进行比较，如果一致，则执行subscripts，否则就跳过。注意比较对大小写敏感，也就是NovelBio和novelbio判定为不一致。subscripts见后面。<span style="color:red">注意Selection片段的value是用来做比较的，所以value不会添加到cmd中。</span>事实上Selection片段只有param会添加到cmd中。
+　　<span style="color:blue">Selection</span>：主要用于subscripts（`<templet>[<script>]`结束后有详细介绍），表示输入的值需要和value进行比较，如果一致，则执行subscripts，否则就跳过。注意比较对大小写敏感，也就是NovelBio和novelbio判定为不一致。此外如果输入为可多选的下拉框，那么只要下拉框中选中了本value，subscripts就执行。
+　　subscripts见后面。<span style="color:red">注意Selection片段的value是用来做比较的，所以value不会添加到cmd中。</span>事实上Selection片段只有param会添加到cmd中。
+　　例：前台有个下拉框Id为sentieonAlgo，可以多选若干条目。后台xml片段如下：
+　　`<script id="sentieonAlgo" type="Selection" value="Dedup"/> `
+　　只要前台下拉框选中了Dedup这个条目，该段代码就会被执行。
 　　<span style="color:blue">IsValueExist：</span>：主要用于subscripts，表示输入的值是否为"空字符串/null/多个空格"。注意本参数主要判断的是输入id所对应的value，如果输入的参数中没有该id，则会跳过本Script片段。value= "true"表示输入的值有东西时调用本script及subscripts。value="false" 表示输入的值为空时调用本script及subscripts。
 　　<span style="color:blue">Boolean：</span>一种特殊的<span style="color:blue">Selection</span>。表示输入的参数是开关类型（如选择框），要么使用该参数，要么不使用该参数。会将输入的值与value进行Boolean型比较，如果输入的值为true（选中选择框状态），并且value为true或不存在时（即默认为true），该片段会组装进入cmd；如果输入的值为true，并且value为false时，该片段不组装进入cmd。注意Boolean片段的value是用来做Boolean比较的，仅有true和false两种选择，不填表示true。<span style="color:blue">并且value不会添加到cmd中。</span>Boolean同样有subscripts。
 　　<span style="color:red">注意：</span>当xml为使用groovy脚本时，Boolean型必须配合subscripts使用，并且Boolean型的参数不能设置param，因为其本身不会传入groovy脚本，只会把subscripts传入groovy脚本。
@@ -254,10 +243,10 @@
 　　例2：
 ```
 <script id="filter" type="Boolean" value="false">
-				<subscripts>
-					<script id="prefix" type="Output" param="--novel " value="%s"/>
-</subscripts>
-			</script>
+	<subscripts>
+		<script id="prefix" type="Output" param="--novel " value="%s"/>
+	</subscripts>
+</script>
 ```
 　　以上，filter不会传入groovy脚本，只会把subscripts传入groovy脚本。
 　　<span style="color:blue"> Input：</span>表示输入的参数是输入文件，输入路径由上一个task而来，会根据prefix进行切分，输入给定的inputFiles。
@@ -282,13 +271,11 @@
 　　**isCopyToTmp：**是否将当前输入或输出文件先复制到临时文件夹中。如果配合type="Input"或type="OutInput"，则会将输入文件先移动到临时文件夹下，然后开始运行。如果配合type="OutPut"，则会将输出文件先输出到临时文件夹中，等运行结束后再复制到实际结果文件夹。
 　　例：`<script id="infile" param="-in" value="%s" isCopyToTmp="true"/> ` 如果infile对应 /home/novelbio/1.fq, /home/novelbio/2.fq，则会将这两个文件拷贝到临时文件夹下然后再运行。
 #### **	<span style="color:red">注意事项：</span>**
-1.	如果在script中存在">"、"1>"、"2>"，则会截取其标准输出流，这种情况可以不用设置isCopyToTmp，此时isCopyToTmp为false。如果存在"<"，则会截取其标准输入流，所以也可以不用设置isCopyToTmp，此时isCopyToTmp也false。不过如果设置了isCopyToTmp，则会根据设置的情况拷贝文件。
-2.	如果">"、"1>"之后跟的是"xxx.bam"，则会把标准输出的sam文件直接压缩为bam格式。
+1.	如果在script中存在">"、"1>"、"2>"，则会截取其标准输出流。如果存在"<"，则会截取其标准输入流。
+2.	如果">"、"1>"之后跟的是"xxx.bam"，则会把标准输出的sam文件直接压缩为bam格式。如果">"、"1>"之后跟的是"xxx.gz"，则会把标准输出的文件直接压缩为gz格式。
 3.	暂时不支持重定向符号 "|", ">>", "<<"。不支持"|"是因为java似乎在调用cmd时不支持管道。
-例：<script id="infile" param="<" value="%s"/>，此时不会把输入文件拷贝到临时文件夹，而是直接从流读取。
-<script id="infile" param="<" value="%s" isCopyToTmp="true"/>，先把输入文件拷贝到临时文件夹，然后从流读取。
-	isLoop：默认为false。当前的命令是否需要根据输入进行循环。一般本参数用于infile或prefix中。譬如有些命令类似这种：
-
+例：`<script id="infile" param="<" value="%s"/>`，此时不会把输入文件拷贝到临时文件夹，而是直接从流读取。
+`<script id="infile" param="<" value="%s" isCopyToTmp="true"/>`，先把输入文件拷贝到临时文件夹，然后从流读取。
 <span style="color:red">注意：</span>由于groovy要求输入的是key-value的键值对，因此当调用groovy脚本时，不能传一个单独的 "-f" 参数给groovy脚本。
 	错误：`<script id="filter" param="-p"/>`
 	正确：`<script id="filter" param="-p" value="%s"/>`
@@ -297,11 +284,11 @@
 　　部分cmd命令会有一些特殊的地方，如hisat2，在给定gtf时，可以输入两个额外文件 --novel-splicesite-outfile 和 --known-splicesite-infile。这时候就需要用subscripts来进行处理。注意，仅Type为Boolean和Selection的script支持subscripts。
 例1：
 ```
-<script id="gtf" type=" Selection" value="selectGtf">
-<subscripts>
-	<script id="prefix" type="Output" param="--novel-splicesite-outfile" value="%s"/>
-<script id="prefix" type="OutInput" param="--known-splicesite-infile" value="%s"/>
-</subscripts>	
+<script id="gtf" type="Selection" value="selectGtf">
+	<subscripts>
+		<script id="prefix" type="Output" param="--novel-splicesite-outfile" value="%s"/>
+		<script id="prefix" type="OutInput" param="--known-splicesite-infile" value="%s"/>
+	</subscripts>	
 </script>
 ```
 　　这里当输入的gtf值与`<script id="gtf" value=" selectGtf">`的value一致时（譬如这里value为selectGtf，gtf的值也为selectGtf；或者value为false—如未勾选选择框，gtf的值也为false)，会引入里面的两个子script。否则不会把这两个子script组装进去。
@@ -310,7 +297,7 @@
 <script id="filter" type="Boolean" param="-f" value="false">
 	<subscripts>
 		<script id="prefix" type="Output" param="-novel" value="%s"/>
-</subscripts>
+	</subscripts>
 </script>
 ```
 　　以上，当value为false时执行。如果调用cmd，则实际执行代码片段为"-f -novel outpath "。
@@ -319,7 +306,7 @@
 <script id="filter" type="Boolean" value="false">
 	<subscripts>
 		<script id="prefix" type="Output" param="-novel" value="%s"/>
-</subscripts>
+	</subscripts>
 </script>
 ```
 &nbsp;
@@ -328,7 +315,7 @@
 <script id="rightFqFile" type="IsValueExist" value="false">
 	<subscripts>
 		<script id="prefix" param="--single-end"/>
-</subscripts>
+	</subscripts>
 </script>
 ```
 　　以上，当参数rightFqFile所对应的值不存在时执行subscripts。如果调用cmd，则实际执行代码片段为"--single-end "。如果输入参数id中没有rightFqFile，则不执行本代码片段。
@@ -336,7 +323,7 @@
 　　**考虑场景：**taskA已经设置好并跑过了好几次。过了段时间发现我们需要添加参数"rightFqFile"，并在时间time1加入了该参数。由于系统会自动记录以前跑过task的参数，因此time1之前执行的task是没有id: "rightFqFile"的。那么time1之前跑的task如果直接重跑是不会执行本代码片段的。这也是为了兼容time1之前的task，让其直接重跑不会受到影响。当然我们也可重新修改并保存time1之前的task，这样就会加入id: "rightFqFile"了。
 　　**param参数&&：**如果有多个cmd，并且每个cmd都很短，譬如需要mv多个文件，那么按照一般方法就需要写多个xml文件。在这里我们可以用：
 `<script param="&amp; &amp;"/>`
-来进行分割。"&amp;"是"&"的HTML转义符。直接写"&&会"报错，所以需要写成 "&amp; &amp; "的样式。
+来进行分割。"&amp;amp;"是"&"的HTML转义符。直接写"&&会"报错，所以需要写成 "&amp;amp; &amp;amp; "的样式。
 例子：
 ```
 <script param="mv" />
@@ -382,3 +369,4 @@
 &nbsp;
 #### **3. RuleXml **
 //TODO 待补充
+

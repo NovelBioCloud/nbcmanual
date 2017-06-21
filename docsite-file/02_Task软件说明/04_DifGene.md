@@ -1,6 +1,7 @@
 # DifGene
 　　研究生物体在不同的环境下，或者不同生理状态下的基因表达量之间的差异。不同细胞或同类细胞在不同发育阶段、不同生理状态下的基因表达状况，可为研究生命活动过程提供重要信息，对调控生物的生长发育各阶段及代谢途径具有重大的理论和实践意义。
 　　基因表达系列分析是一种高效、快捷、低成本的研究生物基因表达水平的方法,可在整体水平对细胞或组织中的大量转录本同时进行分析,从而全面反映细胞或组织中的基因表达情况,同时还可进行不同组织或细胞的所有差别表达基因的比较和研究。
+　　算法：Limma用于基因表达芯片；DEGseq--RPKM(No Rep) 用于无生物学重复条件，DESeq--Counts(Needs Rep)、EdgeR--Counts(Needs Rep)、T test用于有生物学重复条件、EBSeq—Counts 不受生物学重复限制。
 ****
 #### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#3090C7"></span></i><span style="color:#3090C7"> 详细说明**
 

@@ -22,6 +22,6 @@
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 　　最终结果都在9-terminator的文件夹中。
 
-1. asm文件：它提供了一个精确的以分层数据结构方式组装的描述信息，它不重复输入reads序列，但是包含了所有构成contig和scaffold的所有序列。该文件格式为Celera Assembler特定的文件格式 详细描述请见ASM guide（http://wgs-assembler.sourceforge.net/wiki/index.php/ASM_guide）或者 ASM spec（http://wgs-assembler.sourceforge.net/wiki/index.php/ASM_spec）。
+1. asm文件：它提供了一个精确的以分层数据结构方式组装的描述信息，它不重复输入reads序列，但是包含了所有构成contig和scaffold的所有序列。该文件格式为Celera Assembler特定的文件格式 详细描述请见ASM guide（http://wgs-assembler.sourceforge.net/wiki/index.php/ASM_guide）　或者 ASM spec（http://wgs-assembler.sourceforge.net/wiki/index.php/ASM_spec）。
 2. qc文件：质量控制文件，它包含了100多个组装统计信息。
 3. fasta：组装后的序列文件。

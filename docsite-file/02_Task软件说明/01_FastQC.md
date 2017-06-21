@@ -1,7 +1,13 @@
 # FastQC
 　　用于去除低质量数据和偏差的数据，进行数据过滤和质控。高通量测序得到海量的数据，我们在对数据进行分析之前，首先确保原始数据的可用性，低质量数据和偏差的数据会影响数据的有效性及分析的可信度，因此首先要采用FastQC软件进行数据过滤和质控。 
+　**功能包括：**
+　(1) 去接头。输入左端和右端接头序列，去除接头序列。
+　(2) 低质量序列过滤。通过对序列质量分数的判定，按照多种标准过滤掉低质量的Reads。同时，可过滤掉左端或右端测序接头序列。
+　(3) 质控。对测序的序列质量值评估、统计序列的每一个位置ATCG四种碱基的分布、对所有序列的每个位置统计GC含量评估、统计duplication情况。
+　**过滤标准：**针对于Hiseq、454、Proton三个平台，设有strict、moderate、relax过滤标可选择。
 　　FastQC由剑桥巴布拉汉研究所开发，可进行数据质控、过滤低质量reads，并生成质控报告。 
 　　软件官网：http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
+
 ***
 #### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#3090C7"></span></i><span style="color:#3090C7"> 详细说明**
 　**Q20：**指测序过程碱基识别（Base Calling）过程中，对所识别的碱基给出的错误概率。如果质量值是Q20，则错误识别的概率是1%，即错误率1%，或者正确率是99%；

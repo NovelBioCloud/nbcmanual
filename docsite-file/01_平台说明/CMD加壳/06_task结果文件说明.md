@@ -9,7 +9,7 @@
 &nbsp;
 ####  **1. 基本用法：**												
 　　我们V1.0版的结果报告主要使用markdown语法。具体语法可见https://www.zybuluo.com/mdeditor#429720 表格:表格直接使用下面的标签就可以.将data-url参数的值改为您要显示的表格数据文件就可以。
-　　注意：路径前缀一般都是以`resultReport_getFileContent?fileId=Task@@project_@projectId@/task_@taskId@/`开头,后面就是在结果文件夹里能看到的文件夹路径和文件名.
+　　注意：路径前缀一般都是以`resultReport_getFileContent?fileId=Task@@project_@projectId@/task_@taskId@/`开头,后面就是在结果文件夹里能看到的文件夹路径和文件名。
 　　th页签中data-field标签值必须和后台数据标题对应，th标签本身的值是表格显示名称，可以不对应。
 ```
 <table id=table1
@@ -43,24 +43,24 @@
 ```
 <p><image id="image1" class="res-image" src="resultReport_viewImg?fileId=Task@@project_@projectId@/task_@taskId@/QualityControl_result/QCResults/QualityScore_@prefix@_BeforeFilter.png&outPrefix=@outPrefix@" outPrefix="@outPrefix@" /></p>
 ```
-　　**task运行时参数：**要显示task运行时设置的参数。比如FastQC要在结果报告显示readsQuality参数的值，使用如下方式填写 `@taskData.readsQuality@`
+　　**task运行时参数：**要显示task运行时设置的参数。比如FastQC要在结果报告显示readsQuality参数的值，使用如下方式填写 `@taskData.readsQuality@`。
 
 &nbsp;
-#### **2. echarts图**
-　　结果报告中,为了使得展示的效果更绚丽,我们有时需要使用echarts进行动态画图.
+#### **2. Echarts图**
+　　结果报告中,为了使得展示的效果更绚丽,我们有时需要使用echarts进行动态画图。
 基本语法如下:
 ```
 <div class="echarts" type=""  fileId="" xaxis="" yaxis="" eventRow="" filter=“” style="width: 803px;height: 800px;"></div>
 ```
 其中: 
-　　class：指当前类型,这里画图必须是echarts。				
-　　type：指图的类型.如柱装图,散点图等等.具体如:bar,scatter,heatmap。				
-　　fileId：文件路径,基本语法介绍中已经说明,这里不赘述。				
-　　xaxis：指图的横坐标取数从哪个列取,这里是列名。				
-　　yaxis：指图的纵坐标取数从哪个列取,这里是列名。				
-　　filter：指图的数据和哪个表格有联动效果。				
-　　eventRow：eventRow和filter必须同时使用,eventRow是指fileId中哪一列的数据和表格的数据联动。	
-　　style：指宽和高。
+　　**class：**指当前类型,这里画图必须是echarts。				
+　　**type：**指图的类型.如柱装图,散点图等等.具体如:bar,scatter,heatmap。
+　　**fileId：**文件路径,基本语法介绍中已经说明,这里不赘述。				
+　　**xaxis：**指图的横坐标取数从哪个列取,这里是列名。				
+　　**yaxis：**指图的纵坐标取数从哪个列取,这里是列名。				
+　　**filter：**指图的数据和哪个表格有联动效果。				
+　　**eventRow：**eventRow和filter必须同时使用,eventRow是指fileId中哪一列的数据和表格的数据联动。	
+　　**style：**指宽和高。
 
 **各种图所需要的数据文件格式要求**
 （1）柱形图（bar）
@@ -130,19 +130,19 @@
  </div>
 ```
 &nbsp;
-#### **4.cytoscape**
+#### **4.Cytoscape**
 　　结果报告中,为了更好的展示基因之间的关联关系,我们有时需要使用cytoscape进行结果展示.
 基本语法如下:
 ```
 <div class="cytoscape"   fileId="Task@@project_@projectId@/task_@taskId@/QualityControl_result/abc"  style="width: 803px;height: 800px;"></div>
 ```
 其中: 
-Class  指当前类型,这里必须是cytoscape
-fileId 文件路径,基本语法介绍中已经说明.
-　　注意: 1.这里的文件不带文件后缀名.
-　　　　　2.后台需要生成两个文件.分别是.node文件描述点信息和.edge描述连线信息.
+　　**Class：**指当前类型,这里必须是cytoscape。
+　　**fileId：**文件路径,基本语法介绍中已经说明。
+　　注意: 1.这里的文件不带文件后缀名。
+　　　　  2.后台需要生成两个文件.分别是.node文件描述点信息和.edge描述连线信息。
 **数据格式**
-　(1).node的数据格式，如下
+　（1）node的数据格式，如下
 
 |﻿id|shape|width	|height	|content|fontSize|	fontWeight|	backgroundColor|textOutlineColor|textBorderWidth|textBorderStyle|textBorderColor|borderColor|borderWidth|color|
 | --------   | -----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  | :----:  |
@@ -154,23 +154,23 @@ fileId 文件路径,基本语法介绍中已经说明.
 
 　　第一行是表头，表头下面的是内容，字段直接的分隔符是制表符\t，每一行的列数必须相同，id是必须填写的属性的)
 表头字段说明：
-　　id:节点的id，每个节点的id都必须不同
-　　shape:节点的形状，可以填写的内容有(rectangle|roundrectangle|ellipse|triangle|pentagon|hexagon|heptagon|octagon|star|diamond|vee|rhomboid)
-　　width:节点的宽度，例：30px
-　　height:节点的高度，例：40px
-　　content:节点label的内容
-　　fontSize:label的文字大小，例：20px
-　　fontWeight:label的文字粗细，例：normal
-　　backgroundColor:节点的背景颜色，例：red，blue，#eeffdd，#000000
-　　textOutlineColor:label外边框颜色，例：red，blue，#eeffdd，#000000
-　　textBorderWidth:文字边框宽度，例：1px
-　　textBorderStyle:文字边框样式，例：solid，dotted,dashed
-　　textBorderColor:label外边框颜色，例：red，blue，#eeffdd，#000000
-　　borderColor:边框颜色	　	　
-　　borderWidth:边框宽度	　	　
-　　color:label的颜色
+　　**id：**节点的id，每个节点的id都必须不同。
+　　**shape：**节点的形状，可以填写的内容有(rectangle|roundrectangle|ellipse|triangle|pentagon|hexagon|heptagon|octagon|star|diamond|vee|rhomboid)。
+　　**width：**节点的宽度，例：30px。
+　　**height：**节点的高度，例：40px。
+　　**content：**节点label的内容。
+　　**fontSize：**label的文字大小，例：20px。
+　　**fontWeight：**label的文字粗细，例：normal。
+　　**backgroundColor：**节点的背景颜色，例：red，blue，#eeffdd，#000000。
+　　**textOutlineColor：**label外边框颜色，例：red，blue，#eeffdd，#000000。
+　　**textBorderWidth：**文字边框宽度，例：1px。
+　　**textBorderStyle：**文字边框样式，例：solid，dotted,dashed。
+　　**textBorderColor：**label外边框颜色，例：red，blue，#eeffdd，#000000。
+　　**borderColor：**边框颜色。
+　　**borderWidth：**边框宽度。　	　
+　　**color：**label的颜色。
 
-(2).edge的数据格式，如下
+（2）edge的数据格式，如下
 
 | ﻿id        | source   | target  |content  |color  |width  |fontSize  |lineColor  |lineStyle  |curveSty  |targetArrowShape  |
 | --------   | -----:  | :----:  |:----:  |:----:  |:----:  |:----:  |:----:  |:----:  |:----:  |:----:  |:----:  |:----:  |
@@ -180,14 +180,19 @@ fileId 文件路径,基本语法介绍中已经说明.
 
 　　第一行是表头，表头下面的是内容，字段直接的分隔符是制表符\t，每一行的列数必须相同，source、target是必须填写的属性，并且必须在点存在的情况下才会创建该连线，如果连线已经存在，新连线不会创建)
 表头字段说明：																					
-　id:连线id		
-　source:起始节点id
-　target:终止节点id		
-　content:连线label内容	
-　color:连线label内容的颜色，例：solid，dotted,dashed		
-　width:连线的宽度，例：20px		
-　fontSize:label的大小，例：20px		
-　lineColor:连线的颜色，例：red，blue，#eeffdd，#000000
-　lineStyle:连线的连续类型，例：solid，dotted,dashed	
-　curveStyle:连线的形状：bezier		
-　targetArrowShape:终止节点处的箭头：triangle																																			
+　**id：**连线id。	
+　**source：**起始节点id。
+　**target：**终止节点id。	
+　**content：**连线label内容。
+　**color：**连线label内容的颜色，例：solid，dotted,dashed	。	
+　**width：**连线的宽度，例：20px。
+　**fontSize：**label的大小，例：20px。
+　**lineColor：**连线的颜色，例：red，blue，#eeffdd，#000000。
+　**lineStyle：**连线的连续类型，例：solid，dotted,dashed。
+　**curveStyle：**连线的形状：bezier。	
+　**targetArrowShape：**终止节点处的箭头：triangle。										
+
+
+																						
+
+

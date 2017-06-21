@@ -1,6 +1,7 @@
 # RNASeqMap
-　　一个快速将RNA-Seq数据进行剪接mapping的程序。
+　　一个快速将RNA-Seq数据进行剪接mapping的程序。能够快速将转录组数据进行剪接比对。对于不同的物种及测序数据可选择Tophat、MapSplice、HISAT2或STAR进行比对。通常Ion Proton数据选择MapSplice比对，Hiseq双端使用HISAT2比对。
 　　输入文件格式：fastq、fastq.gz；输出文件格式： bam、bed 、txt。
+
 ****
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　**chromesome：**当平台数据库没有相应的基因组序列或者用户需要选用自己上传的基因组序列时，在此输入基因组序列。

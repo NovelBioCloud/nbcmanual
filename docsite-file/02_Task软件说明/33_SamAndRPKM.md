@@ -1,11 +1,11 @@
 # SamAndRPKM
 　　基因表达是细胞在生命过程中，将DNA遗传信息经过转录和翻译，变成具有生物活性的蛋白质分子。生物体内的各种功能蛋白和酶都是由相应的结构基因编码，通过基因测序序列进行表达量的统计计算。
-　　sam 统计和RPKM计算软件为RNA-Seq、ChIP-Seq和smallRNA-Seq等测序得到的reads统计数据进行表达定量软件。目前平台主要适用于Illumina公司的Hiseq测序平台和Life的Ion proton平台。
+　　Sam 统计和RPKM计算软件为RNA-Seq、ChIP-Seq和smallRNA-Seq等测序得到的reads统计数据进行表达定量软件。目前平台主要适用于Illumina公司的Hiseq测序平台和Life的Ion proton平台。
 ****
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　　从实际文件或者规则文件中选择拖入bam文件，进行表达定量统计；组名为文件输出时名称，可以根据需求进行修改。
 　　GTF文件：当数据库信息不全时或者非模式物种，上传该物种的GTF注释文件增加注释量。
-　　输入文件格式：*.bam  输出文件格式：*. txt、*xls、*.png。
+　　输入文件格式：bam  输出文件格式： txt、xls、png。
 　　来源文件通常是RNASeq结果的Bam文件，选择默认的参数，即可输出基因的表达量表格。
 ****
 #### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#3090C7"></span></i><span style="color:#3090C7"> 详细说明**

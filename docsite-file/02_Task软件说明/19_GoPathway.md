@@ -47,14 +47,14 @@ GO具有三大类：
 <label id='analysisType'>Analysis Type：</label>选择分析类型。
 　　　　　　 　GOAnalysis:只做GO分析；
 　　　　　　 　Pathway：只做Pathway分析；
-　　　　　　 　COG：原核蛋白同源性分析，只输出Pathway结果；
+　　　　　　 　COG：原核蛋白同源性分析，只输出COG结果；
 　　　　　 　　GOPATH：GO、pathway（推荐选择）；
 　　　　　　　 ALL(NotRecommand)：所有都输出 GO、Pathway、COG（不推荐选择）。
 
 <label id='cogType'>CogType：</label>COG_Prokaryotes 原核生物；
 　　　　　  KOG_Eukaryotes  真核生物。
 <label id='acclDColNum'>GeneColNum：</label>基因识别列。
-<label id='valueColNum'>Log2FCColNum：</label>趋势分析/差异基因所在列。（通常Difgene中算法选择为DE，该列为5；算法选择为EB，该列为4）。
+<label id='valueColNum'>Log2FCColNum：</label>趋势基因/差异基因所在列。（通常Difgene中算法选择为DE，该列为5；算法选择为EB，该列为4）。
 <label id='upValue'>CutOff>=：</label>上调基因差异倍数（根据ValueColNum 为fold change 或者logFC填写）。
 <label id='downValue'>CutOff<=：</label>下调基因差异倍数（根据ValueColNum 为fold change 或者logFC填写）。
 <label id='goLevelNum'>GoLevelNum：</label>选择输出GO的层级数。
@@ -68,6 +68,7 @@ GO具有三大类：
 <div style="text-align:center">
 <img data-src="3.png" width="500px" ></img>
 </div>
+　　差异基因参与的显著性GO的管状图。横轴是功能显著性水平（P-Value）的-Log10P值，纵轴是Gene Ontology数据库中对应GO的条目名称。BP: Biological Process；CC: Cellular Component; MF：Molecular Function。
 <div style="text-align:center">
 <img data-src="4.png" width="500px" ></img>
 </div>
