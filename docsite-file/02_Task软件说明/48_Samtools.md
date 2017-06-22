@@ -1,31 +1,21 @@
-# Polyphen2
-　　对于SNP以及点突变来进行人类蛋白结构和功能预测。
-　　一些点突变改变引起氨基酸的改变从而影响蛋白的折叠，来影响蛋白的的相互作用区间和它的稳定性 。蛋白结构如果改变，蛋白的功能就更可能会发生改变，所以软件整合了序列和蛋白三维结构的一些特征 进行预测。但预测限于错义突变，其他无义突变（突变为终止密码）、碱基缺失、插入所造成的移框突变，以及起始密码子的突 变均不可预测。
-　　官方网址：http://genetics.bwh.harvard.edu/pph2/
+# Samtools
+　　Samtools是一系列处理Bam格式序列的应用。它从SAM(Sequence Alignment/Map)格式输入或者输出为Sam格式，可以进行排序，合并和建立索引，并且允许快速地检索任意区域的reads。Bam文件优点：Bam文件为二进制文件，占用的磁盘空间比Sam文本文件小；利用Bam二进制文件的运算速度快。
+　　官网：http://samtools.sourceforge.net/
 
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 
-　　在输入文件inputvcf处输入记录突变位点的vcf文件，输出文件为polyphen.result。
+　　在inputFile处输入输入Sam和Bam文件，输出为sort.bam，in.bam.bai。
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　<label id='species'>染色体号：</label>染色体号列
-　<label id='speciesVersion'>Position列号：</label>突变位点列。　
-　<label id='thread'>Ref列号：</label>原本的碱基列。
-　<label id='memory'>Alt列号：</label>改变的碱基列。
+　<label id='isSortBam'>sortBam：</label>Bam文件排序。只能对bam文件进行sort, 不能对sam文件。
+　<label id='isIndexBam'>indexBam：</label>构建索引。必须对bam文件进行默认情况下的排序后，才能进行index。
+　<label id='removeDuplicate'>removeDuplicate：</label>去除Duplicate序列。
 　
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 
-　　前两个一般小于0.05说明该变异会严重影响蛋白功能，MutationTaste分值越高越显著， 我找到的是PolyPhen2越接近于1，对蛋白质的影响越大
-<div style="text-align:center">
-<img data-src="1.png" width="700px" ></img>
-</div>
-acc:UniProtKB accession if known protein, otherwise same as o_acc
-pos:substitution position in UniProtKB protein sequence, otherwise same as o_pos
-aa1	wild type amino acid residue in relation to UniProtKB sequence
-aa2	mutant amino acid residue in relation to UniProtKB sequence
-nt1	wild type (reference) allele nucleotide
-nt2	mutant allele nucleo
+　　排序的结果文件为sort.bam；
+　　对bam文件建立index结果文件名为in.bam.bai。

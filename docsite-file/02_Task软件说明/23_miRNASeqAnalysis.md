@@ -1,5 +1,5 @@
 # miRNASeqAnalysis
-　　通过与miRBase数据库、Rfam数据进行比对，快速鉴定不同组织、不同发育阶段、疾病状态下，已知microRNA的表达量，microRNA的种类分布。还可以进行Novel microRNA预测。
+　　通过与miRBase数据库、Rfam数据进行比对，快速鉴定不同组织、不同发育阶段、疾病状态下，已知microRNA的表达量，microRNA的种类分布。同时还可以进行通过Miranda、RNAhybrid进行Novel microRNA预测。
 
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**

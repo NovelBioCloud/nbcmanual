@@ -9,9 +9,13 @@
 ### MapSplice
 　　MapSplice是一款RNA-seq数据比对到参考基因组，快速检测剪接位点，不依赖于剪接位点特征或内含子长度。可支持paired-end reads 和single-end reads,可支持不同长度的reads，还可发现新的典型以及非典型剪接、新的插入和缺失、基因融合。MapSplice由肯塔基大学和北卡罗来纳大学的计算机系部门联合开发。
 　　软件官网：http://www.netlab.uky.edu/p/bioinfo/MapSplice2
-### hisat2
+### HISAT2
 　　一个快速和灵敏的RNA-seq reads剪切比对软件，利用大量小型FM索引覆盖整个基因组，能够将RNA-Seq数据与基因组进行快速比对。约翰霍普金斯大学计算生物学中心的Steven Salzberg开发。
 　　软件官网：http://ccb.jhu.edu/software/tophat/index.shtml
+### STAR
+　　STAR不但可以进行比对，还可以输出可变剪切，转录本融合，以及控制输出格式为SAM或者BAM,并对输出的BAM可进行选择性排序输出。最主要在比对的过程中还提供了ENCODE的比对参数。
+官网：https://github.com/alexdobin/STAR/
+
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　**chromesome：**当平台数据库没有相应的基因组序列或者用户需要选用自己上传的基因组序列时，在此输入基因组序列。
@@ -58,7 +62,7 @@
 <img data-src="1.png" width="600px" height="200px" ></img>
 </div>
 
-2.MapSplice程序运行之后，mapsplice.bam为比对好的序列， junctions.txt为junction位点信息，deletions.txt和insertions.txt为插入、确实位点信息。
+2.MapSplice程序运行之后，mapsplice.bam为比对好的序列， junctions.txt为junction位点信息，deletions.txt和insertions.txt为插入、缺失位点信息。
 
 <div style="text-align:center">
 <img data-src="2.png" width="600px" height="200px" ></img>
@@ -68,3 +72,9 @@
 <div style="text-align:center">
 <img data-src="3.png" width="600px" height="100px" ></img>
 </div>
+4.STAR结果
+　Chimeric.out.junction：融合转录本
+　Aligned.sortedByCoord.out.bam：比对输出
+　Aligned.toTranscriptome.out.bam：转录本比对输出
+　SJ.out.tab：可变剪切结果输出
+

@@ -1,10 +1,10 @@
 # DnaSeqMap
-　　一组集成了Bwa_aln、Bwa_men、Bowtie2、hisat的DNA比对软件的平台。
+　　一组集成了Bwa_aln、Bwa_mem、Bowtie2、hisat的DNA比对软件的平台。
  ***
 #### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#3090C7"></span></i><span style="color:#3090C7"> 详细说明**
 Software：
-Bwa_aln、Bwa_men
-　　BWA包括三个算法构成：BWA-backtrack (通常称BWA aln）,BWA-SW 和BWA-MEM。BWA_aln第一种适合illumina的100bp以下的序列，BWA_mem适合70bp-1Mbp的序列，比较快且准确。
+Bwa_aln、Bwa_mem
+　　BWA包括三个算法构成：BWA-backtrack (通常称BWA aln）,BWA-sw 和BWA-mem。BWA_aln第一种适合illumina的100bp以下的序列，BWA_mem适合70bp-1Mbp的序列，比较快且准确。
 Bowtie2
 　　Bowtie2是一个快速、节省内存的将短序列比对到基因组上的工具。对于50bp-1000bp 的序列比对到相对较大的基因组上很有优势。
 hisat

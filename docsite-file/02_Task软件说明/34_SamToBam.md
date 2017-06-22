@@ -5,7 +5,7 @@
 　vcfInputData (BAM,SAM)：输入vcf格式文件。
 　mappingToFile (FASTA)：输入基因组文件，FASTA格式文件。
 　samInputData (SAM,BAM)：输入SAM或BAM格式文件。
-　输入格式：. Sam  .bam；输出格式：.bam  .gz。
+　输入格式：Sam，bam；输出格式：bam，gz。
 
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**

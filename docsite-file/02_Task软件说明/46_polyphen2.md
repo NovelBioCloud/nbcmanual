@@ -10,22 +10,25 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　<label id='species'>染色体号：</label>染色体号列
-　<label id='speciesVersion'>Position列号：</label>突变位点列。　
-　<label id='thread'>Ref列号：</label>原本的碱基列。
-　<label id='memory'>Alt列号：</label>改变的碱基列。
+　<label id='ChrCol'>染色体号：</label>染色体号列
+　<label id='posCol'>Position列号：</label>突变位点列。　
+　<label id='refCol'>Ref列号：</label>原本的碱基列。
+　<label id='altCol'>Alt列号：</label>改变的碱基列。
 　
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 
-　　前两个一般小于0.05说明该变异会严重影响蛋白功能，MutationTaste分值越高越显著， 我找到的是PolyPhen2越接近于1，对蛋白质的影响越大
+　　MutationTaste分值越高越显著， PolyPhen2越接近于1，对蛋白质的影响越大。
 <div style="text-align:center">
 <img data-src="1.png" width="700px" ></img>
 </div>
-acc:UniProtKB accession if known protein, otherwise same as o_acc
-pos:substitution position in UniProtKB protein sequence, otherwise same as o_pos
-aa1	wild type amino acid residue in relation to UniProtKB sequence
-aa2	mutant amino acid residue in relation to UniProtKB sequence
-nt1	wild type (reference) allele nucleotide
-nt2	mutant allele nucleo
+　　**acc:** UniProtKB accession if known protein, otherwise same as o_acc.
+　　**pos:** substitution position in UniProtKB protein sequence, otherwise same as o_pos.
+　　**prediction:** qualitative ternary classification appraised at 5%/10% (HumDiv) or 10%/20% (HumVar) FPR thresholds (“benign”, “possibly damaging”, “probably damaging”).
+　　**based_on:** prediction basis.
+　　**effect:** predicted substitution effect on the protein structure or function.
+　　**site:** substitution SITE annotation.
+　　**region:** substitution REGION annotation.
+
+
