@@ -9,12 +9,13 @@
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 
-物种：
-版本：
+物种：参考序列物种
+版本：物种的版本
 数据库类型：
 Unsafe：
-线程数：
-containerNumber：
+
+线程数：运行时，使用线程数
+ContainerNumber：运行时，使用Container数
 
 
 ***
