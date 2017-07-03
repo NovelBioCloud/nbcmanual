@@ -30,9 +30,11 @@ ContainerNumber：运行时，使用Container数
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
+
 <div style="text-align:center">
-<img data-src="1.png" width="300px" height="300px" ></img>
+<img data-src="1.png" width="300px" ></img>
 </div>
+
 结果说明：
 ID	如果call出来的SNP存在于dbsnp数据库里，就会显示相应的dbsnp里的rs编号。
 COSMIC	COSMIC数据库ID
