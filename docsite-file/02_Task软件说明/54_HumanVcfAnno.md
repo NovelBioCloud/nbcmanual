@@ -11,9 +11,15 @@
 
 物种：参考序列物种
 版本：物种的版本
-数据库类型：
-Unsafe：
-
+数据库类型：同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
+Unsafe：GATK运行时，输入文件较严格，Unsafe选项为在运行过程中输入文件是否做检查。
+(1) SAFE：
+(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：
+(3) ALLOW_UNINDEXED_BAM：
+(4) ALLOW_UNSET_BAM_SORT_ORDER：
+(5) LENIENT_VCF_PROCESSING：
+(6) NO_READ_ORDER_VERIFICATION：
+(7) ALL：
 线程数：运行时，使用线程数
 ContainerNumber：运行时，使用Container数
 
