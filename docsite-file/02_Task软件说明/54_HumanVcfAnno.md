@@ -3,7 +3,11 @@
 
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
-
+dbsnpVCF (VCF)：dbsnp数据库vcf文件
+cosmicVCF (VCF)：cosmic数据库vcf文件
+thousandGenomeVCF (VCF)：thousandGenome数据库vcf文件
+EXAC-VCF (VCF)：EXAC数据库vcf文件
+InputVCF (VCF):输入需要注释的indel、SNP等的vcf文件。
 
 
 ***
