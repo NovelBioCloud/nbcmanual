@@ -35,7 +35,7 @@ ContainerNumber：运行时，使用Container数
 <img data-src="1.png" width="300px" ></img>
 </div>
 
-结果说明：
+**结果说明：**
 ID	如果call出来的SNP存在于dbsnp数据库里，就会显示相应的dbsnp里的rs编号。
 COSMIC	COSMIC数据库ID
 TG_All	千人基因组数据库中记载的总体突变频率
