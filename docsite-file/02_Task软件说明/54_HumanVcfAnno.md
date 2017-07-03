@@ -19,7 +19,7 @@ Unsafe：GATK运行时，输入文件较严格，Unsafe选项为在运行过程�
 (4) ALLOW_UNSET_BAM_SORT_ORDER：允许bam文件sort的时不指定sort方式
 (5) LENIENT_VCF_PROCESSING：
 (6) NO_READ_ORDER_VERIFICATION：
-(7) ALL：
+(7) ALL：以上都允许
 线程数：运行时，使用线程数
 ContainerNumber：运行时，使用Container数
 
