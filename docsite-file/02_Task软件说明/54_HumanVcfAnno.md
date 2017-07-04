@@ -27,7 +27,6 @@ InputVCF (VCF):输入需要注释的indel、SNP等的vcf文件。
 **线程数：**运行时，使用线程数
 **ContainerNumber：**运行时，使用Container数
 
-
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 
