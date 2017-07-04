@@ -24,7 +24,7 @@ TargetBed (BED)：基因组位置文件
 　start：Start position.
 　end：End position.
 　gene：Gene name.
-　log2：Log2 ratio．
-　depth:
+　log2：Log2 ratio.
+　depth:coverage depth.
 　probes：indicating the number of bins covered by the segment.
 　weight：Proportional weight to be used for segmentation.
