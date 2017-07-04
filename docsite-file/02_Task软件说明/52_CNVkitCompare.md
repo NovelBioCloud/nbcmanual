@@ -1,6 +1,6 @@
 # CNVkitCompare
 　　全基因组测序中，基于基因组比对结果，进行了拷贝数变异分析，得到了不同的患者的癌症组织相对于癌旁组织的拷贝数变异情况。
-官网：http://cnvkit.readthedocs.io/en/stable/index.html
+　　官网：http://cnvkit.readthedocs.io/en/stable/index.html
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 InputBam (BAM)：需要分析的样品bam文件
