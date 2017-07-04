@@ -17,4 +17,14 @@ TargetBed (BED)：基因组位置文件
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-
+<div style="text-align:center">
+<img data-src="1.png" width="450px"  ></img>
+</div>
+　chromosome：Chromosome or reference sequence name.
+　start：Start position.
+　end：End position.
+　gene：Gene name.
+　log2：Log2 ratio．
+　depth:
+　probes：indicating the number of bins covered by the segment.
+　weight：Proportional weight to be used for segmentation.
