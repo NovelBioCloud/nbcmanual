@@ -15,8 +15,6 @@ TargetBed (BED)：基因组位置文件
 **Thread：**运行时，使用线程数
 **ContainerNumber：**运行时，使用Container数
 
-
-
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 
