@@ -4,7 +4,7 @@
 <div style="text-align:center"><img data-src="1.png" width="650px" ></img>
 </div>
 **2.添加RawData task**
-　　无论是运行工作流还是task，添加RawData task都是必不可少的第一步。在页面左侧工具库中选择“Raw Data” task，拖入右侧运行界面，在跳出弹框中，填写“任务名称”并选择“输入类型”来选择数据文件类型。注意，“输入类型”需要选择对应的数据类型，否则在Rawdata添加数据中不能显示。
+　　无论是运行工作流还是task，添加RawData task都是必不可少的第一步。在页面左侧工具库中选择RawDataTask，拖入右侧运行界面，在跳出弹框中，填写“任务名称”并选择“输入类型”来选择数据文件类型。注意，“输入类型”需要选择对应的数据类型，否则在Rawdata添加数据中不能显示。
 <div style="text-align:center"><img data-src="2.png" width="600px" ></img>
 </div>
 
@@ -14,6 +14,8 @@
 </div>
 
 　　选择本项目中的原始数据文件。
+<div style="text-align:center"><img data-src="3_1png" width="600px" ></img>
+</div>
 <div style="text-align:center"><img data-src="4.png" width="450px" ></img>
 </div>
 
