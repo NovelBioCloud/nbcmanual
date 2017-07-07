@@ -13,9 +13,11 @@
 <div style="text-align:center"><img data-src="3.png" width="600px" ></img>
 </div>
 
-　　选择本项目中的原始数据文件。
-<div style="text-align:center"><img data-src="3_1png" width="600px" ></img>
+　　点击“编辑”，选择需要分析的数据。
+<div style="text-align:center"><img data-src="3_1.png" width="600px" ></img>
 </div>
+
+　　选择本项目中的原始数据文件。
 <div style="text-align:center"><img data-src="4.png" width="450px" ></img>
 </div>
 
