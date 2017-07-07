@@ -123,7 +123,7 @@ NovelBrainTM提供了一个workflow引擎，即当我们拖拽好一个workflow�
 　　**头部**--cmd命令总体配置
 　　**中部**--具体参数设定
 　　**尾部**--task跳过设定
-<div style="text-align:center"><img data-src="8.png" width="600px" ></img>
+<div style="text-align:center"><img data-src="8.png" width="680px" ></img>
 </div>
 
 　　Xml的说明和根节点，第一行是Xml的版本和编码等说明，所有xml都一样。具体xml的正文会包含在`<root>…</root>`中
