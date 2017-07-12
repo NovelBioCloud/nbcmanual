@@ -1,6 +1,6 @@
 # SamtoolsVCFCombine
-Samtools软件CallVariant生成的vcf进行合并。
-官网：Samtools:http://www.htslib.org/
+　　Samtools软件Call Variant生成的vcf进行合并。
+　　官网：Samtools:http://www.htslib.org/
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　　InputVCF(.gz) (VCF)：输入CallVariant生成的vcf文件。
