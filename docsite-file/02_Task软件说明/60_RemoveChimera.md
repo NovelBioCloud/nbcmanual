@@ -13,7 +13,6 @@
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-<div style="text-align:center">
-<img data-src="1.png" width="800px"  ></img>
-</div>
+Allunique.fasta为合并后的结果，final.fasta为每个样品的结果。
+<div style="text-align:center"><img data-src="1.png" width="800px"  ></img></div>
 
