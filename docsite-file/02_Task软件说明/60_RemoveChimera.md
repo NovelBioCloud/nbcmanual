@@ -1,6 +1,6 @@
 # RemoveChimera
-　　16s测序数据在Qiime平台经过质控处理后除去嵌合体、叶绿体和古菌序列。
-　　官网：http://qiime.org/
+　　16S测序数据在Qiime平台经过质控处理后除去嵌合体序列。
+　　Qiime官网：http://qiime.org/
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　　输入过滤后的FASTQ文件：.fq.gz
