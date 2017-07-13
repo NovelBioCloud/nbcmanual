@@ -16,8 +16,8 @@ containerNumber：运行时，使用Container数
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-table.taxonomy.txt:OTU丰度
+　table.taxonomy.txt：OTU丰度信息和物种分类
 <div style="text-align:center"><img data-src="1.png" width="600px"  ></img></div>
-taxonomy.html:
+　taxonomy.html：物种分类图
 <div style="text-align:center"><img data-src="2.png" width="500px"  ></img></div>
 
