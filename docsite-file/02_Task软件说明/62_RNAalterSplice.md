@@ -1,12 +1,13 @@
 # RNAalterSplice
 　　烈冰生物信息研发团队利用RNA-seq技术，并结合自主研发的差异可变剪接软件。差异可变剪接ASD软件文章发表于2014年《Nucleic Acids Reseach》杂志上，现已升级到1.2版本，新版本修复bug并优化转录本重建过程，可支持NCBI上Gff3文件下载。
-
-<div style="text-align:center"><img data-src="1.png" width="700px" ></img>软件图示</div>
 　　官网：http://erp.novelbio.com/ASD/
+<div style="text-align:center"><img data-src="1.png" width="700px" ></img>ASD软件图示</div>
+
 
 
 ***
-#### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7；"></i><span style="color:#3090C7"> 输入文件</span>**
+#### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件</span>**
+
 　　输入排序好的Bam文件：.sorted.bam。
 ***
 
