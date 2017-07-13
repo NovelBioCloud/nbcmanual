@@ -1,6 +1,6 @@
 # OTUAnalysis
 　　利用Qiime软件根据相似度将其聚类，用于物种分类的OTU(Operational Taxonomic Units)，统计各个样品每个OTU中的丰度信息，OTU的丰度来说明样品的物种丰富程度。
-　Qiime官网：http://qiime.org/
+　　Qiime官网：http://qiime.org/
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 
