@@ -23,7 +23,8 @@
 　<label id='mappingTo'>blast To：</label>Chromosome：比对到染色体。
 　　　　　　refSeq_All_Iso：比对到转录组序列。
 　　　　　　refSeq_One_Iso：比对到转录本。
-结果格式：
+<label id='resultType'>结果格式：</label>ResultType_Simple，简单结果。
+　　　　　　ResultType_Normal，正常结果。
 **BlastNR：**当输入为BlastDB文件时需要勾选，常用于blastNR以及跟比较大的数据库进行blast分析。另外，当输入的querySeq为空，且不勾选blastNR时，只会创建blastdb，不会进行后续分析。
 <label id='blastType'>blastType：</label>为比对类型。
 　　　　　　TBLASTN_AA2NR_WITH_AA：蛋白序列对核酸库的比对。
