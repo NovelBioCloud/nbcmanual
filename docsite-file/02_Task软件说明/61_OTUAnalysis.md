@@ -8,11 +8,11 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-OTUs_Similarity：reads聚类的相似度，默认值为97%
-Database：数据库
-Taxo_Similarity：分类相似度
-minOTUSize：最少有OTU的丰度，默认值为2
-containerNumber：运行时，使用Container数
+**OTUs_Similarity：**reads聚类的相似度，默认值为97%
+**Database：**数据库
+**Taxo_Similarity：**分类相似度
+**minOTUSize：**最少有OTU的丰度，默认值为2
+**containerNumber：**运行时，使用Container数
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
