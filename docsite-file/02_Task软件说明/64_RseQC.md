@@ -7,13 +7,14 @@
 
 　　RNA-seq提供了有关基因组中所有转录元件的有价值的信息，已经被广泛地用于转录组研究。
 　　基于原始测序数据的质控，如FastQC，不足以保证RNA-seq数据的可用性。例如，在执行许多RNA-seq应用时测序深度必须饱和，如表达谱，选择性剪接分析，新亚型（isoform）鉴定，转录组重建等。非饱和测序深度不能够给出准确的评估（例如RPKM和剪接索引），也不能够检测低丰度剪接联结点（splice junctions），因此限制了许多分析的准确性。
-　　使用RSeQC程序包来全面地评估RNA-seq结果质量，例如序列质量、GC偏好、PCR偏好、核苷酸组成偏好、序列深度、链特异性、覆盖均一性，和基因组结构上的片段分布等，以确保后续分析的可靠性。RSeQC是用Python和C编写的。
+　　使用RSeQC程序包来全面地评估RNA-seq结果质量，例如序列质量、GC偏好、PCR偏好、核苷酸组成偏好、序列深度、链特异性、覆盖均一性，和基因组结构上的片段分布等，以确保后续分析的可靠性。RSeQC用Python和C编写。
 　　RseQC官网：http://pythonhosted.org/RSeQC/
 
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**<span>
-gtfFile：输入文件为bam文件；
-inputFile：参考序列gtf文件。
+**gtfFile：**输入文件为bam文件；
+**inputFile：**参考序列gtf文件。
+
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 **物种：**选择参考基因组物种。
@@ -57,18 +58,18 @@ inputFile：参考序列gtf文件。
 <div style="text-align:center"><img data-src="3.png" width="300px"  ></img></div>
 4.splice_junction.pdf：文件中junction的种类
 <div style="text-align:center"><img data-src="4.png" width="300px"  ></img></div>
-5.saturation.pdf:用于评估样本大小对RPKM的影响
+5.saturation.pdf：用于评估样本大小对RPKM的影响
 <div style="text-align:center"><img data-src="5.png" width="500px"  ></img></div>
-6.DupRate_plot.pdf：计算reads重复性
+6.DupRate_plot.pdf：reads重复性图
 <div style="text-align:center"><img data-src="6.png" width="500px"  ></img></div>
 7.saturation.pdf：检测测序深度可否用可变剪接
 <div style="text-align:center"><img data-src="7.png" width="500px"  ></img></div>
-8.GC_plot.pdf:  readGC
+8.GC_plot.pdf:  GC分布图
 <div style="text-align:center"><img data-src="8.png" width="500px"  ></img></div>
 9.splitBam的输出文件为：
-　output.in.bam： (Reads consumed by input gene list)
-　output.ex.bam ：(Reads not consumed by input gene list)
-　output.junk.bam： (qcfailed, unmapped reads)
+　output.in.bam：(Reads consumed by input gene list)
+　output.ex.bam：(Reads not consumed by input gene list)
+　output.junk.bam：(qcfailed, unmapped reads)
 
 10.experiment.txt：判断测序是否是链特异及分布情况
 <div style="text-align:center"><img data-src="10.png" width="500px"  ></img></div>

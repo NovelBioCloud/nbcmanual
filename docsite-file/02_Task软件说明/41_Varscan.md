@@ -4,7 +4,7 @@
 
 ****
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
-　　通常文件来源于SamToBam模块的PileUp结果文件。分别选取好Case组与Control组的PileUp文件，输入文件格式：pileup.gz；输出文件格式：txt。
+　　通常文件来源于SamToBam模块的PileUp结果文件。分别选取好Case组与Control组的PileUp文件，输入文件格式：pileup.gz；输出文件格式：txt、vcf。
 
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
