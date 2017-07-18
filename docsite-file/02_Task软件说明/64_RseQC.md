@@ -17,34 +17,34 @@
 
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
-**物种：**选择参考基因组物种。
-**物种版本：**参考序列的版本。
-**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
-**线程数：**软件运行使用线程数。
-**内存：**软件运行使用内存数。
-**计算在genebody的覆盖谱：**将所有转录本缩放到100nt，并计算每个核苷酸覆盖的reads数，最后计算出一个沿gene body的覆盖谱。
-**计算两个成对的RNA读长的距离：**配对reads间的内部距离分布，应该与割胶大小匹配。
-**图片下界：**画读长的距离图时的x轴inner distance下界，默认-250bp。
-**图片上界：**画读长的距离图时的x轴inner distance上界，默认250bp。
-**绘图步长：**绘柱状图的步长bp，默认为5。
-**比较BAM/SAM文件中junction的种类：**将检测到的splice junction分为know，complete novel和partial novel（与ref genome相比）。
-**用于评估样本大小对RPKM的影响：**通过对总的比对reads重采样（jackknifing），评估在当前测序深度下的RPKMs。使用相对错误率来测量评估的RPKM的准确性。
-**采样上界：**画评估样本图时，采样起始百分数。取值为0~100，默认值为5。
-**采样下界：**画评估样本图时，采样终止百分数。取值为0~100，默认值为100。
-**采样步长：**画评估样本图的步长，默认值为5。
-**RPKM的cutoff值：**小于RPKM的值将被cutoff，默认为0.01。
-**计算reads重复性：**用于计算读长的重复性图。
-**reads重复次数上限：**画计算读长的重复性，reads的最高重复次数，默认为500。
-**检测测序深度可否用于可变剪接分析：**判断当前测序深度是否足够用来执行选择性剪接分析。
-**内含子最小长度：**做可变剪接分析时，最小内含子长度bp，默认值为50。
-**readGC：**画GC分布图。
-**readNVC：**画碱基偏好性图。
-**flagOption：**勾选后，碱基偏好性图输出N,X线。
-**splitBam：**将原始的Bam文件分离成三份，.in.bam、.ex.bam、.junk.bam。
-**inferExpreiment：**通过对BAM文件进行采样，判断测序是否是链特异及分布情况。
-**sampleSize：**从SAM/BAM文件中取样的reads数，默认值为200000。
-**readDistribution：**计算比对到编码exons、5’UTR exons、3’UTR exons、introns和intergenic区的read比例。
-**containerNumber：**软件运行所使用container数。
+　**物种：**选择参考基因组物种。
+　**物种版本：**参考序列的版本。
+　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
+　**线程数：**软件运行使用线程数。
+　**内存：**软件运行使用内存数。
+　**计算在genebody的覆盖谱：**将所有转录本缩放到100nt，并计算每个核苷酸覆盖的reads数，最后计算出一个沿gene body的覆盖谱。
+　**计算两个成对的RNA读长的距离：**配对reads间的内部距离分布，应该与割胶大小匹配。
+　**图片下界：**画读长的距离图时的x轴inner distance下界，默认-250bp。
+　**图片上界：**画读长的距离图时的x轴inner distance上界，默认250bp。
+　**绘图步长：**绘柱状图的步长bp，默认为5。
+　**比较BAM/SAM文件中junction的种类：**将检测到的splice junction分为know，complete novel和partial novel（与ref genome相比）。
+　**用于评估样本大小对RPKM的影响：**通过对总的比对reads重采样（jackknifing），评估在当前测序深度下的RPKMs。使用相对错误率来测量评估的RPKM的准确性。
+　**采样上界：**画评估样本图时，采样起始百分数。取值为0~100，默认值为5。
+　**采样下界：**画评估样本图时，采样终止百分数。取值为0~100，默认值为100。
+　**采样步长：**画评估样本图的步长，默认值为5。
+　**RPKM的cutoff值：**小于RPKM的值将被cutoff，默认为0.01。
+　**计算reads重复性：**用于计算读长的重复性图。
+　**reads重复次数上限：**画计算读长的重复性，reads的最高重复次数，默认为500。
+　**检测测序深度可否用于可变剪接分析：**判断当前测序深度是否足够用来执行选择性剪接分析。
+　**内含子最小长度：**做可变剪接分析时，最小内含子长度bp，默认值为50。
+　**readGC：**画GC分布图。
+　**readNVC：**画碱基偏好性图。
+　**flagOption：**勾选后，碱基偏好性图输出N,X线。
+　**splitBam：**将原始的Bam文件分离成三份，.in.bam、.ex.bam、.junk.bam。
+　**inferExpreiment：**通过对BAM文件进行采样，判断测序是否是链特异及分布情况。
+　**sampleSize：**从SAM/BAM文件中取样的reads数，默认值为200000。
+　**readDistribution：**计算比对到编码exons、5’UTR exons、3’UTR exons、introns和intergenic区的read比例。
+　**containerNumber：**软件运行所使用container数。
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**<span>

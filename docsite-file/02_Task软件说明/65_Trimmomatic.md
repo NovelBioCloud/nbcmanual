@@ -13,8 +13,8 @@
 
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**<span>
-　　左端序列文件 (FASTQ) 、右端序列文件 (FASTQ)：single-ended只输入左端序列文件，paired-ended输入分别输入两端的序列。
-　　adapterFile ：接头序列文件。
+　　**左端序列文件 (FASTQ) 、右端序列文件 (FASTQ)：**single-ended只输入左端序列文件，paired-ended输入分别输入两端的序列。
+　　**adapterFile：**接头序列文件。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 

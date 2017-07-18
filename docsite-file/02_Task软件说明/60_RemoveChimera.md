@@ -8,7 +8,7 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**containerNumber:**运行时，使用Container数。
+　**containerNumber:**运行时，使用Container数。
 
 
 ***

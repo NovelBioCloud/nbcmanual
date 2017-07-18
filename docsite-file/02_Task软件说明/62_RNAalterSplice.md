@@ -8,27 +8,27 @@
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件</span>**
 
-　　输入排序好的Bam文件：.sorted.bam。
+　**inFileArray (BAM)：**输入排序好的Bam文件.sorted.bam。
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置</span>**
-**物种：**参考序列物种
-**版本：**基因组数据库版本。
-**dbType：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
-**Display All Splicing Event：**否记录所有的可变剪接事件，如果不选，一个基因只记录一条可变剪接事件。
-**Consider Repeat：**是否考虑生物学重复。
-**reconstructlso：**否进行转录本重构。
-**仅用UniqueMappedReads算表达：**否只用unique reads计算表达。
-**链特异性：**是数据是否是链特异性建库。
+　**物种：**参考序列物种
+　**版本：**基因组数据库版本。
+　**dbType：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
+　**Display All Splicing Event：**否记录所有的可变剪接事件，如果不选，一个基因只记录一条可变剪接事件。
+　**Consider Repeat：**是否考虑生物学重复。
+　**reconstructlso：**否进行转录本重构。
+　**仅用UniqueMappedReads算表达：**否只用unique reads计算表达。
+　**链特异性：**是数据是否是链特异性建库。
 　　　　　Predict by software 软件自动匹配。推荐使用。
 　　　　　Not consider strand 不考虑链特异信息。
 　　　　　1st Read is strand： 推荐Ion Proton 使用，read1在5"端上游，和前导链一致, read2在3"下游， 和前导链反向互补。 或者read2在上游, read1在下游反向互补。
 　　　　　2nd Read is strand：read1在5"端上游, 和前导链反向互补， read2在3"端下游，和前导链一致。
-**文件对比：**加入对比两个组份。
-　　　　　group1Array：选择对比组1；
-　　　　　group2Array：选择对比组2；
-　　　　　outFileArray：输出名称。
-**containerNumber：**运行时所使用container数。
+　**文件对比：**加入对比两个组份。
+　　　　　　group1Array：选择对比组1；
+　　　　　　group2Array：选择对比组2；
+　　　　　　outFileArray：输出名称。
+　**containerNumber：**运行时所使用container数。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明</span>**
