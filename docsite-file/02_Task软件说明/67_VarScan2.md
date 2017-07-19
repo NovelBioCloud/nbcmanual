@@ -24,7 +24,7 @@
  
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　　recal_indel.vcf、recal_snp.vcf为得到对应的SNP与InDel的txt、vcf结果。
+　　recal_indel.vcf、recal_snp.vcf为得到对应的call SNP与InDel的txt、vcf结果。
 　　somatic_all.vcf、somatic_indel.vcf、somatic_snp.vcf为针对肿瘤外显子测序检测体细胞突变。
 <div style="text-align:center"><img data-src="1.png" width="５00px"  ></img></div>
  

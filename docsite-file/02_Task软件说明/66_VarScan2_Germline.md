@@ -15,6 +15,5 @@ VarScan2官网：http://varscan.sourceforge.net
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**<span>
-
-<div style="text-align:center">
-<img data-src="1.png" width="700px" ></img></div>
+　　vcf文件得到对应的call SNP与InDel的结果。
+<div style="text-align:center"><img data-src="1.png" width="500px" ></img></div>
