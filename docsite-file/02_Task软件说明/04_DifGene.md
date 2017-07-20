@@ -69,8 +69,8 @@ R source：
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 
  　　输入文件为基因Expression表格，通常来自Expression Task或者Other(来源于其他途径)，选择相应的算法及卡值标准，可获得两组样本的差异基因,将差异基因列表（all.counts.exp.txt 或 all.fpkm.exp.txt）拖入inFileName，输入数据:.txt 或.xls; .xlsx；输出数据:.txt.xls
-****
 
+****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 
 　<label id='algorithm'>Algorithm：</label>

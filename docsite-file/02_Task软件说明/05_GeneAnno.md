@@ -20,6 +20,7 @@
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 
 　　输入包含基因列的表格即可，通常我们将Expression及DifGene模块的结果文件进行注释。在inFileArray中拖入添加需要注释的文件，输入文件格式：.txt 或.xls; .xlsx　输出文件格式：.txt。
+
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 

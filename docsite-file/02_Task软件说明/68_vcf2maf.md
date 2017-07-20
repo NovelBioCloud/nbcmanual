@@ -24,9 +24,9 @@
 　　生成maf文件。
 <div style="text-align:center"><img data-src="1.png" width="600px"  ></img></div>
 
-
 **Hugo_Symbol：**HUGO symbol for the gene (HUGO symbols are always in all caps). If no gene exists within 3kb enter "Unknown".
-**Entrez_Gene_Id：**Entrez gene ID (an integer). If no gene exists within 3kb enter "0". **Center：**Genome sequencing center reporting the variant. If multiple institutions report the same mutation separate list using semicolons. Non-GSC centers will be also supported if center name is an accepted center name.
+**Entrez_Gene_Id：**Entrez gene ID (an integer). If no gene exists within 3kb enter "0". 
+**Center：**Genome sequencing center reporting the variant. If multiple institutions report the same mutation separate list using semicolons. Non-GSC centers will be also supported if center name is an accepted center name.
 **NCBI_Build：**Any TGCA accepted genome identifier.  Can be string, integer or a float.
 **Chromosome：**Chromosome number without "chr" prefix that contains the gene.
 **Start_Position：**Lowest numeric position of the reported variant on the genomic reference sequence. Mutation start coordinate (1-based coordinate system).
@@ -53,7 +53,7 @@
 ** Protein_position：**relative position of amino acid in protein
 ** Amino_acids：**only given if the variation affects the protein-coding sequence
  **Codons：**the alternative codons with the variant base in upper case
- Existing_variation：known identifier of existing variation
+ ** Existing_variation： **known identifier of existing variation
  **ALLELE_NUM：**allele number from input; 0 is reference, 1 is first alternate etc
  **DISTANCE：**shortest distance from variant to transcript
 ** STRAND_VEP：**the DNA strand (1 or -1) on which the transcript/feature lies
