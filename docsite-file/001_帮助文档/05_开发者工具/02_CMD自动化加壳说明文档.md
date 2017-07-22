@@ -1,4 +1,8 @@
 ### ** 添加记录：**
+**20170722**
+　　1. 添加支持文件夹`config`，`scripts`，`software`
+　　2. 添加多线程参数`<scriptThreadIndex>`
+　　3. 标签`<script>`添加方法@removesuffix
 **20170520**
 　　1. 过时标签`<order>`，`<taskType>`，`<stage>`
 **20170424**
@@ -9,29 +13,29 @@
 **20170109 **
 　　1. 在`<filters>[<filter>]`中添加`type：sizeIs, sizeBigger, sizeSmaller`
 **20161213**
-　　1.	过时标签`<script>`属性isLoop，用`sepValue`取代
+　　1. 过时标签`<script>`属性isLoop，用`sepValue`取代
 **20161210**
-　　1.	在`<script>`中添加IsValueEmpty类型
-　　2.	在`<skipResults>[<resultFile>]`和`<filters>[<filter>]`中添加group
+　　1. 在`<script>`中添加IsValueEmpty类型
+　　2. 在`<skipResults>[<resultFile>]`和`<filters>[<filter>]`中添加group
 **20161028**
-　　1.	添加subscripts
+　　1. 添加subscripts
 **20160909**
-　　1.	把`<resultFile>`中参数` <isInfile> `修改为 `<isInputTask>`
+　　1. 把`<resultFile>`中参数` <isInfile> `修改为 `<isInputTask>`
 **20160812**
-　　1.	标签`<appendIn>`添加方法@removesuffix
+　　1. 标签`<appendIn>`添加方法@removesuffix
 **20160804**
-　　1.	标签`<script>`添加属性isLoop，该属性指定输入的value是否循环
+　　1. 标签`<script>`添加属性isLoop，该属性指定输入的value是否循环
 **20160622**
-　　1.	标签`<filter>`添加属性 type，用于指定过滤的类型
+　　1. 标签`<filter>`添加属性 type，用于指定过滤的类型
 **20160617**
-　　1.	添加支持重定向符"<"
+　　1. 添加支持重定向符"<"
 **20160616**
-　　1.	修改标签`<descript>`为`<description>`
+　　1. 修改标签`<descript>`为`<description>`
 　　　修改标签`<iscoverparam>`为`<isCoverParam>`
 　　　修改标签`<skipresult>`为`<skipResults>`
 　　　修改标签`<resultfile>`为`<resultFile>`
 　　　修改表情`<isRedirect>`为`<isCopyToTmp>`
-　　2.	添加参数`<appendIn>[<appendFile>]`用于把一些第三方文件放入临时文件夹中。主要是bwa mapping时，需要把索引文件全都放入临时文件夹中。
+　　2. 添加参数`<appendIn>[<appendFile>]`用于把一些第三方文件放入临时文件夹中。主要是bwa mapping时，需要把索引文件全都放入临时文件夹中。
 **20160615**
 　　`<resultFile>`中添加参数 `<isInfile>` 用于检查输入文件部分是否存在，主要用于bwa index，samtools faidx。
 **20160614**
@@ -48,17 +52,17 @@
 &nbsp;
 #### **1. TaskModule/TaskModuleParam表格**
 //TODO 待补充
-#### **2. ScriptXml**
+#### **2. XML配置文件简介**
 	
-　　简介：ScriptXml是用来组装Cmd命令的配置文件，为xml格式的一系列文件。通过配置ScriptXml，可以调用第三方的cmd命令以及groovy命令。一个task可以由三个阶段组成，分别是 **Prepare**、**Run**、**Summary**。
+　　NovelBrain平台采用xml文件来配置task运行所需的Cmd命令。通过在指定文件夹配置xml文件，可以在运行时调用第三方的cmd程序或groovy脚本并顺序执行。一个task由可选的三个阶段组成，分别是 **Prepare**、**Run**、**Summary**。
 　　**Prepare：**task运行时的前处理工作，不会并行计算。在hisat2的案例中可以用于建索引，因为无论运行多少样本，索引都只需要运行一次，所以可以把建索引的工作放在Prepare中。
 　　**Run：**正式运行task。如果输入多个样本，并且设定好并行计算，则本步会将样本放在不同的服务器上运行，以提高计算速度。在hisat2的案例中可以用于具体样本的mapping，这样多个样本可以在多台不同的服务器上运行。可以根据OutPrefix来将输入的文件进行切分与并行计算。
 　　**Summary：**Task结束后的收尾工作。如运行结束后汇总mapping率、汇总全体表达量等工作。不能分布式执行。
-	例1.：RNA-Seq-Mapping，在运行最开始的时候需要对染色体索引（prepare），然后每个文件分别进行mapping（Run），运行结束后需要统计每个样本的mapping率并合并到一个文件中（Summary）。
+	例：RNA-Seq-Mapping，在运行最开始的时候需要对染色体索引（prepare），然后每个文件分别进行mapping（Run），运行结束后需要统计每个样本的mapping率并合并到一个文件中（Summary）。
 
  **2.1 文件夹格式 **
-　　ScriptXml放在指定的文件夹中，目前放在 /media/nbfs/nbCloud/public/task/scriptmodule/ 中，本路径可在 NBCService 工程的 service_path.properties 中配置。
-　　在scriptmodule中，每个文件夹表示一个task，在文件夹内部，可以有至多3个文件夹，分别为Prepare，Run，Summary。每个文件夹中可以放置多个相应的xml文件，xml文件中会标记运行的顺序，Task在运行时会依次调用xml生成cmd命令并运行。因此在Prepare、Run、Summary这三个阶段中，均可顺序执行多个cmd命令，后一个可以利用前一个的输出文件作为输入。
+　　ScriptXml放在指定的文件夹中，其中私有云一般放在 /media/nbfs/nbCloud/public/task/scriptmodule/ 中，本路径可在 NBCService 工程的 service_path.properties 中配置。
+　　在scriptmodule中，每个task拥有一个以该task名字命名的文件夹，其内部可以有六个文件夹，分别为 Prepare， Run， Summary， conifg， scripts， software。其中前三个文件夹中放置task三个阶段所需运行的xml文件。config文件夹主要用于自动跳过等配置(待补充)。scripts文件夹中建议放置运行所使用到的各种脚本，software文件夹中建议放置运行所使用到的软件(可无这两个文件夹)。
 
 		例子：
 		../scriptmodule/FastQC/Prepare
@@ -70,6 +74,14 @@
 		---------------------/Summary
 		---------------------------/1.calculate_mapping_rate.xml
 		---------------------------/2.change_file_name.xml
+		//以上三个文件夹必须有一个有内容
+		---------------------/conifg
+		---------------------------/config.Run.xml
+		---------------------/scripts
+		---------------------------/myshell.sh
+		---------------------/software
+		---------------------------/hisat2
+		//以上三个文件夹可选
  **2.2 Xml运行顺序**
 　　在一个stage文件夹中可以放入多个xml，我们一般要求文件名以数字开头加"."开头，以此来标识文件的顺序。下列xml会按照顺序依次执行。
 　　1.index_make.xml，2.mapping.xml，3.statistics.ml
@@ -77,27 +89,28 @@
 1.index_make.xml，2.mapping.xml，<b>2.1.getUnmappedReads.xml</b>, 3.statistics.ml
 　　注意序号 2<2.2<2.11<2.11.1，同时序号不支持负数。目前最多支持到 1.1.1三个数字。此外注意不要出现相同的数字标识。
  **2.4 Xml文件详细说明 **
-　　理论上应该使用XSD作为xml的描述说明文档，但为了简明，我这里采用自定义的中文来描述
 　　每一个xml会调用一个cmd/groovy命令。以下是一个调用cmd命令cp的简单例子。
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 	<root>
-<!-- 注释 -->
 		<name>test script2</name>
 		<description>this is a test script model.</ description >
+		<!-- xml调用的类型，cmd命令还是groovy脚本 -->
 		<scriptType>cmd</scriptType>
-<!-- 注释，设置cpu和内存使用 -->
+		<!-- 设置cpu和内存使用 -->
 		<resource cpu="@sizenodup(@id(prefix))" mem="@filesize(@id(infile))" />
+		<!-- 具体的命令片段 -->
 		<templet>
 			<script param="cp"/>
 			<script id="minLenBp" param="-min"/>
-<script id="maxLenBp" param="-max"/>
+			<script id="maxLenBp" param="-max"/>
 			<script id="infile" type="Input" param="-in"/>
 			<script id="leftInputDataPrefix" type="Output" param="-out" value="%s.gz"/>
 		</templet>
+		<!-- 如果以下文件存在，则本xml不执行  -->
 		<skipResults>
   			<resultFile id="leftInputDataPrefix" value="/fastq_result/%s.gz"/>
-<resultFile id="leftInputDataPrefix" isInputTask="false" value="/fastq_result/%s.gz"/>
+			<resultFile id="leftInputDataPrefix" isInputTask="false" value="/fastq_result/%s.gz"/>
 		</skipResults>
 	</root>
 ```
@@ -108,12 +121,14 @@
 	输出为 cp –min 10 –max 20 –in /home/novelbio/1.fq –out /fastq_result/A.gz
 	并且如果/fastq_result/A.gz存在，则会跳过
 　　其中属性总共有：
-```<name>
-< description >
+```
+<name>
+<description>
 <scriptType>
 <script>
 <isCoverParam >
 <isSupportHdfs>
+<scriptThreadIndex>
 <resource> 
 <filters>[<filter>]
 <templet>[<script>]
@@ -121,7 +136,7 @@
 <appendIn>[<appendFile>]
 ```
 　　这几项，注意上面的xml例子中并没有展示全部的属性。
-　　在这些属性中，`<name>`, `< description>`, ` <scriptType>`, `<script>`, `<isCoverParam>`, ` <isSupportHdfs>`为简单属性，只需简单配置，`<resource>, <filters>[<filter>]`为复杂属性，配置起来相对复杂。`<templet>[<script>]，<skipResults>[<resultFile>]，<appendIn>[<appendFile>]`
+　　在这些属性中，`<name>`, `< description>`, `<scriptType>`, `<script>`, `<isCoverParam>`, ` <isSupportHdfs>`为简单属性，只需简单配置，`<resource>, <filters>[<filter>], <scriptThreadIndex>`为复杂属性，配置起来相对复杂。`<templet>[<script>]，<skipResults>[<resultFile>]，<appendIn>[<appendFile>]`
 为核心属性，配置最复杂。
 `<script>`, `<isCoverParam>` 为groovy特有
 &nbsp;
@@ -143,7 +158,7 @@
 &nbsp;
 **复杂属性配置：**
 `<resource>`：本xml所需的cpu和内存资源，可以是数字，也可以是公式。最简单的案例如下：
-　　例子：`<resource cpu="5" mem="3000" /> `
+　　例子：`<resource cpu="5" mem="3000" />`
 　　表示本xml需要5个core，和3000MB内存，注意内存单位是MB；cpu个数需要控制在20以内，否则很难分配到服务器上。
 　　复杂情况下可以使用一些内置函数，如下：
 　　例子：`<resource cpu="@sizenodup(@id(prefix))" mem="3300*@filesize(@id(infile))" />`
@@ -152,6 +167,11 @@
 　**@size**--数量；
 　**@sizenodup**--无重复的数量。
 　　可以使用`@id(***)`来指定获取某个param，注意@id不是函数，只是标记。可以用 @id(thread) 表示获取thread的值。@filesize(@id(infile)) 表示获取全体infile的文件大小之和。@sizenodup(@id(prefix)) 表示获取无重复的prefix的数量。注意函数（@filesize、@size、@sizenodup）不能嵌套使用，也就是不能使用类似 @sizenodup(@filesize(@id(prefix))) 这种。
+`<scriptThreadIndex>`：目前NovelBrain平台支持container内部对某个cmd命令(配置的xml)开多线程运行。本参数配置是否需要开多线程计算，具体开几个线程。容器内开多线程的意义：阿里云上最少分配的容器为4cpu+8GB，而blast这种软件在单线程时即使设置thread=4，实际也就用了2cpu，不能把容器的cpu全部使用起来。那么我们就有必要开多线程来运行blast。运行方式一般为 1.切分输入fasta文件，2.多线程运行blast，3.把结果合并成一个。其中1,3两个xml文件是单线程运行，但是需要知道到底开了几个线程，而2才是真正开多线程的步骤。
+　　例子：`<scriptThreadIndex num="3" isMultiThread="false" />`
+　　表示本xml只会开一个线程运行。并且在`<templet>[<script>]`中可以通过 id=scriptThreadIndex 来获取具体的值，为list{0,1,2}。
+　　例子：`<scriptThreadIndex num="3" isMultiThread="true" />`
+　　表示本xml会开三个线程同时运行。并且在`<templet>[<script>]`中可以通过 id=scriptThreadIndex 来获取具体的值。根据运行的线程序号，获取相应的值，分别为0,1,2三个值。譬如第一个线程获取scriptThreadIndex=0，第二个线程获取scriptThreadIndex=1，第二个线程获取scriptThreadIndex=2。
 `<filters>[<filter>]`：过滤器。
 　　我们在参数页面可以设置下拉框，如算法可以选择 Tophat、Mapsplice、hisat2等，那么不同的算法会调用不同的xml进行计算，这时候我们就可以通过<filters>[filter]过滤器来指定哪些xml需要运行，哪些不需要运行。
 　　例子：`<filter id="algo" value="mapsplice"/>`
