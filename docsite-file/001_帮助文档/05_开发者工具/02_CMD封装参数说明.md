@@ -44,15 +44,16 @@
 &nbsp;
 　　Cmd加壳目的是可以将第三方的cmd命令放到NovelBrain云平台上运行，能够高度可定制化cmd，并将可以将输入的多个文件分开在不通的服务器上运行，以实现并行计算的目的。
 组成
-**Cmd加壳由4部分组成**
+**文档说明**
+Cmd加壳由4部分组成
 1）TaskModule/TaskModuleParam表格 用于在前端展示Task，以及Task的相关参数
 2）ScriptXml 本Xml文件用来组装cmd命令，参数必须与TaskModuleParam对应
 3）RuleXml 本Xml文件用来展示该Cmd所得到的结果文件，可用于拖拽到下一个task中
 4）docker镜像并上传
 &nbsp;
-#### **1. TaskModule/TaskModuleParam表格**
-//TODO 待补充
-#### **2. XML配置文件简介**
+本说明文档主要描述第二部分，ScriptXml的配置。本文档类似于说明书等速查手册， **不是教程 ，因此不适合新手入门阅读**。对NovelBrain云计算cmd封装熟悉的生物信息工程师可以在实际操作中查阅本文档。
+
+#### **1. XML配置文件简介**
 	
 　　NovelBrain平台采用xml文件来配置task运行所需的Cmd命令。通过在指定文件夹配置xml文件，可以在运行时调用第三方的cmd程序或groovy脚本并顺序执行。一个task由可选的三个阶段组成，分别是 **Prepare**、**Run**、**Summary**。
 　　**Prepare：**task运行时的前处理工作，不会并行计算。在hisat2的案例中可以用于建索引，因为无论运行多少样本，索引都只需要运行一次，所以可以把建索引的工作放在Prepare中。
@@ -60,7 +61,7 @@
 　　**Summary：**Task结束后的收尾工作。如运行结束后汇总mapping率、汇总全体表达量等工作。不能分布式执行。
 	例：RNA-Seq-Mapping，在运行最开始的时候需要对染色体索引（prepare），然后每个文件分别进行mapping（Run），运行结束后需要统计每个样本的mapping率并合并到一个文件中（Summary）。
 
- **2.1 文件夹格式 **
+ **1.1 文件夹格式 **
 　　ScriptXml放在指定的文件夹中，其中私有云一般放在 /media/nbfs/nbCloud/public/task/scriptmodule/ 中，本路径可在 NBCService 工程的 service_path.properties 中配置。
 　　在scriptmodule中，每个task拥有一个以该task名字命名的文件夹，其内部可以有六个文件夹，分别为 Prepare， Run， Summary， conifg， scripts， software。其中前三个文件夹中放置task三个阶段所需运行的xml文件。config文件夹主要用于自动跳过等配置(待补充)。scripts文件夹中建议放置运行所使用到的各种脚本，software文件夹中建议放置运行所使用到的软件(可无这两个文件夹)。
 
@@ -74,7 +75,7 @@
 		---------------------/Summary
 		---------------------------/1.calculate_mapping_rate.xml
 		---------------------------/2.change_file_name.xml
-		//以上三个文件夹必须有一个有内容
+		//以上三个文件夹必须有一个文件夹有内容
 		---------------------/conifg
 		---------------------------/config.Run.xml
 		---------------------/scripts
@@ -82,13 +83,13 @@
 		---------------------/software
 		---------------------------/hisat2
 		//以上三个文件夹可选
- **2.2 Xml运行顺序**
+ **1.2 Xml运行顺序**
 　　在一个stage文件夹中可以放入多个xml，我们一般要求文件名以数字开头加"."开头，以此来标识文件的顺序。下列xml会按照顺序依次执行。
 　　1.index_make.xml，2.mapping.xml，3.statistics.ml
 　　在部分操作中我们可能需要在已经排好序的xml中插入新的xml，这时候我们可以采取小数点的形式来标识。如下运行顺序：
 1.index_make.xml，2.mapping.xml，<b>2.1.getUnmappedReads.xml</b>, 3.statistics.ml
 　　注意序号 2<2.2<2.11<2.11.1，同时序号不支持负数。目前最多支持到 1.1.1三个数字。此外注意不要出现相同的数字标识。
- **2.4 Xml文件详细说明 **
+ **1.3 Xml文件详细说明 **
 　　每一个xml会调用一个cmd/groovy命令。以下是一个调用cmd命令cp的简单例子。
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -169,7 +170,7 @@
 　　可以使用`@id(***)`来指定获取某个param，注意@id不是函数，只是标记。可以用 @id(thread) 表示获取thread的值。@filesize(@id(infile)) 表示获取全体infile的文件大小之和。@sizenodup(@id(prefix)) 表示获取无重复的prefix的数量。注意函数（@filesize、@size、@sizenodup）不能嵌套使用，也就是不能使用类似 @sizenodup(@filesize(@id(prefix))) 这种。
 `<scriptThreadIndex>`：目前NovelBrain平台支持container内部对某个cmd命令(配置的xml)开多线程运行。本参数配置是否需要开多线程计算，具体开几个线程。容器内开多线程的意义：阿里云上最少分配的容器为4cpu+8GB，而blast这种软件在单线程时即使设置thread=4，实际也就用了2cpu，不能把容器的cpu全部使用起来。那么我们就有必要开多线程来运行blast。运行方式一般为 1.切分输入fasta文件，2.多线程运行blast，3.把结果合并成一个。其中1,3两个xml文件是单线程运行，但是需要知道到底开了几个线程，而2才是真正开多线程的步骤。
 　　例子：`<scriptThreadIndex num="3" isMultiThread="false" />`
-　　表示本xml只会开一个线程运行。并且在`<templet>[<script>]`中可以通过 id=scriptThreadIndex 来获取具体的值，为list{0,1,2}。
+　　表示本xml只会开一个线程运行。并且在`<templet>[<script>]`中可以通过 id=scriptThreadIndex 来获取具体的值，为一个list，值为{0,1,2}。
 　　例子：`<scriptThreadIndex num="3" isMultiThread="true" />`
 　　表示本xml会开三个线程同时运行。并且在`<templet>[<script>]`中可以通过 id=scriptThreadIndex 来获取具体的值。根据运行的线程序号，获取相应的值，分别为0,1,2三个值。譬如第一个线程获取scriptThreadIndex=0，第二个线程获取scriptThreadIndex=1，第二个线程获取scriptThreadIndex=2。
 `<filters>[<filter>]`：过滤器。
@@ -273,9 +274,9 @@
 　　例：`<script id="InputFile" param="-in" type="Input" /> `如果参数InputFile对应的值为/home/novelbio/lasttask/1.fq 则生成命令片段 "-in /home/novelbio/lasttask/1.fq"。
 　　<span style="color:blue">Output：</span>本参数为输出路径，默认输出文件夹为当前task的路径—我们把这个路径称为output文件夹，记为 ${current_task}/。如果存在prefix，则会用prefix来进行替换。
 　　例：`<script id="prefix" param="-out" type="Output" value="/tmp/%s.sam"/> `如果prefix为A，会组装命令片段"-out /tmp/A.sam"，其中A 会取代%s。输出文件放置在当前task的文件夹中，为 ${current_task}/tmp/A.sam 这个文件。
-　　<span style="color:blue"> OutInput：</span>xml是顺序执行，因此可以从上一个xml获得的output文件，在这里做为输入文件。
+　　<span style="color:blue">OutInput：</span>xml是顺序执行，因此可以从上一个xml获得的output文件，在这里做为输入文件。
 例：<script id="prefix" param="-in" type="OutInput" value="/tmp/%s.sam"/> 如果prefix为A，会将 ${current_task}/tmp/A.sam这个文件作为输入组成命令片段"-in /tmp/A.sam"。
-　　<span style="color:blue"> InOutput：</span>仅在isCopyToTmp="true"时起作用。 部分软件，如samtools faidx给fasta文件建索引，samtools index 给bam文件建索引，输入文件仅有fasta文件或bam文件一个，输出的文件会在输入文件的同一个文件夹下，文件名也是几乎相同，仅加上后缀。如命令"samtools faidx /home/novelbio/chr.fa" 会产生/home/novelbio/chr.fa.fai的索引文件。这时候我们认为这个命令的输入文件和输出文件是一致的。都是/home/novelbio/chr.fa。为了方便把输出文件拷贝到指定的文件夹中，我们在这里选择类型为InOutput，这样如果参数 isCopyToTmp="true"，就会把产生的索引文件拷贝到结果文件夹中。如果参数" isCopyToTmp ="false""，则索引文件依然会在fasta文件的目录下产生。		
+　　<span style="color:blue">InOutput：</span>仅在isCopyToTmp="true"时起作用。 部分软件，如samtools faidx给fasta文件建索引，samtools index 给bam文件建索引，输入文件仅有fasta文件或bam文件一个，输出的文件会在输入文件的同一个文件夹下，文件名也是几乎相同，仅加上后缀。如命令"samtools faidx /home/novelbio/chr.fa" 会产生/home/novelbio/chr.fa.fai的索引文件。这时候我们认为这个命令的输入文件和输出文件是一致的。都是/home/novelbio/chr.fa。为了方便把输出文件拷贝到指定的文件夹中，我们在这里选择类型为InOutput，这样如果参数 isCopyToTmp="true"，就会把产生的索引文件拷贝到结果文件夹中。如果参数" isCopyToTmp ="false""，则索引文件依然会在fasta文件的目录下产生。		
 　　例：<script id="prefix" type="InOutput" value="%s.sam" isCopyToTmp ="true"/> 如果prefix为A，会将A.sam这个文件拷贝到临时文件夹中，并作为输入文件，同时在运行结束后，会把A所在文件夹下的全体文件拷贝到结果文件夹中。
 　　<span style="color:blue">OutInOutput：</span>仅在isCopyToTmp="true"时起作用。在task中写入多个xml文件进行软件串联时，会遇到这么一种场景：第一个xml产生一个bam文件，然后第二个xml文件需要调用samtools并对bam文件建索引。这时候输入文件仅有bam文件，且bam文件已经在output文件夹中，这时候就需要把输入文件标记为OutInOutput。
 　　例：<script id="prefix" param="-in" type="OutInOutput" value="/tmp/%s.bam"/> 如果prefix为A，会将 ${current_task}/tmp/A.bam这个文件作为输入组成命令片段"-in /tmp/A.bam"。
@@ -359,7 +360,10 @@
 <script id="prefix" value="%s.tophat.unmapped.bam" type="Output"/>
 ```
 　　以上xml文件顺序执行了三个mv命令，这样写在一起就会方便。不过需要注意的是，写在同一个xml中的命令，他们共用一套 Resource，SkipResult等。
-
+对于Script，我们提供了一个内置函数@removesuffix
+	@removesuffix 去除文件末尾的后缀名，如给定文件为 /home/novelbio/chr.fa.fai，返回/home/novelbio/chr.fa。使用场景，GATK需要获取染色体的dict文件。譬如染色体文件名为 /home/novelbio/chr.fa，则需要文件/home/novelbio/chr.dict>。
+　　例子：`<script id="infile" value="@removesuffix(%s).dict"/>`
+　　如果输入的infile为/home/novelbio/chrseq.fa，则获得文件 /home/novelbio/chrseq.dict
 
 `<skipResults>[<resultFile>]：`需要跳过的文件。
 　　如果文件存在，则该文件会被跳过。Xml加壳系统在设计时考虑了运行一半程序死掉的问题，因此输出的文件均以.tmp形式存在，只有当程序运行结束后才会被改名为实际文件名。因此只要检测到实际文件名存在，即可认为该文件已经运行结束，因此可以被跳过。
@@ -385,8 +389,19 @@
 	@removesuffix 去除文件末尾的后缀名，如给定文件为 /home/novelbio/chr.fa.fai，返回/home/novelbio/chr.fa。使用场景，GATK需要获取染色体的dict文件。譬如染色体文件名为 /home/novelbio/chr.fa，则需要文件/home/novelbio/chr.dict>。
 　　例子：`<appendFile id="infile" value="@removesuffix(%s).dict"/>`
 　　如果输入的infile为/home/novelbio/chrseq.fa，则得到的结果为 /home/novelbio/chrseq.dict。也就是把/home/novelbio/chrseq.dict拷贝进入临时文件夹供计算时使用。
+
+`文件路径语法糖 "//"`：仅在task为SubTask时才起作用。
+　　当task为SubTask时，输入文件默认在以本subTask的prefix为名字的子文件夹"/Prefix"中，但我们最后想把输出文件放在根目录下，这样方便下载结果文件以及下一级task的拖拽。
+　　本语法糖作用于<Script>中type为 Output, OutInput, OutInOutput这三类。以及<skipResults>和<appendIn>
+　　例1：<script type="Output" param="-out" value="/result.gz"/>
+　　如果本task为SubTask，SuperTask的prefix为A，则最后输出路径为 /A/result.gz
+　　例2：<script type="Output" param="-out" value="//result.gz"/>
+　　如果本task为SubTask，SuperTask的prefix为A，则最后输出路径为 /result.gz
+　　例3：<script type="OutInput" param="-out" value="//result.gz"/>
+　　如果本task为SubTask，SuperTask的prefix为A，则会使用上一个xml在根目录下产生的文件，/result.gz
+
+
+
 //TODO groovy脚本的特别说明
 &nbsp;
-#### **3. RuleXml **
-//TODO 待补充
 
