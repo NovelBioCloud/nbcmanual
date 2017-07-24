@@ -1,4 +1,4 @@
-## ACFS CicRNA
+## ACFS2_ CircRNA
 　　基于de novo的方法，以准确和快速鉴定和丰度定量来自单端和双端序列，来预测CicRNA的软件。
 　　官网：https://github.com/arthuryxt/acfs
 
@@ -16,8 +16,10 @@
 　<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
 　<label id='filter'>FilterReadsWithN：</label>过滤掉含N的reads。
 　<label id='seq_len'>SeqLength：</label>序列长度。
+　**isCallFusionCirc：**是否融合circRNA计算。
+　**Memory：**使用内存。
 　<label id='thread'>Threads：</label>线程数。
-
+　**containerNumber：**使用container数。
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 
