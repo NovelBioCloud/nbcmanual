@@ -105,12 +105,9 @@ R source：
 　<label id='needToBeLog'>LogTransformData：</label>是否将输入数据取log值，通常算法为Limma，芯片没有进行标准化的信号值中使用。
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-
 　alldiff.xls：两组比较后的全部的差异基因。
-<div style="text-align:center">
-<img data-src="1.png" width="800px"></img>
-</div>
+<div style="text-align:center"><img data-src="1.png" width="800px"></img></div>
+&nbsp;
 　diff.xls、diff.txt：两组比较后的通过参数设置中条件设置FDR、P值等条件筛选后的基因。
 <div style="text-align:center">
-<img data-src="2.png" width="800px"></img>
-</div>
+<img data-src="2.png" width="800px"></img></div>
