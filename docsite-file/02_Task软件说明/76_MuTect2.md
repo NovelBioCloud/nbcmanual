@@ -31,4 +31,3 @@
 somatic.vcf：对肿瘤测序检测体细胞突变。
 .vcf：得到对应的call SNP与InDel的vcf结果。
 <div style="text-align:center"><img data-src="1.png" width="750px"  ></img></div>
-
