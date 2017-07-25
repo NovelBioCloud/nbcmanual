@@ -1,4 +1,4 @@
-Mutect2
+# Mutect2
 　　Mutect2是GATK下的一个子模块，采用突变热点局部重比对和贝叶斯统计的方法，可以针对成对的正常-肿瘤样本进行体细胞变异分析，并对分析的结果进行校正过滤，去除正常样本和dbSNP库中的突变位点，最终得到高可信度的体细胞变异信息。
 　　官网：https://hpc.nih.gov/apps/muTect.html
 
@@ -28,3 +28,7 @@ Mutect2
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
+somatic.vcf：对肿瘤测序检测体细胞突变。
+.vcf：得到对应的call SNP与InDel的vcf结果。
+<div style="text-align:center"><img data-src="1.png" width="750px"  ></img></div>
+
