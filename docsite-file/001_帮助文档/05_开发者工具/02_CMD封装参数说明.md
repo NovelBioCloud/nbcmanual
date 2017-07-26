@@ -170,9 +170,9 @@ Cmd加壳由4部分组成
 　　可以使用`@id(***)`来指定获取某个param，注意@id不是函数，只是标记。可以用 @id(thread) 表示获取thread的值。@filesize(@id(infile)) 表示获取全体infile的文件大小之和。@sizenodup(@id(prefix)) 表示获取无重复的prefix的数量。注意函数（@filesize、@size、@sizenodup）不能嵌套使用，也就是不能使用类似 @sizenodup(@filesize(@id(prefix))) 这种。
 `<scriptThreadIndex>`：目前NovelBrain平台支持container内部对某个cmd命令(配置的xml)开多线程运行。本参数配置是否需要开多线程计算，具体开几个线程。容器内开多线程的意义：阿里云上最少分配的容器为4cpu+8GB，而blast这种软件在单线程时即使设置thread=4，实际也就用了2cpu，不能把容器的cpu全部使用起来。那么我们就有必要开多线程来运行blast。运行方式一般为 1.切分输入fasta文件，2.多线程运行blast，3.把结果合并成一个。其中1,3两个xml文件是单线程运行，但是需要知道到底开了几个线程，而2才是真正开多线程的步骤。
 　　例子：`<scriptThreadIndex num="3" isMultiThread="false" />`
-　　表示本xml只会开一个线程运行。并且在`<templet>[<script>]`中可以通过 id=scriptThreadIndex 来获取具体的值，为一个list，值为{0,1,2}。
+　　表示本xml只会开一个线程运行。并且在`<templet>[<script>]`中可以通过 id=scriptThread 来获取设置的总线程数(值为3)；同时还可以用id=scriptThreadIndex 来获取具体每个线程的值，为一个list，值为{0,1,2}。
 　　例子：`<scriptThreadIndex num="3" isMultiThread="true" />`
-　　表示本xml会开三个线程同时运行。并且在`<templet>[<script>]`中可以通过 id=scriptThreadIndex 来获取具体的值。根据运行的线程序号，获取相应的值，分别为0,1,2三个值。譬如第一个线程获取scriptThreadIndex=0，第二个线程获取scriptThreadIndex=1，第二个线程获取scriptThreadIndex=2。
+　　表示本xml会开三个线程同时运行。并且在`<templet>[<script>]`中可以通过 id=scriptThread 来获取设置的总线程数(值为3)；也可以通过id=scriptThreadIndex 来获取具体的值。根据运行的线程序号，获取相应的值，分别为0,1,2三个值。譬如第一个线程获取scriptThreadIndex=0，第二个线程获取scriptThreadIndex=1，第二个线程获取scriptThreadIndex=2。
 `<filters>[<filter>]`：过滤器。
 　　我们在参数页面可以设置下拉框，如算法可以选择 Tophat、Mapsplice、hisat2等，那么不同的算法会调用不同的xml进行计算，这时候我们就可以通过<filters>[filter]过滤器来指定哪些xml需要运行，哪些不需要运行。
 　　例子：`<filter id="algo" value="mapsplice"/>`
