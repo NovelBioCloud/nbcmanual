@@ -142,23 +142,23 @@ Cmd加壳由4部分组成
 `<script>`, `<isCoverParam>` 为groovy特有
 &nbsp;
 #### **简单属性配置：**
-`<name>`：脚本的名字，一般在报错时使用。
+<span style='font-size:18px;font-weight:bold;'>name</span>：脚本的名字，一般在报错时使用。
 　　例子：`<name>my script</name>`
-`< description>`：脚本的描述，可随便填写
+<span style='font-size:18px;font-weight:bold'>description</span>：脚本的描述，可随便填写
 　　例子：`< description >this is a test script model.</ description>`
-`<scriptType>`：脚本类型
+<span style='font-size:18px;font-weight:bold'>scriptType</span>：：脚本类型
 　　目前有 groovy、cmd两种。groovy表示调用groovy的脚本，cmd表示执行第三方cmd程序。我们会有这种需求，譬如RNA-Seq-Mapping中，给定物种、版本、数据库，自动获得染色体文件和索引路径等。由于这个需要调用平台自带的数据库，因此我们提供了相关的groovy脚本，放在指定的文件夹中，在这里就可以调用相应的groovy脚本。
 　　例子：`<scriptType>groovy</scriptType>`
-`<script>`：仅当`<scriptType>`为groovy时使用，用来标记使用哪个groovy脚本。
+<span style='font-size:18px;font-weight:bold'>script</span>：仅当`<scriptType>`为groovy时使用，用来标记使用哪个groovy脚本。
 　　例子：`<script>species.groovy</script>`
-`<isCoverParam>`：默认为false。仅当`<scriptType>`为groovy时使用，意思groovy所产生的参数是否覆盖已有参数。譬如我们会使用groovy脚本，来给定物种版本数据库，从而获得chrseq.fa文件。但是如果用户选择了第三方的chrseq.fa文件，我们就希望使用用户自己选择的chrseq.fa文件，而不是用groovy的。
+<span style='font-size:18px;font-weight:bold'>isCoverParam</span>：默认为false。仅当`<scriptType>`为groovy时使用，意思groovy所产生的参数是否覆盖已有参数。譬如我们会使用groovy脚本，来给定物种版本数据库，从而获得chrseq.fa文件。但是如果用户选择了第三方的chrseq.fa文件，我们就希望使用用户自己选择的chrseq.fa文件，而不是用groovy的。
 所以如果本值设置为true，就会覆盖用户的选择; false，只有当不存在该参数，或参数的值为空时，才会输入本参数。
-例子：`<isCoverParam>false</isCoverParam>`
-`<isSupportHdfs>`： 是否支持hdfs路径，默认为false，不支持就会把文件路径修改为/media/nbfs下，支持的话就是直接使用 hdfs:// 这种形式。仅使用hdfs私有云的烈冰公司开发的软件才有可能配置该参数。
+　　例子：`<isCoverParam>false</isCoverParam>`
+<span style='font-size:18px;font-weight:bold'>isSupportHdfs</span>： 是否支持hdfs路径，默认为false，不支持就会把文件路径修改为/media/nbfs下，支持的话就是直接使用 hdfs:// 这种形式。仅使用hdfs私有云的烈冰公司开发的软件才有可能配置该参数。
 　　例子：`<isSupportHdfs>true</isSupportHdfs>`
 &nbsp;
 **复杂属性配置：**
-`<resource>`：本xml所需的cpu和内存资源，可以是数字，也可以是公式。最简单的案例如下：
+<span style='font-size:18px;font-weight:bold'>isSupportHdfs</span>`<resource>`：本xml所需的cpu和内存资源，可以是数字，也可以是公式。最简单的案例如下：
 　　例子：`<resource cpu="5" mem="3000" />`
 　　表示本xml需要5个core，和3000MB内存，注意内存单位是MB；cpu个数需要控制在20以内，否则很难分配到服务器上。
 　　复杂情况下可以使用一些内置函数，如下：
@@ -228,8 +228,8 @@ Cmd加壳由4部分组成
 　　没有default group，因此group1和group2只要有任意一个group通过，就会运行本脚本。
 
 ### **核心属性配置：**
-**`<templet>[<script>]：`**参数配置单。通过一系列 `<scritpt> `按照顺序组装出cmd命令，并运行。
-**`<script>`**里面的参数比较复杂。有以下属性：
+<span style='font-size:18px;font-weight:bold'>&lt;templet&gt;[&lt;script&gt;]</span>： 参数配置单。通过一系列 `<scritpt> `按照顺序组装出cmd命令，并运行。
+<span style='font-size:18px;font-weight:bold'>&lt;script&gt;</span>里面的参数比较复杂。有以下属性：
 　　**id：**需要的参数名称，即为param中的参数名。如果"id"不存在，则表示该参数无论何时都会加入cmd中。如id="minLenBp"。如果需要输入多个id，用","隔开，输入多个id可用于配合**value**实现，具体见**value**例3和例4。
 　　**param：**参数名，如"-r", "-t" 这种。
 　　例1：`<script param="cp"/> `因为没有"id"表示无论如何都会将"cp"加入cmd命令
@@ -255,7 +255,8 @@ Cmd加壳由4部分组成
 　　<span style="color:blue">IsValueExist：</span>：主要用于subscripts，表示输入的值是否为"空字符串/null/多个空格"。注意本参数主要判断的是输入id所对应的value，如果输入的参数中没有该id，则会跳过本Script片段。value= "true"表示输入的值有东西时调用本script及subscripts。value="false" 表示输入的值为空时调用本script及subscripts。
 　　<span style="color:blue">Boolean：</span>一种特殊的<span style="color:blue">Selection</span>。表示输入的参数是开关类型（如选择框），要么使用该参数，要么不使用该参数。会将输入的值与value进行Boolean型比较，如果输入的值为true（选中选择框状态），并且value为true或不存在时（即默认为true），该片段会组装进入cmd；如果输入的值为true，并且value为false时，该片段不组装进入cmd。注意Boolean片段的value是用来做Boolean比较的，仅有true和false两种选择，不填表示true。<span style="color:blue">并且value不会添加到cmd中。</span>Boolean同样有subscripts。
 　　<span style="color:red">注意：</span>当xml为使用groovy脚本时，Boolean型必须配合subscripts使用，并且Boolean型的参数不能设置param，因为其本身不会传入groovy脚本，只会把subscripts传入groovy脚本。
-　　**案例：**
+&nbsp;
+**案例：**
 　　**调用cmd：**
 　　例1：`<script id="filter" param="-f" type="Boolean"/> `如果参数filter对应的值为true，则生成命令片段 "-f"，否则不生成命令片段。
 　　例2：`<script id="filter" param="-f" type="Boolean" value="false"/> `如果参数filter对应的值为false，则生成命令片段 "-f"，否则不生成命令片段。
@@ -301,7 +302,7 @@ Cmd加壳由4部分组成
 	错误：`<script id="filter" param="-p"/>`
 	正确：`<script id="filter" param="-p" value="%s"/>`
 
-`<subscripts>[script] `：子script。
+<span style='font-size:18px;font-weight:bold'>&lt;subscripts&gt;[script];</span>：子script。
 　　部分cmd命令会有一些特殊的地方，如hisat2，在给定gtf时，可以输入两个额外文件 --novel-splicesite-outfile 和 --known-splicesite-infile。这时候就需要用subscripts来进行处理。注意，仅Type为Boolean和Selection的script支持subscripts。
 例1：
 ```
@@ -392,12 +393,12 @@ Cmd加壳由4部分组成
 
 `文件路径语法糖 "//"`：仅在task为SubTask时才起作用。
 　　当task为SubTask时，输入文件默认在以本subTask的prefix为名字的子文件夹"/Prefix"中，但我们最后想把输出文件放在根目录下，这样方便下载结果文件以及下一级task的拖拽。
-　　本语法糖作用于<Script>中type为 Output, OutInput, OutInOutput这三类。以及<skipResults>和<appendIn>
-　　例1：<script type="Output" param="-out" value="/result.gz"/>
+　　本语法糖作用于`<Script>`中type为 Output, OutInput, OutInOutput这三类。以及`<skipResults>`和`<appendIn>`。
+　　例1：`<script type="Output" param="-out" value="/result.gz"/>`
 　　如果本task为SubTask，SuperTask的prefix为A，则最后输出路径为 /A/result.gz
-　　例2：<script type="Output" param="-out" value="//result.gz"/>
+　　例2：`<script type="Output" param="-out" value="//result.gz"/>`
 　　如果本task为SubTask，SuperTask的prefix为A，则最后输出路径为 /result.gz
-　　例3：<script type="OutInput" param="-out" value="//result.gz"/>
+　　例3：`<script type="OutInput" param="-out" value="//result.gz"/>`
 　　如果本task为SubTask，SuperTask的prefix为A，则会使用上一个xml在根目录下产生的文件，/result.gz
 
 
