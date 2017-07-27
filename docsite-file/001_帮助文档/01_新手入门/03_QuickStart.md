@@ -2,32 +2,32 @@
 　　本页提供一个简单的概述，说明如何用平台。
 #### **1.新建项目**
 　　点击“新建项目”，填写项目名称、项目描述后，点击“保存”。
-<div style="text-align:center"><img data-src="1.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="1.png" width="600px" ></img>
 </div>
 
 &nbsp;
 #### **2.添加实验信息**
 　　点击“添加实验”，填写实验名称、数据类型、实验描述后，保存。
-<div style="text-align:center"><img data-src="2.png" width="600px" height="250px" ></img>
+<div style="text-align:center"><img data-src="2.png" width="600px" ></img>
 </div>
 
 &nbsp;
 #### **3.添加样本信息**
 　　点击“点击添加样本”，填写样本名称和分组信息。可以任意增加行和删除样本。
-<div style="text-align:center"><img data-src="3.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="3.png" width="600px"  ></img>
 </div>
 
 &nbsp;
 #### **4.上传数据**
 　　上传数据有两种方式，如果数据量较小时，用户可以通过平台直接上传。数据量较大时，客户可以选择通过云端上传，云端上传使用多线程，支持断点续传，具体参考数据管理软件NBCClient说明（[NBCClient详细说明](filePage?path=001_帮助文档/02_项目操作/04_数据管理软件.md)）。
 　　点击“点击上传数据”。选择上传数据后，上传。
-<div style="text-align:center"><img data-src="4.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="4.png" width="600px" ></img>
 </div>
 
 &nbsp;
 #### **5.样本匹配**
 　　将上传的分析数据名称和样品名称匹配起来。点击匹配样本，选择样本名后勾选相应的数据。
-<div style="text-align:center"><img data-src="5.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="5.png" width="600px"  ></img>
 </div>
 
 &nbsp;

@@ -142,38 +142,45 @@ Cmd加壳由4部分组成
 `<script>`, `<isCoverParam>` 为groovy特有
 &nbsp;
 #### **简单属性配置：**
-<span style='font-size:18px;font-weight:bold;'>name</span>：脚本的名字，一般在报错时使用。
+<span style='font-size:18px;font-weight:bold;'>&lt;name&gt;</span>：脚本的名字，一般在报错时使用。
 　　例子：`<name>my script</name>`
-<span style='font-size:18px;font-weight:bold'>description</span>：脚本的描述，可随便填写
+<span style='font-size:18px;font-weight:bold'>&lt;description&gt;</span>：脚本的描述，可随便填写
 　　例子：`< description >this is a test script model.</ description>`
-<span style='font-size:18px;font-weight:bold'>scriptType</span>：：脚本类型
+<span style='font-size:18px;font-weight:bold'>&lt;scriptType&gt;</span>：：脚本类型
 　　目前有 groovy、cmd两种。groovy表示调用groovy的脚本，cmd表示执行第三方cmd程序。我们会有这种需求，譬如RNA-Seq-Mapping中，给定物种、版本、数据库，自动获得染色体文件和索引路径等。由于这个需要调用平台自带的数据库，因此我们提供了相关的groovy脚本，放在指定的文件夹中，在这里就可以调用相应的groovy脚本。
 　　例子：`<scriptType>groovy</scriptType>`
-<span style='font-size:18px;font-weight:bold'>script</span>：仅当`<scriptType>`为groovy时使用，用来标记使用哪个groovy脚本。
+<span style='font-size:18px;font-weight:bold'>&lt;script&gt;</span>：仅当`<scriptType>`为groovy时使用，用来标记使用哪个groovy脚本。
 　　例子：`<script>species.groovy</script>`
-<span style='font-size:18px;font-weight:bold'>isCoverParam</span>：默认为false。仅当`<scriptType>`为groovy时使用，意思groovy所产生的参数是否覆盖已有参数。譬如我们会使用groovy脚本，来给定物种版本数据库，从而获得chrseq.fa文件。但是如果用户选择了第三方的chrseq.fa文件，我们就希望使用用户自己选择的chrseq.fa文件，而不是用groovy的。
+<span style='font-size:18px;font-weight:bold'>&lt;isCoverParam&gt;</span>：默认为false。仅当`<scriptType>`为groovy时使用，意思groovy所产生的参数是否覆盖已有参数。譬如我们会使用groovy脚本，来给定物种版本数据库，从而获得chrseq.fa文件。但是如果用户选择了第三方的chrseq.fa文件，我们就希望使用用户自己选择的chrseq.fa文件，而不是用groovy的。
 所以如果本值设置为true，就会覆盖用户的选择; false，只有当不存在该参数，或参数的值为空时，才会输入本参数。
 　　例子：`<isCoverParam>false</isCoverParam>`
-<span style='font-size:18px;font-weight:bold'>isSupportHdfs</span>： 是否支持hdfs路径，默认为false，不支持就会把文件路径修改为/media/nbfs下，支持的话就是直接使用 hdfs:// 这种形式。仅使用hdfs私有云的烈冰公司开发的软件才有可能配置该参数。
+<span style='font-size:18px;font-weight:bold'>&lt;isSupportHdfs&gt;</span>： 是否支持hdfs路径，默认为false，不支持就会把文件路径修改为/media/nbfs下，支持的话就是直接使用 hdfs:// 这种形式。仅使用hdfs私有云的烈冰公司开发的软件才有可能配置该参数。
 　　例子：`<isSupportHdfs>true</isSupportHdfs>`
 &nbsp;
 **复杂属性配置：**
-<span style='font-size:18px;font-weight:bold'>isSupportHdfs</span>`<resource>`：本xml所需的cpu和内存资源，可以是数字，也可以是公式。最简单的案例如下：
+<span style='font-size:18px;font-weight:bold'>&lt;resource&gt;</span>：本xml所需的cpu和内存资源，可以是数字，也可以是公式。
+　　有以下属性：
+　　**cpu**：本xml所需要的cpu数量。
+　　**mem**：本xml所需要的内存大小。
+　　最简单的例子如下：
 　　例子：`<resource cpu="5" mem="3000" />`
 　　表示本xml需要5个core，和3000MB内存，注意内存单位是MB；cpu个数需要控制在20以内，否则很难分配到服务器上。
 　　复杂情况下可以使用一些内置函数，如下：
 　　例子：`<resource cpu="@sizenodup(@id(prefix))" mem="3300*@filesize(@id(infile))" />`
-　　在上述例子中，我们写入了一些计算公式，譬如根据参数prefix的值的数量，来判定cpu的数量。因此可以写入一些计算公式，譬如根据输入的文件大小，个数来动态计算cpu和内存的使用。那么这里我们内置了三个函数： 
+　　在上述例子中，我们写入了一些计算公式，譬如根据参数prefix的值的数量，来判定cpu的数量。因此可以写入一些计算公式，譬如根据输入的文件大小、个数来动态计算cpu和内存的使用。那么这里我们内置了三个函数： 
 　**@filesize**--给定全体文件的大小，MB为单位；
 　**@size**--数量；
 　**@sizenodup**--无重复的数量。
 　　可以使用`@id(***)`来指定获取某个param，注意@id不是函数，只是标记。可以用 @id(thread) 表示获取thread的值。@filesize(@id(infile)) 表示获取全体infile的文件大小之和。@sizenodup(@id(prefix)) 表示获取无重复的prefix的数量。注意函数（@filesize、@size、@sizenodup）不能嵌套使用，也就是不能使用类似 @sizenodup(@filesize(@id(prefix))) 这种。
-`<scriptThreadIndex>`：目前NovelBrain平台支持container内部对某个cmd命令(配置的xml)开多线程运行。本参数配置是否需要开多线程计算，具体开几个线程。容器内开多线程的意义：阿里云上最少分配的容器为4cpu+8GB，而blast这种软件在单线程时即使设置thread=4，实际也就用了2cpu，不能把容器的cpu全部使用起来。那么我们就有必要开多线程来运行blast。运行方式一般为 1.切分输入fasta文件，2.多线程运行blast，3.把结果合并成一个。其中1,3两个xml文件是单线程运行，但是需要知道到底开了几个线程，而2才是真正开多线程的步骤。
+
+<span style='font-size:18px;font-weight:bold'>&lt;scriptThreadIndex&gt;</span>：是否开启多线程运行当前的xml。
+　　目前NovelBrain平台支持container内部对某个cmd命令(配置的xml)开多线程运行。本参数配置是否需要开多线程计算，具体开几个线程。容器内开多线程的意义：阿里云上最少分配的容器为4cpu+8GB，而blast这种软件在单线程时即使设置thread=4，实际也就用了2cpu，不能把容器的cpu全部使用起来。那么我们就有必要开多线程来运行blast。运行方式一般为 1.切分输入fasta文件，2.多线程运行blast，3.把结果合并成一个。其中1,3两个xml文件是单线程运行，但是需要知道到底开了几个线程，而2才是真正开多线程的步骤。
 　　例子：`<scriptThreadIndex num="3" isMultiThread="false" />`
 　　表示本xml只会开一个线程运行。并且在`<templet>[<script>]`中可以通过 id=scriptThread 来获取设置的总线程数(值为3)；同时还可以用id=scriptThreadIndex 来获取具体每个线程的值，为一个list，值为{0,1,2}。
 　　例子：`<scriptThreadIndex num="3" isMultiThread="true" />`
 　　表示本xml会开三个线程同时运行。并且在`<templet>[<script>]`中可以通过 id=scriptThread 来获取设置的总线程数(值为3)；也可以通过id=scriptThreadIndex 来获取具体的值。根据运行的线程序号，获取相应的值，分别为0,1,2三个值。譬如第一个线程获取scriptThreadIndex=0，第二个线程获取scriptThreadIndex=1，第二个线程获取scriptThreadIndex=2。
-`<filters>[<filter>]`：过滤器。
+
+<span style='font-size:18px;font-weight:bold'>&lt;filters&gt;[&lt;filter&gt;]</span>：过滤器。
 　　我们在参数页面可以设置下拉框，如算法可以选择 Tophat、Mapsplice、hisat2等，那么不同的算法会调用不同的xml进行计算，这时候我们就可以通过<filters>[filter]过滤器来指定哪些xml需要运行，哪些不需要运行。
 　　例子：`<filter id="algo" value="mapsplice"/>`
 　　在上述例子中，表示当参数"algo"值为" mapsplice"时，本xml才会被调用，否则不被调用。
@@ -189,15 +196,15 @@ Cmd加壳由4部分组成
 　　**value**：注意这个value和属性value不一样。id所对应的某个输入参数，判断该参数是否为一个特定的值。
 <filter id="algo" type="value" value="mapsplice"/>表示当参数"algo"值为" mapsplice"时，才会运行本脚本，否则不运行。
 　　**valuesAll**：id所对应的输入参数必须完全覆盖valuesAll中的参数。多个参数之间用"@@"隔开。
-`<filter id="algos" type="valuesAll" value="mapsplice@@hisat2@@tophat"/>`表示当参数"algo"值同时存在" mapsplice"、"hisat2"、"tophat"时，才会运行本脚本，否则不运行。
+　　`<filter id="algos" type="valuesAll" value="mapsplice@@hisat2@@tophat"/>`表示当参数"algo"值同时存在" mapsplice"、"hisat2"、"tophat"时，才会运行本脚本，否则不运行。
 　　**valuesEither**：id所对应的输入参数只要有一个存在于valuesEither中，即会运行本脚本。多个参数之间用"@@"隔开。
-`<filter id="algos" type="valuesEither" value="mapsplice@@hisat2@@tophat"/>`表示当参数"algo"为" mapsplice"或"hisat2"或"tophat"时，才会运行本脚本，否则不运行。
+　　`<filter id="algos" type="valuesEither" value="mapsplice@@hisat2@@tophat"/>`表示当参数"algo"为" mapsplice"或"hisat2"或"tophat"时，才会运行本脚本，否则不运行。
 　　**valuesNeither**：id所对应的参数不能存在于valuesNeither中，即会调用本xml。多个参数之间用"@@"隔开。
 　　`<filter id="algos" type="valuesEither" value="mapsplice@@hisat2@@tophat"/>`表示当参数"algo"中包含任意" mapsplice"或"hisat2"或"tophat"中的一项，就不会运行本脚本，否则运行。
 　　**sizeIs：**一般用在文件数目中，譬如当输入一个文件时不运行，当输入的文件数量为2个或3个时运行本脚本。多个值之间用"@@"隔开。
 　　`<filter id="inputFile" type="sizeIs" value="1@@2@@3"/>`表示当输入文件inputFile的文件数量为1个或2个或3个时运行本脚本。
 　　**sizeBigger：**一般用在文件数目中，当输入的文件数量大于(不等于)指定的值时运行本脚本。
-`<filter id="inputFile" type="sizeBigger" value="2"/>`表示当输入文件inputFile的文件数量大于2时(不包含2)运行本脚本。
+　　`<filter id="inputFile" type="sizeBigger" value="2"/>`表示当输入文件inputFile的文件数量大于2时(不包含2)运行本脚本。
 　　**sizeSmaller：**一般用在文件数目中，当输入的文件数量小于(不等于)指定的值时运行本脚本。
 　　`<filter id="inputFile" type="sizeSmaller" value="2"/>`表示当输入文件inputFile的文件数量小于2时(不包含2)运行本脚本。
 　　**group：**分组。Filter在过滤时有可能会有这种需求，譬如两个条件只要满足一个就可以运行本脚本；或者条件1必选，条件2和条件3只要满足一个即可。这时候我们就可以用group来实现。
@@ -344,7 +351,7 @@ Cmd加壳由4部分组成
 　　正常情况下，当配置了一个task后，无论是否选中文件/是否填写参数，输入参数中都会包含该参数所对应的id。如果没有选文件/参数留空，则系统会向后台传递id为空的信息。即 id: "rightFqFile" value: ""。
 　　**考虑场景：**taskA已经设置好并跑过了好几次。过了段时间发现我们需要添加参数"rightFqFile"，并在时间time1加入了该参数。由于系统会自动记录以前跑过task的参数，因此time1之前执行的task是没有id: "rightFqFile"的。那么time1之前跑的task如果直接重跑是不会执行本代码片段的。这也是为了兼容time1之前的task，让其直接重跑不会受到影响。当然我们也可重新修改并保存time1之前的task，这样就会加入id: "rightFqFile"了。
 　　**param参数&&：**如果有多个cmd，并且每个cmd都很短，譬如需要mv多个文件，那么按照一般方法就需要写多个xml文件。在这里我们可以用：
-`<script param="&amp; &amp;"/>`
+`<script param="&amp;&amp;"/>`
 来进行分割。"&amp;amp;"是"&"的HTML转义符。直接写"&&会"报错，所以需要写成 "&amp;amp; &amp;amp; "的样式。
 例子：
 ```
@@ -366,7 +373,7 @@ Cmd加壳由4部分组成
 　　例子：`<script id="infile" value="@removesuffix(%s).dict"/>`
 　　如果输入的infile为/home/novelbio/chrseq.fa，则获得文件 /home/novelbio/chrseq.dict
 
-`<skipResults>[<resultFile>]：`需要跳过的文件。
+<span style='font-size:18px;font-weight:bold'>&lt;skipResults&gt;[&lt;resultFile&gt;]</span>：需要跳过的文件。
 　　如果文件存在，则该文件会被跳过。Xml加壳系统在设计时考虑了运行一半程序死掉的问题，因此输出的文件均以.tmp形式存在，只有当程序运行结束后才会被改名为实际文件名。因此只要检测到实际文件名存在，即可认为该文件已经运行结束，因此可以被跳过。
 　　有以下属性：
 　　**id：**需要的属性名称，即为param中的参数名。如果"id"不存在，则表示该参数无论何时都会加入cmd中。
@@ -378,7 +385,7 @@ Cmd加壳由4部分组成
 `<appendin>[appendfile]`
 　　group：分组。基本同Filter中的分组，用途是只要检测到部分文件存在即判定为通过。不同点是Filter中通过后会执行xml，skipResults通过后则跳过该xml。
 
-`<appendIn>[<appendFile>]`：需要引入的第三方文件。
+<span style='font-size:18px;font-weight:bold'>&lt;appendIn&gt;[&lt;appendFile&gt;]</span>：需要引入的第三方文件。
 　　使用场景：bwa和bowtie等软件在做比对时，需要指定染色体文件名 chrfile.fa，同时还需要附带上一系列的索引文件如 chrfile.fa.bwt, chrfile.fa.2bwt等，这些文件处在同一个文件夹中。很多公有云其存储系统无法挂载到/media/下，这时候就要把chrfile.fa,连同其索引文件都拷贝到临时文件夹下，用于运行。如果chrfile.fa在类似/media/winE这种支持随机读写和append的文件夹下，不需要把chrfile.fa拷贝到临时文件夹，则不用配置。
 　　有以下属性：
 　　**id：**需要的属性名称，即为param中的参数名。如果"id"不存在，则表示该参数无论何时都会加入cmd中。如果isInputTask为true，则id必须存在。
@@ -391,7 +398,7 @@ Cmd加壳由4部分组成
 　　例子：`<appendFile id="infile" value="@removesuffix(%s).dict"/>`
 　　如果输入的infile为/home/novelbio/chrseq.fa，则得到的结果为 /home/novelbio/chrseq.dict。也就是把/home/novelbio/chrseq.dict拷贝进入临时文件夹供计算时使用。
 
-`文件路径语法糖 "//"`：仅在task为SubTask时才起作用。
+<span style='font-size:18px;font-weight:bold'>文件路径语法糖 "//"</span>：仅在task为SubTask时才起作用。
 　　当task为SubTask时，输入文件默认在以本subTask的prefix为名字的子文件夹"/Prefix"中，但我们最后想把输出文件放在根目录下，这样方便下载结果文件以及下一级task的拖拽。
 　　本语法糖作用于`<Script>`中type为 Output, OutInput, OutInOutput这三类。以及`<skipResults>`和`<appendIn>`。
 　　例1：`<script type="Output" param="-out" value="/result.gz"/>`

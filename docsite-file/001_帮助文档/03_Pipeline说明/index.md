@@ -4,7 +4,7 @@
 　　下面以circRNA分析为实例，来演示平台流程使用：
 #### **1.新建项目**
 　　点击“新建项目”，填写项目名称、项目描述后，点击“保存”。
-<div style="text-align:center"><img data-src="1.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="1.png" width="600px" ></img>
 </div>
 
 &nbsp;
