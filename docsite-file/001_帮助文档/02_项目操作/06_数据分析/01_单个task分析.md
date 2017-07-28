@@ -8,7 +8,7 @@
 <div style="text-align:center"><img data-src="2.png" width="600px" ></img>
 </div>
 
-　　添加RawData完成后，点击第一个task“RawDataInput”中的“编辑参数信息”。
+　　添加RawData完成后，点击第一个task中的“编辑参数信息”。
 
 <div style="text-align:center"><img data-src="3.png" width="600px" ></img>
 </div>
