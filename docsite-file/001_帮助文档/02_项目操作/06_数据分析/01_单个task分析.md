@@ -1,6 +1,6 @@
 ### **单个task分析**
 **1.建立新的工作流**
-　　在工作流处点击“添加工作流”，填写工作流基本信息，保存。
+　　在工作流处点击“添加工作流”，填写工作流基本信息，保存。双击新建的工作流，进入。
 <div style="text-align:center"><img data-src="1.png" width="650px" ></img>
 </div>
 **2.添加RawData task**
@@ -41,7 +41,7 @@
 <div style="text-align:center"><img data-src="9.png" width="600px" ></img>
 </div>
 
-　　以此类推在流程中可添加多个工具task。设置完成后，点击“开始运行”按钮，可选择“提交选中任务”运行当前选中单个task，或选择“提交全部任务”可选择运行全部task。
+　　以此类推在流程中可添加多个工具task，也可单个task设置完成后，点击“开始运行”按钮，选择“提交选中任务”运行当前选中单个task，或选择“提交全部任务”可选择运行全部task。
 <div style="text-align:center"><img data-src="10.png" width="600px" ></img>
 </div>
 

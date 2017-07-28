@@ -10,33 +10,33 @@
 &nbsp;
 #### **2.添加实验信息**
 　　点击“添加实验”，填写实验名称、数据类型、实验描述后，保存。
-<div style="text-align:center"><img data-src="2.png" width="600px" height="250px" ></img>
+<div style="text-align:center"><img data-src="2.png" width="600px"  ></img>
 </div>
 
 &nbsp;
 #### **3.添加样本信息**
 　　点击“点击添加样本”，填写样本名称和分组信息。可以任意增加行和删除样本。
-<div style="text-align:center"><img data-src="3.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="3.png" width="600px"  ></img>
 </div>
 
 &nbsp;
 #### **4.上传数据**
 　　上传数据有两种方式，如果数据量较小时，用户可以通过平台直接上传。数据量较大时，客户可以选择通过云端上传，云端上传使用多线程，上传速度较快，并且支持断点续传，可参考NBCClient使用说明。平台直接上传，点击“点击上传数据”。选择上传数据后，上传。
-<div style="text-align:center"><img data-src="4.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="4.png" width="600px"  ></img>
 </div>
 
 &nbsp;
 #### **5.样本匹配**
 　　将上传的分析数据名称和样品名称匹配起来。点击匹配样本，选择样本名后勾选相应的数据。
-<div style="text-align:center"><img data-src="5.png" width="600px" height="300px" ></img>
+<div style="text-align:center"><img data-src="5.png" width="600px"  ></img>
 </div>
 
 &nbsp;
 #### **6.新建工作流**
 　　建好实验、样本信息和项目数据后，点击“新建工作流”可以新建工作流。选择所需分析流程，填写“工作流名称”和“工作流描述”等信息，保存。
-<div style="text-align:center"><img data-src="6.png" width="600px" height="550px" ></img>
+<div style="text-align:center"><img data-src="6.png" width="600px"  ></img>
 </div>
-<div style="text-align:center"><img data-src="7.png" width="600px" height="250px" ></img>
+<div style="text-align:center"><img data-src="7.png" width="500px" ></img>
 </div>
 
 &nbsp;

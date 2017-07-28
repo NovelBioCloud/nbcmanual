@@ -2,7 +2,7 @@
 
 **1.新建工作流**
 　　建好实验、样本信息和上传完项目数据后，点击“新建工作流”。
-<div style="text-align:center"><img data-src="6.png" width="400px" ></img>
+<div style="text-align:center"><img data-src="6.png" width="600px" ></img>
 </div>
 　　选择所需分析流程，平台中内设有转录组、小RNA、填写“工作流名称”和“工作流描述”等信息，保存。
 <div style="text-align:center"><img data-src="7.png" width="600px"  ></img>
