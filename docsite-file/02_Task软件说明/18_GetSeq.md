@@ -8,8 +8,7 @@
 　　gtfFile:序列注释信息。
 
 ***
-
-#### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
+#### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 　<label id='species'>物种：</label>选择参考基因组物种。
 　<label id='speciesVersion'>版本：</label>参考序列的版本。
 　<label id='chrIdCol'>染色体所在列号：</label>Region提取，基因染色体列Gene提取，为基因名称列。
@@ -28,7 +27,7 @@
 　<label id='getAminoacid'>获取Aminoacid：</label>获取氨基酸序列。
 　
 ***
-#### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
+#### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**<span>
 　Sequence.fa：提取出.fa结果。
 <div style="text-align:center">
 <img data-src="1.png" width="500px" ></img>

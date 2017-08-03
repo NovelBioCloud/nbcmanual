@@ -59,7 +59,7 @@
 **Memory：**运行过程中使用的最大内存。
 
 ****
-### ３．hisat2
+### 3.hisat2
 　　一个快速和灵敏的RNA-seq reads剪切比对软件，利用大量小型FM索引覆盖整个基因组，能够将RNA-Seq数据与基因组进行快速比对。约翰霍普金斯大学计算生物学中心的Steven Salzberg开发。
 　　软件官网：http://ccb.jhu.edu/software/tophat/index.shtml
 ****

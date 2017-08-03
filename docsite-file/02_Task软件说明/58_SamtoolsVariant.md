@@ -1,6 +1,6 @@
 # SamToolsVariant
 　　用Samtools软件Call Variant。
-　　官网：Samtools:http://www.htslib.org/
+　　Samtools官网：http://www.htslib.org/
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　refSeq (FASTA)：参考序列fa文件。
@@ -12,7 +12,7 @@
 　**版本：**物种的版本
 　**minBaseQuality：**最小碱基的质量值。碱基质量值过小会影响Variant预测的可信度。
 　**minMappingQuality:**最小比对质量值。
-　**VCF合并方式：**将样本结果合并
+　**VCF合并方式：**将样本结果合并。
 　　　　　　　　none：不排序，输出多条记录。
 　　　　　　　　snps：按照SNP记录进行合并。
 　　　　　　　　indels:按照indel记录合并。
