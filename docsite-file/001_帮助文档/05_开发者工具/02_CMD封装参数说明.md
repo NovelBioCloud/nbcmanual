@@ -64,7 +64,7 @@ Cmd加壳由4部分组成
  **1.1 文件夹格式 **
 　　ScriptXml放在指定的文件夹中，其中私有云一般放在 /media/nbfs/nbCloud/public/task/scriptmodule/ 中，本路径可在 NBCService 工程的 service_path.properties 中配置。
 　　在scriptmodule中，每个task拥有一个以该task名字命名的文件夹，其内部可以有六个文件夹，分别为 Prepare， Run， Summary， conifg， scripts， software。其中前三个文件夹中放置task三个阶段所需运行的xml文件。config文件夹主要用于自动跳过等配置(待补充)。scripts文件夹中建议放置运行所使用到的各种脚本，software文件夹中建议放置运行所使用到的软件(可无这两个文件夹)。
-
+```
 		例子：
 		../scriptmodule/FastQC/Prepare
 		---------------------------/1.index_make.xml
@@ -83,6 +83,7 @@ Cmd加壳由4部分组成
 		---------------------/software
 		---------------------------/hisat2
 		//以上三个文件夹可选
+```
  **1.2 Xml运行顺序**
 　　在一个stage文件夹中可以放入多个xml，我们一般要求文件名以数字开头加"."开头，以此来标识文件的顺序。下列xml会按照顺序依次执行。
 　　1.index_make.xml，2.mapping.xml，3.statistics.ml
