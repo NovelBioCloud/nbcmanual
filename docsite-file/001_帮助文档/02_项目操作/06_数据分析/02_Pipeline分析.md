@@ -37,7 +37,7 @@
 
 **2.2 参数设置**
 　　在参数输入页面，点击“编辑”即可修改task参数。
-　　需要修改某个task参数时，可在左侧框下拉，查找需要更改task，也可点击右侧pipline预览图中，点击相应的task，参数页面会自动滚动到相应task参数页面，点击“编辑”进行修改。
+　　需要修改某个task参数时，可在左侧框下拉，查找需要更改task，也可点击右侧pipeline预览图中，点击相应的task，参数页面会自动滚动到相应task参数页面，点击“编辑”进行修改。
 
 <div style="text-align:center"><img data-src="13.png" width="600px" height="250px" ></img>
 </div>
