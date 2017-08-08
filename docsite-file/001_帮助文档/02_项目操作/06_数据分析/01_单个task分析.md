@@ -38,7 +38,8 @@
 </div>
 　　文件选择完毕后，需要设置fastQC task参数，点击“编辑参数按钮”跳出弹框，设置该task参数。
 
-<div style="text-align:center"><img data-src="9.png" width="600px" ></img>
+<div style="text-align:center">
+	<img data-src="9.png" width="600px" ></img>
 </div>
 
 　　以此类推在流程中可添加多个工具task，也可单个task设置完成后，点击“开始运行”按钮，选择“提交选中任务”运行当前选中单个task，或选择“提交全部任务”可选择运行全部task。

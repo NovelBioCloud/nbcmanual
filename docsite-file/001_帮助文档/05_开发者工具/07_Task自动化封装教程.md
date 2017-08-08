@@ -1,16 +1,18 @@
 ###  **Task自动化封装教程**
 **更新记录：**
-
+		
 | 日期        | 姓名   |  事宜  |
 | --------   |:-----:  | :----:  |
 | 2016-07-27    | 边联乐| 第一版编写完成    |
 | 2016-08-05    | 宗杰| 修改Quick start，换成简单的CMD命令    |
 |2017-7-6     |   边联乐  |    整理更新  |
-
+	
 &nbsp;
 ####  **一. Task封装简介**	
-　　Task封装是一种快速将第三方软件封装为task，并在NovelBrain云平台上运行的解决方案，不但能够高度可定制化cmd命令，而且还可以将多个输入文件并行的分布在不同服务器上运行，以实现并行计算的目的。
-　　NovelBrainTM的task运行基于虚拟机系统，我们选择了docker作为轻量级虚拟机系统，每个分析task都会在指定的docker Image中运行。以此保证了软件版本的稳定性和分析task的可回溯性。因此在上线自定义的task之前，需要上传自己的docker image，或者指定使用已有的docker image。
+
+Task封装是一种快速将第三方软件封装为task，并在NovelBrain云平台上运行的解决方案，不但能够高度可定制化cmd命令，而且还可以将多个输入文件并行的分布在不同服务器上运行，以实现并行计算的目的。
+
+NovelBrainTM的task运行基于虚拟机系统，我们选择了docker作为轻量级虚拟机系统，每个分析task都会在指定的docker Image中运行。以此保证了软件版本的稳定性和分析task的可回溯性。因此在上线自定义的task之前，需要上传自己的docker image，或者指定使用已有的docker image。
 　　此外NovelBrainTM会根据task传入文件的分组信息(Prefix)的不同，将不同的文件分组在不同的docker虚拟机中运行，从而实现并行计算的目的。因此在编写自定义task的过程中，我们需要指定具体哪些参数/输入文件需要分组并进行并行计算。
 　　本教程提供了从易到难的一系列教程，希望能快速帮助用户编写自己的application。
 
@@ -25,14 +27,17 @@ NovelBrainTM提供了一个workflow引擎，即当我们拖拽好一个workflow�
 
 ####  **三. 实例详细解析**	
 
-<div style="text-align:center"><h3> ** 实例一、Cap3的封装--简单版封装**<h3></div>
+<div style="text-align:center"><h3>实例一、Cap3的封装--简单版封装<h3></div>
+
 **1.添加task与task参数配置**
+
 1.1. docker镜像管理，在系统中点击分析平台-->docker镜像管理-->添加
 <div style="text-align:center"><img data-src="1.png" width="500px" ></img>
 </div>
 
 　　在弹出框中填写名称，版本和创建日期。一个镜像可以给多个task使用。创建好镜像后，还需要将镜像上传到中央服务器中。
-　　由于镜像biodenovo中已经安装了Cap3的cmd命令，因此这里我们可以不创建新的镜像。  
+
+由于镜像biodenovo中已经安装了Cap3的cmd命令，因此这里我们可以不创建新的镜像。  
 
 1.2. taskmodule管理，在系统中点击分析平台-->taskModule管理-->新增，创建Cap3的task。
 <div style="text-align:center"><img data-src="2.png" width="500px" ></img>
@@ -75,17 +80,26 @@ NovelBrainTM提供了一个workflow引擎，即当我们拖拽好一个workflow�
 </div>
 
 **2.配置Cap3的运行xml文件**
-　　前面是配置了Cap3的task，使用镜像以及输入参数，现在需要把这些参数组织起来，方便后端进行调用。
-　　一个task由三个阶段组成，分别是Prepare、Run、Summary。
-　　**Prepare：**task运行时的前处理工作，不会并行计算。在hisat2的案例中可以用于建索引，因为无论运行多少样本，索引都只需要运行一次，所以可以把建索引的工作放在Prepare中。
+
+前面是配置了Cap3的task，使用镜像以及输入参数，现在需要把这些参数组织起来，方便后端进行调用。
+
+一个task由三个阶段组成，分别是Prepare、Run、Summary。
+
+**Prepare：** task运行时的前处理工作，不会并行计算。在hisat2的案例中可以用于建索引，因为无论运行多少样本，索引都只需要运行一次，所以可以把建索引的工作放在Prepare中。
 　　**Run：**task正式运行。如果输入多个样本，并且设定好并行计算，则本步会将样本放在不同的服务器上运行，以提高计算速度。在hisat2的案例中可以用于具体样本的mapping，这样多个样本可以在多台不同的服务器上运行。
-　　**Summary：**task结束后的收尾工作。如运行结束后汇总mapping率等工作。
-　　每个阶段有一个对应的文件夹，根据XML的功能将不同的XML放在不同的阶段中，即不同的文件夹中。如果不需要某个阶段，可以不建立该文件夹。
-　　每个阶段中都可以顺序调用多个cmd/groovy命令，每个cmd/groovy命令用xml的形式配置，也就是说每个stage中可以放置多个xml文件。以聚类软件Cap3举例，该软件仅需要一个阶段，也就是Run。因此我们仅需要创建一个Run文件夹。
+  
+**Summary：** task结束后的收尾工作。如运行结束后汇总mapping率等工作。
+
+每个阶段有一个对应的文件夹，根据XML的功能将不同的XML放在不同的阶段中，即不同的文件夹中。如果不需要某个阶段，可以不建立该文件夹。
+
+每个阶段中都可以顺序调用多个cmd/groovy命令，每个cmd/groovy命令用xml的形式配置，也就是说每个stage中可以放置多个xml文件。以聚类软件Cap3举例，该软件仅需要一个阶段，也就是Run。因此我们仅需要创建一个Run文件夹。
 
 **2.1 在创建任务文件夹: Cap3。注意这里Cap3必须与task名字相同。**
+
 **2.2 在任务文件夹Cap3中创建阶段文件夹Run。**
+
 　　Cap3/Run
+
 　　Cmd分为Prepare、Run、Summary三个阶段，一般我们只需要配置Run阶段即可。
 **2.3 在阶段文件夹Run中编写调用Cap3命令的xml文件**，xml文件命名为
 　　Cap3/Run/runCap3.xml
@@ -120,8 +134,11 @@ NovelBrainTM提供了一个workflow引擎，即当我们拖拽好一个workflow�
 
 **2.4 对xml文件的详细说明：**
 　　NovelBrainTM系统通过Xml文件来设定cmd命令所需要的参数。我们接下来对Cap3的xml文件来进行说明。一个Xml一般分为三大块，分别是：
+  
 　　**头部**--cmd命令总体配置
+  
 　　**中部**--具体参数设定
+  
 　　**尾部**--task跳过设定
 <div style="text-align:center"><img data-src="8.png" width="680px" ></img>
 </div>
@@ -135,7 +152,7 @@ NovelBrainTM提供了一个workflow引擎，即当我们拖拽好一个workflow�
 ```
 **头部**
 ```
-<name>Cap3 run script</name> 
+	<name>Cap3 run script</name> 
 	<description>This is Cap3 run script.</description> 
 	<order>1</order> 
 	<scriptType>cmd</scriptType> 
@@ -170,10 +187,13 @@ NovelBrainTM提供了一个workflow引擎，即当我们拖拽好一个workflow�
 　> myresult.out 输出路径
 代码详细解释：
 　　每一个命令单元可以由一个<script />单元组成。如：
+  
 `<script param="cap3"/>`
-　　输入的第一个参数cap3，如调用的软件名称。
+	输入的第一个参数cap3，如调用的软件名称。
+  
 `<script id="inputFile" type="Input" />`
-　<span style="color:red"> 　type="Input" 这个参数是一个输入文件类型</span>
+	<span style="color:red">type="Input" 这个参数是一个输入文件类型</span>
+ 
 　　id="inputFile" 参数的具体值来自于前端的inputFile输入项
 `<script id="gapLength" param="-f" />`
 　　param="-f" 该参数的 key，即调用软件的参数
@@ -186,11 +206,12 @@ NovelBrainTM提供了一个workflow引擎，即当我们拖拽好一个workflow�
 		譬如前端设定prefix= myresult，则该段参数单元为 "> myresult.out"
 　　<span style="color:red">以上代码片段会顺序组合，最后拼装成一个完整的命令。 </span>
 　　如上述这段代码，拼装成的cap3的命令为：cap3 Trinity.fa -f 20 -o 100 -p 90 -z 3 > myresult.out。
+
 **尾部**
 ```	
 <skipResults> 
-		<resultFile id="prefix" value="%s.out"/> 
-	</skipResults>
+	<resultFile id="prefix" value="%s.out"/> 
+</skipResults>
 ```
 　　单元skipResults表示如果在结果文件夹中发现已经存在了相关文件，则本cmd命令就不会执行，用来防止多次执行一个耗时很长的且已经成功运行的命令。`<skipResults>…</skipResults>`则中间可以存在多个`<resultFile …/>`片段，每个片段代表一个输出文件。只有**当所有输出文件都存在**时，才会跳过该cmd。
 　 `<resultFile id="prefix" value="%s.out"/>`
@@ -272,24 +293,25 @@ hisat2在xml文件层面相对于Cap3比较大的区别有两个：
 　　因此我们的思路即为获取数据库中的染色体文件，并对其建索引。
 　　在Prepare中我们需要写两个xml文件，GetReferencePath.xml和index_make.xml。其中GetReferencePath.xml用来获取数据库中保存的染色体文件路径，index_make.xml用来给染色体建索引。
 <div style="text-align:left"><img data-src="23.png" width="500px" ></img>
+
 (1)．Prepare--GetReferencePath.xml
 　　本步用来获取数据库中指定物种的染色体文件。我们在代码库中保存了一系列的groovy脚本，通过调用这些脚本就可以获得选定物种的染色体文件、Gff文件等信息。
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-<name>species.groovy</name>
-<description>this is a script whi….n to get reference sequence file path.</description>  
-  <order>1</order>
-  <scriptType>groovy</scriptType>
-  <script>species.groovy</script>
-  <taskType>hisat2</taskType>
-  <stage>Prepare</stage>
-  <templet>
-    <script id="species" param="taxId"/>
-    <script id="speciesVersion" param="version"/>
-    <script id="dbType" param="gffDb"/>
-<script param="software" value="hisat2"/>
-  </templet>
+	<name>species.groovy</name>
+	<description>this is a script whi….n to get reference sequence file path.</description>  
+  	<order>1</order>
+  	<scriptType>groovy</scriptType>
+  	<script>species.groovy</script>
+  	<taskType>hisat2</taskType>
+  	<stage>Prepare</stage>
+  	<templet>
+    		<script id="species" param="taxId"/>
+    		<script id="speciesVersion" param="version"/>
+    		<script id="dbType" param="gffDb"/>
+		<script param="software" value="hisat2"/>
+	</templet>
 </root>
 ```
 代码详细解析：调用groovy脚本的xml分为两部分。头部和中部，注意没有尾部。
@@ -581,8 +603,8 @@ c. 	在taskModuleParam页面中，设置下拉框参数（如，“SS_lib_type�
 　　1.param=""字段中不能出现空格。
 　　2.跳过机制如果写入多行，代表同时存在文件才跳过，目前不支持“或”条件。
 　　3.id="prefix"后的value最多只能出现一次通配符%s，出现多个会报错，所以无法出现使用“%s/%s.txt”这种代码使带prefix名字的结果文件生成在以prefix命名的文件夹中。
-　　4.在输入文件是最好添加isCopyToTmp=”true”，把文件复制到tmp下再读入，防止出现读写冲突时服务器卡住的情况。
-　　5.输出后续使用的文件字段直接用Output，不需要使用OutInput，需要添加。isCopyToTmp=“true”，生成tmp文件，全部跑完后再复制出来，防止直接生成的结果文件因为报错或中断导致不完整，从而跳过整个步骤。
+　　4.在输入文件是最好添加isCopyToTmp="true"，把文件复制到tmp下再读入，防止出现读写冲突时服务器卡住的情况。
+　　5.输出后续使用的文件字段直接用Output，不需要使用OutInput，需要添加。isCopyToTmp="true"，生成tmp文件，全部跑完后再复制出来，防止直接生成的结果文件因为报错或中断导致不完整，从而跳过整个步骤。
 　　6.compare中的group1Array与group2Array在taskModuleParam中“顺序”一列的值需要设置为相同的数值，否则会报错，outFileArray的类型不是compare，需要设置为outprefix。
 　　7.grep输入文件要求为标准流输入，及在输入文件的param中设置为"<"，而且需要用html的转义字符进行描述。
 　　8.param中不要出现单引号，双引号。
