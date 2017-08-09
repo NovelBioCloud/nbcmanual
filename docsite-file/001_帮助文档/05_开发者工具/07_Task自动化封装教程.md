@@ -428,6 +428,7 @@ hisat2在xml文件层面相对于Cap3比较大的区别有两个：
 　　由于VarScan2运行结束以后，需要对结果文件，进行提取somatic snp和somatic indel的处理工作，所以，VarScan2的Run阶段中包含有3个xml文件。
 　(1) Run-- varScan2.xml
 　　这个xml用来调用VarScan2命令。
+<pre>
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
@@ -463,9 +464,8 @@ hisat2在xml文件层面相对于Cap3比较大的区别有两个：
   	<resultFile id="outFileArray" value="%s_snp.vcf"/>
   </skipResults>
 </root>
-
 ```
-
+</pre>
 详细代码解析：
 　　`<isSupportHdfs>true</isSupportHdfs>`
 　　该xml中有一个新的标签即<isSupportHdfst ／>，这个标签表示是否支持hdfs路径，默认为false。一般绝大部分情况下，都是不支持hdfs的，除了我们自己写的java处理程序和我们修改后的VarScan2软件是支持hdfs以外，VarScan2之所以支持是因为我们修改了该软件的输出方式，使之可以支持hdfs，也就是说，绝大部分情况下该标签使用默认即可。

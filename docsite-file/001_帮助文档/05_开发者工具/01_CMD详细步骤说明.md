@@ -1,4 +1,4 @@
-### **ＣＭＤ详细步骤说明**
+### **CMD详细步骤说明**
 　Cmd加壳主要分为建立task、设置task参数、以及部署到服务器，这几步，以下进行详细说明。
 #### **1.系统中建立task**
 　　登录阿里云平台系统，用管理用户进入：　
@@ -42,10 +42,10 @@ TaskType ：需要与第一步添加task 名称相一致
 　　　　　　multiCombobox:下拉多选,现只用于blastSpecies
 　　　　　　slider:滑动器
 
- **几种比较特殊的参数型： **
+ **几种比较特殊的参数型：**
  **A．下拉框型 ** 当控件类型为下拉框选择时，需要填写URL地址，步骤如下：
 　　a．在“基础数据管理”中选择“数据字典管理”
- <div style="text-align:center">
+<div style="text-align:center">
 <img data-src="7.png" width="600px" height="300px" ></img>
 </div>
 　　b.如建有选项可直接进行选择，如没有需要选择“新增”；
@@ -95,5 +95,5 @@ TaskType ：需要与第一步添加task 名称相一致
 　（2）index文件单独放到文件夹中，需要添加value="/index/%s"
 可参见hisat
 
-#### **5.xml文件夹放在服务器 **
+#### **5.xml文件夹放在服务器**
 　　/media/nbfs/nbCloud/public/task/scriptmodule 路径下。

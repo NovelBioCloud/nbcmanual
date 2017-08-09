@@ -1,8 +1,12 @@
 ### **单个task分析**
+<div style="text-align:center"><img data-src="单个task分析.gif"width="650px"></img>
+</div>
+
 **1.建立新的工作流**
 　　在工作流处点击“添加工作流”，填写工作流基本信息，保存。双击新建的工作流，进入。
 <div style="text-align:center"><img data-src="1.png" width="650px" ></img>
 </div>
+
 **2.添加RawData task**
 　　无论是运行工作流还是task，添加RawData task都是必不可少的第一步。在页面左侧工具库中选择RawDataTask，拖入右侧运行界面，在跳出弹框中，填写“任务名称”并选择“输入类型”来选择数据文件类型。注意，“输入类型”需要选择对应的数据类型，否则在Rawdata添加数据中不能显示。
 <div style="text-align:center"><img data-src="2.png" width="600px" ></img>

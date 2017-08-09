@@ -34,7 +34,7 @@
     </thead>
 </table>
 ```
-　　**动态表格：**有些表格的列名无法直接确定，需要使用动态表格。动态表格无需添加具体列信息等，只需添加`class=dynamic`。
+　　**动态表格：** 有些表格的列名无法直接确定，需要使用动态表格。动态表格无需添加具体列信息等，只需添加`class=dynamic`。
 ```
 <table class=dynamic  fileId=Task@@project_@projectId@/task_@taskId@/QualityControl_result/basicStatsAll.xls >
 </table>
