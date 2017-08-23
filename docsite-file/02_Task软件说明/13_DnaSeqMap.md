@@ -10,6 +10,13 @@ Bowtie2
 hisat
 　　 一个快速和灵敏的RNA-seq reads剪切比对软件，利用大量小型FM索引覆盖整个基因组，能够将RNA-Seq数据与基因组进行快速比对。
  ***
+#### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
+**左端序列文件(FASTQ)右端序列文件(FASTQ)：**输入比对文件。
+**chrSeq：**参考序列文件。
+**gtfFile：**参考序列gtf文件。
+ 
+  
+ ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 　<label id='species'>物种：</label>选择参考基因组物种。
 　<label id='speciesVersion'>物种版本：</label>参考序列的版本。
