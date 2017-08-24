@@ -1,5 +1,5 @@
 # GATK3
-　　基于Illumina数据格式的人类全基因组和外显子组的测序数据，主要进行variant calling，包括SNP、INDEL，一般通过BWA+GATK进行数据分析。
+　　基于Illumina数据格式的人类全基因组和外显子组的测序数据，进行variant calling，包括SNP、INDEL，一般通过BWA+GATK进行数据分析。
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 

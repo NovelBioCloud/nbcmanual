@@ -23,8 +23,8 @@
 　<label id='toBedOptionNoneUnique'>ToBedOptionNoneUnique：</label>用于Sam to bed 中，对于非unique mapping的数据，如果选择此选项只输出一条mapping结果，如不选择的则将所有的mapping结果都输出。
 　<label id='MappingToFile'>MappingToFile：</label>当没有参考序列时（物种选为UnKnown Species），可上传参考序列。
 　<label id='unsafe'>Unsafe：</label>
-　　　　　　SAFE
-　　　　　　ALLOW_SEQ_DICT_INCOMPATIBILITY
+　　　　　　SAFE：严格，输入文件格式做检查
+　　　　　　ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配。
 　　　　　　ALLOW_UNINDEXED_BAM:允许输入的Bam文件没有排序
 　　　　　　ALLOW_UNSET_BAM_SORT_ORDER：允许输入的Bam文件没有建索引
 　　　　　　LENIENT_VCF_PROCESSING

@@ -1,5 +1,5 @@
 # HumanVcfAnno
-　　GATK里面的vcf文件，进行dbsnp、EXAC、TG、cosmic数据库注释。
+　　GATK中的vcf文件，进行dbsnp、EXAC、TG、cosmic数据库注释。
 
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**

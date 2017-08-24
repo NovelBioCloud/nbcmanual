@@ -37,8 +37,8 @@ GO具有三大类：
 <label id='species'>物种：</label>可选多个blast物种。
 <label id='speciesVersion'>版本：</label>参考序列的版本。
 <label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
-<label id='blast'>Blast：</label>与非模式物种比对，增加注释量。
-<label id='blastSpecies'>BlastSpecies：</label>可选多个blast物种。
+**Blast：**与非模式物种比对，增加注释量。
+**BlastSpecies：**可选多个blast物种。
 <label id='goAlgorithm'>GoAlgorithm：</label>生成GO graph的方法。Novelgo：常规超几何分布，烈冰研发算法。
 <div style="text-align:center">
 <img data-src="2.png" width="350px" ></img>
