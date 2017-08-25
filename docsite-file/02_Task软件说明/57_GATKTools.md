@@ -25,8 +25,8 @@ interval_Bed (BED)：基因组位置文件。
 　　(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配。
 　　(3) ALLOW_UNINDEXED_BAM：允许BAM文件没有索引。
 　　(4) ALLOW_UNSET_BAM_SORT_ORDER：允许bam文件sort的时不指定sort方式。
-　　(5) LENIENT_VCF_PROCESSING：
-　　(6) NO_READ_ORDER_VERIFICATION：
+　　(5) LENIENT_VCF_PROCESSING：允许使用VCF文件中缺少一些“强烈建议但不是严格要求的规范”
+　　(6) NO_READ_ORDER_VERIFICATION：不验证reads的顺序
 　　(7) ALL：以上都允许。
 　**线程：**运行时，使用线程数。
 　**Memory：**运行时，使用Container数。

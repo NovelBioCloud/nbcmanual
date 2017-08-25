@@ -11,6 +11,7 @@
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 　<label id='species'>物种：</label>选择参考基因组物种。
 　<label id='speciesVersion'>版本：</label>参考序列的版本。
+ 　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
 　<label id='chrIdCol'>染色体所在列号：</label>Region提取，基因染色体列Gene提取，为基因名称列。
 　<label id='getAllIso'>获取所有的ISO：</label>获取所有转录本序列。
 　<label id='getmiRNA'>获取miRNA：</label>获取miRNA序列。
