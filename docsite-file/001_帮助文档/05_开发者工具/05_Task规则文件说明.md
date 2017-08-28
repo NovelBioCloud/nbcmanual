@@ -12,7 +12,7 @@
 </div>
 
 
-  他包括几个基本部分:
+  包括几个基本部分:
 　　OutAllFileNameModel(规则文件整体结构)。
 　　lsTaskFilepath(该task下的文件夹名称,因为可能存在多个文件夹.所以需挨个列出)。
 　　lsOutFileNameModel(所有规则文件的模型列表,里面可能有多个文件夹中的规则文件)。

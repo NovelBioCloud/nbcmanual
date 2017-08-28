@@ -12,15 +12,15 @@
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 **software：**选择所使用软件，Miranda和RNAhybird可以同时选择。
-**Seed_Strict：**
+**Seed_Strict：**选中参数。对于miranda软件表示，添加这个参数-strict；添加这个参数的意思是要求miRNA的第2到第8个碱基必须是完全比对上的；对于RNAhybrid软件表示添加-f的参数，且其值为 2,7 ；-f 2,7 表示要求miRNA的第2到第7个碱基必须是完全比对上的。
 **Miranda_Score：**miRNA和靶基因结合的效率水平。
 **Miranda_Energy：**miRNA和靶基因结合的吉布斯自由能，其绝对值越大，说明两者结合的越稳定。
 **RNAhybrid_Model：**参考基因组的物种。
-**RNAhybrid_MaxTargetLen：**
-**RNAhybrid_MaxQueryLen：**
+**RNAhybrid_MaxTargetLen：**RNAhybrid 中3`UTR序列最大长度。
+**RNAhybrid_MaxQueryLen：**RNAhybrid 中miRNA序列最大长度。
 **RNAhybrid_Energy：**miRNA和靶基因结合的吉布斯自由能，其绝对值越大，说明两者结合的越稳定。
 **RNAhybrid_Pvalue：**关系的结合显著性值，统计学根据显著性检验方法所得到的P值。
-**RNAhybrid_HitsPerTarget：**
+**RNAhybrid_HitsPerTarget：**一个小RNA和一个靶基因的某一段序列匹配情况最多列出几次，比如一个小RNA和一个靶基因的某一段序列匹配存在多种情况，则为1的话只列出最优的匹配情况，一般选1就比较好。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
