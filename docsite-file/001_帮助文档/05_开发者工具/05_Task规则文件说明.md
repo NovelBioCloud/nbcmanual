@@ -51,7 +51,7 @@
 <div style="text-align:center"><img data-src="2.png" width="500px" ></img>
 </div>
 
-**3.几种特殊的规则文件**
+**2.几种特殊的规则文件**
 　　现在新做的task结果文件默认没有文件夹，配置时就不需要配置lsTaskFilepath和filepathStr两个属性的配置。具体如下图
 <div style="text-align:center"><img data-src="3.png" width="350px" ></img>
 </div>
@@ -59,7 +59,7 @@
 　　对于有些task，结果文件可能放在不同前缀的文件夹中，这时文件夹名称可以配置为${prefix}格式。
 <div style="text-align:center"><img data-src="4.png" width="350px" ></img>
 </div>
-**4.具体样例**
+**3.具体样例**
 　FastQC
 ```
 <?xml version="1.0" encoding="UTF-8"?>
