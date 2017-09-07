@@ -6,11 +6,7 @@
 ***
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 
-　　该Task的数据来源于RawDataTask的fq.gz文件，最终生成高质量的fq.gz文件，可用于比对到参考基因组上。
-　如果为双端测序输入左端文件和右端文件，如果为单端测序只拖入左端文件即可。
-　左端文件：测序左端reads序列。
-　右端文件：测序右端reads序列。
-　输入格式为fq或者fq.gz，输出格式为fq.gz。
+　　InFile (TABLE):输入GO-Term表格,格式xlsx。
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
