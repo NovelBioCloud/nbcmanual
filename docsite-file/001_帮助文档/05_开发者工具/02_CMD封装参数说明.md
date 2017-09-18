@@ -252,25 +252,22 @@ Cmd加壳由4部分组成
 　　例4：某个参数片段为-out ${value1}_anywords_${value2}.sam，即给定value1为A，value2为B则我们希望实际片段为 - out A-anywordsf-B.sam。这时候我们也需要多id的形式，可以写成：
 　　`<script id="prefix1,prefix2" param="-in" value="%s_-anywordsf-s%s.sam"/>`
 　　注意在这里，id为prefix1和prefix2，后面的%s都是一样的。按照顺序第一个%s对应prefix1的值，第二个%s对应prefix2的值。
-　　**type：**参数的类型，有String，Boolean，Compare，Input，Output，OutInput这几种类型
-　　<span style="color:blue"> String</span>：默认值，表示输入的参数为字符串，包括文字，整数，小数等都认为是字符串。譬如 "-a 3" "-prefix treat" 这种都是String类型。
-　　例：`<script id="minLen" param="-cp" type="String"/> ` 结果同上
-　　<span style="color:blue">Selection</span>：主要用于subscripts（`<templet>[<script>]`结束后有详细介绍），表示输入的值需要和value进行比较，如果一致，则执行subscripts，否则就跳过。注意比较对大小写敏感，也就是NovelBio和novelbio判定为不一致。此外如果输入为可多选的下拉框，那么只要下拉框中选中了本value，subscripts就执行。
-　　subscripts见后面。<span style="color:red">注意Selection片段的value是用来做比较的，所以value不会添加到cmd中。</span>事实上Selection片段只有param会添加到cmd中。
-　　例：前台有个下拉框Id为sentieonAlgo，可以多选若干条目。后台xml片段如下：
-　　`<script id="sentieonAlgo" type="Selection" value="Dedup"/> `
-　　只要前台下拉框选中了Dedup这个条目，该段代码就会被执行。
-　　<span style="color:blue">IsValueExist：</span>：主要用于subscripts，表示输入的值是否为"空字符串/null/多个空格"。注意本参数主要判断的是输入id所对应的value，如果输入的参数中没有该id，则会跳过本Script片段。value= "true"表示输入的值有东西时调用本script及subscripts。value="false" 表示输入的值为空时调用本script及subscripts。
-　　<span style="color:blue">Boolean：</span>一种特殊的<span style="color:blue">Selection</span>。表示输入的参数是开关类型（如选择框），要么使用该参数，要么不使用该参数。会将输入的值与value进行Boolean型比较，如果输入的值为true（选中选择框状态），并且value为true或不存在时（即默认为true），该片段会组装进入cmd；如果输入的值为true，并且value为false时，该片段不组装进入cmd。注意Boolean片段的value是用来做Boolean比较的，仅有true和false两种选择，不填表示true。<span style="color:blue">并且value不会添加到cmd中。</span>Boolean同样有subscripts。
-　　<span style="color:red">注意：</span>当xml为使用groovy脚本时，Boolean型必须配合subscripts使用，并且Boolean型的参数不能设置param，因为其本身不会传入groovy脚本，只会把subscripts传入groovy脚本。
-&nbsp;
-**案例：**
-　　**调用cmd：**
-　　例1：`<script id="filter" param="-f" type="Boolean"/> `如果参数filter对应的值为true，则生成命令片段 "-f"，否则不生成命令片段。
-　　例2：`<script id="filter" param="-f" type="Boolean" value="false"/> `如果参数filter对应的值为false，则生成命令片段 "-f"，否则不生成命令片段。
-　　调用groovy：
-　　例1：`<script id="filter" type="Boolean" value="false"/> `因为没有subscripts，会报错。
-　　例2：
+　　**type：**参数的类型，有String，Selection，IsValueExist，Boolean，Input，Output，OutInput，InOutput，OutInOutput这几种类型
+　　　　<span style="color:blue;font-weight:bold;"> String</span>：默认值，表示输入的参数为字符串，包括文字，整数，小数等都认为是字符串。譬如 "-a 3" "-prefix treat" 这种都是String类型。
+　　　　例：`<script id="minLen" param="-cp" type="String"/> ` 结果同上
+　　　　<span style="color:blue;font-weight:bold;">Selection</span>：主要用于<b>subscripts</b>（`<templet>[<script>]`结束后有详细介绍），表示输入的值需要和value进行比较，如果一致，则执行subscripts，否则就跳过。注意比较对大小写敏感，也就是NovelBio和novelbio判定为不一致。此外如果输入为可多选的下拉框，那么只要下拉框中选中了本value，subscripts就执行。
+　　　　<b>subscripts</b>见后面。<span style="color:red">注意Selection片段的value是用来做比较的，所以value不会添加到cmd中。</span>事实上Selection片段只有param会添加到cmd中。
+　　　　例：前台有个下拉框Id为sentieonAlgo，可以多选若干条目。后台xml片段如下：
+　　　　`<script id="sentieonAlgo" type="Selection" value="Dedup"/> `
+　　　　只要前台下拉框选中了Dedup这个条目，该段代码就会被执行。
+　　　　<span style="color:blue;font-weight:bold;">IsValueExist：</span>：主要用于subscripts，表示输入的值是否为"空字符串/null/多个空格"。注意本参数主要判断的是输入id所对应的value，如果输入的参数中没有该id，则会跳过本Script片段。value= "true"表示输入的值有东西时调用本script及subscripts。value="false" 表示输入的值为空时调用本script及subscripts。
+　　　　<span style="color:blue;font-weight:bold;">Boolean：</span>一种特殊的<span style="color:blue">Selection</span>。表示输入的参数是开关类型（如选择框），要么使用该参数，要么不使用该参数。会将输入的值与value进行Boolean型比较，如果输入的值为true（选中选择框状态），并且value为true或不存在时（即默认为true），该片段会组装进入cmd；如果输入的值为true，并且value为false时，该片段不组装进入cmd。注意Boolean片段的value是用来做Boolean比较的，仅有true和false两种选择，不填表示true。<span style="color:blue">并且value不会添加到cmd中。</span>Boolean同样有subscripts。
+　　　　<span style="color:red">注意：</span>当xml为使用groovy脚本时，Boolean型必须配合subscripts使用，并且Boolean型的参数不能设置param，因为其本身不会传入groovy脚本，只会把subscripts传入groovy脚本。
+　　　　例1：`<script id="filter" param="-f" type="Boolean"/> `如果参数filter对应的值为true，则生成命令片段 "-f"，否则不生成命令片段。
+　　　　例2：`<script id="filter" param="-f" type="Boolean" value="false"/> `如果参数filter对应的值为false，则生成命令片段 "-f"，否则不生成命令片段。
+　　　　调用groovy：
+　　　　例1：`<script id="filter" type="Boolean" value="false"/> `因为没有subscripts，会报错。
+　　　　例2，查看如下代码：
 ```
 <script id="filter" type="Boolean" value="false">
 	<subscripts>
@@ -278,17 +275,17 @@ Cmd加壳由4部分组成
 	</subscripts>
 </script>
 ```
-　　以上，filter不会传入groovy脚本，只会把subscripts传入groovy脚本。
-　　<span style="color:blue"> Input：</span>表示输入的参数是输入文件，输入路径由上一个task而来，会根据prefix进行切分，输入给定的inputFiles。
-　　例：`<script id="InputFile" param="-in" type="Input" /> `如果参数InputFile对应的值为/home/novelbio/lasttask/1.fq 则生成命令片段 "-in /home/novelbio/lasttask/1.fq"。
-　　<span style="color:blue">Output：</span>本参数为输出路径，默认输出文件夹为当前task的路径—我们把这个路径称为output文件夹，记为 ${current_task}/。如果存在prefix，则会用prefix来进行替换。
-　　例：`<script id="prefix" param="-out" type="Output" value="/tmp/%s.sam"/> `如果prefix为A，会组装命令片段"-out /tmp/A.sam"，其中A 会取代%s。输出文件放置在当前task的文件夹中，为 ${current_task}/tmp/A.sam 这个文件。
-　　<span style="color:blue">OutInput：</span>xml是顺序执行，因此可以从上一个xml获得的output文件，在这里做为输入文件。
-例：<script id="prefix" param="-in" type="OutInput" value="/tmp/%s.sam"/> 如果prefix为A，会将 ${current_task}/tmp/A.sam这个文件作为输入组成命令片段"-in /tmp/A.sam"。
-　　<span style="color:blue">InOutput：</span>仅在isCopyToTmp="true"时起作用。 部分软件，如samtools faidx给fasta文件建索引，samtools index 给bam文件建索引，输入文件仅有fasta文件或bam文件一个，输出的文件会在输入文件的同一个文件夹下，文件名也是几乎相同，仅加上后缀。如命令"samtools faidx /home/novelbio/chr.fa" 会产生/home/novelbio/chr.fa.fai的索引文件。这时候我们认为这个命令的输入文件和输出文件是一致的。都是/home/novelbio/chr.fa。为了方便把输出文件拷贝到指定的文件夹中，我们在这里选择类型为InOutput，这样如果参数 isCopyToTmp="true"，就会把产生的索引文件拷贝到结果文件夹中。如果参数" isCopyToTmp ="false""，则索引文件依然会在fasta文件的目录下产生。		
-　　例：<script id="prefix" type="InOutput" value="%s.sam" isCopyToTmp ="true"/> 如果prefix为A，会将A.sam这个文件拷贝到临时文件夹中，并作为输入文件，同时在运行结束后，会把A所在文件夹下的全体文件拷贝到结果文件夹中。
-　　<span style="color:blue">OutInOutput：</span>仅在isCopyToTmp="true"时起作用。在task中写入多个xml文件进行软件串联时，会遇到这么一种场景：第一个xml产生一个bam文件，然后第二个xml文件需要调用samtools并对bam文件建索引。这时候输入文件仅有bam文件，且bam文件已经在output文件夹中，这时候就需要把输入文件标记为OutInOutput。
-　　例：<script id="prefix" param="-in" type="OutInOutput" value="/tmp/%s.bam"/> 如果prefix为A，会将 ${current_task}/tmp/A.bam这个文件作为输入组成命令片段"-in /tmp/A.bam"。
+　　　　以上，filter不会传入groovy脚本，只会把subscripts传入groovy脚本。
+　　　　<span style="color:blue;font-weight:bold;"> Input：</span>表示输入的参数是输入文件，输入路径由上一个task而来，会根据prefix进行切分，输入给定的inputFiles。
+　　　　例：`<script id="InputFile" param="-in" type="Input" /> `如果参数InputFile对应的值为/home/novelbio/lasttask/1.fq 则生成命令片段 "-in /home/novelbio/lasttask/1.fq"。
+　　　　<span style="color:blue;font-weight:bold;">Output：</span>本参数为输出路径，默认输出文件夹为当前task的路径—我们把这个路径称为output文件夹，记为 ${current_task}/。如果存在prefix，则会用prefix来进行替换。
+　　　　例：`<script id="prefix" param="-out" type="Output" value="/tmp/%s.sam"/> `如果prefix为A，会组装命令片段"-out /tmp/A.sam"，其中A 会取代%s。输出文件放置在当前task的文件夹中，为 ${current_task}/tmp/A.sam 这个文件。
+　　　　<span style="color:blue;font-weight:bold;">OutInput：</span>xml是顺序执行，因此可以从上一个xml获得的output文件，在这里做为输入文件。
+　　　　例：<script id="prefix" param="-in" type="OutInput" value="/tmp/%s.sam"/> 如果prefix为A，会将 ${current_task}/tmp/A.sam这个文件作为输入组成命令片段"-in /tmp/A.sam"。
+　　　　<span style="color:blue;font-weight:bold;">InOutput：</span>仅在isCopyToTmp="true"时起作用。 部分软件，如samtools faidx给fasta文件建索引，samtools index 给bam文件建索引，输入文件仅有fasta文件或bam文件一个，输出的文件会在输入文件的同一个文件夹下，文件名也是几乎相同，仅加上后缀。如命令"samtools faidx /home/novelbio/chr.fa" 会产生/home/novelbio/chr.fa.fai的索引文件。这时候我们认为这个命令的输入文件和输出文件是一致的。都是/home/novelbio/chr.fa。为了方便把输出文件拷贝到指定的文件夹中，我们在这里选择类型为InOutput，这样如果参数 isCopyToTmp="true"，就会把产生的索引文件拷贝到结果文件夹中。如果参数" isCopyToTmp ="false""，则索引文件依然会在fasta文件的目录下产生。		
+　　　　例：<script id="prefix" type="InOutput" value="%s.sam" isCopyToTmp ="true"/> 如果prefix为A，会将A.sam这个文件拷贝到临时文件夹中，并作为输入文件，同时在运行结束后，会把A所在文件夹下的全体文件拷贝到结果文件夹中。
+　　　　<span style="color:blue;font-weight:bold;">OutInOutput：</span>仅在isCopyToTmp="true"时起作用。在task中写入多个xml文件进行软件串联时，会遇到这么一种场景：第一个xml产生一个bam文件，然后第二个xml文件需要调用samtools并对bam文件建索引。这时候输入文件仅有bam文件，且bam文件已经在output文件夹中，这时候就需要把输入文件标记为OutInOutput。
+　　　　例：<script id="prefix" param="-in" type="OutInOutput" value="/tmp/%s.bam"/> 如果prefix为A，会将 ${current_task}/tmp/A.bam这个文件作为输入组成命令片段"-in /tmp/A.bam"。
 　　**sep：**参数名和参数值之间的分隔符，默认为空格，不过有时候是"="，主要是一些java程序
 　　例：<script id="sample" param="-s" value="%s" sep="="/> 如果sample对应的值为treat，则生成命令片段"-s=treat"
 　　**sepValue：**默认为逗号”,”。当id字段对应的参数(value)有多个值时，多个值之间的分隔符。譬如在做RNA-Seq-mapping时，同一个prefix前缀会对应多个fastq，这时候这些fastq文件需要用逗号隔开。
