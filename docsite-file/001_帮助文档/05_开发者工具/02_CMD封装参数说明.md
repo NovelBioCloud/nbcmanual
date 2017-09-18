@@ -293,7 +293,7 @@ Cmd加壳由4部分组成
 　　有时候也会有如下命令：
 　　bwa -file /home/file1 -file /home/file2 -file /home/file3 -out /home/output，
 也就是输入多个文件，并且输入文件统统以 -file 打头。这时候我们可以通过设置param="-file"然后sepValue=" -file "的形式实现。可以如下写
-　　<script id="infile" param="-file" value="%s" sepValue=" -file "/>
+　　`<script id="infile" param="-file" value="%s" sepValue=" -file "/>`
 　　注意sepValue的值" -file "，其首尾均有空格。
 　　**isCopyToTmp：**是否将当前输入或输出文件先复制到临时文件夹中。如果配合type="Input"或type="OutInput"，则会将输入文件先移动到临时文件夹下，然后开始运行。如果配合type="OutPut"，则会将输出文件先输出到临时文件夹中，等运行结束后再复制到实际结果文件夹。
 　　例：`<script id="infile" param="-in" value="%s" isCopyToTmp="true"/> ` 如果infile对应 /home/novelbio/1.fq, /home/novelbio/2.fq，则会将这两个文件拷贝到临时文件夹下然后再运行。
@@ -396,15 +396,47 @@ Cmd加壳由4部分组成
 　　例子：`<appendFile id="infile" value="@removesuffix(%s).dict"/>`
 　　如果输入的infile为/home/novelbio/chrseq.fa，则得到的结果为 /home/novelbio/chrseq.dict。也就是把/home/novelbio/chrseq.dict拷贝进入临时文件夹供计算时使用。
 
-<span style='font-size:18px;font-weight:bold'>文件路径语法糖 "//"</span>：仅在task为SubTask时才起作用。
-　　当task为SubTask时，输入文件默认在以本subTask的prefix为名字的子文件夹"/Prefix"中，但我们最后想把输出文件放在根目录下，这样方便下载结果文件以及下一级task的拖拽。
+### **文件路径语法糖 ：**
+　　**简介：**
+　　仅在task为SubTask时才起作用。某个task可以设置为SuperTask，那么该task在提交时，首先会提交一系列SubTask到平台，然后每个SubTask单独再开多个container进行分布式计算。
+
+　　以人类重测序数据的bwa比对任务作为一个task为例，我们可以设定task的Prepare阶段对输入文件进行切分，然后Run阶段对每个切分的文件进行比对，summary阶段对Run阶段的文件进行合并，这样可以加速单个人类数据样本的比对效率。
+
+　　那么注意该task只能处理单个样本，如果现在我们同时有10个样本，我们可以将该task以SuperTask的形式提交。SuperTask阶段，系统会将10个样本提交10次到后端云上，然后对用户来说仅有一个task被提交，而对系统来说，总共提交了10个task，这每一个task就是一个SubTask。也就是用户提交了一个SuperTask，实际产生了一个SuperTask（仅用于展示，并不计算），以及10个SubTask（每个SubTask计算一个样本）。
+  
+  　　由于是在一个SuperTask中运行，因此我们希望运行得到的中间结果保存在以prefix为名字的文件夹中，而结果保存在task的根文件夹中。如下文件结构。
+```
+		例子：
+		MySuperTask/
+		------------/Sample1.bam
+		------------/Sample2.bam
+		------------/Sample3.bam
+
+		------------/Sample1/
+		---------------------/Sample1.1.bed
+		---------------------/Sample1.2.bed
+		------------/Sample2/
+		---------------------/Sample2.1.bed
+		---------------------/Sample2.2.bed
+		---------------------/Sample2.3.bed
+		------------/Sample3/
+		---------------------/Sample3.1.bed
+		---------------------/Sample3.2.bed
+		---------------------/Sample3.3.bed
+```
+　　以上SuperTask运行了三个SubTask，其中结果放在SuperTask的根目录下，分别为 Sample1.bam，Sample2.bam，Sample3.bam。然后每个SubTask都有自己的结果，分别放在自己的文件夹下。那么我们默认SubTask-Sample1的输出文件夹为 MySuperTask/Sasmple1/。如Sample1的结果路径为 MySuperTask/Sasmple1/Sample1.1.bed和MySuperTask/Sasmple1/Sample1.2.bed。
+  
+　　而我们希望把文件Sample1.bam放到 MySuperTask/路径下，因为这样方便结果展示以及下一级task的拖拽。这时候就需要本语法糖。
+　　**用法：**
+　　当task为SubTask时，输出文件默认在以本subTask的prefix为名字的子文件夹"/Prefix"中，如果配置输出的value以 <span style='font-size:28px;font-weight:bold'>//</span> 开头，则输出文件路径在根目录下。
 　　本语法糖作用于`<Script>`中type为 Output, OutInput, OutInOutput这三类。以及`<skipResults>`和`<appendIn>`。
 　　例1：`<script type="Output" param="-out" value="/result.gz"/>`
 　　如果本task为SubTask，SuperTask的prefix为A，则最后输出路径为 /A/result.gz
 　　例2：`<script type="Output" param="-out" value="//result.gz"/>`
 　　如果本task为SubTask，SuperTask的prefix为A，则最后输出路径为 /result.gz
 　　例3：`<script type="OutInput" param="-out" value="//result.gz"/>`
-　　如果本task为SubTask，SuperTask的prefix为A，则会使用上一个xml在根目录下产生的文件，/result.gz
+　　
+　　**注意：**如果本task为SubTask，SuperTask的prefix为A，则会使用上一个xml在根目录下产生的文件，/result.gz
 
 
 
