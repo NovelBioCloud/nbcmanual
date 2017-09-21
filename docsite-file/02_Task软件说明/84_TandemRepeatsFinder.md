@@ -1,4 +1,4 @@
-TandemRepeatsFinder
+# TandemRepeatsFinder
 　　Trf（Tandem Repeat Finder）是用来搜寻 DNA 序列中的串联重复序列(相临的重复两次 或者多次特定核酸序列模式的重复序列) 。重复单元可以从1bp到500bp，DNA查询序列大小可以超过5M。 
 　　官网：http://tandem.bu.edu/trf/trf.html
 ***
