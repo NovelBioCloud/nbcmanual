@@ -1,4 +1,4 @@
-Glimmer3
+# Glimmer3
 　　Glimmer是一款寻找原核生物基因的免费开源的预测软件，从1.0版本到现在的3.0版本，预测的准确度和速度都已经有了大幅提升。
 Glimmer3软件网址: http://cbcb.umd.edu/software/glimmer/
 下载网址:http://www.cbcb.umd.edu/software/glimmer/glimmer302.tar.gz
@@ -22,7 +22,7 @@ containerNumber：运行时container数。
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 生成.detail  .predict
 <div style="text-align:center"><img data-src="1.png" width="500px" ></img></div>
-.predict就是我们最终得到的预测基因文件，以“>"进行分割。
+predict就是我们最终得到的预测基因文件，以“>"进行分割。
 基因的各列信息分别为：
 Column 1 预测基因编号，此编号和*.detail文件里编号一致。
 Column 2 基因的开始位置。
