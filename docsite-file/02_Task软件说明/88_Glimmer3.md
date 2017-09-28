@@ -9,6 +9,10 @@ inputFile (FASTA)：直接把微生物或病毒的基因组序列，Fasta格式�
 chrSeq (FASTA)：参考序列，Fasta格式。
 
 ***
+#### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
+.detail  .predict
+
+***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 物种：参考序列物种。
 版本：考序列版本。
