@@ -18,7 +18,6 @@
 　<label id='ovlStoreMemory'>ovlStoreMemory：</label>使用内存的总量，以MB为单位，用来构建overlap store。
 
 ****
-
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 　　最终结果都在9-terminator的文件夹中。
 
