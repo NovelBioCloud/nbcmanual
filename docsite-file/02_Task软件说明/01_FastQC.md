@@ -5,51 +5,28 @@
 　(2) 低质量序列过滤。通过对序列质量分数的判定，按照多种标准过滤掉低质量的Reads。同时，可过滤掉左端或右端测序接头序列。
 　(3) 质控。对测序的序列质量值评估、统计序列的每一个位置ATCG四种碱基的分布、对所有序列的每个位置统计GC含量评估、统计duplication情况。
 　**过滤标准：**针对于Hiseq、454、Proton三个平台，设有strict、moderate、relax过滤标可选择。
+　**使用软件：**
 　　FastQC由剑桥巴布拉汉研究所开发，可进行数据质控、过滤低质量reads，并生成质控报告。 
 　　软件官网：http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
-
-***
-#### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#3090C7"></span></i><span style="color:#3090C7"> 详细说明**
-　**Q20：**指测序过程碱基识别（Base Calling）过程中，对所识别的碱基给出的错误概率。如果质量值是Q20，则错误识别的概率是1%，即错误率1%，或者正确率是99%；
-　**Q30：**指错误识别的概率是0.1%，即错误率0.1%，或者正确率是99.9%；
-
-FASTQ数据例如： 
-
-       @SEQ_ID
-       GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
-       +
-       !""*((((***+))%%%++)(%%%%).1***-+*""))**55CCF>>>>>>CCCCCCC65
-
-FASTQ数据四行描述，如下： 
-
-     Sequence identifier
-
-     Sequence
-
-     Quality score identifier line (consisting of a +)
-
-     Quality score
-
-
-
-　　其中第一行以“@”开头，随后为illumina 测序标识符(Sequence Identifiers)和描述文字(选择性部分)；第二行是碱基序列；第三行以“+”开 头，随后为illumina 测序标识符(选择性部分)；第四行是对应序列的测序质量。
 
 
 ***
 #### **<span class="glyphicon glyphicon-check" aria-hidden="true" style="color:#3B9C9C;font-size:20px;" ></span> <span style="color:#3B9C9C">应用范围**
-
-1. 低质量序列过滤。通过对序列质量分数的判定，按照多种标准过滤掉低质量的Reads。同时，还可过滤掉左端或右端测序接头序列。
-2.  质控。对测序的序列质量值评估、统计序列的每一个位置ATCG四种碱基的分布、对所有序列的每个位置统计GC含量评估、统计duplication情况。
+　1.低质量序列过滤。通过对序列质量分数的判定，按照多种标准过滤掉低质量的Reads。同时，还可过滤掉左端或右端测序接头序列。
+　2.质控。对测序的序列质量值评估、统计序列的每一个位置ATCG四种碱基的分布、对所有序列的每个位置统计GC含量评估、统计duplication情况。
 
 ***
 
-#### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
+#### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 
 　　该Task的数据来源于RawDataTask的fq.gz文件，最终生成高质量的fq.gz文件，可用于比对到参考基因组上。
 　　如果为双端测序输入左端文件和右端文件，如果为单端测序只拖入左端文件即可。
 　　　　左端文件：测序左端reads序列。
 　　　　右端文件：测序右端reads序列。
 　　输入格式为fq或者fq.gz，输出格式为fq.gz。
+
+#### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
+　　输出为经过gz压缩的fastq文件，如filename.1.fq.gz和filename.2.fq.gz。本文件可以用于做序列比对等后续工作。如作为DnaSeqMap的输入文件。
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
@@ -69,16 +46,36 @@ FASTQ数据四行描述，如下：
 |　Relax_PGM　|同时满足质量值小于10低于15%；质量值小于13低于20%|专门适用于PGM平台测序得到的的fastQ序列　|
 |Not Filter　　|---　　|　不过滤任何序列，只做质控　|
 
-　<label id='minLenBp'>MinLenBp：</label>最短保留的序列长度，即reads的长度范围。
-　<label id='maxLenBP'>MaxLenBP：</label>最长保留的序列长度，即reads的长度范围。默认值为50~500bp，小RNA数据一般为15~33bp。
-　<label id='trimEnd'>TrimEnd：</label>两端是否剪切掉reads末端低质量碱基。
-　<label id='trimQuality'>TrimQuality：</label>连续出现低质量碱基个数设置，大于设置范围的reads将被过滤。
+　<label id='minLenBp'>MinLenBp：</label>最短保留的序列长度，即reads的长度范围。小于该长度的reads会被过滤掉。默认为50。
+　<label id='maxLenBP'>MaxLenBP：</label>最长保留的序列长度，即reads的长度范围。默认值位500。
+　　MinLenBp和MaxLenBp用于过滤过长或过短的序列，根据不同的测序需要选择不同的参数。如mRNA一般最短reads不能短于50bp，而miRNA数据一般为长度设置区间为15~33bp。即MinLenBp设为15，MaxLenBp设为33。
+　<label id='trimEnd'>TrimEnd：</label>两端是否剪切掉reads末端低质量碱基。测序的数据越长质量越差，可以会考虑将头部和尾部低质量的序列切除。
+　<label id='trimQuality'>TrimQuality：</label>在TrimEnd时，如果末尾处的碱基质量小于（不包含）该值，则会被删除。
+　　以上两个参数，在当TrimEnd设置为True，并且TrimQuality设置为15时，则软件会从头部和尾部开始，把连续质量小于15的碱基删除，直到遇到的碱基质量大于15为止。
+ 例如考虑序列以Phred 33格式展示：
+```
+@fastqreads
+ATCGATCGAATTCCGG
++
+,..AB.A,BCABC.,.
+```
+　　其中“，”和”.”所代表的质量分别为11和13，其他值大于15过滤后得到序列。
+```
+@fastqreads
+GATCGAATTC
++
+AB.A,BCABC
+```
+　　本结果之后再会去进行参数ReadsQuality所涉及到的过滤。
+
+ 
 　<label id='qcBeforeFilter'>QcBeforeFilter：</label>输出过滤前的质控结果。
 　<label id='qcAfterFilter'>QcAfterFilter：</label>输出过滤后的质控结果。
-　<label id='isJustFastqc'>IsJustFastqc：</label>只质控不进行数据过滤。
+ 　　FastQC可以在过滤前和过滤后都进行质控。
+　<label id='isJustFastqc'>IsJustFastqc：</label>只质控不进行数据过滤。部分场景可能仅需要得到质控数据，并不需要真正的过滤数据，这时候可以选择本选框，注意仅输出QcBeforeFilter的结果。
 　<label id='leftAdaptor'>Left Adaptor：</label>去接头，输入左端接头序列。
 　<label id='right Adaptor'>Right Adaptor：</label>去接头，输入右端接头序列。
-　<label id='lowCaseAdaptor'>Low Case Adaptor：</label>去PGM测序平台数据接头。
+　<label id='lowCaseAdaptor'>Low Case Adaptor：</label>去PGM测序平台数据接头。本参数作废。
 　
 
 ***
@@ -107,3 +104,30 @@ FASTQ数据四行描述，如下：
 <div style="text-align:center">
 <img data-src="4.png" width="850px"  ></img>
 </div>
+
+***
+#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  补充说明**
+　**Q20：**指测序过程碱基识别（Base Calling）过程中，对所识别的碱基给出的错误概率。如果质量值是Q20，则错误识别的概率是1%，即错误率1%，或者正确率是99%；
+　**Q30：**指错误识别的概率是0.1%，即错误率0.1%，或者正确率是99.9%；
+
+FASTQ数据例如： 
+
+       @SEQ_ID
+       GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
+       +
+       !""*((((***+))%%%++)(%%%%).1***-+*""))**55CCF>>>>>>CCCCCCC65
+
+FASTQ数据四行描述，如下： 
+
+     Sequence identifier
+
+     Sequence
+
+     Quality score identifier line (consisting of a +)
+
+     Quality score
+
+
+
+　　其中第一行以“@”开头，随后为illumina 测序标识符(Sequence Identifiers)和描述文字(选择性部分)；第二行是碱基序列；第三行以“+”开 头，随后为illumina 测序标识符(选择性部分)；第四行是对应序列的测序质量。
+
