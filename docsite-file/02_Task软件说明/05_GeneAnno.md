@@ -4,10 +4,9 @@
 　　对基因多方面的注释，其中包括添加基因的accession number（即Genbank的收录号，也是查询号）、Gene Symbol（基因名称）、Gene description（基因描述）、GO功能注释、KEGG代谢通路注释以及OMIM注释（仅用于人类）。
 **使用软件：**
 　1.Blast2Go：Blast2GO是一套集成的比较成熟的序列功能注释和分析平台， 可以整合NR， Swiss-prot 以及Interproscan的结果对序列进行功能Gene Ontology（GO）的功能分类。
-官网：https://www.blast2go.com/
+　　软件官网：https://www.blast2go.com/
 　2.TopGO：topGO是一个Bioconductor的包，用于GO term富集分析以及结果展示。
-**软件官网：**
-　　https://bioconductor.org/packages/release/bioc/html/topGO.html
+　　软件官网：https://bioconductor.org/packages/release/bioc/html/topGO.html
  **应用范围：**
 　　需要了解更多功能信息的基因，仅需要提供基因名称即可。
 ***

@@ -4,7 +4,7 @@
   ***
 #### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451"> 详细说明**
 　**GATK：**全称The Genome Analysis Toolkit，是Broad Institute开发的用于二代重测序数据分析的一款软件，里面包含了很多有用的工具，主要注重于变异的查找，基因分型且对于数据质量保证高度重视。它拥有强大的架构，强大的处理引擎，以及高性能计算功能，使它能够适用于任何规模的项目。该模块已为GATK版本3，主要是调用GATK3的“HaplotypeCaller”来进行变异检测。
-	软件官网：https://software.broadinstitute.org/gatk/ 
+　　软件官网：https://software.broadinstitute.org/gatk/ 
 
 ***
 #### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**

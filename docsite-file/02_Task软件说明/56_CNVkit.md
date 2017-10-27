@@ -2,7 +2,7 @@
 　　拷贝数变异（Copy number variation，CNV）是由基因组发生重排而导致的，一般指长度为1kb以上的基因组大片段拷贝数的增加或减少，主要表现为亚显微水平的缺失或重复。CNV也是近来基因组学的研究热点，并且异常的DNA拷贝数变化（CNV）是许多人类疾病（如癌症、遗传性疾病、心血管疾病）的一种重要分子机制。作为疾病的一项生物标志，染色体水平的缺失、扩增等变化已成为许多疾病研究的热点。
 　　**功能：**基于高通量测序技术的拷贝数变异检测。
 　　**使用软件：**CNVkit，应用一个Python库和命令行软件工具包来推断基因拷贝数变异。它是一个基于基因组测序数据分析鉴定并展示拷贝数变异的有效手段。它也可以一定程度上分析外显子捕获测序，或者芯片靶向捕获测序的测序结果，而基于全基因组测序，它有更好的准确性，并且能够以全基因组作为范围寻找CNV。
-　　**软件官网：**http://cnvkit.readthedocs.io/en/stable/index.html
+　　软件官网：http://cnvkit.readthedocs.io/en/stable/index.html
 
 ***
 #### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**

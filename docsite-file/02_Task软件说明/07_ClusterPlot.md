@@ -7,8 +7,7 @@
 　　该模块功能为根据基因表达值绘制基因聚类图。
 **使用软件：**
 　　R：是用于统计分析、绘图的语言，是一个用于统计计算和统计制图的优秀工具。该task使用R语言中的gplots包中的heatmap.2函数。
-**软件官网：**
-https://www.rdocumentation.org/packages/gplots/versions/3.0.1/topics/heatmap.2
+　　软件官网：https://www.rdocumentation.org/packages/gplots/versions/3.0.1/topics/heatmap.2
 **应用范围：**
 　　可应用于基因表达值列表。
 

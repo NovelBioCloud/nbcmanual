@@ -1,8 +1,7 @@
 # GSEA
 　　GSEA分析（Gene Set Enrichment Analysis），基因集富集分析，是目前非常常用的RNA表达分析手段。
 　　**功能：**GSEA能够对不同层次、不同来源的数据进行整合，并在没有先验经验存在的情况下也能在表达谱整体层次上对上万条基因进行富集分析，从而为构建个体在不同生长发育阶段或者不同生理病理状态下的特征性基因模块及分子调控网络，提供了重要的启示及指导。
-　　**使用软件：**GSEA：是麻省理工学院和哈佛大学的broad institute研究团队开发的一个针对全基因组表达谱芯片数据进行的分析工具。
-　　**软件官网：** http://software.broadinstitute.org/gsea/index.jsp
+　　**使用软件：**GSEA：是麻省理工学院和哈佛大学的broad institute研究团队开发的一个针对全基因组表达谱芯片数据进行的分析工具。软件官网：http://software.broadinstitute.org/gsea/index.jsp
 　
 ***
 #### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451"> 应用范围**
