@@ -1,8 +1,101 @@
 ## GOPathway
-　　集成进行GO分析，KEGG pathway分析、COG分析、GO_Path分析的一套分析系统。
+　　该模块可以进行基因的注释分析，其中包括GO功能注释、KEGG pathway代谢通路注释以及COG注释。从而实现了对许多个基因进行快速有效的基因注释分析功能。
+**功能：**
+　(1) 基因的GO功能富集性分析。
+　(2) 基因的KEGG pathway代谢通路富集性分析。
+　(3) 基因的COG注释。
+**使用软件：**
+　1. **Blast2Go：**Blast2GO是一套集成的比较成熟的序列功能注释和分析平台， 可以整合NR， Swiss-prot 以及Interproscan的结果对序列进行功能Gene Ontology（GO）的功能分类。软件官网：https://www.blast2go.com/
+　2.** TopGO：**topGO是一个Bioconductor的包，用于GO term富集分析以及结果展示。软件官网：https://bioconductor.org/packages/release/bioc/html/topGO.html
+
+**应用范围：**
+　　需要进行GO 和pathway功能富集分析或者COG注释的基因。其中GO分析可广泛应用于动植物中；由于植物的pathway在数据库记录比较少，所以，一般情况下植物的pathway分析结果信息不太多；而通常情况下，在Rna-Seq组装的项目分析中和微生物项目的分析中会使用到COG分析。 
+
+  ***
+#### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
+　　该task的输入数据通常是来源于DifGene的显著性差异基因表格文件，也可以是外源基因表格文件。
+　　**goAnnoFile：**已知的基因对应GO ID注释列表。　
+　　**用途：**当所分析的物种，在后台数据库中的注释信息不全时，可以在此增加已知的基因对应GO ID注释列表，以增加基因的GO注释率（如果需要分析的物种已经存在于物种管理中，即可以在物种选择的下拉框中选择的，则可以输入该文件也可以不用输入该文件，如果物种管理中没有的物种，则必须要输入）。
+　　**格式：**该输入文件一共有两列信息，第一列基因名称，第二列为基因的GO ID，两列之间用“tab”键隔开。如：
+<div style="text-align:center"><img data-src="8.png" width="150px"></img></div>
+　　注意，一个基因有多个GO ID时，需要用写成多行，即每一行只有一个基因名称和一个GO ID。
+　　**querySeqCOG：**COG分析的时候需要提供分析基因的蛋白序列信息（如果需要分析的物种已经存在于物种管理中，即可以在物种选择的下拉框中选择的，则可以不用输入该文件）。如果该物种的基因组注释文件已经存在于物种版本数据库中则不需要输入该文件。
+　　**inputData：**基因列表，该输入文件的格式可以是以下三种类型 ：
+　　(1).仅有基因名称一列信息，如：
+<div style="text-align:center"><img data-src="9.png" width="90px"></img></div>
+　　(2).含有基因名称和趋势序号的列表，即趋势分析的基因列表，如：
+<div style="text-align:center"><img data-src="10.png" width="150px"></img></div>
+　　注意：该趋势序号列必须在第三列，第二列信息可以是任意信息，也可以是空列。
+  
+　　(3).常用的显著性差异表达基因列表，如：
+<div style="text-align:center"><img data-src="11.png" width="500px"></img></div>
+　　注意：其中基因列和Log2FC列，这两列信息是必须要有的，其他列信息可有可无。
+  
+　　**background：**所分析物种的所有基因的列表（如果需要分析的物种已经存在于物种管理中，即可以在物种选择的下拉框中选择的，则可以不用输入该文件）。
+　　**用途：**该参数文件用于在富集性分析过程中的fisher精确检验时做背景。
+　　**格式：**该输入文件，仅需一列基因名称即可，如：
+<div style="text-align:center"><img data-src="12.png" width="100px"></img></div>
+
+#### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
+　　基因GO功能注释结果列表（Excel格式）文件。GO分析所有结果存放在“GOAnalysis_result”文件夹中。根据GO结构的三大分类，将结果文件分为三类（BP、CC和MF），如果输入的基因文件为含有Log2FC的差异表达基因列表，那么输出结果中还会将这三大类文件，每一类都区分成两种，其中以_BP.xlsx、_CC.xlsx、_MF.xlsx结尾的是，区分上下调基因的GO富集分析结果；以_BP_All.xlsx、_BP_All.xlsx、_BP_All.xlsx结尾的是不区分上下调基因的GO富集分析结果。
+　　基因Pathway结果列表（Excel格式）文件。Pathway分析的所有结果存放在“PathWayAnalysis_result”文件夹中，其中.Pathway-Analysis_All.xlsx是所有有pathway注释的基因注释结果列表，.Pathway-Analysis.xlsx是区分上下调基因的基因注释列表。 
+  
+***
+#### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
+　<label id='species'>物种：</label>选择参考基因组物种。
+　<label id='speciesVersion'>版本：</label>参考基因组的版本。
+　<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
+　**Blast：**与非模式物种比对时，勾选增加注释量，与BlastSpecies配合使用。
+　**BlastSpecies：**可选多个blast物种。
+　<label id='goAlgorithm'>GoAlgorithm：</label>是生成GO graph的算法，详情请查阅TopGO官方文档：
+https://bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
+
+　<label id='analysisType'>Analysis Type：</label>选择分析类型。
+　　　　　　 　GOAnalysis:只做GO分析；
+　　　　　　 　Pathway：只做Pathway分析；
+　　　　　　 　COG：原核蛋白同源性分析，只输出COG结果；
+　　　　　 　　GOPATH：GO、pathway（推荐选择）；
+　　　　　　　 ALL(NotRecommand)：所有都输出 GO、Pathway、COG（不推荐选择）。
+
+　<label id='cogType'>CogType：</label>COG_Prokaryotes 原核生物；
+　　　　　 　 KOG_Eukaryotes  真核生物。
+　<label id='acclDColNum'>GeneColNum：</label>基因识别列。
+　<label id='valueColNum'>Log2FCColNum：</label>趋势基因/差异基因所在列。Log2FC，表示为以2为底，实验组和对照组信号值差异倍数的对数。（通常Difgene中算法选择为DE，该列为5；算法选择为EB，该列为4）。需要注意的是，当输入文件是差异基因列表（即列表中含有Log2FC信息时）需要填写该参数，基因的上下调倍数值。
+　<label id='upValue'>CutOff>=：</label>Log2FC的最大阈值（根据ValueColNum 为fold change 或者logFC填写）。需要注意的是，当输入文件是差异基因列表（即列表中含有Log2FC信息时）需要填写该参数，基因的上下调倍数值，例如，如果该参数设置为1表示，筛选上调基因的标准时：Log2FC>=1。
+　<label id='downValue'>CutOff<=：</label>Log2FC的最小阈值（根据ValueColNum 为fold change 或者logFC填写）。需要注意的是，当输入文件是差异基因列表（即列表中含有Log2FC信息时）需要填写该参数，基因的上下调倍数值，例如，如果该参数设置为-1表示，筛选下调基因的标准时：Log2FC<=-1）。
+　<label id='goLevelNum'>GoLevelNum：</label>选择输出GO的层级数。每一个GO的分类，都是树形结构的，该参数表示基因的GO注释到树形结构中的第几层，可选择范围为【0~5】，默认为3。
+　<label id='clusterGoPath'>ClusterGoPath：</label>当输入基因列表文件是带有趋势类型时，需要选中该选项。
+　<label id='isCombine'>IsCombine：</label>当输入文件参数“goAnnoFile”有输入文件时，勾选该参数，表示，将“goAnnoFile”输入文件中的注释结果和使用平台数据库注释出的结果进行合并，如果不选中，则仅使用“goAnnoFile”输入文件做基因注释。
+　
+***
+#### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
+　　基因GO/Pathway分析结果柱状图（png）文件。
+（1）“GOAnalysis_result”：该文件夹中是的所有png文件详细说明如下：
+　a) All.png：是所有有GO注释的基因富集性分析柱状图；
+　b) Down.png：是所有下调有GO注释基因的富集性分析柱状图；
+　c) Up.png：是所有上调有GO注释基因的富集性分析柱状图。
+　以 All.png为例，展示如下：
+<div style="text-align:center">
+<img data-src="4.png" width="500px" ></img>
+</div>
+  
+  （2）“PathWayAnalysis_result”：该文件夹中的所有png文件详细说明如下：
+　a).Path-Analysis-Enrichment.All.png是所有有pathway注释的基因的pathway富集性分析柱状图；
+　b). Path-Analysis-Enrichment.Down.png是所有有pathway注释的下调基因的pathway富集性分析柱状图；
+　c). Path-Analysis-Enrichment.Up.png是所有有pathway注释的上调基因的pathway富集性分析柱状图;
+　d).Path-Analysis-Log10P.All.png是将所有基因的pathway Term根据-Log10(P-value)进行从大到小排序后绘制的分布图；
+　e).Path-Analysis-Log10P.Down.png是将所有下调基因的pathway Term根据-Log10(P-value)进行从大到小排序后绘制的分布图；
+　f).Path-Analysis-Log10P.Up.png是将所有上调pathway Term根据-Log10(P-value)进行从大到小排序后绘制的分布图。
+
+以.Path-Analysis-Enrichment.All.png为例，展示如下：<div style="text-align:center">
+<img data-src="6.png" width="300px" ></img>
+</div>
+　以.Path-Analysis-Log10P.All.png为例，展示如下：
+<div style="text-align:center"><img data-src="13.png" width="300px" ></img>
+</div>
 
 ***
-#### **<span class="glyphicon glyphicon-tags" aria-hidden="true" style="color:#3090C7"></span></i><span style="color:#3090C7"> 详细说明**
+#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  补充说明**
 1）GoAnalysis
 　　Gene Ontology，简称GO，是一套国际标准化的基因功能描述的分类系统，由1988年，它的应用范围从刚开始的三个模式生物数据库的整合:FlyBase (果蝇数据库Drosophila),Saccharomyces Genome Database (酵母基因组数据库SGD)、Mouse Genome Database(小鼠基因组数据库MGD)。经过GO不断发展扩大，现已扩展到几户所有的物种基因组的功能注释的数据库。
 GO具有三大类：
@@ -23,61 +116,3 @@ GO具有三大类：
  
 <div style="text-align:center">
 <img data-src="1.png" width="500px"  ></img></div>
-
-
-***
-#### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
-　　Task的输入文件可来源于DifGene Task显著性差异基因表格，也可为外源基因表格，注意选取基因对应的上下调倍数值，若为非模式物种还要选取进行物种Blast，以增加注释量。
-　　**goAnnoFile:** 后台数据库注释不全的时，可以增加一些注释列表（模式物种不需要填写）。
-　　**querySeqCOG: **COG分析的时候需要提供分析基因的蛋白序列信息 （模式物种不需要填写） 。
-　　**inputData: **趋势总表GENETABLE（必填）。
-　　**background: **分析物种的所有基因的列表（模式物种不需要填写）。
-***
-#### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-<label id='species'>物种：</label>可选多个blast物种。
-<label id='speciesVersion'>版本：</label>参考序列的版本。
-<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
-**Blast：**与非模式物种比对，增加注释量。
-**BlastSpecies：**可选多个blast物种。
-<label id='goAlgorithm'>GoAlgorithm：</label>生成GO graph的方法。Novelgo：常规超几何分布，烈冰研发算法。
-<div style="text-align:center">
-<img data-src="2.png" width="350px" ></img>
-</div>
-
-<label id='analysisType'>Analysis Type：</label>选择分析类型。
-　　　　　　 　GOAnalysis:只做GO分析；
-　　　　　　 　Pathway：只做Pathway分析；
-　　　　　　 　COG：原核蛋白同源性分析，只输出COG结果；
-　　　　　 　　GOPATH：GO、pathway（推荐选择）；
-　　　　　　　 ALL(NotRecommand)：所有都输出 GO、Pathway、COG（不推荐选择）。
-
-<label id='cogType'>CogType：</label>COG_Prokaryotes 原核生物；
-　　　　　  KOG_Eukaryotes  真核生物。
-<label id='acclDColNum'>GeneColNum：</label>基因识别列。
-<label id='valueColNum'>Log2FCColNum：</label>趋势基因/差异基因所在列。（通常Difgene中算法选择为DE，该列为5；算法选择为EB，该列为4）。
-<label id='upValue'>CutOff>=：</label>上调基因差异倍数（根据ValueColNum 为fold change 或者logFC填写）。
-<label id='downValue'>CutOff<=：</label>下调基因差异倍数（根据ValueColNum 为fold change 或者logFC填写）。
-<label id='goLevelNum'>GoLevelNum：</label>选择输出GO的层级数。
-<label id='clusterGoPath'>ClusterGoPath：</label>趋势类型GO类型。
-<label id='isCombine'>IsCombine：</label>输入平台中未注释的文件。
-　
-***
-#### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-**　　GO分析结果:**
-　　GO是Gene ontology的缩写，GO数据库分别从功能、参与的生物途径及细胞中的定位对基因产物进行了标准化描述，即对基因产物进行简单注释，通过GO富集分析可以粗略了解差异基因富集在哪些生物学功能、途径或者细胞定位。GO分析还可看enrichment score，数值越大表示某个GO term越容易受到实验因素的影响。
-<div style="text-align:center">
-<img data-src="3.png" width="500px" ></img>
-</div>
-　　差异基因参与的显著性GO的管状图。横轴是功能显著性水平（P-Value）的-Log10P值，纵轴是Gene Ontology数据库中对应GO的条目名称。BP: Biological Process；CC: Cellular Component; MF：Molecular Function。
-<div style="text-align:center">
-<img data-src="4.png" width="500px" ></img>
-</div>
-**　　Pathway分析结果:**
-　　Pathway指代谢通路，对差异基因进行pathway分析，可以了解实验条件下显著改变的代谢通路，在机制研究中显得尤为重要。对差异表达基因进行Pathway功能分析，并计算Pvalue进行显著性判断，Pvalue越小，表明该pathway变化越显著，并可对每条Pathway通路图进行展示，同时在相应的位置标注差异表达基因。
-<div style="text-align:center">
-<img data-src="5.png" width="550px"  ></img>
-</div>
-<div style="text-align:center">
-<img data-src="6.png" width="550px" ></img>
-</div>
-
