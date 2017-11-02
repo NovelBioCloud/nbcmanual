@@ -1,6 +1,23 @@
 # RNASeqMap
-　　一个快速将RNA-Seq数据进行剪接mapping的程序。能够快速将转录组数据进行剪接比对。对于不同的物种及测序数据可选择Tophat、MapSplice、HISAT2或STAR进行比对。通常Ion Proton数据选择MapSplice比对，Hiseq双端使用HISAT2比对。
-　　输入文件格式：fastq、fastq.gz；输出文件格式： bam、bed 、txt。
+　　将RNA-Seq数据进行比对到参考基因组序列的分析单元。
+**功能：**
+　　提供了多种将数据过滤后的clean data比对到参考基因组序列上的比对软件，使之可以根据不同的样品数据情况选择不同的比对算法。
+**使用软件：**
+　　（1）Hisat2：Hisat全称为Hierarchical Indexing for Spliced Alignment of Transcripts，由约翰霍普金斯大学开发，能够将RNA-Seq的reads与基因组进行快速比对。这项成果发表在2015年3月9日的《Nature Methods》上。HISAT已经更新到HISAT2.1.0，HISAT2是TopHat2/Bowti2的继任者，使用改进的BWT算法，实现了更快的速度和更少的资源占用，作者推荐TopHat2/Bowti2和HISAT的用户转换到HISAT2。
+　　软件官网：
+http://ccb.jhu.edu/software/hisat2/index.shtml
+　　（2）Tophat：是马里兰大学生物信息和计算机生物中心，以及加利福尼亚大学伯克利分校数学系和分子细胞生物学系以及哈弗大学的干细胞与再生生物学系联合开发的软件。它是基于Bowtie的将RNA-Seq数据mapping到参考基因组上，从而鉴定可变剪切（exon-exon splice junctions）。
+　　软件官网：
+http://ccb.jhu.edu/software/tophat/index.shtml
+　　（3）MapSplice：是马里兰大学生物信息和计算机生物中心，以及加利福尼亚大学伯克利分校数学系和分子细胞生物学系以及哈弗大学的干细胞与再生生物学系联合开发的软件。它是基于Bowtie的将RNA-Seq数据mapping到参考基因组上，从而鉴定可变剪切（exon-exon splice junctions）。
+　　软件官网：
+http://www.netlab.uky.edu/p/bioinfo/MapSplice2
+　　（4）STAR：是encode计划时冷泉港开发的，特点：超级快速（8min map完6gb的reads）、as支持性好、支持长reads、全转录本、发现嵌合转录本等。STAR能够发现非典型拼接和嵌合（融合）转录本，并能够比对全长RNA序列。还可以控制输出格式为SAM或者BAM,并对输出的BAM可进行选择性排序输出。最主要在比对的过程中还提供了ENCODE的比对参数。
+　　软件官网：http://code.google.com/p/rna-star/
+
+**应用范围:**
+　　RnaSeq测序得到的Reads 序列比对到参考基因组序列上。
+
 
 ****
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
