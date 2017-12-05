@@ -8,7 +8,9 @@
 <div style="text-align:center"><img data-src="2.png" width="600px" height="300px" ></img>
 </div>
 
-&nbsp;
+&nbsp; &nbsp; &nbsp; 设置task使用镜像，在“dockerImageName”一列中，点击下拉框，选择task使用的镜像。
+<div style="text-align:center"><img data-src="20.png" width="900px" height="200px" ></img>
+</div>
 
 #### **2.task参数设置**
 　（1）在“分析平台”中找到“task ModuleParam管理”进入。
@@ -77,23 +79,13 @@ TaskType ：需要与第一步添加task 名称相一致
 </div>
 　　可输入文件类型 ：SAM, BAM, SORTED_BAM, UNMAPPED_BAM,BED, BLAST,FASTA,FASTQ, LEFT_FASTQ, RIGTH_FASTQ, FASTQINTERLEVE,GENEXPTABLE,GENELOCTABLE, DIFGENE,GENETABLE,TABLE,VCF, BCF,GFF3, GTF,MRD,PILEUP,PIC, SRC2TRG,WIG;
 
-#### **3. 配置docker镜像**
-　　登录docker路径
- 　　http://192.168.1.160:8080/NBCWebApp/dockerImg_index
-　找到装有task的分析模块名称的所在docker，点击编辑。
- <div style="text-align:center">
-<img data-src="14.png" width="600px" height="300px" ></img>
-</div>
-找到建立的task名称，打钩，保存。
- <div style="text-align:center">
-<img data-src="15.png" width="500px" height="400px" ></img>
-</div>
-#### **4.建立xml文件夹**
+
+#### **3.建立xml文件夹**
 　建立文件夹名称和分析模块后台task名称一致，建立prepare、run。
 注意事项：
 　（1）建库时，输入文件、输出文件需要重定向，添加isRedirect="true"
 　（2）index文件单独放到文件夹中，需要添加value="/index/%s"
 可参见hisat
 
-#### **5.xml文件夹放在服务器**
+#### **4.xml文件夹放在服务器**
 　　/media/nbfs/nbCloud/public/task/scriptmodule 路径下。
