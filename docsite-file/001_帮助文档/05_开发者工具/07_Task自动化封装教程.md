@@ -296,23 +296,22 @@ hisat2在xml文件层面相对于Cap3比较大的区别有两个：
 
 (1)．Prepare--GetReferencePath.xml
 　　本步用来获取数据库中指定物种的染色体文件。我们在代码库中保存了一系列的groovy脚本，通过调用这些脚本就可以获得选定物种的染色体文件、Gff文件等信息。
-```
-<?xml version="1.0" encoding="UTF-8" ?>
-<root>
-	<name>species.groovy</name>
-	<description>this is a script whi….n to get reference sequence file path.</description>  
-  	<order>1</order>
-  	<scriptType>groovy</scriptType>
-  	<script>species.groovy</script>
-  	<taskType>hisat2</taskType>
-  	<stage>Prepare</stage>
-  	<templet>
-    		<script id="species" param="taxId"/>
-    		<script id="speciesVersion" param="version"/>
-    		<script id="dbType" param="gffDb"/>
-		<script param="software" value="hisat2"/>
-	</templet>
-</root>
+```<?xml version="1.0" encoding="UTF-8" ?>```
+```<root>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<name>species.groovy</name>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<description>this is a script whi….n to get reference sequence file path.</description>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<order>1</order>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<scriptType>groovy</scriptType>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<script>species.groovy</script>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<taskType>hisat2</taskType>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<stage>Prepare</stage>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```<templet>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script id="species" param="taxId"/>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script id="speciesVersion" param="version"/>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script id="dbType" param="gffDb"/>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script param="software" value="hisat2"/>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```</templet>```
+```</root>
 ```
 代码详细解析：调用groovy脚本的xml分为两部分。头部和中部，注意没有尾部。
 头部最重要的是：
@@ -323,12 +322,12 @@ hisat2在xml文件层面相对于Cap3比较大的区别有两个：
 　　其中，`<scriptType>`设定为`groovy`，表示会调用系统的groovy脚本。`<script>`设定为`species.groovy`，表示具体调用的脚本名
 　　**中部**是参数设置：
 ``` 
-<templet>
-    <script id="species" param="taxId"/>
-    <script id="speciesVersion" param="version"/>
-    <script id="dbType" param="gffDb"/>
-<script param="software" value="hisat2"/>
-  </templet>
+<templet>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script id="species" param="taxId"/>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script id="speciesVersion" param="version"/>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script id="dbType" param="gffDb"/>```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```<script param="software" value="hisat2"/>```
+  ```</templet>
 ```
 　　以上是配置groovy脚本的输入参数，groovy脚本可以执行一系列命令
 　　species.groovy的代码如下：
