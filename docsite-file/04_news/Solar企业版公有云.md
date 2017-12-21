@@ -54,29 +54,29 @@
 <div style="text-align:center"><img data-src="8.jpg" width="800px" ></img>
 </div>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solar企业版公有云
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Solar企业版公有云**
 ☑ 部署在企业所需云端，并直接向公有云服务商付费；
 ☑ 支持自主上线物种和分析工具；
 ☑ 海量计算资源自主选择，按需收费；
 ☑ 分析工具、实验监控、智能办公、信息化管理全覆盖。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diamond私有云
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Diamond私有云**
 ☑ 部署在用户的本地服务器集群；
 ☑ 全面开放式API端口，支持自主上线物种和分析工具；
 ☑ 企业级标准的质控和归档；
 ☑ 分析工具、实验监控、智能办公、信息化管理全覆盖。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legend一体机
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Legend一体机**
 ☑ 部署在用户个人电脑+1台服务器；
 ☑ 拆箱即用，轻量方便；
 ☑ 兼顾价格和数据私有的完美平衡；
 ☑ 分析工具全面覆盖各种组学。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skywalker公有云
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Skywalker公有云**
 ☑ 部署在安全稳定的阿里云；
 ☑ 海量计算资源自主选择，按需收费；
 ☑ 数据AES256加密；
 ☑ 分析工具全面覆盖各类组学。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于烈冰科技
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**关于烈冰科技**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上海烈冰信息科技有限公司是一家专注于生命科学研究与大数据挖掘的高新技术企业，主营业务涵盖生物云计算、科研服务和转化医学三大领域。烈冰科技独立开发的基因大数据分析平台（NovelBrain®）拥有强大的高性能计算能力、完善的样本及大数据管理系统，同时具备深度挖掘能力，并支持定制化分析模块自主上线。旗下Skywalker公有云、Diamond私有云、Solar企业版公有云和Legend一体机系列产品，能满足不同体量客户的多元化需求。烈冰科技为生命科学研究提供了高品质的开放云服务，也为生物大数据时代提供了高质量云解决方案。
