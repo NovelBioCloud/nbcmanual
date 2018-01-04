@@ -1,12 +1,12 @@
 ## ACFS CicRNA
-　　CircRNA是一组闭环形式的单链RNA。它们是剪接产生的，在各种组织中广泛表达并且在发育和疾病中具有功能性影响，该模块可以快速准确地检测circRNA。 
+　　CircRNA是一组闭环形式的单链RNA。它们由DNA剪接产生，在各种组织中广泛表达并且在机体发育和疾病发生中发挥功能性作用，该模块可以快速准确地检测circRNA。 
 **功能：**
 　	检测及定量circRNA。
 **使用软件：**
 　	（1）ACFS2：Acfs可以从单端和双端RNA测序数据中准确快速鉴定以及定量环状RNA丰度。
 **软件官网：**https://github.com/arthuryxt/acfs
 **应用范围：**
-　　需要从Rna Seq测序得到的单端或者双端的Reads 中，检测出circRNA。
+　　需要从Rna-Seq测序得到的单端或者双端的Reads中，检测出circRNA。
 
 ***
 #### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
@@ -28,6 +28,8 @@
 　<label id='seq_len'>SeqLength：</label>输入的reads长度。
 　**isCallFusionCirc：**是否检测融合circRNA。
 　<label id='thread'>Threads：</label>线程数。
+ 　<label id='seq_len'>Memory：</label>分析过程中使用内存。
+
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
@@ -36,22 +38,22 @@
 
 
 
-　　1. BlockCountsStatisticsPlot.png：BlockCounts统计图是circRNA的外显子数分布图，X轴外显子数，Y轴表示CircRNA个数，如：
+　　1. BlockCountsStatisticsPlot.png：BlockCounts统计图是circRNA序列上包含的外显子个数分布图，X轴表示一个circRNA所含有的外显子个数，Y轴表示含有该数量外显子的CircRNA的个数，如：
 <div style="text-align:center"><img data-src="5.png" width="350px" ></img></div>
 
 　　2. CircRNAChrDistributionPlot.png： circRNA在染色体上的分布图，X轴表示染色体，Y轴表示CircRNA个数，如：
 <div style="text-align:center"><img data-src="6.png" width="400px" ></img></div>
 
-　　3. StrandStatisticsPlot.png：circRNA在正负链上的分布图，X轴表示正负链，Y轴表示CircRNA个数，如：
+　　3. StrandStatisticsPlot.png：circRNA在正负链上的分布图，X轴表示正负链，Y轴表示circRNA个数，如：
 <div style="text-align:center"><img data-src="7.png" width="150px" ></img></div>
 
-　　4. all.counts.exp.txt：circRna表达统计列表，如：
+　　4. all.counts.exp.txt：circRNA表达统计列表，如：
 <div style="text-align:center"><img data-src="4.png" width="500px" ></img></div>
 
 　　5. unmap.trans.splicing.tsloci.fa：circRNA 的splicing 处上下游各150bp的序列文件，以fasta文件存储。
 
 ***
-#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  补充说明**
+#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  详细解释**
 　　**circRNA**（环状RNA）是一类特殊的非编码RNA分子，与传统的线性RNA（linear RNA，含5’和3’末端）不同，circRNA分子呈封闭环状结构，不受RNA外切酶影响，表达更稳定，不易降解。在功能上，近年的研究表明，circRNA分子富含microRNA（miRNA）结合位点，在细胞中起到miRNA海绵（ miRNA sponge）的作用，进而解除miRNA对其靶基因的抑制作用，升高靶基因的表达水平；这一作用机制被称为竞争性内源RNA（ceRNA）机制。通过与疾病关联的miRNA相互作用，circRNA在疾病中发挥着重要的调控作用。
 
 
