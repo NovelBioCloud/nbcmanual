@@ -1,25 +1,25 @@
 # HumanVcfAnno
 　　使用GATK3中的注释功能，对变异结果进行基因注释，有助于预测变异的生物学功能或意义。
-**功能：**
+　　**功能：**
 　　对变异（SNP、Indel）结果进行dbsnp、EXAC、1000G以及cosmic数据库的注释。
-**使用软件：**
-　　GATK：GATK (全称The Genome Analysis Toolkit)是Broad Institute开发的用于二代重测序数据分析的一款软件，里面包含了很多有用的工具，主要注重于变异的查找，基因分型且对于数据质量保证高度重视。它拥有强大的架构，强大的处理引擎，以及高性能计算功能，使它能够适用于任何规模的项目。该模块使用的GATK版本为3X系列（3.6与3.8），主要是调用GATK3的“VariantAnnotator”来进行重新注释。
-　　软件官网：https://software.broadinstitute.org/gatk/ 
-**应用范围:**
+　　**使用软件：**
+　　GATK：GATK (全称The Genome Analysis Toolkit)是Broad Institute开发的用于二代重测序数据分析的一款软件，里面包含了很多有用的工具，主要注重于变异的查找和基因分型的分析，且对于所分析的数据质量有比较高的要求。它拥有强大的架构，强大的处理引擎，以及高性能计算功能，使它能够适用于任何规模的项目。该模块使用的GATK版本为3X系列（3.6与3.8），主要是调用GATK3的“VariantAnnotator”来进行重新注释。
+　　**软件官网：**https://software.broadinstitute.org/gatk/ 
+　　**应用范围:**
 　　可用于GATK检测出来的变异结果（vcf）文件。
 
 ***
 #### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　　该Task的输入数据是GATK3产生的变异结果VCF文件。
 　　**dbsnpVCF：**dbSNP数据库文件，要求VCF文件。
-　　用途：用来注释输入的变异，是否记录在dbSNP数据库中，如果已经收录在dbSNP中了，给出在dbSNP中的编号，如rs 7417504。
+　　用途：用来注释输入的变异是否记录在dbSNP数据库中，如果已经收录在dbSNP中，给出在dbSNP中的编号，如rs 7417504。
 　　**cosmicVCF：**cosmic数据库文件，要求VCF文件，
-　　用途：用来注释输入的变异，是否记录在cosmic数据库中，如果已经收录在cosmic中了，给出在cosmic中的编号，如COSN6039437。
-　　thousandGenomeVCF：千人基因组突变数据库文件，要求VCF文件。
-　　用途：用来注释输入的变异，是否记录在1000人基因组数据库中，如果已经收录在1000人基因组数据库中了，则给出该突变在1000人基因组数据库中各个种群人中的突变率信息。
+　　用途：用来注释输入的变异是否记录在cosmic数据库中，如果已经收录在cosmic中，给出在cosmic中的编号，如COSN6039437。
+　　**thousandGenomeVCF：**千人基因组突变数据库文件，要求VCF文件。
+　　用途：用来注释输入的变异是否记录在千人基因组数据库中，如果已经收录在千人基因组数据库中，则给出该突变在千人基因组数据库中各个种群中的突变率信息。
 　　**EXAC-VCF：**EXAC数据库文件，要求VCF文件。
-　　用途：用来注释输入的变异，是否记录在EXAC数据库中，如果已经收录在EXAC基因组数据库中了，则给出该突变在EXAC中各个种群人中的突变率信息。
-　　InputVCF：GATK检测变异结果VCF文件 
+　　用途：用来注释输入的变异是否记录在EXAC数据库中，如果已经收录在EXAC基因组数据库中，则给出该突变在EXAC中各个种群中的突变率信息。
+　　**InputVCF：**GATK检测变异结果VCF文件，VCF的详细说明请见官方文档： http://samtools.github.io/hts-specs/VCFv4.2.pdf
 
 
 #### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
@@ -29,17 +29,16 @@
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 
 　**物种：**选择参考基因组物种。
-　**版本：**参考基因组的版本。
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
+　**物种版本：**参考基因组的版本。
 　**Unsafe：**GATK运行时，输入文件较严格，Unsafe选项为在运行过程中输入文件是否做检查。该参数值有以下几个：
 　　(1) SAFE：严格，输入文件格式做检查。
-　　(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配
+　　(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配。
 　　(3) ALLOW_UNINDEXED_BAM：允许BAM文件没有索引。
-　　(4) ALLOW_UNSET_BAM_SORT_ORDER：允许bam文件sort的时不指定sort方式。
-　　(5) LENIENT_VCF_PROCESSING：允许输入的VCF文件是非标准的VCF文件
-　　(6) NO_READ_ORDER_VERIFICATION：不要求reads的顺序与bam文件中的reads顺序不一致。
+　　(4) ALLOW_UNSET_BAM_SORT_ORDER：允许输入不指定排序方式的排序后bam文件。
+　　(5) LENIENT_VCF_PROCESSING：允许输入的VCF文件是非标准的VCF文件。
+　　(6) NO_READ_ORDER_VERIFICATION：不要求reads的顺序与bam文件中的reads顺序一致。
 　　(7) ALL：以上都允许。
-　**线程数：**运行时，使用线程数。
+　**线程数：**分析过程中使用CPU数。
 
 
 ***
@@ -78,11 +77,11 @@ VCF的详细说明请见官方文档：
 　　https://en.wikipedia.org/wiki/Variant_Call_Format
   
   ***
-#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  补充说明**
+#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451"> 详细解释**
 
-　　dbSNP：database of SNP（Wikipedia：The Single Nucleotide Polymorphism Database）单核苷酸多态性数据库dbSNP（http://www3.ncbi.nlm.nih.gov/SNP/)是由NCBI与人类基因组研究所（National Human Genome Research Institute）合作建立的，它是关于单碱基替换以及短插入、删除多态性的资源库。因为开发dbSNP 是为了补充和辅助 GenBank, 所以它包含了来自任何生物体的核苷酸序列。
-　　cosmicVCF： Catalogue Of Somatic Mutations In Cancer ，主要由英国威康信托基金会桑格研究所（Wellcome Trust Sanger Institute）开发和运作，主要记录与人类各种类型癌症相关的体细胞突变信息，这个数据库对于突变位点的信息记录较为详细，包括文献出处、样本名称、组织类型、涉及到的癌症种类和具体的突变内容，这个库既有对某一基因突变现象的综合统计，也有对针对某一肿瘤组织或癌症细胞系的所有突变信息统计。
-　　1000G：1000 Genomes Project， 国际千人基因组计划将补充完善包括SNPs(single nucleotide polymorphisms)、拷贝数突变(copy number variants)和短插入缺失突变(short insertions and deletions)等三类人类常见的遗传突变类型,为人类遗传学和医学研究提供资源。
+　　dbSNP：database of SNP（Wikipedia：The Single Nucleotide Polymorphism Database）单核苷酸多态性数据库dbSNP（http://www3.ncbi.nlm.nih.gov/SNP/) 是由NCBI与人类基因组研究所（National Human Genome Research Institute）合作建立的，它是集合了单碱基替换以及短插入/删除多态性相关信息的资源库。因为开发dbSNP 是为了补充和辅助 GenBank, 所以它包含了来自任何生物体的核苷酸序列。
+　　cosmicVCF： Catalogue Of Somatic Mutations In Cancer ，主要由英国威康信托基金会桑格研究所（Wellcome Trust Sanger Institute）开发和运作，主要记录与人类各种类型癌症相关的体细胞突变信息，这个数据库对于突变位点的信息记录较为详细，包括文献出处、样本名称、组织类型、涉及到的癌症种类和具体的突变内容，这个库既有对某一基因突变现象的综合统计，也有针对某一肿瘤组织或癌症细胞系的所有突变信息统计。
+　　1000G：1000 Genomes Project， 国际千人基因组计划将对SNPs(single nucleotide polymorphisms)、拷贝数突变(copy number variants)和短插入缺失突变(short insertions and deletions)这三类人类常见的遗传突变类型进行补充和完善,为人类遗传学和医学研究提供资源。
 　　EXAC-VCF：Exome Aggregation Consortium，是目前规模最大的外显子组测序项目，ExAC是一个免费的、具有高分辨率编录的人类遗传变异数据库，包含了上千万个DNA变异——很多都是罕见变异，而且大多数为首次被发现，它对罕见遗传病的临床研究和诊断有重大的意义。
 
 参考文献：

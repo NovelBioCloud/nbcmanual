@@ -3,7 +3,7 @@
 **功能：**
 　　分析突变是否发生在驱动基因上。
 **使用软件：**
-　　**SomInaClust：**(Detection of Cancer Genes Based on Somatic Mutation Patterns of Inactivation and Clustering)是从整个外显子组或者基因组体细胞突变数据中鉴定癌症驱动基因的方法。它特别有限考虑，具有高预期数量的聚类和/或protein-truncating的体细胞突变，并进一步将它们为类为癌基因（OG）或肿瘤抑制基因（肿瘤抑制基因）。
+　　**SomInaClust：**(Detection of Cancer Genes Based on Somatic Mutation Patterns of Inactivation and Clustering)是从整个外显子组或者基因组体细胞突变数据中鉴定癌症驱动基因的软件。它会优先考虑含有高于预期数量体细胞突变的基因，或者含有会引起protein-truncating(蛋白质截断)的体细胞突变基因，并进一步将它们划分为癌基因（OG）或肿瘤抑制基因。
 　　软件官网：http://bioinformatics.intec.ugent.be/sominaclust/
 **应用范围：**
 　　通常应用于人类突变结果vcf文件，分析突变是否发生在驱动基因上，以及发生在了那些驱动基因上。
@@ -50,15 +50,15 @@
 　　　TSG_q：TSG q value，经过DG_p的FDR 校正。
 　　　DG_q：驱动基因q value，经过DG_p的FDR 校正。
 
-　　2) SomInaClust_CDS.maf：是原始的maf文件，其中添加了包含突变的CDS（数字）位置的信息。
+　　2) SomInaClust_CDS.maf：是在输入maf文件的基础上，添加了突变在CDS上的位置信息。
 　　3) SomInaClust_log.txt：软件运行的日志文件，包括参数设置信息和生成的文件信息等。
 
 ***
-#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true"style="color:#C47451"></span></i><span style="color:#C47451">  补充说明**
-　　**驱动基因：**driver oncogenes，该概念与2002年由Weinstein首先提出，他指出肿瘤细胞的生成及维持其恶性生物学表型依赖于某个或某些活化癌基因，也称为癌基因成瘾或癌基因依赖（oncogene addiction）。驱动癌基因编码的蛋白通常在细胞内复杂的信号调控网络中发挥重要的作用。驱动癌基因的发现为肿瘤的分子靶向治疗提供了有力的理论依据。
-　　美国癌症中心Kris报告研究显示，60%的肺腺癌患者存在基因驱动突变，可通过联合检测多基因突变的情况，指导个体化靶向治疗。
+#### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true"style="color:#C47451"></span></i><span style="color:#C47451">  详细解释**
+　　**驱动基因：**driver oncogenes，该概念于2002年由Weinstein首先提出，他指出肿瘤细胞的生成及维持其恶性生物学表型依赖于某个或某些活化癌基因，也称为癌基因成瘾或癌基因依赖（oncogene addiction）。驱动癌基因编码的蛋白通常在细胞内复杂的信号调控网络中发挥重要的作用。驱动癌基因的发现为肿瘤的分子靶向治疗提供了有力的理论依据。
+美国癌症中心Kris报告研究显示，60%的肺腺癌患者存在基因驱动突变，可通过联合检测多基因突变的情况，指导个体化靶向治疗。
 &nbsp;
-参考文献：
+**参考文献：**
 　　1.Van den Eynden J, Fierro A, Verbeke L, Marchal K: SomInaClust: Detection of Cancer Genes Based on Somatic Mutation Patterns of Inactivation and Clustering. BMC Bioinformatics 2015, 16:125
 
 

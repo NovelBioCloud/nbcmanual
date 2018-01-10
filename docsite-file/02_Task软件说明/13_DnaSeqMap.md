@@ -1,5 +1,5 @@
 # DnaSeqMap
-　　将DNA-Seq数据进行比对到参考基因组序列的分析单元, 集成了Bwa_aln、Bwa_mem、Bwa_sw、Bowtie2、Bowtie软件。
+　　将DNA-Seq数据比对到参考基因组序列的分析单元, 集成了Bwa_aln、Bwa_mem、Bwa_sw、Bowtie2、Bowtie等比对软件。
 **功能：**
 　	提供了多种将数据过滤后的clean data比对到参考基因组序列上的比对软件，使之可以根据不同的样品数据情况选择不同的比对算法。
 **使用软件：**
@@ -9,7 +9,7 @@
  	软件官网：
 http://bowtie-bio.sourceforge.net/index.shtml
 http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
-
+**应用范围**：DNA-Seq测序得到的Reads 序列比对到参考基因组序列上。
 
  ***
 #### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
@@ -20,28 +20,30 @@ http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
 
 
 #### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
-　　当测序得到的fastq文件经过过滤处理以后，得到高质量的clean fastq文件后，再将clean fastq文件比对到基因组序列之后，通常会得到sam或者bam为扩展名称的文件，SAM的全称是sequence alignment/map format。而BAM就是SAM的二进制文件（B取自于binary）。在此我们最终输出为比对结果的bam格式文件，如.bowtie2.bam。该文件可以用于检测变异（如SNP、Indel等）。
+　　测序得到的fastq文件经过过滤处理得到高质量的clean fastq文件，将clean fastq文件比对到基因组序列之后，通常会得到sam或者bam为扩展名称的文件，SAM的全称是sequence alignment/map format,而BAM就是SAM的二进制文件（B取自于binary）。在此我们最终输出为比对结果的bam格式文件，如\*.bowtie2.bam。该文件可以用于检测变异（如SNP、Indel等）。
 **SAM文件格式说明：**
-　　SAM由头部注释信息（header section）和比对结果信息（alignment section），这两部分组成。注释信息可有可无，都是由一行行以@起始的注释构成。而比对结果信息，每一行表示一个片段（segment）的比对信息，包含11个必须得字段（mandatory fields）和一个可选的字段，字段之间用tag分割。这必须的11个字段，顺序固定，不可用时，根据字段的定义可以用“0”或者“`*`”来表示，这11个必须字段详细解释如下：
+　　SAM由头部注释信息（header section）和比对结果信息（alignment section）两部分组成。注释信息可有可无，都是由一行行以@起始的注释构成。而比对结果信息，每一行表示一个片段（segment）的比对信息，包含11个必须的字段（mandatory fields）和一个可选的字段，字段之间用tag分割。这必须的11个字段，顺序固定，不可用时，根据字段的定义可以用“0”或者“*”来表示，这11个必须字段详细解释如下：
 <div style="text-align:center"><img data-src="3.png" width="550px"></img>
 </div>
 
-　　可选字段（optional fields)，格式如：TAG:TYPE:VALUE，其中TAG有两个大写字母组成，每个TAG代表一类信息，每一行一个TAG只能出现一次，TYPE表示TAG对应值的类型，可以是字符串、整数、字节、数组等。
-详见官网说明：http://samtools.github.io/hts-specs/SAMv1.pdf
+　　可选字段（optional fields)，格式如：TAG:TYPE:VALUE，其中TAG有两个大写字母组成，每个TAG代表一类信息，每一行一个TAG只能出现一次，TYPE表示TAG对应值的类型，可以是字符串、整数、字节、数组等。实例如：  
+<span style="color:#F88158">ST-E00291:130:hktyvalxx:3:1101:9272:2294        83      chr5    25760843        255     140M    =       25760767        -216    GTTGATTCCTATAAACGAAAACACCCAAGCAGATTCGAGAAAAACAATGACGACCCATCTGAAGGAACTGATTCTTTTGATTAAAGAACTAGTTGGAAACATGCCTGAGGCTAAAGTAAGGCTAGCTCAGGTGCGTAAAT  ,FAF< FAKFFAAFKKK7KF7AKFFKFAKKA,AKF,<< A,KF7,,< A< F,,(<,KKF,7KKKKKKFKAKKKKKKFKKKKK< K7KKF7<,KFAFKFAAKF< KAKKFFKKKKKKKA,FKKKKAF7,F7FAKKFKKKKKKKKKF  <span style="color:#3090C7">MD:Z:122G17     XG:i:0  NH:i:1  NM:i:1  XM:i:1  XN:i:0  XO:i:0  AS:i:-3 YS:i:0  YT:Z:CP
+<span style="color:#F88158">ST-E00291:130:hktyvalxx:3:1101:9272:2294        163     chr5    25760767        255     138M    =       25760843        216     TGGAGGCAAGTGTGAATGCAAATGTTGAGTTCCGTAGACTGGAAGCTCTTGATTTGATCACTGAAACTCTGAGATCGTTGATTCCTATAAACGAAAACACCCAAGCAGATTCGAGAAAAACAATGACGACCCATCTGA    KKKKKKKKKKKKKKKKKKKKKKAFFAK7FAFF< F7FK,F7FAKKKK7F7FFF,FFFFAFFAFKKKKF,< FKKKK< FKKAFKAKFK7FKFKKKKFKFKKKFKFFK,,7FKA,AAAKKKKKKKKK7<7AFKAKKKAK,AF    <span style="color:#3090C7">MD:Z:138        XG:i:0  NH:i:1  NM:i:0  XM:i:0  XN:i:0  XO:i:0  AS:i:0  YS:i:-3 YT:Z:CP
 
+其中橙色标志出的为11个必选项，蓝色标示出的可选项。详细信息请见官网说明文档：http://samtools.github.io/hts-specs/SAMv1.pdf
 
 
  ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 　<label id='species'>物种：</label>选择参考基因组物种。
 　<label id='speciesVersion'>物种版本：</label>参考序列的版本。
-　<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+　<label id='dbType'>物种类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
 　<label id='software'>softwarName：</label>选择比对使用的软件，其选项有：
 　　　　　bwa_aln：调用bwa软件的aln算法进行比对，主要用于读长100bp以内的Illumina序列比对；
 　　　　　bwa_mem：调用bwa软件的mem算法进行比对，支持较长reads的比对，同时也支持剪接性比对，该算法是最新的，通常被推荐为更快和更准确，对于 70bp-100bp 的 Illumina 数据来说，效果也更好些；
 　　　　　bwa_sw：调用bwa软件的sw算法进行比对，可用于较长序列(70bp至1Mb)的比对，同时支持剪接性比对；
 　　　　　bowtie2：调用bowtie2软件进行比对，主要适用于长度大于50bp的reads比对；
-　　　　　bowtie：调用bowtie软件进行比对，该软件出现的最早，比较适用于长度在50bp以下的reads比对；
+　　　　　bowtie：调用bowtie软件进行比对，该软件出现的最早，比较适用于长度在50bp以下的reads比对。
 
 　<label id='threadNum'>线程数：</label>运行时使用线程数。
 　<label id='memory'>内存：</label>运行时使用内存。
@@ -65,20 +67,20 @@ http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
 
 
 **高级选项：**
-　<label id='maxDiffInSeed'>maxDiffInseed：</label>bwa_aln 最大seed差异数，默认值为2。
-　<label id='excludeIndelInEnd'>excludeIndelInEnd：</label>bwa_aln reas末端index大于此值时，被过滤掉。默认值为5。
-　<label id='skipFirstIntReads'>skipFirstIntReads：</label>比对时reads的前几个bp不参与比对
+　<label id='maxDiffInSeed'>maxDiffInseed：</label>使用bwa_aln软件进行比对时, seed序列的最大差异碱基数，默认值为2。
+　<label id='excludeIndelInEnd'>excludeIndelInEnd：</label>使用bwa_aln软件进行比对时, reads末端indel序列长度大于此值时，被过滤掉。默认值为5。
+　<label id='skipFirstIntReads'>skipFirstIntReads：</label>比对时reads的前几个bp不参与比对。
 　<label id='minFragLength'>minFragLengt：</label>最小fragment长度，默认值为0。
 　<label id='maxFragLength'>maxFragLeng：</label>最大fragment长度，默认值为500。
-　<label id='maxMismatchesInSeed'>maxMismatchesInSeed：</label>seed中最大的mismatches数
-　<label id='seedLength'>seedLength：</label>seed长度
+　<label id='maxMismatchesInSeed'>maxMismatchesInSeed：</label>seed中最大的mismatches数。
+　<label id='seedLength'>seedLength：</label>seed长度。
 　
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　1）chr_distribution.png：reads在每条染色体上的分布图，如：
+　1）*chr_distribution.png：reads在每条染色体上的分布图，如：
 <div style="text-align:center"><img data-src="2.png" width="450px" ></img>
 </div>
-　2）mapping_statistics.xls，比对后统计结果，如：
+　2）*.mapping_statistics.xls，比对后统计结果，如：
  ```
  #Mapping_Statistics
 #Item	S53
