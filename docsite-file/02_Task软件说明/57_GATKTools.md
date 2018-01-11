@@ -47,7 +47,7 @@
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 　(1)\*_ recal.bam：碱基质量值重新校正后的结果bam文件，BAM就是SAM的二进制文件（B取自于binary）。SAM的全称是sequence alignment/map format。详细信息请见官网说明文档：http://samtools.github.io/hts-specs/SAMv1.pdf
-　(2) \*.intervals：通过运行RealignerTargetCreator来确定要进行重新比对的区域。
+　(2)\*.intervals：通过运行RealignerTargetCreator来确定要进行重新比对的区域。
 
 ***
 #### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  详细解释**

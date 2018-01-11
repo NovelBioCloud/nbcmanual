@@ -26,7 +26,7 @@
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-1) .antitargetcoverage.cnn/*.targetcoverage.cnn：antitarget/target的bin 水平（即，指定长度区域）的覆盖度，结果以bed文件格式存储，bed格式文件说明请见官方文档：http://genome.ucsc.edu/FAQ/FAQformat.html#format1，如：
+1)\* .antitargetcoverage.cnn/*.targetcoverage.cnn：antitarget/target的bin 水平（即，指定长度区域）的覆盖度，结果以bed文件格式存储，bed格式文件说明请见官方文档：http://genome.ucsc.edu/FAQ/FAQformat.html#format1 ，如：
 <div style="text-align:center"><img data-src="1.png" width="450px" ></img></div>
 　chromosome:染色体名称。
 　start:起始位置。
@@ -35,8 +35,8 @@
 　depth:平均覆盖度深度。
 　log2:平均覆盖度深度Log2值。
 2) reference.cnn：**Copy number refence profile**,参考基因组序列统计信息,其中除了含有“chromosome”、“start”、“end”、“gene”、“log2”、“depth”信息以外，还有给定序列区域的GC含量、给定序列区域的使用**RepeatMsker**软件标识出的重复区域的**masked**(Masked可以理解为隐藏，覆盖，标识，具体的意思是重复序列被一段N或X代替)比例和其他描述信息。
-3) .cnr：Bin-level log2 ratios，指定长度区域覆盖度的log2值比率信息。 
-4) .cns：Segmented log2 ratios，片段覆盖度的log2值比率信息。
+3)\*.cnr：Bin-level log2 ratios，指定长度区域覆盖度的log2值比率信息。 
+4)\*.cns：Segmented log2 ratios，片段覆盖度的log2值比率信息。
 
 　　各个结果文件详情请见官方文档：http://cnvkit.readthedocs.io/en/stable/fileformats.html
 

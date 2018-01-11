@@ -63,12 +63,13 @@
 　FORMAT：基因型字段格式，以冒号隔开
 　NC：样品名，表示每个样品的genotypes详细信息
 
-　VCF的详细说明，请见官方文档： http://samtools.github.io/hts-specs/VCFv4.2.pdf
+　VCF的详细说明，请见官方文档：
+ http://samtools.github.io/hts-specs/VCFv4.2.pdf
 https://en.wikipedia.org/wiki/Variant_Call_Format
 ***
 #### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  详细解释**
 　　**SNP：**全称Single Nucleotide Polymorphisms，单核苷酸多态性，主要是指在基因组水平上由单个核苷酸的变异所引起的DNA序列多态性，包括转换、颠换、缺失和插入，形成的遗传标记的数量很多，多态性丰富。它是人类可遗传的变异中最常见的一种，占所有已知多态性的90%以上。SNP在人类基因组中广泛存在，平均每500～1000个碱基对中就有1个，估计其总数可达300万个甚至更多。
-　　gVCF: 格式详细说明，请见官方文档：
+　　**gVCF:** 格式详细说明，请见官方文档：
 https://software.broadinstitute.org/gatk/documentation/article.php?id=4017
 
 **参考文献：**

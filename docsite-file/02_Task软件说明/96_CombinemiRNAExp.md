@@ -28,8 +28,8 @@
 　**TpmCoefficient：**在计算TPM值时乘以的系数，默认为1000000。
  ***
 **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**
-　　1)Sample_Exp ： 每个样本的TPM列表文件。
-　　2)All.Counts.exp.txt ：整合后的所有样本的miRNA表达（counts数）列表。
+　　1)Sample_Exp： 每个样本的TPM列表文件。
+　　2)All.Counts.exp.txt：整合后的所有样本的miRNA表达（counts数）列表。
 　　3)All.TPM.exp.txt：整合后的所有样本的miRNA表达（TPM值）列表。
 ***
 #### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  详细解释**

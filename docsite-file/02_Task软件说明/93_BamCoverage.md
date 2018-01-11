@@ -32,16 +32,16 @@
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　1).sample_cumulative_coverage_counts：输出基因区段中大于某个覆盖度值的基因区段和覆盖度值信息。
-　2).sample_cumulative_coverage_proportions：输出基因区段中大于某个覆盖度值的基因区段和覆盖度值的比例信息。
-　3).sample_interval_summary：如果输入了特定区域文件，则特定区域里相关的整体信息记录在里面
-　4).sample_interval_statistics：如果输入了特定区域文件，则特定区域里相关的统计信息记录在里面
-　5).sample_statistics：某个覆盖度范围之间碱基的数目，这边是一个直方图的统计结果，可以根据这个做出一个覆盖度的分布图。
-　6).Sequencing_Depth_Plot.png：根据“.sample_statistics”的结果，做出来的直方图，可以很直观的显示出覆盖度的信息。
+　1)\*.sample_cumulative_coverage_counts：输出基因区段中大于某个覆盖度值的基因区段和覆盖度值信息。
+　2)\*.sample_cumulative_coverage_proportions：输出基因区段中大于某个覆盖度值的基因区段和覆盖度值的比例信息。
+　3)\*.sample_interval_summary：如果输入了特定区域文件，则特定区域里相关的整体信息记录在里面
+　4)\*.sample_interval_statistics：如果输入了特定区域文件，则特定区域里相关的统计信息记录在里面
+　5)\*.sample_statistics：某个覆盖度范围之间碱基的数目，这边是一个直方图的统计结果，可以根据这个做出一个覆盖度的分布图。
+　6)\*.Sequencing_Depth_Plot.png：根据“.sample_statistics”的结果，做出来的直方图，可以很直观的显示出覆盖度的信息。
 <div style="text-align:center"><img data-src="1.png" width="400px" ></img></div>
 图中，X轴为测序深度，Y轴为指定基因区段的覆盖度。
 
 ***
 
 **参考文献：**
-1.McKenna A. et al. The Genome Analysis Toolkit: A MapReduce framework for analyzing next-generation DNA sequencing data. Genome Res. 20, 1297–1303 (2010). [PMC free article] [PubMed]
+McKenna A. et al. The Genome Analysis Toolkit: A MapReduce framework for analyzing next-generation DNA sequencing data. Genome Res. 20, 1297–1303 (2010). [PMC free article] [PubMed]

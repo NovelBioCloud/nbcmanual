@@ -6,7 +6,7 @@
 **功能：**
 　　该模块功能为根据基因表达值绘制基因聚类图。
 **使用软件：**
-　　R：是用于统计分析、绘图的语言，是一个用于统计计算和统计制图的优秀工具。该task使用R语言中的gplots包中的heatmap.2函数。
+　　**R：**是用于统计分析、绘图的语言，是一个用于统计计算和统计制图的优秀工具。该task使用R语言中的gplots包中的heatmap.2函数。
   软件官网：
   https://www.rdocumentation.org/packages/gplots/versions/3.0.1/topics/heatmap.2
 **应用范围：**
@@ -19,7 +19,7 @@
 <div style="text-align:center"><img data-src="2.png" width="100px"></img></div>
 注意：
 1.要求输入的表格要有一行title，对于每列的title名称，无特殊要求；
-输入表格中，第一列为基因名称列是必须要有的，其他列信息可有可无。
+2.输入表格中，第一列为基因名称列是必须要有的，其他列信息可有可无。
 **RPKMFile**：输入所有基因的RPKM值。
 **用途：**用于从中提取聚类基因的基因表达RPKM值。
 **格式：**格式如下表格所示：

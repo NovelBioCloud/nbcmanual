@@ -56,5 +56,5 @@
 
 
 **参考文献**
-　　1.You,X. and Conrad,T.O. (2016) Acfs: accurate circRNA identification and quantification from RNA-Seq data. Sci. Rep., 6, 38820.
+You,X. and Conrad,T.O. (2016) Acfs: accurate circRNA identification and quantification from RNA-Seq data. Sci. Rep., 6, 38820.
 

@@ -42,7 +42,7 @@
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　1) * .vcf：所有结构变异（SNP、Indel）结果文件，如：
+  \* .vcf：所有结构变异（SNP、Indel）结果文件，如：
 <div style="text-align:center"><img data-src="2.png" width="750px" ></img></div>
 表中各列信息解释如下：
 <div style="text-align:center"><img data-src="3.png" width="450px"  ></img></div>

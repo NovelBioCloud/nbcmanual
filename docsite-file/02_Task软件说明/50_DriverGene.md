@@ -55,8 +55,7 @@
 
 ***
 #### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true"style="color:#C47451"></span></i><span style="color:#C47451">  详细解释**
-　　**驱动基因：**driver oncogenes，该概念于2002年由Weinstein首先提出，他指出肿瘤细胞的生成及维持其恶性生物学表型依赖于某个或某些活化癌基因，也称为癌基因成瘾或癌基因依赖（oncogene addiction）。驱动癌基因编码的蛋白通常在细胞内复杂的信号调控网络中发挥重要的作用。驱动癌基因的发现为肿瘤的分子靶向治疗提供了有力的理论依据。
-美国癌症中心Kris报告研究显示，60%的肺腺癌患者存在基因驱动突变，可通过联合检测多基因突变的情况，指导个体化靶向治疗。
+　　**驱动基因：**driver oncogenes，该概念于2002年由Weinstein首先提出，他指出肿瘤细胞的生成及维持其恶性生物学表型依赖于某个或某些活化癌基因，也称为癌基因成瘾或癌基因依赖（oncogene addiction）。驱动癌基因编码的蛋白通常在细胞内复杂的信号调控网络中发挥重要的作用。驱动癌基因的发现为肿瘤的分子靶向治疗提供了有力的理论依据。美国癌症中心Kris报告研究显示，60%的肺腺癌患者存在基因驱动突变，可通过联合检测多基因突变的情况，指导个体化靶向治疗。
 &nbsp;
 **参考文献：**
 　　1.Van den Eynden J, Fierro A, Verbeke L, Marchal K: SomInaClust: Detection of Cancer Genes Based on Somatic Mutation Patterns of Inactivation and Clustering. BMC Bioinformatics 2015, 16:125
