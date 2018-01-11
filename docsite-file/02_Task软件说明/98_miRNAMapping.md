@@ -71,7 +71,7 @@ Chr_Distribution
 　　**Rfam：**Rfam 是一个用于鉴定non-coding RNAs的数据库。Rfam的主要目的是使用敏感BLAST过滤器结合协方差模型(Covariance Models, CMs)，对核苷酸序列，特别是完整基因组，注释已知RNA家族的新成员。具有一个非常广泛的分类学区域的少数家族（例如，tRNA和rRNA）提供了大多数的序列注释，同时大多数Rfam家族（例如，snoRNAs和miRNAs）具有有限的分类范围，并提供了有限数目的注释。
   详细信息请查看官网：http://rfam.xfam.org。
 
-参考文献：
+**参考文献：**
 1.Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168]
 
 2.Li H. and Durbin R. (2010) Fast and accurate long-read alignment with Burrows-Wheeler Transform. Bioinformatics, Epub. [PMID: 20080505]
