@@ -1,9 +1,9 @@
 # lumpy-sv
-　　筛选结构变异(SV)检测及在基因组中的分布，能够检测到的结构变异类型有：插入、缺失、倒置、易位等。lumpy-sv构建一套独特的数据筛选处理流程，运用更快捷更有效的算法，由此而不断提高基因组结构变异检测的能力。
+　　检测结构变异(SV)及其在基因组中的分布，能够检测到的结构变异类型有：插入、缺失、倒置、易位等。lumpy-sv构建一套独特的数据筛选处理流程，运用更快捷更有效的算法，由此而不断提高基因组结构变异检测的能力。
 **功能：**
-　　检测样品中的结构变异。
+　　检测样品基因组中的结构变异。
 **使用软件：**
-　　LUMPY：StringTie由约翰霍普金斯大学联合德州大学西南医学中心开发，能够组装转录本并预计表达水平。它应用网络流算法和可选的denovo组装，将复杂的数据集组装成转录本。StringTie能够拼接出更完整、更准确的基因，并且StringTie采用拼接和定量同步进行，相对于其他方法，其定量结果更加准确。
+　　LUMPY：是一个新的检测结构变异的框架。该软件检测过程中将多个样品的多个SV信号进行综合考虑。LUMPY的灵敏度很高，对于低覆盖度或者低变异频率的的结构变异均能进行有效检测。
 　　软件官网：https://github.com/arq5x/lumpy-sv
 **应用范围：**
 　　检测样本的结构变异。通常应用于DNA seq测序数据的后续分析，用来研究染色体水平变异的。与SNP比较，结构变异虽然发生的频率较低，但累及的序列长度却大大超过了SNP，因此对于人类健康和疾病的影响更为显著。
@@ -22,7 +22,7 @@
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　.vcf：结构变异结果文件，如：
+　 * .vcf：结构变异结果文件，如：
 <div style="text-align:center"><img data-src="1.png" width="700px"></img></div>
 
 各列信息解释如下：
@@ -43,8 +43,8 @@
 
 ***
 #### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  补充说明**
-**SV：**染色体结构变异是染色体变异的一种，通常是指基因内大于1kp的DNA片段缺失、插入、重复、倒位、易位以及DNA拷贝数目变化（CNVs）。染色体结构变异与染色体数目变异引起的疾病统称染色体病。现在可以通过适当手段产前诊断，有利于预防。
-参考文献：
+**SV：**染色体结构变异（SV）是染色体变异的一种，通常是指基因组内大于1kb的DNA片段发生缺失、插入、重复、倒位、易位或拷贝数目变化（CNVs）。染色体结构变异与染色体数目变异引起的疾病统称染色体病。现在可以通过适当手段进行产前诊断，有利于对此类疾病的预防。
+**参考文献：**
 Ryan M Layer, Colby Chiang, Aaron R Quinlan, and Ira M Hall. 2014. "LUMPY: a Probabilistic Framework for Structural Variant Discovery." Genome Biology 15 (6): R84. doi:10.1186/gb-2014-15-6-r84.
 
 
