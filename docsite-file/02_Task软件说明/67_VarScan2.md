@@ -1,19 +1,19 @@
 # Varscan2
-　　Varscan2可用来检测来自肿瘤-正常对的外显子组数据中的体细胞突变和拷贝数改变（copy number alterations，CNAs）。该算法同时从两个样品中读取数据；一种启发式和统计算法检测序列变异，并通过体细胞状态（生殖细胞系、体细胞或杂合性丢失）分类它们；标准化read深度的一项比较阐明了相对拷贝数变化。
+　　Varscan2可用来检测来自肿瘤-正常对的外显子组数据中的体细胞突变和拷贝数变异（copy number variations，CNVs）。该算法同时从两个样品中读取数据，并通过体细胞状态（生殖细胞系、体细胞或杂合性丢失）对变异进行分类，进而对标准化后的reads深度进行比较来阐明相对拷贝数的变化。
 **功能：**
-　1） 单个样本/多个样本（群体样本、如体细胞变异）共有或独有的种系变异；
-　2） 识别肿瘤-正常样品对中的体细胞突变、拷贝数变异可LOH（Loss of Heterozygosity，杂合性缺失）；
-　3） 鉴定家庭三人组中的生殖细胞系变异，denovo突变和孟德尔遗传错误；
+1） 单个样本/多个样本（群体样本）共有或独有的种系变异（如体细胞变异等）；
+2） 识别肿瘤-正常样品对中的体细胞突变、拷贝数变异和杂合性缺失（Loss of Heterozygosity，LOH）；
+3） 鉴定家庭三人组中的生殖细胞系变异，denovo突变和孟德尔遗传错误；
 **使用软件：**
-　　Varscan2：由华盛顿大学基因组研究所开发，是一个基于Java，用于检测插入/缺失的(SNPs and InDels)变异预测软件工具。Varscan2特别针对肿瘤外显子测序检测体细胞突变和CNV。
-　　软件官网： http://varscan.sourceforge.net/index.html
+**Varscan2：**由华盛顿大学基因组研究所开发，是一个基于Java，用于检测插入/缺失(SNP/InDel)的变异预测软件工具。Varscan2特别针对肿瘤外显子测序数据，检测体细胞突变和CNV。
+**软件官网：** http://varscan.sourceforge.net/index.html
 
-**应用范围:**
-　　适用于靶向测序、外显子和全基因重测序数据。
+**应用范围**
+	适用于靶向测序、外显子测序和全基因重测序数据。
 ***
 #### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 该Task的输入数据来源于Samtools模块的PileUp结果文件。
-　  InputData：PileUp文件，使用Samtools的mpileup命令，生成的bcf文件。该文件每一行代表了参考序列中某一个碱基位点的比对结果，如：
+　  **InputData：**PileUp文件，使用Samtools的mpileup命令，生成的bcf文件。该文件每一行代表了参考序列中某一个碱基位点的比对结果，如：
 <div style="text-align:center"><img data-src="2.png" width="500px" ></img>
 </div>
 各列信息解释如下：
@@ -31,15 +31,15 @@
 　　 ‘`*`’代表模糊碱基
 　　 ‘^’代表匹配的碱基是一个read的开始；’^'后面紧跟的ascii码减去33代表比对质量；这两个符号修饰的是后面的碱基，其后紧跟的碱基(.,ATCGatcgNn)代表该read的第一个碱基
 　　 ‘$’代表一个read的结束，该符号修饰的是其前面的碱基
-　　　正则式’\+[0-9]+[ACGTNacgtn]+’代表在该位点后插入的碱基；比如上例中在scaffold_1的2847后插入了9个长度的碱基acggtgaag。表明此处极可能是indel
-　　 　正则式’-[0-9]+[ACGTNacgtn]+’代表在该位点后缺失的碱基
+　　　正则式’\\+[0-9]+[ACGTNacgtn]+’代表在该位点后插入的碱基；比如上例中在scaffold_1的2847后插入了9个长度的碱基acggtgaag。表明此处极可能是indel
+　　　正则式’-[0-9]+[ACGTNacgtn]+’代表在该位点后缺失的碱基
 　**Pileup 文件详细说明**，请见官方文档： http://samtools.sourceforge.net/pileup.shtml
 
 **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
 　　检测的SNP和indel结果文件，以VCF文件格式存储。
 <hr/>**<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 　**物种：**选择参考基因组物种。
-　**版本：**参考序列的版本。
+　**版本：**参考基因组的版本。
 　<label id='minCoverage'>minCoverage：</label>reads的最小覆盖度，默认值为8。
 　<label id='minCovNor'>minCovNor：</label>正常组（对照组）的最小覆盖度，默认值为8。
 　<label id='minCovTum'>minCovTum：</label>患病组（实验组）的最小覆盖度，默认值为6。
@@ -47,12 +47,9 @@
 　<label id='minFreForHom'>minFreForHom：</label>纯合子的最小变异率，默认值为0.75。
 　<label id='pValue'>pValue：</label>杂合子检测突变的最低p阈值，0.99。
 　<label id='pValueSom'>pValueSom：</label>检测突变的p阈值，默认值为0.05。
-　**文件对比：**加入对比两个组份。选择实验组与对照组比较。
-　　　　　group1Array：选择对比组1；
-　　　　　group2Array：选择对比组2；
-　　　　　outFileArray：输出名称。
+　
  <hr/> **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　1) indel.vcf：检测到的所有indels结果VCF文件，如：
+　1)\*_indel.vcf：检测到的所有indels结果VCF文件，如：
 <div style="text-align:center"><img data-src="3.png" width="600px" ></img>
 </div>
  表中各列信息解释如下：
@@ -61,10 +58,10 @@
 VCF的详细说明请见官方文档：
 　　　　　http://samtools.github.io/hts-specs/VCFv4.2.pdf
 　　　　　https://en.wikipedia.org/wiki/Variant_Call_Format
-　2) snp.vcf：检测到的所有snp结果VCF文件，文件格式详情同上。
-　3) somatic_all.vcf：检测到的所有的体细胞突变VCF文件，文件格式详情同上。
-　4) somatic_indel.vcf：检测到的所有的somatic indel文件，文件格式详情同上。
-　5) somatic_snp.vcf：检测到的所有的somatic snp文件，文件格式详情同上。
+　2) \*_snp.vcf：检测到的所有snp结果VCF文件，文件格式详情同上。
+　3) \*_somatic_all.vcf：检测到的所有的体细胞突变VCF文件，文件格式详情同上。
+　4) \*_somatic_indel.vcf：检测到的所有的体细胞 indel文件，文件格式详情同上。
+　5) \*_somatic_snp.vcf：检测到的所有的体细胞SNP文件，文件格式详情同上。
 
 ***
 #### **<span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="color:#C47451"></span></i><span style="color:#C47451">  补充说明**
@@ -73,9 +70,3 @@ VCF的详细说明请见官方文档：
 &nbsp;
 参考文献：
 Koboldt DC, Zhang Q, Larson DE, Shen D, McLellan MD, Lin L, Miller CA, Mardis ER, Ding L, Wilson RK. VarScan 2: somatic mutation and copy number alteration discovery in cancer by exome sequencing. Genome Res. 2012;22:568–576. [PMC free article] [PubMed]
-
-
- 
- 
- 
- 
