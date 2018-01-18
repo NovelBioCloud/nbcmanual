@@ -1,12 +1,11 @@
 # SamToFastQ
-　　根据比对结果提取指定序列提取的软件。
+　　从Bam格式文件中提取指定序列，并以FastQ格式文件输出。
 **功能：**
 　　从Bam格式文件中提取指定序列，并以FastQ格式文件输出。
 **使用软件：**
-　　Samtools： samtools是目前广泛使用的处理bam/sam文件的工具。软件官网： http://www.htslib.org/doc/samtools.html
+　　Samtools：samtools是目前广泛使用的处理bam/sam文件的工具。软件官网： http://www.htslib.org/doc/samtools.html
 **应用范围：**
-　　可从测序得到的reads比对到从参考序列上以后得到的bam文件中，根据不同需求，提取可用于后续不同分析内容的reads序列，如mapped reads或者unmapped reads。
-  
+　　从测序reads比对到参考序列上得到的bam文件中，根据不同需求，提取可用于后续不同分析内容的reads序列，如mapped reads或者unmapped reads。
 ***
 #### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
 　　该task的输入数据通常是来源于RnaSeqMap的比对结果Bam文件，也可以是外源的Bam文件。
@@ -28,16 +27,16 @@ E00591:53:hkkvgalxx:8:1204:25784:42288 153 chr1 14648 255 128M = 1
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 　<label id='samToFastQType'>samToFastQType：</label>选择提取Bam中哪种类型的序列，其值有如下选项：
-　　　AllReads：提取出所有的reads。
+　　　AllReads：提取出所有的reads序列。
 　　　MappedReads：提取出所有的比对上参考序列reads。
 　　　MappedReadsPairend：提取出双端都比对上参考序列reads。
-　　　OneMappedOneNot：提取出一端比对上参考序列，另一端没比对到参考序列的reads。
-　　　UnmappedReadsToOneFile：提取出一端没有比对上的reads，并将reads序列输出到一个结果文件中。
-　　　UnmappedReads：提取出所有未比对上参考序列reads，包括一端没比对和双端都没比对上。
-　　　UnmappedBothReads：提取都没比对到的参考序列reads。
+　　　OneMappedOneNot：提取出一端比对到参考序列上，另一端没比对到参考序列上的reads。
+　　　UnmappedReadsToOneFile：提取出所有未比对到参考序列上的reads，并将reads序列输出到一个结果文件中。
+　　　UnmappedReads：提取出所有未比对到参考序列上的reads，其中包括一端没比对上和双端都没比对上的reads。
+　　　UnmappedBothReads：提取出两端都没比对到参考序列上的reads。
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　　fq.gz：是提取出来的reads序列文件，以FastQ文件格式存储。如：
+　　*.fq.gz：是提取出来的reads序列文件，以FastQ文件格式存储。如：
 <div style="text-align:center"><img data-src="2.png" width="600px" ></img>
 </div>
