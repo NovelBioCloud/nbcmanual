@@ -1,36 +1,54 @@
 # Trinity
-　　Trinity是由 the Broad Institute开发的转录组denovo组装软件，由三个独立的软件模块组成：Inchworm,Chrysalis和Butterfly。三个软件依次来处理大规模的RNA-seq的reads数据。　　Trinity发表在 NatureBiotechnology。Trinity的简要工作流程为：
-　（1）Inchworm: 将RNA-seq的原始reads数据组装成Unique序列；
-　（2）Chrysalis: 将上一步生成的contigs聚类，然后对每个类构建Bruijn图；
-　（3）Butterfly: 处理这些Bruijn图，依据图中reads和成对的reads来寻找路径，从而得到具有可变剪接的全长转录子，同时将旁系同源基因的转录子分开。
+　　现有的转录组组装技术主要有三大方向：基于参考序列的组装，从头组装，两者结合的组装方法。其中，从头组装是指直接利用测序reads之间的overlap进行组装，最常用的组装软件即为Trinity。
+**组装原理：**
+　　1.首先通过Inchworm软件，使用k-mer算法对测序reads进行快速有效的组装。
+　　2.然后通过Chrysalis软件对这些转录本进行聚类，并对这些类进行de Bruijn路径图的构建，每条路径反映了这些变异转录本重叠部分的复杂度。
+　　3.最后通过Butterfly软件，结合相关reads分析路径图，报告出可信的转录本序列，对不同转录本亚型和来源于同一基因的转录本进行解析。
+**功能：**
+　　利用测序的reads之间的overlap进行转录组的组装。
+**使用软件：**
+**Trinity：**Trinity是由 the Broad Institute开发的转录组denovo组装软件，由三个独立的软件**模块组成：**Inchworm,Chrysalis和Butterfly。三个软件依次来处理大规模的RNA-Seq的reads数据。Trinity发表在国际期刊《NatureBiotechnology》。
+**软件官网：**https://github.com/trinityrnaseq/trinityrnaseq/wiki
+**应用范围**
+对无参考基因组的物种进行转录组denovo拼接。
 ****
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输入文件**
-　　leftInputData 、 rightInputData ：分别拖入左端文件和右端文件，数据格式为：FASTA,FASTQ。
-
+　　该Task的输入数据是经过数据过滤后的fastq文件。
+　如果为双端测序，输入左端文件和右端文件；如果为单端测序，只拖入左端文件即可。
+　　**左端序列文件：**测序左端reads序列。要求输入单端fastq文件或双端测序的左端文件。文件可以为gz压缩后fastq格式，如 filename.1.fq.gz
+　  **右端序列文件：**测序右端reads序列，单端不需要输入该文件，双端要求输入右端文件，如filename.2.fq.gz
+#### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
+组装后序列文件（\* .trinity.Trinity.fasta），可用于后续的RNA分析中，当做参考序列使用。
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　<label id='seqType'>序列格式：</label>输入的reads类型，fa或fq。
-　<label id='max_memory'>最大内存：</label>Trinity在运行过程中使用的最大内存。
-　<label id='SS_lib_type'>链特异性：</label>Strand-specific RNA-Seq reads 方向。
-　<label id='CPU'>CPU：</label>Trinity在运行过程中使用的CPU数量。
-　<label id='min_contig_length'>最小长度：</label>组装的最小序列长度。
-　<label id='bflyHeapSpaceMax'>bflyHeapSpaceMax：</label>运行Butterfly时java最大的堆积空间。
-　<label id='bflyHeapSpaceInit'>bflyHeapSpaceInit：</label>java初始的堆积空间。
+　	**序列格式：**输入的reads类型，fa或fq。
+　	**最大内存：**Trinity在运行过程中使用的最大内存。
+　	**链特异性：**测序reads 的链特异性方向。
+　	**CPU：**Trinity在运行过程中使用的CPU数量。
+　	**最小长度：**组装的最小序列长度。
+　	**bflyHeapSpaceMax：**运行Butterfly时java最大的堆积空间。
+　	**bflyHeapSpaceInit：**java初始的堆积空间。 
+　	**contaionerNumber：**任务运行时使用contaioner数。
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
-　**Trinity.fasta：**Trinity组装得到的序列文件，以fasta格式存储。
-　**Trinity.fasta.stat.xls：**对组装后的序列文件进行的统计结果文件。
- 
-必须的参数：
---seqType     reads的类型：(cfa, cfq, fa, or fq)
---JM   jellyfish使用多少G内存用来进行k-mer的计算，包含‘G’这个字符--left        左边的reads的文件名
---rigth       右边的reads的文件名
---single      不成对的reads的文件名
-可选参数：
-Misc：
---SS_lib_type        reads的方向。成对的reads: RF or FR; 不成对的reads
-: F or R。在数据具有链特异性的时候，设置此参数，则正义和反义转录子能得到区分。默认情况下，不设置此参数，reads被当作非链特异性处理。FR: 匹配时，read1在5'端上游, 和前导链一致, read2在3'下游, 和前导链反向互补. 或者read2在上游, read1在下游反向互补; RF: read1在5'端上游, 和前导链反向互补, read2在3'端下游, 和前导链一致;
---output 　输出结果文件夹。默认情况下生成trinity_out_dir文件夹并将输出结果保存到此文件夹中。
---CPU　使用的CPU线程数，默认为2
---min_contig_length  报告出的最短的contig长度。默认为200
+　1)**\*.trinity.Trinity.fasta：**组装后序列文件，以fasta格式存储。
+　2)**\*.contigLenDis.png：**组装后序列长度分布图，如：
+<div style="text-align:center">
+<img data-src="1.png" width="600px"  ></img>
+</div>
+　3)**\*.GeneToTran.txt：**组装的unigenes ID对应转录本ID，本文件中转录本的ID与unigenes ID相同，用于后续的表达量计算。
+注：unigenes指组装后序列文件经过去冗余之后得到的基因序列。
+　4)**\*.trinity.Trinity.fasta.stat.xls：**组装后结果统计信息，如：
+ 
+ | Item       |  Result  |
+| -------- |  :----: |
+|Number of contigs  |  26153 |
+|Number of characters(bp)  | 24776129|
+| Average Length(bp)  | 947|
+|Minimum Contigs Length  　|301|
+|Maximum Contigs Length  　|11610|
+|N50 Length      |1294　|　
+|Median Length      |650　|　
+**参考文献：**
+Grabherr MG, Haas BJ, Yassour M, Levin JZ, Thompson DA, AmitI , et al. Full-length transcriptome assembly from RNA-Seq data without a reference genome. Nature Biotechnology. 2011; 29:644–652. pmid:21572440
