@@ -396,7 +396,7 @@ Cmd加壳由4部分组成
 　　例子：`<appendFile id="infile" value="@removesuffix(%s).dict"/>`
 　　如果输入的infile为/home/novelbio/chrseq.fa，则得到的结果为 /home/novelbio/chrseq.dict。也就是把/home/novelbio/chrseq.dict拷贝进入临时文件夹供计算时使用。
 
-### **文件路径语法糖 ：**
+### **文件路径语法：**
 　　**简介：**
 　　仅在task为SubTask时才起作用。某个task可以设置为SuperTask，那么该task在提交时，首先会提交一系列SubTask到平台，然后每个SubTask单独再开多个container进行分布式计算。
 
