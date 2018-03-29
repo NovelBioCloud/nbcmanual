@@ -1,4 +1,9 @@
 ### ** 添加记录：**
+**20180329**
+　　1. 标签`<resource>`中，用${}替换@id
+　　2. 标签`<script>`添加用于分组比较的 compareId
+　　3. 添加"[]"、"/"、"//"三个语法糖的介绍
+　　4. 添加文件路径变量
 **20170722**
 　　1. 添加支持文件夹`config`，`scripts`，`software`
 　　2. 添加多线程参数`<scriptThread>`
@@ -53,7 +58,7 @@ Cmd加壳由4部分组成
 &nbsp;
 本说明文档主要描述第二部分，ScriptXml的配置。本文档类似于说明书等速查手册， **不是教程 ，因此不适合新手入门阅读**。对NovelBrain云计算cmd封装熟悉的生物信息工程师可以在实际操作中查阅本文档。
 
-#### **1. XML配置文件简介**
+#### **XML配置文件简介**
 	
 　　NovelBrain平台采用xml文件来配置task运行所需的Cmd命令。通过在指定文件夹配置xml文件，可以在运行时调用第三方的cmd程序或groovy脚本并顺序执行。一个task由可选的三个阶段组成，分别是 **Prepare**、**Run**、**Summary**。
 　　**Prepare：**task运行时的前处理工作，不会并行计算。在hisat2的案例中可以用于建索引，因为无论运行多少样本，索引都只需要运行一次，所以可以把建索引的工作放在Prepare中。
@@ -61,7 +66,7 @@ Cmd加壳由4部分组成
 　　**Summary：**Task结束后的收尾工作。如运行结束后汇总mapping率、汇总全体表达量等工作。不能分布式执行。
 	例：RNA-Seq-Mapping，在运行最开始的时候需要对染色体索引（prepare），然后每个文件分别进行mapping（Run），运行结束后需要统计每个样本的mapping率并合并到一个文件中（Summary）。
 
- **1.1 文件夹格式 **
+ **1 文件夹格式 **
 　　ScriptXml放在指定的文件夹中，其中私有云一般放在 /media/nbfs/nbCloud/public/task/scriptmodule/ 中，本路径可在 NBCService 工程的 service_path.properties 中配置。
 　　在scriptmodule中，每个task拥有一个以该task名字命名的文件夹，其内部可以有六个文件夹，分别为 Prepare， Run， Summary， conifg， scripts， software。其中前三个文件夹中放置task三个阶段所需运行的xml文件。config文件夹主要用于自动跳过等配置(待补充)。scripts文件夹中建议放置运行所使用到的各种脚本，software文件夹中建议放置运行所使用到的软件(可无这两个文件夹)。
 ```
@@ -84,13 +89,13 @@ Cmd加壳由4部分组成
 		---------------------------/hisat2
 		//以上三个文件夹可选
 ```
- **1.2 Xml运行顺序**
+ **2 Xml运行顺序**
 　　在一个stage文件夹中可以放入多个xml，我们一般要求文件名以数字开头加"."开头，以此来标识文件的顺序。下列xml会按照顺序依次执行。
 　　1.index_make.xml，2.mapping.xml，3.statistics.ml
 　　在部分操作中我们可能需要在已经排好序的xml中插入新的xml，这时候我们可以采取小数点的形式来标识。如下运行顺序：
 1.index_make.xml，2.mapping.xml，<b>2.1.getUnmappedReads.xml</b>, 3.statistics.ml
 　　注意序号 2<2.2<2.11<2.11.1，同时序号不支持负数。目前最多支持到 1.1.1三个数字。此外注意不要出现相同的数字标识。
- **1.3 Xml文件详细说明 **
+ **3 Xml文件详细说明 **
 　　每一个xml会调用一个cmd/groovy命令。以下是一个调用cmd命令cp的简单例子。
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -100,7 +105,7 @@ Cmd加壳由4部分组成
 		<!-- xml调用的类型，cmd命令还是groovy脚本 -->
 		<scriptType>cmd</scriptType>
 		<!-- 设置cpu和内存使用 -->
-		<resource cpu="@sizenodup(@id(prefix))" mem="@filesize(@id(infile))" />
+		<resource cpu="@sizenodup(${prefix})" mem="@filesize(${infile})" />
 		<!-- 具体的命令片段 -->
 		<templet>
 			<script param="cp"/>
@@ -167,12 +172,12 @@ Cmd加壳由4部分组成
 　　例子：`<resource cpu="5" mem="3000" />`
 　　表示本xml需要5个core，和3000MB内存，注意内存单位是MB；cpu个数需要控制在20以内，否则很难分配到服务器上。
 　　复杂情况下可以使用一些内置函数，如下：
-　　例子：`<resource cpu="@sizenodup(@id(prefix))" mem="3300*@filesize(@id(infile))" />`
+　　例子：`<resource cpu="@sizenodup(${prefix})" mem="3300*@filesize(${infile})" />`
 　　在上述例子中，我们写入了一些计算公式，譬如根据参数prefix的值的数量，来判定cpu的数量。因此可以写入一些计算公式，譬如根据输入的文件大小、个数来动态计算cpu和内存的使用。那么这里我们内置了三个函数： 
 　**@filesize**--给定全体文件的大小，MB为单位；
 　**@size**--数量；
 　**@sizenodup**--无重复的数量。
-　　可以使用`@id(***)`来指定获取某个param，注意@id不是函数，只是标记。可以用 @id(thread) 表示获取thread的值。@filesize(@id(infile)) 表示获取全体infile的文件大小之和。@sizenodup(@id(prefix)) 表示获取无重复的prefix的数量。注意函数（@filesize、@size、@sizenodup）不能嵌套使用，也就是不能使用类似 @sizenodup(@filesize(@id(prefix))) 这种。
+　　可以使用`${***}`来指定获取某个param，注意${}不是函数，只是标记。可以用 ${thread} 表示获取thread的值。@filesize(${infile}) 表示获取全体infile的文件大小之和。@sizenodup(${prefix}) 表示获取无重复的prefix的数量。注意函数（@filesize、@size、@sizenodup）不能嵌套使用，也就是不能使用类似 @sizenodup(@filesize(${prefix})) 这种。
 
 <span style='font-size:18px;font-weight:bold'>&lt;scriptThread&gt;</span>：是否开启多线程运行当前的xml。
 　　目前NovelBrain平台支持container内部对某个cmd命令(配置的xml)开多线程运行。本参数配置是否需要开多线程计算，具体开几个线程。容器内开多线程的意义：阿里云上最少分配的容器为4cpu+8GB，而blast这种软件在单线程时即使设置thread=4，实际也就用了2cpu，不能把容器的cpu全部使用起来。那么我们就有必要开多线程来运行blast。运行方式一般为 1.切分输入fasta文件，2.多线程运行blast，3.把结果合并成一个。其中1,3两个xml文件是单线程运行，但是需要知道到底开了几个线程，而2才是真正开多线程的步骤。
@@ -243,6 +248,42 @@ Cmd加壳由4部分组成
 　　例1：`<script param="cp"/> `因为没有"id"表示无论如何都会将"cp"加入cmd命令
 　　例2：`<script id="minLen" param="-cp"/> `会组合成命令片段 "-cp ${minLen}"。如果minLen对应的值为10，则组合成命令片段"-cp 10"
 　　例3：`<script id="minLen" /> `会组合成命令片段 "${minLen}"。如果minLen对应的值为10，则组合成命令片段"10"
+　　**compareId：**分组比较，如输入的inpufile分为Case、Control两组，我们需要将Case组与Control组进行比较，就可以用compareId来进行标记。当然首先我们要在TaskModuleParam中设置好相应的分组和Id。如下。
+　　例1：
+```
+<templet>
+	<script param="java"/>
+	<script param="-jar"/>
+	<script param="varscan.jar"/>
+	<script param="somatic"/>
+	<script id="infile" compareId="case" type="Input"/>
+	<script id="infile" compareId="control" type="Input"/>
+	<script id="pValueSom" param="--somatic-p-value"/>
+	<script id="outFileArray" type="Output" value="%s_snp.vcf" param="--output-snp"/
+</templet>
+```
+　　其中`	<script id="InputData" compareId="case" type="Input"/>`表示本输入为case组的infile。
+	`<script id="infile" compareId="control" type="Input"/>`	表示本输入为control组的infile。
+	如果输入文件为A.bam和B.bam，并且在网页上设置AvsB，则输出命令为：
+	`java -jar varscan.jar somatic case.bam control.bam --somatic-p-value --output-snp out_snp.vcf`
+　　例2：
+```
+<templet>
+	<script param="java"/>
+	<script param="-jar"/>
+	<script param="cash.jar"/>
+	<script id="case" value="--Case:%s"/>
+	<script id="inputbam" compareId="case" type="Input"/>
+	<script id="control" value="--Control:%s"/>
+	<script id="inputbam" compareId="control" type="Input"/>
+	<script id="gffFile" type="Input" param="--GTF"/>
+	<script id="outFileArray" type="Output" param="--Output"/>
+</templet>
+```
+	如果输入文件为A.bam和B.bam，并且在网页上设置case的分组为A，control的分组为B，并且设置比较为AvsB，则输出命令类似：
+	`java -jar cash.jar --Case:A A.bam --Control:B B.bam --GTF gtffile.gtf --Output output.txt`
+	
+	
 　　**value：**该id所对应的值。一般来说输入的参数可能会做一些调整。如果我们需要定制一个涉及到多个id的文件夹或文件名，还可以使用多个id配合多个%s的形式进行高度定制化，见例3。
 　　例1：某个参数片段为 –out ${value}，即给定value为A，则我们希望实际片段为 -out A。这时候由于不需要对value进行修改，所以value可以为空，或者写成 "%s"，其中"%s"是java format中的一个通配符。
 　　例2：某个参数片段为 -out ${value}.sam，即给定value为A，则我们希望实际片段为 - out A.sam。这时候需要在value后面添加".sam"的后缀，那么就可以写成：
@@ -396,9 +437,74 @@ Cmd加壳由4部分组成
 　　例子：`<appendFile id="infile" value="@removesuffix(%s).dict"/>`
 　　如果输入的infile为/home/novelbio/chrseq.fa，则得到的结果为 /home/novelbio/chrseq.dict。也就是把/home/novelbio/chrseq.dict拷贝进入临时文件夹供计算时使用。
 
-### **文件路径语法：**
+### **文件路径变量：**
 　　**简介：**
-　　仅在task为SubTask时才起作用。某个task可以设置为SuperTask，那么该task在提交时，首先会提交一系列SubTask到平台，然后每个SubTask单独再开多个container进行分布式计算。
+　　不同的部署环境下，工具所在的路径不同。譬如在NovelBrain官方配置中，基因组放置在 /media/nbfs/nbCloud/public/genome 中，而在私有云可能放置在 /home/novelbio/genome 中。为了保证task的可移植性，我们推荐在<script>标签所需相关路径配置中采用**文件路径变量**。
+　　注意目前仅支持<script>、<appendFile>标签
+	**路径变量：**
+	文件路径变量包含以下几个路径：
+	genome_path: 基因组所在的文件夹
+	taskdatabase_path: task相关数据库所在的文件夹
+	tasks_root_path: 全体task配置文件所在的根文件夹
+	scripts_path: 具体某个task中脚本所在的文件夹
+	software_path: 具体某个task中软件所在的文件夹
+	具体路径见下例： 
+	
+```
+		例子：
+		..NovelBrain/
+		..NovelBrain/nbcplatform/genome                              genome_path
+
+		..NovelBrain/taskdatabase                                    taskdatabase_path
+
+		..NovelBrain/task                                            tasks_root_path
+
+		..NovelBrain/task/scriptmodule/FastQC/
+		-------------------------------------/scripts                scripts_path
+		--------------------------------------------/myshell.sh
+		-------------------------------------/software               software_path
+		--------------------------------------------/hisat2
+```
+	**用法：**
+　　目前仅支持在标签<script>、<appendFile>中配置，如下：
+　　例1：`<script type="Input" param="-in" value="${genome_path}/9606/chrome.fa"/>`
+　　例2：`<script param="-in" value="${scripts_path}/myshell.sh"/>`
+　　例3：`<script type="Input" param="-db" value="${taskdatabase_path}/snpdb/snpdb.vcf"/>`
+　　例4：`<appendFile value="${genome_path}/9606/chrome.fa.fai"/> `
+
+### **语法糖：**
+　　**简介：**
+　　为了简化配置，Cmd封装系统添加了一些语法糖可供使用。
+	**[]**
+	中括弧"[]"主要用来区分一些文件和参数连接过于紧密的情况。
+	如Trimonic软件的参数类似:
+	`java -jar trimmomatic.jar SE in.fq.gz ILLUMINACLIP:/home/novelbrain/filter.xls:2:30:10`
+	其中接头文件为filter.xls。目前系统无法区分文件名是`/home/novelbrain/filter.xls`还是`/home/novelbrain/filter.xls:2:30:10`，因此需要用[]将文件包围起来。
+	xml案例如下：
+　　```
+	<script param="java"/>
+	<script param="-jar"/>
+	<script param="trimmomatic.jar"/>
+	<script param="SE" />
+	<script id="leftInputFile" type="Input" />
+	<script id="prefix" type="Output" value="%s.filter.fq.gz" />
+	<script id="adapterFile,param1,param2,param3" type="Input" value="ILLUMINACLIP:[%s]:%s:%s:%s"/>
+　　```
+　　其中`	value="ILLUMINACLIP:[%s]:%s:%s:%s"`中，用"[]"来标记文件
+
+	
+	**//，/**
+	默认Output文件夹输出的路径均在task所在文件夹下，如：
+	`<script type="Output" param="-out" value="home/novelbio/result.gz"/>`
+	则最后输出到路径 /NovelBrain/taskId_xxxxx/home/novelbio/result.gz
+	
+	"/"开头的路径表示绝对路径，如
+	`<script type="Output" param="-out" value="/home/novelbio/result.gz"/>`
+	则最后输出到绝对路径 /home/novelbio/result.gz。
+	**唯一例外**：<script type="Output" param="-out" value="/"/>` 
+	最后输出路径为 /NovelBrain/taskId_xxxxx/
+	
+　　"//"仅在task为SubTask时才起作用。某个task可以设置为SuperTask，那么该task在提交时，首先会提交一系列SubTask到平台，然后每个SubTask单独再开多个container进行分布式计算。
 
 　　以人类重测序数据的bwa比对任务作为一个task为例，我们可以设定task的Prepare阶段对输入文件进行切分，然后Run阶段对每个切分的文件进行比对，summary阶段对Run阶段的文件进行合并，这样可以加速单个人类数据样本的比对效率。
 
@@ -427,7 +533,7 @@ Cmd加壳由4部分组成
 　　以上SuperTask运行了三个SubTask，其中结果放在SuperTask的根目录下，分别为 Sample1.bam，Sample2.bam，Sample3.bam。然后每个SubTask都有自己的结果，分别放在自己的文件夹下。那么我们默认SubTask-Sample1的输出文件夹为 MySuperTask/Sasmple1/。如Sample1的结果路径为 MySuperTask/Sasmple1/Sample1.1.bed和MySuperTask/Sasmple1/Sample1.2.bed。
   
 　　而我们希望把文件Sample1.bam放到 MySuperTask/路径下，因为这样方便结果展示以及下一级task的拖拽。这时候就需要本语法糖。
-　　**用法：**
+　　**例子：**
 　　当task为SubTask时，输出文件默认在以本subTask的prefix为名字的子文件夹"/Prefix"中，如果配置输出的value以 <span style='font-size:28px;font-weight:bold'>//</span> 开头，则输出文件路径在根目录下。
 　　本语法糖作用于`<Script>`中type为 Output, OutInput, OutInOutput这三类。以及`<skipResults>`和`<appendIn>`。
 　　例1：`<script type="Output" param="-out" value="/result.gz"/>`
