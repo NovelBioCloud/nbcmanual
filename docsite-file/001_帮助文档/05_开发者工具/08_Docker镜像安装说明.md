@@ -81,7 +81,7 @@ RUN cd /bin/software/ \
 　　docker commit 56c0160d1450 localhost:5000/biornaseq:201703
 　　其中“56c0160d1450”为容器ID，如：
   <div style="text-align:center">
-<img data-src="2.png" width="700px"></img>
+<img data-src="2.png" width="800px"></img>
 </div>
 
 
@@ -102,7 +102,7 @@ RUN cd /bin/software/ \
 </div>
 ，并将镜像的文件夹放在同一个路径中，如：
  <div style="text-align:center">
-<img data-src="3.png" width="600px"></img>
+<img data-src="3.png" width="700px"></img>
 </div>
 注意，文件夹的名称会是创建镜像名称中的一部分，所以名称中不要有大写字母和特殊字符。如：“biobase”中Dockerfile创建的镜像名称是“xxxx/biobase”
 3.	运行dockerRun.jar程序，进行批量安装镜像
@@ -129,7 +129,7 @@ sudo java -jar /home/novelbio/bianlianle/docker_images/dockerRun.jar -d /home/no
 3.	放在software中的软件或者文件夹推荐使用gzip压缩成.zip的文件。
 4.	由于我们需要给镜像添加权限，所以构建镜像时会生成两个镜像如：
  <div style="text-align:center">
-<img data-src="4.png" width="700px"></img>
+<img data-src="4.png" width="800px"></img>
 </div>
 第二个localhost:5000/biornaseq.root:201701是用来继承使用的，即当有另外一个镜像需要继承biornaseq的时候，需要继承该localhost:5000/biornaseq.root:201701镜像。需要注意的是，当我们写继承镜像的dockerfile时，不需要写(.root)，因为系统会自动识别，即，编写时只需写成“FROM localhost:5000/biornaseq:20170”。又由于我们编写了批量安装docker镜像的程序，实现了一次性可以选择性的安装多个镜像的功能，在使用该功能的时候，dockerfile的REPOSITORY 需要修改为名为“${repoIpPort}”的参数，所以，最终编写的形式应该为：“FROM ${repoIpPort}/ biornaseq:20170”。
-5.	通常情况下task使用的镜像应该设置为没有（.root）名称，因为(.root)的镜像用户是root，当task是有该镜像生成的结果文件，普通用户没有权限进行删除操作。
+5.	通常情况下task使用的镜像应该设置为没有（.root）名称，因为(.root)的镜像用户是root，当task是有该镜像生成的结果文件，普通用户没有权限进行删除结果文件以及结果文件夹的操作。
