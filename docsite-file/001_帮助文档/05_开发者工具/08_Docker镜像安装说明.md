@@ -85,29 +85,95 @@ RUN cd /bin/software/ \
 </div>
 
 
-### **批量安装以及docker镜像添加权限的方法**
+### **NovelBio Docker Image 创建规范**
   
 ---
 
 　　我们对第一种安装方法进行了改进，可以达到使用一条命令进行多个镜像一起安装的目的。
-　　具体使用方法为：
-1.	修改Dockerfile的名称和其中的一些命令，具体说明如下：
-（a）	文件名称修改为DockerfileTmplt@<tag> ，如DockerfileTmplt@201702
-（b）	Dockerfile中的第一行，如FROM 192.168.1.162:5000/basepython:201701 ，修改为FROM ${repoIpPort}/basepython:201701 ，因为${repoIpPort}参数，可以从后续安装命令中获取具体值。
-（c）	Dockerfile中安装软件过程中的解压命令不需要写了（或者注释掉），因为系统会自动识别并解压。
-
-2.	每一个镜像的Dockerfile 和存放软件的software文件夹放在同一个文件夹中，如：
- <div style="text-align:center">
-<img data-src="1.png" width="280px"></img>
-</div>
-，并将镜像的文件夹放在同一个路径中，如：
+　　使用背景：
+　　　　1. 大部分用户的文件存储路径拥有权限，而docker直接创建的镜像是root权限，使用root镜像会导致分析得到的结果无法被删除或下载。为了规避这种情况，我们需要对镜像设置权限，譬如novelbio权限。
+　　　　2. docker有一些问题。如果存在一个压缩包blast.zip，大小为200MB。
+　　　　　　使用ADD命令将blast.zip添加进入镜像，此时镜像大小为200MB
+　　　　　　在镜像内部解压缩该压缩包，此时镜像大小为400MB
+　　　　　　删除blast.zip，此时镜像大小不变
+　　　　　　对blast/文件夹赋权限，此时镜像大小为600MB
+　　　　这样会导致本来比较小的Docker镜像变得非常大。
+　　因此我们提出了一个Docker镜像的创建规范，并提供了软件**dockerRun.jar**来进行自动化docker image构建
+　　**规范**
+1. 全部镜像放在一个总的文件夹下，如/home/mypath/dockerImages。文件名可以随便起名。
+2. 在文件夹dockerImages/下，一个文件夹代表一个镜像，如：
+　　/home/mypath/dockerImages/
+　　　　----------------------/biobase
+　　　　----------------------/biodna
+　　　　----------------------/biorna
  <div style="text-align:center">
 <img data-src="3.png" width="700px"></img>
 </div>
-注意，文件夹的名称会是创建镜像名称中的一部分，所以名称中不要有大写字母和特殊字符。如：“biobase”中Dockerfile创建的镜像名称是“xxxx/biobase”
-3.	运行dockerRun.jar程序，进行批量安装镜像
+**注意**：文件夹的名称会是创建镜像名称中的一部分，所以名称中不要有大写字母和特殊字符。
+
+3. 每个镜像文件夹的结构如下
+```
+　　/biobase/
+　　　　-----/bin/                                   #存放编译好的软件
+　　　　---------/blastp                             #译好的软件 
+　　　　---------/samtools
+
+　　　　-----/software/                              #存放等待编译的软件，注意压缩文件只能是zip、tar.gz、tar.bz2、tar的压缩方式
+　　　　--------------/pysam-0.8.4.tar.gz            #压缩包，无需解压
+　　　　--------------/stringtie-1.33.tar.gz         #压缩包，无需解压
+　　　　--------------/hisat2-2.2.1_linux_x86_64.zip #无需编译的软件，无需解压
+
+　　　　-----/software201801patch/                   #这个软件可以专门给版本201801使用。
+
+　　　　-----/r_install                              #R语言相关包的安装脚本
+
+　　　　-----/DockerfileTmplt@201701                 #Dockerfile模板文件，版本201701
+　　　　-----/DockerfileTmplt@201801                 #Dockerfile模板文件，版本201801
+```　　
+　　　　其中bin中存放编译好的软件，直接ADD进去就可以运行。software中保存需要编译的软件压缩包。r_install等脚本是需要安装R包或者其他perl包的脚本。DockerfileTmplt@201701是Dockerfile的模板文件，名字必须为DockerfileTmplt@<version>的格式。其中201701是待编译Dockerfile的版本号。
+　　　　**以上 /biobase/ 会编译出两个镜像**，分别为 ${ip:port}/biobase:201701 和 ${ip:port}/biobase:201801
+
+4. DockerfileTmplt@<version>命名规范
+　　一个docker image文件夹中可以存放多个DockerfileTmplt文件，表示该docker镜像的多个版本。如DockerfileTmplt@201701、DockerfileTmplt@201801。当然也可以写成DockerfileTmplt@v1.1这种形式。
+　　注意：NovelBrain在运行docker镜像时，如果存在多个版本，并且没有指定版本，会按照**比较字符串**的方式比较版本名并选择排序最大的那个版本号。譬如201703 > 201701；v12 > v11; **v3 > v12 **。因此注意版本号的命名规范。
+
+5. DockerfileTmplt的内容
+　　DockerfileTmplt写法基本同常规Dockerfile，略有不同。典型的DockerfileTmplt的写法如下：
+
+```
+　　FROM ${repoIpPort}/base:201701
+
+　　MAINTAINER ZongJie <zongjie@novelbio.com>
+
+　　ADD /bin/ /bin/software/
+　　ADD /r_install /bin/software/
+　　ADD /software/ /bin/software/
+
+　　# ================= Pysam 安装 ==================
+　　# 直接cd进入解压后的文件夹中然后编译
+　　RUN cd /bin/software/pysam-0.8.4 \
+　　&& python setup.py install \
+
+　　# ================= stringtie 安装 ==================
+　　# 直接cd进入解压后的文件夹中然后编译
+　　&& cd /bin/software/stringtie-1.3.3 \
+　　&& make \
+　　&& ln -s /bin/software/stringtie-1.3.3/stringtie /bin/stringtie \
+
+　　# ================= hisat2 =================
+　　# 无需解压，直接做软链接
+　　&& ln -s /bin/software/hisat2-2.1.1/hisat2 /bin/hisat2 \
+　　&& ln -s /bin/software/hisat2-2.1.1/hisat2-build /bin/hisat2-build \
+　　&& ln -s /bin/software/hisat2-2.1.1/extract_splice_sites.py /bin/extract_splice_sites.py
+
+```
+　　5.1 Dockerfile中的第一行，如FROM 192.168.1.162:5000/basepython:201701 ，写为FROM ${repoIpPort}/basepython:201701 ，其中${repoIpPort}参数，可以从后续安装命令中获取具体值。base:201701是继承的镜像。如果继承的镜像也在文件夹 /home/mypath/dockerImages 中。则dockerRun.jar 会递归编译该镜像。
+　　5.2 ADD进去的压缩包无需解压，直接可以编译或使用。
+　　5.3 所有操作权限均为root。
+
+6. 运行dockerRun.jar程序，进行批量安装镜像
 使用命令如下：
-sudo java -jar /home/novelbio/bianlianle/docker_images/dockerRun.jar -d /home/novelbio/software/dockerInstall/docker_images  -n bioplot -r localhost:5000  -p 123456 -u novelbio:1000 -g novelbio:1000
+sudo java -jar dockerRun.jar -d /home/mypath/docker_images  -n bioplot -r localhost:5000  -p 123456 -u novelbio:1000 -g novelbio:1000
 其中参数说明如下：
 “-d”：镜像所在的父路径，里面应该是很多文件夹，每个文件夹的名字为镜像名，里面就是具体需要安装的镜像dockerfile和软件；
 “-n”是需要安装的镜像名称，即文件夹名称，如果不设置才参数，表示“-d”中的所有镜像全部安装；
@@ -116,9 +182,24 @@ sudo java -jar /home/novelbio/bianlianle/docker_images/dockerRun.jar -d /home/no
 “-p”：sudo的密码
 “-u”：镜像最后的执行用户和用户uid 譬如 novelbio:1000
 “-g”：镜像最后执行用户所在的用户组和gid 譬如 novelbio:1000
-注意：
+
+
+编译某个具体镜像的具体版本
+sudo java -jar dockerRun.jar -d /home/mypath/docker_images  -n bioplot**@201701** -r 192.168.0.123:5000  -p 123456 -u novelbio:1000 -g novelbio:1000
+编译某个具体镜像的全部版本
+sudo java -jar dockerRun.jar -d /home/mypath/docker_images  -n bioplot -r 192.168.0.123:5000  -p 123456 -u novelbio:1000 -g novelbio:1000
+编译全部镜像
+sudo java -jar dockerRun.jar -d /home/mypath/docker_images -r 192.168.0.123:5000  -p 123456 -u novelbio:1000 -g novelbio:1000
+
+**注意**：
 1.	当运行完该命令之后，会在当前文件夹中生成两个日志文件“errorInfo”和“finishInfo”，分别记录安装失败的镜像（文件夹名称），和安装成功的镜像（文件夹名称）。
 2.	当“finishInfo”文件中有记录的安装成功的镜像时，再一次运行dockerRun.jar程序，会自动跳过已经记录的安装成功的镜像，所以，如果再次安装已经安装成功的镜像，需要 将“finishInfo”文件中已经的镜像名称删掉。
+
+**运行机制**
+dockerRun.jar 首先会检查本镜像的依赖镜像。如果依赖镜像不存在，则会首先创建依赖镜像。
+1. dockerRun.jar 解压缩 /home/mypath/dockerImages/biobase 中的全部压缩文件，并赋权限。权限可以在命令中设置-u novelbio:1000 -g novelbio:1000。
+2. 以Root方式开始编译，并且编译得到镜像 192.168.0.123:5000/bioplot.root:201701。注意该镜像的权限为root
+3. 将文件夹 /home/mypath/dockerImages/add-user 中的 adduser.dockerfile 添加到 Dockerfile中，并再次编译镜像。得到192.168.0.123:5000/bioplot:201701。注意该镜像的权限为命令中设置的 -u novelbio:1000 -g novelbio:1000 权限。
 
 **注意事项**：
 
@@ -126,7 +207,7 @@ sudo java -jar /home/novelbio/bianlianle/docker_images/dockerRun.jar -d /home/no
 （1）	可执行文件，放在bin/中；
 （2）	需要解压和需要解压后安装的软件放在software中；
 2.	放在software中的需要解压文件的操作命令不用写在dockerfile中，因为系统会在安装之前完成自动解压的操作。
-3.	放在software中的软件或者文件夹推荐使用gzip压缩成.zip的文件。
+3.	放在software中的软件或者文件夹推荐使用zip压缩成.zip的文件。
 4.	由于我们需要给镜像添加权限，所以构建镜像时会生成两个镜像如：
  <div style="text-align:center">
 <img data-src="4.png" width="800px"></img>
