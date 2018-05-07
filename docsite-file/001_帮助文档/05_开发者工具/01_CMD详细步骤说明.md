@@ -79,13 +79,3 @@ TaskType ：需要与第一步添加task 名称相一致
 </div>
 　　可输入文件类型 ：SAM, BAM, SORTED_BAM, UNMAPPED_BAM,BED, BLAST,FASTA,FASTQ, LEFT_FASTQ, RIGTH_FASTQ, FASTQINTERLEVE,GENEXPTABLE,GENELOCTABLE, DIFGENE,GENETABLE,TABLE,VCF, BCF,GFF3, GTF,MRD,PILEUP,PIC, SRC2TRG,WIG;
 
-
-#### **3.建立xml文件夹**
-　建立文件夹名称和分析模块后台task名称一致，建立prepare、run。
-注意事项：
-　（1）建库时，输入文件、输出文件需要重定向，添加isRedirect="true"
-　（2）index文件单独放到文件夹中，需要添加value="/index/%s"
-可参见hisat
-
-#### **4.xml文件夹放在服务器**
-　　/media/nbfs/nbCloud/public/task/scriptmodule 路径下。
