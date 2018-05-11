@@ -12,7 +12,7 @@
 　　该Task的输入数据是所关注的基因列表。
 **inFileName：**基因名称列表，通常输入文件是显著性差异表达基因列表，如caseVScon.diff.txt。输入文件格式如下所示：
 <div style="text-align:center">
-	<img data-src="1.jpg" width="100px" ></img>
+	<img data-src="input.png" width="100px" ></img>
 </div>
 注意：
 1.	输入文件中必须要有一行title信息，对于title名称无特殊要求。
@@ -31,15 +31,15 @@
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
  **\*Gene_Act_Net.gene.xls：**基因关系列表，如：
 <div style="text-align:center">
-	<img data-src="2.png" width="500px" ></img>
+	<img data-src="output1.png" width="300px" ></img>
 </div>
 表中各列信息解释如下：
 <div style="text-align:center">
-	<img data-src="3.png" width="500px" ></img>
+	<img data-src="output2.png" width="300px" ></img>
 </div>
 其中“relation”表示意义，说明如下：
 <div style="text-align:center">
-	<img data-src="4.png" width="500px" ></img>
+	<img data-src="output3.png" width="300px" ></img>
 </div>
 基因关系详细解析请见官方文档：http://www.kegg.jp/kegg/xml/docs/
 ***
