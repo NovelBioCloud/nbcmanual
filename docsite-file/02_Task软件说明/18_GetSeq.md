@@ -17,11 +17,11 @@
 **lnputFile：**如果从数据库序列和注释文件中提取所有的基因全长或者所有基因的CDS等区域的序列，则该处可以为空。如果提取指定基因序列，则该处需要输入基因名称（或者位置等信息）列表，该输入文件可以是以下几种类型：
 1.	如果按照基因名称以及注释文件（GTF）提取基因全长或者CDS区域或者EXON区域等，输入文件中包含基因名称信息即可，如：
 <div style="text-align:center">
-	<img data-src="1.jpg" width="300px" ></img>
+	<img data-src="1.jpg" width="200px" ></img>
 </div>
 2.	如果提取染色体上指定位置（指定起始位置和终止位置）的序列，输入文件中必须含有“染色体”、“起始位置”和“终止位置”的信息，如：
 <div style="text-align:center">
-	<img data-src="2.jpg" width="300px" ></img>
+	<img data-src="2.jpg" width="400px" ></img>
 </div>
 3.	如果提取染色体上指定位置上下游指定长度的序列，输入文件中必须含有“染色体”和“位置”的信息，如：
 <div style="text-align:center">

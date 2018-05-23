@@ -5,7 +5,7 @@
 **LEfSe分析原理：**
 &nbsp;&nbsp;&nbsp;&nbsp;主要分为以下三步，如下图所示：
 <div style="text-align:center">
-	<img data-src="1.jpg" width="300px" ></img>
+	<img data-src="1.png" width="500px" ></img>
 </div>
 （a）	首先在多组样本中采用非参数因子Kruskal-Wallis秩和检验检测不同分组间丰度差异显著的物种；
 （b）	然后用成组的Wilcoxon秩和检验，对上一步中获得的显著差异物种进行组间差异分析；
@@ -23,7 +23,7 @@ https://bitbucket.org/biobakery/biobakery/wiki/lefse
 **InputFile：**各个样本分类汇总结果列表，通常Taxonomy_Plot的结果文件ForLefse.txt是作为该task的输入文件。
 格式如下：
 <div style="text-align:center">
-	<img data-src="2.jpg" width="900px" ></img>
+	<img data-src="2.png" width="600px" ></img>
 </div>
 &nbsp;&nbsp;&nbsp;&nbsp;其中前两行为title信息，第一行为样本分组信息，第二行为样品ID，建议表格第一列title，如图中表格设置。
 ***
@@ -48,7 +48,8 @@ https://bitbucket.org/biobakery/biobakery/wiki/lefse
 </div>
 2)	**\* _cladogram.png：** 进化分支图，由内至外辐射的圆圈代表了由门至属（或种）的分类级别。在不同分类级别上的每一个小圆圈代表该水平下的一个分类，小圆圈直径大小与相对丰度大小呈正比。
 <div style="text-align:center">
-<img data-src="3.jpg" width="300px" ></img></div>
+	<img data-src="4.png" width="500px" ></img>
+</div>
 着色原则：无显著差异的物种统一着色为黄色，差异物种 Biomarker跟随组进行着色，红色节点表示在红色组别中起到重要作用的微生物类群，绿色节点表示在绿色组别中起到重要作用的微生物类群，其它圈颜色意义类同。图中英文字母表示的物种名称在右侧图例中进行展示。
 ***
 **参考文献：**

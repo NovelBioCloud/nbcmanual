@@ -20,7 +20,7 @@
 </div>
 2. 如果提取染色体上指定位置（指定起始位置和终止位置）的序列，输入文件中必须含有“染色体”、“起始位置”和“终止位置”的信息，如：
 <div style="text-align:center">
-	<img data-src="2.jpg" width="600px" ></img>
+	<img data-src="2.jpg" width="500px" ></img>
 </div>
 3. 如果提取染色体上指定位置上下游指定长度的序列，输入文件中必须含有“染色体”、“位置”的信息，如：
 <div style="text-align:center">

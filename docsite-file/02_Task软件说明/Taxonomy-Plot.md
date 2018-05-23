@@ -27,7 +27,7 @@
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 　1)	**taxa_summary：**统计每个样品内分类群组的摘要信息。如：
 <div style="text-align:center">
-	<img data-src="1.jpg" width="500px" ></img>
+	<img data-src="1.png" width="500px" ></img>
 </div>
 结果文件详细说明，请见官方文档：http://qiime.org/scripts/summarize_taxa.html
 2) **taxa_summary_group：**根据mapping 文件对biom表进行重新分配的结果文件。如：

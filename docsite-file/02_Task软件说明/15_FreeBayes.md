@@ -44,7 +44,7 @@
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 　　**\*.vcf ：** 结构变异结果文件，如：
 <div style="text-align:center">
-	<img data-src="1.jpg" width="1000px" ></img>
+	<img data-src="1.png" width="600px" ></img>
 </div>
 表中各列信息解释如下：
 <div style="text-align:center">

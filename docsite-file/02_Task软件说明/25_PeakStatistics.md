@@ -12,7 +12,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;该Task的输入数据是Peakcalling的结果表格文件。
 **inFileArray：**Peakcalling的结果表格文件，如：*_peaks.loc.xls
 <div style="text-align:center">
-	<img data-src="1.jpg" width="600px" ></img>
+	<img data-src="1.jpg" width="800px" ></img>
 </div>
 注意：
 1.其中必须要有title行，对于title名称无特殊要求；

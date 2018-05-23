@@ -12,9 +12,10 @@
 　　该Task的输入数据是OTUAnalysis的结果文件，如：otu_table.biom。
 　　**InputBiom：**输入BIOM格式的OTU文件。\*.biom文件为QIIME软件分析过程中生成的OTU table文件， 即OTU丰度以及注释的矩阵文件。文件详细说明请见官方文档：http://qiime.org/scripts/make_otu_table.html
 　  **InputTree：**newick tree文件。该文件是树形文件格式之一，比如下图中的树形图转化为Newick格式即为：(A,B(C,D))
-   <div style="text-align:center">
+<div style="text-align:center">
 	<img data-src="1.png" width="300px" ></img>
 </div>
+	
 Newick文件说明具体请见 https://en.wikipedia.org/wiki/Newick_format。
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
 每个样本的alpha 多样性文件。
@@ -31,7 +32,7 @@ Newick文件说明具体请见 https://en.wikipedia.org/wiki/Newick_format。
  结果文件详细说明，请见官方文档：http://qiime.org/scripts/alpha_diversity.html
 　2)**alpha_div_collated：**该结果是将名为alpha_rarefaction（例如alpha_rarefaction_20_0.txt，alpha_rarefaction_20_1.txt等，分别代表一个OTU）的一系列文件整合转换为较小的一组文件（例如chao1.txt，PD_whole_tree.txt等），每个文件表示一个分集度量，文件中的每一行表示一个（稀有）OTU表，文件中的每一列（从第四列开始）表示一个样本，如下所示：
 <div style="text-align:center">
-	<img data-src="2.png" width="600px" ></img>
+	<img data-src="2.png" width="500px" ></img>
 </div>
 详细说明请见官方文档：http://qiime.org/scripts/collate_alpha.html
 ****

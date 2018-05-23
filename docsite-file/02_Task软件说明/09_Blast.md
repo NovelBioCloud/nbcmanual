@@ -45,7 +45,7 @@
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**　
 　　比对后结果文件，如下图所示。
 <div style="text-align:center">
-<img data-src="Blast1.png" width="800px" ></img>
+	<img data-src="1.png" width="600px" ></img>
 </div>
 各列值详细解释如下：
 QueryID：输入序列ID

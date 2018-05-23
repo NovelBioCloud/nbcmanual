@@ -16,12 +16,12 @@
 **inputFile：**SNP/Indel突变结果文件。
 (1) 输入文件可以是标准的vcf文件格式，如：
 <div style="text-align:center">
-	<img data-src="1.jpg" width="600px" ></img>
+	<img data-src="1.png" width="800px" ></img>
 </div>
 VCF的详细说明请见官方文档：http://samtools.github.io/hts-specs/VCFv4.2.pdf
 (2) 输入文件也可以是没有vcf 头部注释信息的列表文件，如：
 <div style="text-align:center">
-	<img data-src="2.jpg" width="600px" ></img>
+	<img data-src="2.jpg" width="800px" ></img>
 </div>
 注意：
 1.	要求输入的表格要有一行title，对于每列的title名称无特殊要求；
