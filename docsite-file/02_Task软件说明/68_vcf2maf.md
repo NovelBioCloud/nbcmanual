@@ -18,12 +18,13 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
-　**物种：**选择参考基因组物种。
-　**版本：**参考基因组的版本。
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**BinSize:**每次计算的突变位点数量，设置同时读入内存的变异数量，如果设置值较低，则会有较长的运行时间，以及较少的内存使用，设置值较高，则运行时间短但使用内存大。
-　**线程数：**分析过程中使用CPU数。
-　**内存：**分析过程中使用的最大内存，以Mb为单位。
+
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='size'>BinSize：</label>每次计算的突变位点数量，设置同时读入内存的变异数量，如果设置值较低，则会有较长的运行时间，以及较少的内存使用，设置值较高，则运行时间短但使用内存大。
+<label id='threadNum'>线程数：</label>软件运行使用线程数。
+<label id='memory'>内存（M）：</label>运行时使用内存，以M为单位。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**<span>

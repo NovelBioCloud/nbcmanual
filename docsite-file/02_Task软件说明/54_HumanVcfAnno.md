@@ -28,9 +28,9 @@
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 
-　**物种：**选择参考基因组物种。
-　**物种版本：**参考基因组的版本。
-　**Unsafe：**GATK运行时，输入文件较严格，Unsafe选项为在运行过程中输入文件是否做检查。该参数值有以下几个：
+<label id='species'>物种：</label>参考序列物种。
+<label id='speciesVersion'>物种版本：</label>物种的版本。
+<label id='unsafe'>Unsafe：</label>GATK运行时，输入文件较严格，Unsafe选项为在运行过程中输入文件是否做检查。该参数值有以下几个：
 　　(1) SAFE：严格，输入文件格式做检查。
 　　(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配。
 　　(3) ALLOW_UNINDEXED_BAM：允许BAM文件没有索引。
@@ -38,7 +38,7 @@
 　　(5) LENIENT_VCF_PROCESSING：允许输入的VCF文件是非标准的VCF文件。
 　　(6) NO_READ_ORDER_VERIFICATION：不要求reads的顺序与bam文件中的reads顺序一致。
 　　(7) ALL：以上都允许。
-　**线程数：**分析过程中使用CPU数。
+<label id='thread'>线程数：</label>分析过程中使用CPU数。
 
 
 ***

@@ -26,10 +26,10 @@
 合并信息或者取交集信息后文件（*.bed）。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置<span>**
-**MergeBed：**选择处理文件方式，其选项有：
+<label id='merge'>MergeBed：</label>选择处理文件方式，其选项有：
 　 **MergeBed：**将文件对比中group1和group２两个Bed文件合并。
 　 **IntersectBed：**将文件对比中group1和group２两个Bed文件取交集。
-	 **输出结果样式：**
+<label id='outType'>输出结果样式：</label>
 　 **AllInfo：**A文件和B文件取交集，并把原始文件都输出。
 　 **overlap：**只输出两个文件中的overlap信息。
 　 **AFileInfo：**overlap中A文件的信息。

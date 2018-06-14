@@ -28,15 +28,15 @@
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 
-**GeneColNum：**输入gene所在列。
-**DescriptionColNum：**基因Description所在列。
-**PermutationType：**输入数据类型
+<label id='geneCol'>GeneColNum：</label>输入gene所在列。
+<label id='descriptioncol'>DescriptionColNum：</label>基因Description所在列。
+<label id='permutation'>Permutation Type：</label>输入数据类型
 　　　　　　　　　　Phenotype labels:数据表达量表格的分组信息，包含总的分组名称数量，以及表达量表格每一列所属的分组。
 　　　　　　　　　　Gene sets:基因集，包含挑选的基因，可以多个基因集在同一张表格中，tab分隔，输入文件为gmx时，每一列为一个Set，输入文件格式为gmt时，每一行为一个Set。
-**MinSize：**定义选择标准，功能基因子集中所含基因数最小值，默认值为15。
-**MaxSize：**定义选择标准，功能基因子集中所含基因数最大值，默认值为5000。
-**PlotTopSet：**画图的geneset数量。
-**Collapse：**参数根据输入chip文件的格式选择或者不选，选择说明对chip文件进行处理（一般多为芯片的探针注释），不选代表不进行处理。
+<label id='min'>Min Size：</label>定义选择标准，功能基因子集中所含基因数最小值，默认值为15。
+<label id='max'>Max Size：</label>定义选择标准，功能基因子集中所含基因数最大值，默认值为5000。
+<label id='PlotTopSet'>PlotTopSet：</label>画图的geneset数量。
+<label id='collapse'>Collapse：</label>参数根据输入chip文件的格式选择或者不选，选择说明对chip文件进行处理（一般多为芯片的探针注释），不选代表不进行处理。
 
 **文件对比：**加入对比两个组份。选择实验组与对照组比较。
 　　　　　group1Array：选择对比组1；

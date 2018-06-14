@@ -29,15 +29,15 @@
 提取到的circRNA序列文件，以fasta格式存储。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置<span>**
-**物种：**选择参考基因组物种。
-**版本：**参考序列的版本。
-**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-**CircNameCol：**在输入文件中，Circ Id所在的列数。
-**ChrCol：**在输入文件中，染色体所在列数。
-**StartCol：**在输入文件中，circRNA起始位点的所在列数。
-**EndCol：**在输入文件中，circRNA终止位点的所在列数。
-**StrandCol：**在输入文件中，链特异性正反链所在列数。
-**HostGeneCol：**在输入文件中，HostGene所在列数。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='circNameCol'>CircNameCol：</label>在输入文件中，Circ Id所在的列数。
+<label id='chrcol'>ChrCol：</label>在输入文件中，染色体所在列数。
+<label id='startcol'>StartCol：</label>在输入文件中，circRNA起始位点的所在列数。
+<label id='endcol'>EndCol：</label>在输入文件中，circRNA终止位点的所在列数。
+<label id='strandCol'>StrandCol：</label>在输入文件中，链特异性正反链所在列数。
+<label id='hostGeneCol'>HostGeneCol：</label>在输入文件中，HostGene所在列数。
 **containerNumber：**软件运行使用容器（container）数量。
 
 

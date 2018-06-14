@@ -7,8 +7,8 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**参考序列物种。
-　**版本：**参考序列版本。
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本
+<label id='dbType'>物种类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
 　**选择gif文件：**添加注释文件。
-
+***

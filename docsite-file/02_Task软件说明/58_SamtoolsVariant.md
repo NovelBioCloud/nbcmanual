@@ -21,13 +21,13 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**参考序列物种
-　**版本：**物种的版本
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
-　**maxDepth：**碱基的最大测序深度。
-　**minBaseQuality：**碱基的最小质量值，低于该值的碱基会被过滤掉。碱基质量值过小会影响Variant预测的可信度。
-　**minMappingQuality:**最小比对质量值。
-　**VCF合并方式：**是否将多个样本的SNP/Indel结果进行合并，以及合并的方式。
+<label id='species'>物种：</label>参考序列物种
+<label id='speciesVersion'>版本：</label>物种的版本
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
+<label id='maxdp'>maxDepth：</label>碱基的最大测序深度。
+<label id='minbq'>minBaseQuality：</label>碱基的最小质量值，低于该值的碱基会被过滤掉。碱基质量值过小会影响Variant预测的可信度。
+<label id='minmq'>minMappingQuality：</label>最小比对质量值。
+<label id='bcfMergeType'>VCF合并方式：</label>是否将多个样本的SNP/Indel结果进行合并，以及合并的方式。
 　　　　　　none：不合并，输出多条记录。
 　　　　　　snps：按照SNP记录进行合并。
 　　　　　　indels:按照Indel记录合并。

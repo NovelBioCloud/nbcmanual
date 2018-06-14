@@ -34,10 +34,10 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**版本：**参考序列的版本。
-**GetAllSeq：**勾选后根据参考序列输出所有的miRNA序列，不勾选输入文件列中的miRNA序列。
-**GeneCol：**设置需要提取序列的基因所在的列号。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。
+<label id='isGetAllSeq'>GetAllSeq：</label>勾选后根据参考序列输出所有的miRNA序列，不勾选输入文件列中的miRNA序列。
+<label id='GeneCol'>GeneCol：</label>设置需要提取序列的基因所在的列号。
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**　

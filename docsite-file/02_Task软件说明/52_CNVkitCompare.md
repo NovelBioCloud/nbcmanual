@@ -22,11 +22,11 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**参考序列物种。
-　**版本：**物种的版本。
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
-　**BedSpelit：**可获取（捕获）序列区域之间的最小gap长度，如：对于外显子捕获测序来说，指的是两个外显子之间的最小距离，默认为5000。
-　**Thread：**运行时使用线程数。
+<label id='species'>物种：</label>参考序列物种。
+<label id='speciesVersion'>版本：</label>物种的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传的gtf文件。
+<label id='BedSpelit'>BedSpelit：</label>可获取（捕获）序列区域之间的最小gap长度，如：对于外显子捕获测序来说，指的是两个外显子之间的最小距离，默认为5000。
+<label id='thread'>Thread：</label>运行时使用线程数。
 　**文件对比：**增加对比组，group1Array、group2Array分别为两个对比组，outFileArray为输出文件名。group1Array为“tumor”样本，group2Array为“normal”样本，可以在如下参数处修改组名：
 　　　　　group1Array：选择对比组1，选择“tumor”样本；
 　　　　　group2Array：选择对比组2，选择“normal”样本；

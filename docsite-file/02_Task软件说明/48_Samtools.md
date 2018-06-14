@@ -26,12 +26,14 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**sortBam：**是否对Bam文件进行排序(sort)。只能对bam文件进行排序, 不能对sam文件排序。
-　**indexBam：**是否对Bam文件构建索引（index）。必须对bam文件进行默认情况下的排序后，才能进行索引的构建。
-　**removeDuplicate：**是否去除Duplicate序列。 
-　**GeneratePileUpFile：**是否生成bcf文件。
-　**MinMapQuality：**最小比对质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
-　**MinBaseQuality：**最小碱基质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
+　<label id='species'>物种：</label>参考基因组的物种。
+　<label id='speciesVersion'>版本：</label>增加参考基因组的物种。　
+　<label id='isSortBam'>sortBam：</label>是否对Bam文件进行排序(sort)。只能对bam文件进行排序, 不能对sam文件排序。
+　<label id='isIndexBam'>indexBam：</label>是否对Bam文件构建索引（index）。必须对bam文件进行默认情况下的排序后，才能进行索引的构建。
+　<label id='removeDuplicate'>removeDuplicate：</label>是否去除Duplicate序列。 
+　<label id='GeneratePileUpFile'>GeneratePileUpFile：</label>是否生成bcf文件。
+　<label id='minMQ'>MinMapQuality：</label>最小比对质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
+　<label id='minBQ'>MinBaseQuality：</label>最小碱基质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
 　
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

@@ -25,7 +25,7 @@
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 　<label id='species'>物种：</label>选择参考基因组物种
 　<label id='speciesVersion'>物种版本：</label>参考基因组的版本
-　**Unsafe：** GATK运行时，输入文件较严格，Unsafe选项是在运行前是否对输入文件做检查。该参数值有以下几个：
+　<label id='unsafe'>Unsafe：</label> GATK运行时，输入文件较严格，Unsafe选项是在运行前是否对输入文件做检查。该参数值有以下几个：
 　　(1) SAFE：严格，输入文件格式做检查。
 　　(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配。
 　　(3) ALLOW_UNINDEXED_BAM：允许BAM文件没有索引。
@@ -33,10 +33,10 @@
 　　(5) LENIENT_VCF_PROCESSING：允许输入的VCF文件是非标准的VCF文件。
 　　(6) NO_READ_ORDER_VERIFICATION：不要求reads的顺序与bam文件中的reads顺序一致。
 　　(7) ALL：以上都允许。
-　**Version：**选择GATK的版本，此处提供了两个版本GATK 3.6 和 3.8。
-　**线程：**分析过程中使用CPU数。
-　**Memory：**分析过程中使用内存大小，单位为Mb。
-　**OutGVCF**：变异结果以gVCF文件格式输出，通过这个选项来输出与参考基因组一致的碱基的相关信息，这样最终的结果其实就相当于包含了所有的位点，而不再仅仅是原先的variants位点。
+<label id='speciesVersion'>Version：</label>选择GATK的版本，此处提供了两个版本GATK 3.6 和 3.8。
+<label id='threadNum'>线程：</label>分析过程中使用CPU数。
+<label id='memory'>Memory：</label>分析过程中使用内存大小，单位为Mb。
+<label id='gvcf'>OutGVCF：</label>**：变异结果以gVCF文件格式输出，通过这个选项来输出与参考基因组一致的碱基的相关信息，这样最终的结果其实就相当于包含了所有的位点，而不再仅仅是原先的variants位点。
 
 **高级选项：**
 　<label id='standCallConf'>stand Call Conf：</label>可信度阈值的设定，Set the minimum phred-scaled confidence threshold at which variants should be call，默认值30.0。

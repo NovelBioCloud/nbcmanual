@@ -50,21 +50,21 @@
 其中橙色标志出的为11个必选项，黑色标示出的可选项。详细信息请见官网说明文档：http://samtools.github.io/hts-specs/SAMv1.pdf
 <hr/>**<i class="fa fa-cog" aria-hidden="true"style="color:#F88158"></i> <span style="color:#F88158">参数设置**
 <label id='species'>物种：</label>选择参考基因组物种。
-**物种版本：**参考基因组的版本
-**物种类型**：同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-**SoftwareName：** 选择分析使用的软件
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本
+<label id='dbType'>物种类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='software'>SoftwareName：</label>选择分析使用的软件
 　　　　　Hisat2：调用Hisat2软件进行RNAseq的比对；
 　　　　　Tophat：调用Tophat软件进行RNAseq的比对；
 　　　　　MapSplice：调用MapSplice软件进行RNAseq的比对；
 　　　　　STAR：调用STAR软件进行RNAseq的比对；
-**minintronLen：**在Tophat/Hisat2中，该参数设置了内含子区域的最小长度，对于距离小于该设定值的donor/acceptor对（即可变剪切的供体和受体），Tophat/Hisat2将会忽略检测剪切位点。Tophat默认值为70,Hisat2默认值为20。Mapsplice中，该参数代指splice junctions（即跨越两个外显子的转录本reads）的最小gap（即所跨越的两个外显子之间的距离）长度，Mapsplice将不输出含有gap长度小于该设定值的splice junctions，默认值为50。**Tophat、Hisat2、mapsplice共有参数**
-**maxintronLen：**Tophat/Hisat2中，该参数设置了内含子区域的最大长度，对于距离大于该设定值的donor/acceptor对，Tophat/Hisat2将会忽略检测剪切位点。Tophat默认值为500000，Hisat2默认值为500,000。Mapsplice中，该参数代指splice junctions的最大gap长度，Mapsplice将不输出含有gap长度大于该设定值的splice junctions，默认值为300,000。**Tophat、Hisat2、mapsplice共有参数**　
-**trim5：**代指5’端需剪切掉的碱基数目。一般情况下如HiSeq测序的数据，reads的5’端和3’端碱基质量值会比较低，因此需要在比对之前将这些低质量碱基剪切掉。**Hisat2参数**
-**trim3：**代指3’端需剪切掉的碱基数目。**Hisat2参数**
-**AlignNum：**每条reads输出的最多比对上的位置数。**Hisat2参数**
-**ReportNovelSplicesite：**若选中该参数，则将剪切位点输出到一个文件中。
-**Dta：**为转录本重构软件(如：Stringtie)输出比对方式，选中此项有助于提高转录本组装软件的运算效率，降低内存使用。**Hisat2参数**
-**使用Bowtie1：**选中此项，表示Tophat内部选用Bowtie1进行比对，否则默认使用Bowtie2，如果输入数据是colorspace reads，必须选中该选项，因为Bowtie2不支持colorspace reads的比对。**Tophat参数**
+<label id='minintronLen'>minintronLen：</label>在Tophat/Hisat2中，该参数设置了内含子区域的最小长度，对于距离小于该设定值的donor/acceptor对（即可变剪切的供体和受体），Tophat/Hisat2将会忽略检测剪切位点。Tophat默认值为70,Hisat2默认值为20。Mapsplice中，该参数代指splice junctions（即跨越两个外显子的转录本reads）的最小gap（即所跨越的两个外显子之间的距离）长度，Mapsplice将不输出含有gap长度小于该设定值的splice junctions，默认值为50。**Tophat、Hisat2、mapsplice共有参数**
+<label id='maxintronLen'>maxintronLen：</label>Tophat/Hisat2中，该参数设置了内含子区域的最大长度，对于距离大于该设定值的donor/acceptor对，Tophat/Hisat2将会忽略检测剪切位点。Tophat默认值为500000，Hisat2默认值为500,000。Mapsplice中，该参数代指splice junctions的最大gap长度，Mapsplice将不输出含有gap长度大于该设定值的splice junctions，默认值为300,000。**Tophat、Hisat2、mapsplice共有参数**　
+<label id='trim5'>trim5：</label>代指5’端需剪切掉的碱基数目。一般情况下如HiSeq测序的数据，reads的5’端和3’端碱基质量值会比较低，因此需要在比对之前将这些低质量碱基剪切掉。
+<label id='trim3'>trim3：</label>代指3’端需剪切掉的碱基数目。
+<label id='alignNum'>AlignNum：</label>每条reads输出的最多比对上的位置数。
+<label id='reportNovelSplicesite'>ReportNovelSplicesite：</label>若选中该参数，则将剪切位点输出到一个文件中。
+<label id='dta'>Dta：</label>为转录本重构软件(如：Stringtie)输出比对方式，选中此项有助于提高转录本组装软件的运算效率，降低内存使用。
+<label id='useBowtie1'>使用Bowtie1：</label>选中此项，表示Tophat内部选用Bowtie1进行比对，否则默认使用Bowtie2，如果输入数据是colorspace reads，必须选中该选项，因为Bowtie2不支持colorspace reads的比对。
 **colorspace reads文件说明如下：**
 　　如测序平台式AB 5500xl Genetic Analyzer，输出的数据文件后缀名为.csfasta 和.qual，可以使用程序将.csfasta转化为.csfastq格式。
 　　csfastq数据格式如下，还是四行代表一条read：
@@ -82,30 +82,30 @@ T20132312201120021312220200023110220113100012321011
 　　该格式文件与普通的fastq数据格式略有区别，与普通的Fastq文件相比，csfastq里面记录的不是序列信息而是颜色的编码(0=blue, 1=green, 2=orange, 3=red)。
 
 **高级选项：**
-**MateInnerDist：**mate pairs之间平均插入距离，计算公式为：插入距离=建库fragment长度-两端reads的长度。例如：一对paired reads,插入片段长度为300bp，两端reads长度为50bp，那么MateInnerDist=建库fragment长度[300bp] - 每一端reads的长度[50bp\*2] = 200bp，默认值为50bp。**Tophat参数**
-**ReadMismatches：**reads最小mismatch碱基数，也就是说，在比对时，当一条reads的mismatch数小于设定值时，该条reads就会被认为是比对上的reads，默认值为2。**Tophat参数**
-**MinAnchor：**junction reads一边最小的匹配碱基数，即Tophat会输出junction reads两端大于设定长度的junction reads，最小值为3，默认值为8。**Tophat参数**
-**SpliceMismatches：**spliced比对时，出现在锚定（anchor）区域最大的mismatch数，默认值为0。 **Tophat参数**
-**ReadGapLength：**reads比对时，如果一条reads的gap的总碱基数超过该设定的参数值，则舍弃该reads，默认值为2。 **Tophat参数**
-**MaxInsertLength：**比对时，允许reads存在的最大插入片段长度，Tophat中默认为3bp。在mapsplice中默认参数为6，取值范围为【0,10】。** Tophat参数、mapsplice参数**
-**MaxDeletionLength：**比对时，允许reads存在的最大缺失片段长度，在Tophat中默认为3bp。在mapsplice中默认参数为6，取值范围为【0,10】。**Tophat参数、mapsplice参数**
-**SegmentLength：**比对时reads被切分的最小片段长度，默认为25bp。
+<label id='mateInnerDist'>MateInnerDist：</label>mate pairs之间平均插入距离，计算公式为：插入距离=建库fragment长度-两端reads的长度。例如：一对paired reads,插入片段长度为300bp，两端reads长度为50bp，那么MateInnerDist=建库fragment长度[300bp] - 每一端reads的长度[50bp\*2] = 200bp，默认值为50bp。**Tophat参数**
+<label id='readMismatches'>ReadMismatches：</label>reads最小mismatch碱基数，也就是说，在比对时，当一条reads的mismatch数小于设定值时，该条reads就会被认为是比对上的reads，默认值为2。**Tophat参数**
+<label id='minAnchor'>MinAnchor：</label>junction reads一边最小的匹配碱基数，即Tophat会输出junction reads两端大于设定长度的junction reads，最小值为3，默认值为8。**Tophat参数**
+<label id='spliceMismatches'>SpliceMismatches：</label>spliced比对时，出现在锚定（anchor）区域最大的mismatch数，默认值为0。 **Tophat参数**
+<label id='readGapLength'>ReadGapLength：</label>reads比对时，如果一条reads的gap的总碱基数超过该设定的参数值，则舍弃该reads，默认值为2。 **Tophat参数**
+<label id='maxInsertLength'>MaxInsertLength：</label>比对时，允许reads存在的最大插入片段长度，Tophat中默认为3bp。在mapsplice中默认参数为6，取值范围为【0,10】。** Tophat参数、mapsplice参数**
+<label id='maxDeleLength'>MaxDeletionLength：</label>比对时，允许reads存在的最大缺失片段长度，在Tophat中默认为3bp。在mapsplice中默认参数为6，取值范围为【0,10】。**Tophat参数、mapsplice参数**
+<label id='segLength'>SegmentLength：</label>比对时reads被切分的最小片段长度，默认为25bp。
 建议设置范围为【18,25】，片段长度小于18会引起比较高的假阳性，并且MapSplice运行会特别慢。当该reads 长度大于50bp时，强烈推荐将该参数设置为25。**mapsplice参数**
-**minMapLen：**mapsplice仅输出完全比对碱基数不小于此设定值的reads，默认值为50。**mapsplice参数**
-**isTophatFusion：**选中该参数，tophat进行融合转录本（fusion transcripts）的检测。即reads会比对到fusion transcripts上，这种fusion 比对结果会输出到SAM格式文件中，使用“XF”与”XP”标记，而且关于fusion的更多信息也会输出出来（数据结果文件为fusions.out），当比对完成以后，可以使用tophat-fusion-post进行过滤，得到可信的fusion transcripts，更详细的信息可以查看Tophat-Fusion 官网。（http://ccb.jhu.edu/software/tophat/fusion_index.shtml）。
-**MaxMultimappingScore：**设定多重比对的最大得分，比对的得分要小于该值，默认值为1。**STAR参数**
-**MaxNumberMapTo：**对于比对到多处的reads，设置最多比对位置数，即当一条reads比对位置数大于该设定值时不输出该比对信息，默认值为10。**STAR参数**
-**MaxMismatch：**比对时，reads上的最大mismatch数，默认值为10。 STAR参数
-**MaxIntronSize：**最大的内含子长度。**STAR参数**
-**MaximumMatesGap：**mate pair的两个reads之间的最大gap长度。**STAR参数**
-**MinOverhang：**在已知的剪接位点处，最短的overhang长度。其中，overhang即指跨越两个外显子的junction reads，分别落在两个外显子上的最少碱基个数。默认值为3，该值应设置为大于零的整数。**STAR参数**
-**MatchNminOverLread：**用read 长度标准化后的outFilterMatchNmin值，默认值为0.66。 **STAR参数**
-**FilterScoreMinOverLread：**用read 长度标准化后的outFilterScoreMin值，默认值为0.66。 **STAR参数**
-**Cufflinks-likeStrandFlag：**使用类似于Cufflinks的strand flag（链标识，即表明正负链的标志）。
+<label id='minMapLen'>minMapLen：</label>mapsplice仅输出完全比对碱基数不小于此设定值的reads，默认值为50。**mapsplice参数**
+<label id='isTophatFusion'>isTophatFusion：</label>选中该参数，tophat进行融合转录本（fusion transcripts）的检测。即reads会比对到fusion transcripts上，这种fusion 比对结果会输出到SAM格式文件中，使用“XF”与”XP”标记，而且关于fusion的更多信息也会输出出来（数据结果文件为fusions.out），当比对完成以后，可以使用tophat-fusion-post进行过滤，得到可信的fusion transcripts，更详细的信息可以查看Tophat-Fusion 官网。（http://ccb.jhu.edu/software/tophat/fusion_index.shtml）。
+<label id='outFilterMultimapScoreRange'>MaxMultimappingScore：</label>设定多重比对的最大得分，比对的得分要小于该值，默认值为1。**STAR参数**
+<label id='outFilterMultimapNmax'>MaxNumberMapTo：</label>对于比对到多处的reads，设置最多比对位置数，即当一条reads比对位置数大于该设定值时不输出该比对信息，默认值为10。**STAR参数**
+<label id='outFilterMismatchNmax'>MaxMismatch：</label>比对时，reads上的最大mismatch数，默认值为10。 STAR参数
+<label id='alignIntronMax'>MaxIntronSize：</label>最大的内含子长度。**STAR参数**
+<label id='alignMatesGapMax'>MaximumMatesGap：</label>mate pair的两个reads之间的最大gap长度。**STAR参数**
+<label id='alignSJDBoverhangMin'>MinOverhang：</label>在已知的剪接位点处，最短的overhang长度。其中，overhang即指跨越两个外显子的junction reads，分别落在两个外显子上的最少碱基个数。默认值为3，该值应设置为大于零的整数。**STAR参数**
+<label id='outFilterMatchNminOverLread'>MatchNminOverLread：</label>用read 长度标准化后的outFilterMatchNmin值，默认值为0.66。 **STAR参数**
+<label id='outFilterScoreMinOverLread'>FilterScoreMinOverLread：</label>用read 长度标准化后的outFilterScoreMin值，默认值为0.66。 **STAR参数**
+<label id='outSAMstrandField'>Cufflinks-likeStrandFlag：</label>使用类似于Cufflinks的strand flag（链标识，即表明正负链的标志）。
 该参数有两个值None和intronMotif，None表示不使用，即不进行strand的鉴定；intronMotif表示strand的鉴定来源于内含子的motif。当reads与非标准的内含子（标准的内含子是有特殊标志的，如AU-AG类，没有的话即为非标准）不一致时会被过滤出来。默认值为：None。**STAR参数**
-**microexonSearch：**使用该参数，软件会检测micro-exons（即长度较短的外显子）。该参数只有当输入reads长度大于50bp才起作用。**Tophat参数**
-**fusion：**检测标准的和半标准的fusion junctions。**Mapsplice参数**
-**minFusionDistance：**候选fusion的两个segments之间的最小距离。默认为10,000，如果检测Circurlar RNA，建议设置为200。**Mapsplice参数**
+<label id='microexonSearch'>microexon-search：</label>使用该参数，软件会检测micro-exons（即长度较短的外显子）。该参数只有当输入reads长度大于50bp才起作用。**Tophat参数**
+<label id='fusion'>fusion：</label>检测标准的和半标准的fusion junctions。**Mapsplice参数**
+<label id='minFusionDistance'>minFusionDistance：</label>候选fusion的两个segments之间的最小距离。默认为10,000，如果检测Circurlar RNA，建议设置为200。**Mapsplice参数**
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

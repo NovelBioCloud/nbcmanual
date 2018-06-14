@@ -26,14 +26,14 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**参考序列物种。
-　**物种版本：**参考序列物种的版本。
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**ToolsType：**选择GATK的功能，其选项值有：
+<label id='species'>物种：</label>参考序列物种。
+<label id='speciesVersion'>物种版本：</label>参考序列物种的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='ToolsType'>ToolsType：</label>选择GATK的功能，其选项值有：
 　　　　　　　　Recalibtate：对bam文件里reads的碱基质量值进行重新校正。
 　　　　　　　　Realign：重比对，比对到indel附近的raeds进行局部重新比对，将比对的错误率降到最低。
              
-　**Unsafe：**GATK运行时，输入文件较严格，Unsafe选项是在运行过程中输入文件是否做检查。该参数值有以下几个：
+<label id='unsafe'>Unsafe：</label>GATK运行时，输入文件较严格，Unsafe选项是在运行过程中输入文件是否做检查。该参数值有以下几个：
 　　(1) SAFE：严格，输入文件格式做检查。
 　　(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配。
 　　(3) ALLOW_UNINDEXED_BAM：允许BAM文件没有索引。
@@ -41,8 +41,8 @@
 　　(5) LENIENT_VCF_PROCESSING：允许输入的VCF文件是非标准的VCF文件。
 　　(6) NO_READ_ORDER_VERIFICATION：不要求reads的顺序与bam文件中的reads顺序不一致。
 　　(7) ALL：以上都允许。
-　**线程：**分析过程中使用CPU数。
-　**Memory：**分析过程中占用内存大小，单位为Mb。
+<label id='threadNum'>线程：</label>分析过程中使用CPU数。
+<label id='memory'>Memory：</label>分析过程中占用内存大小，单位为Mb。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

@@ -18,33 +18,33 @@
 
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
-　**物种：**选择参考基因组物种。
-　**物种版本：**参考基因组的版本。
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**线程数：**软件运行使用线程数。
-　**内存（M）：**运行时使用内存，以M为单位。
-　**计算在genebody的覆盖谱：**是否计算gene body区域的reads覆盖谱。 
-　**计算两个成对的RNA读长的距离：**指的是对于PE reads，Reads 1的末端与Reads2 末端之间的距离，即PE reads的内部距离，应该与割胶大小匹配。
-　**sampleSize：**从SAM/BAM文件中提取的reads数，默认值为100000，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
-　**图片下界：**画读长的距离图时，x轴inner distance的起始值，默认-250bp，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
-　**图片上界：**画读长的距离图时，x轴inner distance的最大值，默认250bp，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
-　**绘图步长：**绘柱状图的步长bp，默认为5，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
-　**比较BAM/SAM文件中junction的种类：**将检测到的splice junction分为know，complete novel和partial novel（与ref genome相比）。
-**内含子最小长度：**最小内含子长度，默认值为50bp，当勾选“比较BAM/SAM文件中junction的种类”参数时，显示该参数。
-　**用于评估样本大小对RPKM的影响：**通过对总的比对reads重采样（jackknifing），使用相对错误率来评估当前测序深度下的RPKMs值的准确性。进而通过对不同测序深度下的RPKMs值的比较，来评估不同测序数据量（即样本大小）对RPKMs值的影响。
-　**采样上界：**画评估样本图时，采样起始百分数。取值为0~100，默认值为5，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
-　**采样下界：**画评估样本图时，采样终止百分数。取值为0~100，默认值为100，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
-　**采样步长：**画评估样本图的步长，默认值为5，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
-　**RPKM的cutoff值：**RPKM值小于该设定阈值时将被cutoff，默认为0.01，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
-　**计算reads重复性：**是否绘制reads重复性图。
-　**reads重复次数上限：**绘制reads重复性图时，reads的最高重复次数，默认为500，当勾选“计算reads重复性”参数时，显示该参数。
-　**检测测序深度可否用于可变剪接分析：**是否判断当前测序深度是否足够用来执行选择性剪接分析。
-　**readGC：**是否绘制GC分布图。
-　**readNVC：**是否绘制碱基偏好性图。
-　**flagOption：**勾选后，碱基偏好性图输出N,X线。
-　**splitBam：**是否将原始的Bam文件分离成三类， .in.bam、 .ex.bam和.junk.bam。
-　**inferExpreiment：**通过对BAM文件进行采样，判断测序是否是链特异性，并统计正负链的分布情况。
-　**readDistribution：**计算比对到编码exons、5’UTR exons、3’UTR exons、introns和intergenic区的reads比例。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='threadNum'>线程数：</label>软件运行使用线程数。
+<label id='memory'>内存（M）：</label>运行时使用内存，以M为单位。
+<label id='geneBodyCoverage'>计算在genebody的覆盖谱：</label>是否计算gene body区域的reads覆盖谱。 
+<label id='innerDistance'>计算两个成对的RNA读长的距离：</label>指的是对于PE reads，Reads 1的末端与Reads2 末端之间的距离，即PE reads的内部距离，应该与割胶大小匹配。
+<label id='sampleSize'>sampleSize：</label>从SAM/BAM文件中提取的reads数，默认值为100000，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
+<label id='imageLowerBound'>图片下界：</label>画读长的距离图时，x轴inner distance的起始值，默认-250bp，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
+<label id='imageUpBound'>图片上界：</label>画读长的距离图时，x轴inner distance的最大值，默认250bp，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
+<label id='imageStepLength'>绘图步长：</label>绘柱状图的步长bp，默认为5，当勾选“计算两个成对的RNA读长的距离”参数时，显示该参数。
+<label id='junctionAnnotation'>比较BAM/SAM文件中junction的种类：</label>将检测到的splice junction分为know，complete novel和partial novel（与ref genome相比）。
+<label id='minIntronLength'>内含子最小长度：</label>最小内含子长度，默认值为50bp，当勾选“比较BAM/SAM文件中junction的种类”参数时，显示该参数。
+<label id='RPKMSaturation'>用于评估样本大小对RPKM的影响：</label>通过对总的比对reads重采样（jackknifing），使用相对错误率来评估当前测序深度下的RPKMs值的准确性。进而通过对不同测序深度下的RPKMs值的比较，来评估不同测序数据量（即样本大小）对RPKMs值的影响。
+<label id='sampleUpBound'>采样上界(%)：</label>画评估样本图时，采样起始百分数。取值为0~100，默认值为5，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
+<label id='sampleLowerBound'>采样下界(%)：</label>画评估样本图时，采样终止百分数。取值为0~100，默认值为100，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
+<label id='sampleStepLength'>采样步长(%)：</label>画评估样本图的步长，默认值为5，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
+<label id='cutoffValue'>RPKM的cutoff值：</label>RPKM值小于该设定阈值时将被cutoff，默认为0.01，当勾选“用于评估样本大小对RPKM的影响”参数时，显示该参数。
+<label id='readDuplication'>计算reads重复性：</label>是否绘制reads重复性图。
+<label id='readsRepeatNum'>reads重复次数上限：</label>绘制reads重复性图时，reads的最高重复次数，默认为500，当勾选“计算reads重复性”参数时，显示该参数。
+<label id='junctionSaturation'>检测测序深度可否用于可变剪接分析：</label>是否判断当前测序深度是否足够用来执行选择性剪接分析。
+<label id='readGC'>readGC：</label>是否绘制GC分布图。
+<label id='readNVC'>readNVC：</label>是否绘制碱基偏好性图。
+<label id='flagOption'>flagOption：</label>勾选后，碱基偏好性图输出N,X线。
+<label id='splitBam'>splitBam：</label>是否将原始的Bam文件分离成三类， .in.bam、 .ex.bam和.junk.bam。
+<label id='inferExpreiment'>inferExpreiment：</label>通过对BAM文件进行采样，判断测序是否是链特异性，并统计正负链的分布情况。
+<label id='readDistribution'>readDistribution：</label>计算比对到编码exons、5’UTR exons、3’UTR exons、introns和intergenic区的reads比例。
 
 
 ****

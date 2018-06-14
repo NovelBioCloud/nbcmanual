@@ -28,19 +28,19 @@ CAAGCAGAAGACGGCATACGAGATCGGTCTCGGCATTCCTGCTGAACCGCTCTTCCG
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
 
-**线程数：**软件运行时，使用线程数。
+<label id='threadNum'>线程数：</label>软件运行时，使用线程数。
 **使用内存：**软件运行时，使用内存数，以M为单位。
-**切除首端最小质量值：**从 reads 的起始端开始切除质量值低于设定阈值的碱基，直到有一个碱基质量值达到阈值为止，默认为３。
-**切除末端最小质量值：**从 reads 的末端开始切除质量值低于设定阈值的碱基，直到有一个碱基质量值达到阈值为止，默认为３。
-**Windows长度：**滑动窗口扫描阅读的碱基个数，默认为４个碱基，结合下面的“windows最小平均质量”参数使用。
-**windows最小平均质量：**滑动窗口选中的所有碱基最小的平均质量值，默认为15，结合上面的“Windows长度”参数使用，当长度为“Windows长度”设置值的reads片段质量值小于“windows最小平均质量”设置阈值时，则切除。
-**reads最小长度：**reads的最小长度，当reads小于该长度则舍弃，默认为36bp。
-**保留reads长度：**保留的reads长度，将reads剪切到该指定的长度。
-**剪切长度：**在reads的首端切除指定的长度。
-**最低平均质量值：**丢掉质量低于这个值的reads。
-**最大mismatch数：**允许的最大mismatch数。
-**palindrome匹配碱基数：**在针对双端测序数据的 palindrome clip 模式下，当R1 和 R2的长度比值超过该设定值时，进行接头切除。默认值为 30。
-**simple匹配碱基数：**在针对双端测序数据的simple模式下，当R1 和 R2的长度比值超过该设定值时，进行接头切除。通常 7-15 之间，默认值为10。
+<label id='trimMinLeadQual'>切除首端最小质量值：</label>从 reads 的起始端开始切除质量值低于设定阈值的碱基，直到有一个碱基质量值达到阈值为止，默认为３。
+<label id='trimMinTrailQual'>切除末端最小质量值：</label>从 reads 的末端开始切除质量值低于设定阈值的碱基，直到有一个碱基质量值达到阈值为止，默认为３。
+<label id='slidingWindowLen'>Windows长度(bp)：</label>滑动窗口扫描阅读的碱基个数，默认为４个碱基，结合下面的“windows最小平均质量”参数使用。
+<label id='minQualinWindow'>windows最小平均质量：</label>滑动窗口选中的所有碱基最小的平均质量值，默认为15，结合上面的“Windows长度”参数使用，当长度为“Windows长度”设置值的reads片段质量值小于“windows最小平均质量”设置阈值时，则切除。
+<label id='minLength'>reads最小长度：</label>reads的最小长度，当reads小于该长度则舍弃，默认为36bp。
+<label id='cutSpecifiedLength'>保留reads长度：</label>保留的reads长度，将reads剪切到该指定的长度。
+<label id='headcrop'>剪切长度(bp)：</label>在reads的首端切除指定的长度。
+<label id='avgqual'>最低平均质量值：</label>丢掉质量低于这个值的reads。
+<label id='maxMismatch'>最大mismatch数：</label>允许的最大mismatch数。
+<label id='palindromeMappedNum'>palindrome匹配碱基数：</label>在针对双端测序数据的 palindrome clip 模式下，当R1 和 R2的长度比值超过该设定值时，进行接头切除。默认值为 30。
+<label id='simpleMappedNum'>simple匹配碱基数：</label>在针对双端测序数据的simple模式下，当R1 和 R2的长度比值超过该设定值时，进行接头切除。通常 7-15 之间，默认值为10。
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 1)\*.filter.fq.gz：single-end数据的结果文件。

@@ -27,9 +27,8 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**MinSeqNumber：**抽选的最小序列数量
-**MaxSeqNumber：**抽选的最大序列数量
-**StepSize：**每个稀释区间的取样步长
+**MinSeqNumber：**<label id='min'>MinSeqNumber：</label>抽选的最小序列数量
+**MaxSeqNumber：**<label id='max'>MaxSeqNumber：</label>抽选的最大序列数量
 **containerNumber：**软件运行时，使用container数。
 
 

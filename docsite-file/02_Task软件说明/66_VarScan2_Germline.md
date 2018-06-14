@@ -50,15 +50,15 @@ Pileup 文件详细说明，请见官方文档：
 http://samtools.sourceforge.net/pileup.shtml
  ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
-　**物种：**选择参考基因组物种。
-　**物种版本：**参考基因组的版本。
-　**minCoverage：**reads的最小覆盖度，默认值为8。
-　**minCovNor：**正常组（对照组）的最小覆盖度，默认值为8。
-　**minCovTum：**患病组（实验组）的最小覆盖度，默认值为6。
-　**minVarFeq：**杂合子的最小变异频率，默认值为0.01。
-　**minFreForHom：**纯合子的最小变异率，默认值为0.75。
-　**pValue：**杂合子检测突变的p阈值，默认值为0.99。
-　**pValueSom：**检测突变的p阈值，默认值为0.05。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本。
+<label id='minCoverage'>minCoverage：</label>reads的最小覆盖度，默认值为8。
+<label id='minCovNor'>minCovNor：</label>正常组（对照组）的最小覆盖度，默认值为8。
+<label id='minCovTum'>minCovTum：</label>患病组（实验组）的最小覆盖度，默认值为6。
+<label id='minVarFeq'>minVarFeq：</label>杂合子的最小变异频率，默认值为0.01。
+<label id='minFreForHom'>minFreForHom：</label>纯合子的最小变异率，默认值为0.75。
+<label id='pValue'>pValue：</label>杂合子检测突变的p阈值，默认值为0.99。
+<label id='pValueSom'>pValueSom：</label>检测突变的p阈值，默认值为0.05。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**<span>

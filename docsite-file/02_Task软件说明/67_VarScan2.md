@@ -38,8 +38,8 @@
 **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
 　　检测的SNP和indel结果文件，以VCF文件格式存储。
 <hr/>**<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**选择参考基因组物种。
-　**版本：**参考基因组的版本。
+  <label id='species'>物种：</label>选择参考基因组物种。
+  <label id='speciesVersion'>物种版本：</label>参考基因组的版本。
 　<label id='minCoverage'>minCoverage：</label>reads的最小覆盖度，默认值为8。
 　<label id='minCovNor'>minCovNor：</label>正常组（对照组）的最小覆盖度，默认值为8。
 　<label id='minCovTum'>minCovTum：</label>患病组（实验组）的最小覆盖度，默认值为6。

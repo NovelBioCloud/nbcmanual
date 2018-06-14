@@ -15,10 +15,10 @@
 OTU丰度信息和物种分类信息（txt）文件。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**OTUs_Similarity：**reads聚类的相似度，默认值为97%
-　**Database：**选择比对数据库，其选项有：SILVA_128_97_otus，SILVA_128_99_otus和Default数据库，其中\*\_97_\*，和\*\_99_\*表示相似度为97%和相似度为99%的reference
-　**Taxo_Similarity：**分类相似度
-　**minOTUSize：**最少有OTU的丰度，默认值为2
+<label id='OTUsimilarity'>OTUs_Similarity：</label>reads聚类的相似度，默认值为97%
+<label id='Database'>Database：</label>选择比对数据库，其选项有：SILVA_128_97_otus，SILVA_128_99_otus和Default数据库，其中\*\_97_\*，和\*\_99_\*表示相似度为97%和相似度为99%的reference
+<label id='taxosimilarity'>Taxo_Similarity：</label>分类相似度
+<label id='minOTUs'>minOTUSize：</label>最少有OTU的丰度，默认值为2
 　
 
 ***

@@ -25,12 +25,13 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**sortBam：**是否对Bam文件进行排序。只能对bam文件进行sort, 不能对sam文件。
-　**indexBam：**是否对Bam文件构建索引。必须对bam文件进行默认情况下的排序后，才能进行index。
-　**removeDuplicate：**是否去除Duplicate序列。 
-　**GeneratePileUpFile：**是否生成bcf文件。
-　**MinMapQuality：**最小比对质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
-　**MinBaseQuality：**最小碱基质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
+<label id='isSortBam'>sortBam：</label>是否对Bam文件进行排序。只能对bam文件进行sort, 不能对sam文件。
+<label id='isIndexBam'>indexBam：</label>是否对Bam文件构建索引。必须对bam文件进行默认情况下的排序后，才能进行index。
+<label id='removeDuplicate'>removeDuplicate：</label>是否去除Duplicate序列。 
+<label id='GeneratePileUpFile'>GeneratePileUpFile：</label>是否生成bcf文件。
+<label id='minMQ'>MinMapQuality：</label>最小比对质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
+<label id='minBQ'>MinBaseQuality：</label>最小碱基质量值，当勾选“GeneratePileUpFile”参数时，显示该参数。
+　
 　
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

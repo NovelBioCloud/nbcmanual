@@ -20,19 +20,19 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置</span>**
-　**物种：**选择参考基因组物种。
-　**版本：**参考基因组的版本。
-　**dbType：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**Display All Splicing Event：**每个基因输出所有的可变剪接事件，如果不选，一个基因只记录一条可变剪接事件。
-　**Consider Repeat：**分析过程中是否考虑生物学重复。
-　**reconstructlso：**分析过程中是否进行转录本重构。
-　**仅用UniqueMappedReads算表达：**是否只用unique reads（即只比对到基因组上一个位置的reads）计算表达。
-　**链特异性：**测序数据的链特异性设置，其选项有以下四个：
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考基因组的版本。
+<label id='dbType'>dbType：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='displayEvent'>Display All Splicing Event：</label>每个基因输出所有的可变剪接事件，如果不选，一个基因只记录一条可变剪接事件。
+<label id='considerRepeat'>Consider Repeat：</label>分析过程中是否考虑生物学重复。
+<label id='reconstructIso'>reconstructlso：</label>分析过程中是否进行转录本重构。
+<label id='isUseUMReadsExp'>仅用UniqueMappedReads算表达：</label>是否只用unique reads（即只比对到基因组上一个位置的reads）计算表达。
+<label id='SS_lib_type'>链特异性：</label>测序数据的链特异性设置，其选项有以下四个：
 　　　　　Predict by software 软件自动匹配。推荐使用。
 　　　　　Not consider strand 不考虑链特异信息。
 　　　　　1st Read is strand： 当输入序列具有链特异性且PE reads 的左端与基因方向一致时，选择该选项。
 　　　　　2nd Read is strand：当输入序列具有链特异性且PE reads 的右端与基因方向一致时，选择该选项。
-　**文件对比：**加入对比两个组份。
+**文件对比：**加入对比两个组份。
 　　　　　　group1Array：选择对比组1；
 　　　　　　group2Array：选择对比组2；
 　　　　　　outFileArray：输出文件名称。

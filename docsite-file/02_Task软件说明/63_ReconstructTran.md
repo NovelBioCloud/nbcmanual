@@ -27,30 +27,30 @@
   
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
-　**物种：**选择参考基因组物种。
-　**物种版本：**参考基因组的版本。
-　**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**软件名称：**选择使用软件，该选项有两个：StringTie或者Cufflinks。
-　**内存：**软件运行时设置使用内存容量。
-　**线程数：**软件运行时设置使用线程数。
-　**minTranLength：**设置输出的重构转录本的最小长度，默认为200bp。
-　**minJunCoverage：**一个junction的最少junction reads数（即junction coverage），该值可以是小数，因为一些reads可能会比对到n个位置，那么一条reads在此处的junction coverage就是1/n。默认值为1。
-　**minTranCoverage：**预测转录本最少的reads支持数，如果预测的一条transcript的reads支持数小于该值，则不输出该transcript。默认值为2.5。
-　**minAnchorLenForJun：**当spliced reads的一端比对上的碱基数小于该设置值时，则不考虑该处的junction，默认为: 10。
-　**gapLength：**在一个处理单元（processing bundle）中，当两条比对上基因组的reads在参考序列上的位置之间的距离小于该设定值时，则进行合并。默认值为50 bp。
-　**转录本名称前缀：**输出的转录本名称前缀，默认为: STRG。
-　**FractionOfBundle：**设置出现在给定位点处（given locus）的多处比对reads（muliple-location-mapped reads,即比对到基因组上多个位置的reads,此概念是相对unique mapping reads而言）所占的最大的比率，默认值为0.95。
-　**useRefAnnoAssembly：**组装过程中是否使用参考注释文件 (in GTF or GFF3 format)来指导转录本重构，输出结果中将包含发生表达的参考转录本和组装的新转录本。
-　**estimateRefTranAbundance：**是否只评估比对到参考注释文件中的转录本，若选择“是”的话，要求设置“-G”参数，推荐使用“-B/-b”参数。
-　**reportGeneAbundance：**是否输出基因丰度结果文件。
-　**reportBallgownTable：**是否输出用于Ballgown软件分析的输入文件（\*_ctab）。
-　**是否获取表达值：**是否从stringtie结果中的gtf文件中提取出基因表达量。
-　**minTranLenInMerge：**用于Stringtie软件的Transcript merge模式，指输入的转录本的最小长度，默认为50bp。
-　**minTranCovInMerge：**用于Stringtie软件的Transcript merge模式，指输入的转录本的最低覆盖度，默认为0。
-　**minFPKMInMerge：**用于Stringtie软件的Transcript merge模式，指输入的转录本的最小FPKM值，默认为0。
-　**minTPMInMerge：**用于Stringtie软件的Transcript merge模式，指输入的转录本的最小TPM值，默认为 0。
-　**minIsoFraction：**转录本的最小丰度，默认为0.01。
-　**tranPrefixInMerge：**用于Stringtie软件的Transcript merge模式，指合并后输出转录本的名称前缀，默认为MSTRG。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='software'>软件名称：</label>选择使用软件，该选项有两个：StringTie或者Cufflinks。
+<label id='memory'>内存：</label>软件运行时设置使用内存容量。
+<label id='threadNum'>线程数：</label>软件运行时设置使用线程数。
+<label id='minTranLength'>minTranLength：</label>设置输出的重构转录本的最小长度，默认为200bp。
+<label id='minJunCoverage'>minJunCoverage：</label>一个junction的最少junction reads数（即junction coverage），该值可以是小数，因为一些reads可能会比对到n个位置，那么一条reads在此处的junction coverage就是1/n。默认值为1。
+<label id='minTranCoverage'>minTranCoverage：</label>预测转录本最少的reads支持数，如果预测的一条transcript的reads支持数小于该值，则不输出该transcript。默认值为2.5。
+<label id='minAnchorLenForJun'>minAnchorLenForJun：</label>当spliced reads的一端比对上的碱基数小于该设置值时，则不考虑该处的junction，默认为: 10。
+<label id='gapLength'>gapLength：</label>在一个处理单元（processing bundle）中，当两条比对上基因组的reads在参考序列上的位置之间的距离小于该设定值时，则进行合并。默认值为50 bp。
+<label id='tranPrefix'>转录本名称前缀：</label>输出的转录本名称前缀，默认为: STRG。
+<label id='fractionOfBundle'>FractionOfBundle：</label>设置出现在给定位点处（given locus）的多处比对reads（muliple-location-mapped reads,即比对到基因组上多个位置的reads,此概念是相对unique mapping reads而言）所占的最大的比率，默认值为0.95。
+<label id='useRefAnnoAssembly'>useRefAnnoAssembly：</label>组装过程中是否使用参考注释文件 (in GTF or GFF3 format)来指导转录本重构，输出结果中将包含发生表达的参考转录本和组装的新转录本。
+<label id='estimateRefTranAbundance'>estimateRefTranAbundance：</label>是否只评估比对到参考注释文件中的转录本，若选择“是”的话，要求设置“-G”参数，推荐使用“-B/-b”参数。
+<label id='reportGeneAbundance'>reportGeneAbundance：</label>是否输出基因丰度结果文件。
+<label id='reportBallgownTable'>reportBallgownTable：</label>是否输出用于Ballgown软件分析的输入文件（\*_ctab）。
+<label id='getGeneExpression'>是否获取表达值：</label>是否从stringtie结果中的gtf文件中提取出基因表达量。
+<label id='minTranLenInMerge'>minTranLenInMerge：</label>用于Stringtie软件的Transcript merge模式，指输入的转录本的最小长度，默认为50bp。
+<label id='minTranCovInMerge'>minTranCovInMerge：</label>用于Stringtie软件的Transcript merge模式，指输入的转录本的最低覆盖度，默认为0。
+<label id='minFPKMInMerge'>minFPKMInMerge：</label>用于Stringtie软件的Transcript merge模式，指输入的转录本的最小FPKM值，默认为0。
+<label id='minTPMInMerge'>minTPMInMerge：</label>用于Stringtie软件的Transcript merge模式，指输入的转录本的最小TPM值，默认为 0。
+<label id='minIsoFraction'>minIsoFraction：</label>转录本的最小丰度，默认为0.01。
+<label id='tranPrefixInMerge'>tranPrefixInMerge：</label>用于Stringtie软件的Transcript merge模式，指合并后输出转录本的名称前缀，默认为MSTRG。
 
 
 ***

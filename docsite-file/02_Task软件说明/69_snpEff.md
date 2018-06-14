@@ -34,10 +34,10 @@ VCF的详细说明请见官方文档：http://samtools.github.io/hts-specs/VCFv4
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**版本：**参考序列的版本。
-**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择特定数据库gtf文件。
-**ChrID列号：**染色体信息在输入文件中所在的列号。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择特定数据库gtf文件。
+<label id='chrIDColumn'>ChrID列号：</label>染色体信息在输入文件中所在的列号。
 **containerNumber：**运行过程中使用的container数。
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

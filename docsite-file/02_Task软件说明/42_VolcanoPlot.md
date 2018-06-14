@@ -19,13 +19,13 @@
 
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**Log2FC所在列：**输入的差异基因列表中，Log2FC（即，以2为底，实验组和对照组信号值差异倍数Fold Change的对数）所在的列数。
-　**Log2FC阈值：**Log2FC的阈值设定。一般情况下设置为1，当Log2FC=1时，表示基因的差异倍数（Fold change）为2。绘制火山图时会根据该值和后面的参数P-value值，将基因分为是否为显著性差异基因，并在图中以不同的颜色表示（如：Log2FC>=1并且P-value<0.05，的基因为显著性差异基因，在图中用红色或蓝色点表示；红色表示显著性上调基因，蓝色表示显著性下调基因，灰色则表示为非显著性差异的基因）。
-　**PvalueFdr所在列：**输入的差异基因列表中，FDR或者P-value所在的列数。
-　**PvalueFdr：**选择使用P-value还是FDR进行差异阈值设定，用来结合上面的“Log2FC阈值”参数，判断基因是否为显著性差异基因。
-　**PvalueFdr阈值：**差异的Pvalue或Fdr阈值设定，一般情况下设置为0.05，也可以根据显著性差异基因个数情况进行适当的调整。
-　**X轴limit：**X轴最大显示数的绝对值。如当设置为4时，X轴的取值范围为-4~4。
-　**FY轴limit：**Ｙ轴最大显示数的绝对值。如当设置为10时，Y轴的取值范围为-10~10。
+<label id='logFC'>Log2FC所在列：</label>输入的差异基因列表中，Log2FC（即，以2为底，实验组和对照组信号值差异倍数Fold Change的对数）所在的列数。
+<label id='logFcCutoff'>Log2FC阈值：</label>Log2FC的阈值设定。一般情况下设置为1，当Log2FC=1时，表示基因的差异倍数（Fold change）为2。绘制火山图时会根据该值和后面的参数P-value值，将基因分为是否为显著性差异基因，并在图中以不同的颜色表示（如：Log2FC>=1并且P-value<0.05，的基因为显著性差异基因，在图中用红色或蓝色点表示；红色表示显著性上调基因，蓝色表示显著性下调基因，灰色则表示为非显著性差异的基因）。
+<label id='fdr'>PvalueFdr所在列：</label>输入的差异基因列表中，FDR或者P-value所在的列数。
+<label id='pvalueFdr'>PvalueFdr：</label>选择使用P-value还是FDR进行差异阈值设定，用来结合上面的“Log2FC阈值”参数，判断基因是否为显著性差异基因。
+<label id='pvalueCutoff'>PvalueFdr阈值：</label>差异的Pvalue或Fdr阈值设定，一般情况下设置为0.05，也可以根据显著性差异基因个数情况进行适当的调整。
+<label id='xlimit'>X轴limit：</label>X轴最大显示数的绝对值。如当设置为4时，X轴的取值范围为-4~4。
+<label id='Ylimit'>Y轴limit：</label>Ｙ轴最大显示数的绝对值。如当设置为10时，Y轴的取值范围为-10~10。
 
 
 ****

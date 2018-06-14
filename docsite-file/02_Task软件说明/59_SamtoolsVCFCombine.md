@@ -13,14 +13,14 @@
 检测的SNP和indel结果文件，以VCF文件格式存储。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**VCF合并方式：**是否对多个样本的SNP/Indel结果进行合并，以及合并的方式。
+<label id='bcfMergeType'>VCF合并方式：</label>是否对多个样本的SNP/Indel结果进行合并，以及合并的方式。
 　　　　　　　　none：不排序，输出多条记录。
 　　　　　　　　snps：按照SNP记录进行合并。
 　　　　　　　　indels:按照indel记录合并。
 　　　　　　　　both：按照SNP和indel分别合并。
 　　　　　　　　all：都合并在一起。
 　　　　　　　　id:按照ID号合并。
-　**Memory（Mb）：**软件运行时，使用内存数，以M为单位。
+<label id='memory'>Memory（Mb）：</label>软件运行时，使用内存数，以M为单位。
 
 
 ***
