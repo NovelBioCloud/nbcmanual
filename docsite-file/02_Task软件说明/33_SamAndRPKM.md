@@ -21,24 +21,24 @@
 
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**Species：**选择参考基因组物种。
-　**Version：**参考序列的版本。
-　**Gtf：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
-　**useGTF：**如果为非模式物种可以上传该物种的GTF注释文件。
-　**isSamStat：**是否进行mapping结果统计。
-　**OnlyUniqueMappedReads：**仅用UniqueMappedReads算表达。
-　**isCallExp：**计算表达量，是否计算FPKM或RPKM。
-　**isCalGenStructure：**是否gene结构统计。
-　**ncRNAStatistic：**是否ncRNA进行统计。
-　**AdjustChrReads：**reads比对到参考序列多个位置，是否进行染色体定位的调整。例如1条reads同时比对到参考序列2个位置，每条reads表达量计为0.5。
-　**Strand：**链特异性：Predict by software 软件自动匹配，推荐使用;
+　<label id='species'>物种：</label>选择参考基因组物种。
+　<label id='speciesVersion'>版本：</label>参考序列的版本。
+　<label id='dbType'>Gtf：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件，也可以选择为我们上传gtf文件。
+　<label id='useGTF'>useGTF：</label>如果为非模式物种可以上传该物种的GTF注释文件。
+　<label id='samStatistics'>isSamStat：</label>是否进行mapping结果统计。
+　<label id='isUseUMReadsExp'>OnlyUniqueMappedReads：</label>仅用UniqueMappedReads算表达。
+　<label id='expressCount'>isCallExp：</label>计算表达量，是否计算FPKM或RPKM。
+　<label id='geneStructure'>isCalGenStructure：</label>是否gene结构统计。
+　<label id='nCRNAStatist'>ncRNAStatistic：</label>是否ncRNA进行统计。
+　<label id='correct'>AdjustChrReads：</label>reads比对到参考序列多个位置，是否进行染色体定位的调整。例如1条reads同时比对到参考序列2个位置，每条reads表达量计为0.5。
+　<label id='strandType'>Strand：</label>链特异性：Predict by software 软件自动匹配，推荐使用;
 　　　　　　　　　　Not consider strand 不考虑链特异信息;
 　　　　　　　　　　1st Read is strand： 推荐Ion Proton 使用，read1在5"端上游，和前导链一致, read2在3"下游， 和前导链反向互补。 或者read2在上游, read1在下游反向互补;
 　　　　　　　　　　2nd Read is strand：read1在5"端上游, 和前导链反向互补， read2在3"端下游，和前导链一致。
-　**Tss-UpStream：**转录组起始位点-上游，计算TSS区范围。
-　**Tss-DowmStream：**转录组起始位点-下游，计算TSS区范围。
-　**Tes-UpStream：**转录组结束位点-上游，计算TES区范围。
-　**Tes-DowmStream：**转录组结束位点-下游，计算TES区范围。
+　<label id='tssUp'>Tss-UpStream：</label>转录组起始位点-上游，计算TSS区范围。
+　<label id='tssDown'>Tss-DowmStream：</label>转录组起始位点-下游，计算TSS区范围。
+　<label id='tesUp'>Tes-UpStream：</label>转录组结束位点-上游，计算TES区范围。
+　<label id='tesDown'>Tes-DowmStream：</label>转录组结束位点-下游，计算TES区范围。
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

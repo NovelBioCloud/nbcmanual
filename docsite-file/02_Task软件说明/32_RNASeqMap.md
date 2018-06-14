@@ -66,14 +66,19 @@ http://www.netlab.uky.edu/p/bioinfo/MapSplice2
 　　MapSplice由肯塔基大学和北卡罗来纳大学的计算机系部门联合开发，Kai Wang等人于2010年发表Nucleic Acids Research上的具有高度特异性和敏感性的转录组测序比对算法。软件官网：http://www.netlab.uky.edu/p/bioinfo/MapSplice2
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**Species：**选择参考基因组物种。
-**Version：**参考序列的版本。
-**Library：**文库的类型。
-**Algorithm：**选择比对软件。
-**intronLenMin：**内含子区域最小长度。
-**intronLenMax：**内含子区域最大长度。
-**thread：**运行线程数。
-**Memory：**运行过程中使用的最大内存。
+　<label id='species'>Species：</label>选择参考基因组物种。
+　<label id='speciesVersion'>Version：</label>参考序列的版本。
+　<label id='useGTF'>UseGTF：</label>选择是否使用GTF文件。
+　<label id='library'>Library：</label>测序文库类型。
+　　　　　　SingleEnd：单端测序；
+　　　　　　PairEnd：双端测序； 　　　　　　　
+　　　　　　MatePair：2~10k建库测序；
+　　　　　　MatePairLong：20kb建库测序。
+　<label id='algorithm'>Algorithm：</label>选择比对软件。
+　<label id='intronLenMin'>IntronLenMin：</label>内含子区最小长度。
+　<label id='intronLenMax'>IntronLenMax：</label>内含子区最小长度。
+　<label id='thread'>Thread：</label>使用线程数。
+　<label id='memory'>Memory：</label>运行过程中使用的最大内存。
 
 ****
 ### 3.hisat2
@@ -81,16 +86,20 @@ http://www.netlab.uky.edu/p/bioinfo/MapSplice2
 　　软件官网：http://ccb.jhu.edu/software/tophat/index.shtml
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**Species：**选择参考基因组物种。
-　**Version：**参考序列的版本。
-　**use GTF：**使用GTF文件。
-　**Library：**文库的类型。
-　**Algorithm：**选择比对软件。
-　**intronLenMin：**内含子区域最小长度。
-　**intronLenMax：**内含子区域最大长度。
-　**Thread：**计算使用线程数。
-　**Memory: **运行过程中使用的最大内存。
-　**AlignNum：**非unique mapping允许的最多比对位置。
+　<label id='species'>Species：</label>选择参考基因组物种。
+　<label id='speciesVersion'>Version：</label>参考序列的版本。
+　<label id='useGTF'>UseGTF：</label>选择是否使用GTF文件。
+　<label id='library'>Library：</label>测序文库类型。
+　　　　　　SingleEnd：单端测序；
+　　　　　　PairEnd：双端测序； 　　　　　　　
+　　　　　　MatePair：2~10k建库测序；
+　　　　　　MatePairLong：20kb建库测序。
+　<label id='algorithm'>Algorithm：</label>选择比对软件。
+　<label id='intronLenMin'>IntronLenMin：</label>内含子区最小长度。
+　<label id='intronLenMax'>IntronLenMax：</label>内含子区最小长度。
+　<label id='thread'>Thread：</label>使用线程数。
+　<label id='memory'>Memory：</label>运行过程中使用的最大内存。
+　<label id='alignNum'>AlignNum：</label>非unique mapping允许的最多比对位置。
 　**sensitive：**
 
 | 名称        | 参数   |  
@@ -99,14 +108,9 @@ http://www.netlab.uky.edu/p/bioinfo/MapSplice2
 | fast     | Same as: -D 10 -R 2 -N 0 -L 22 -i S,0,2.50 | 
 | sensitive        |   Same as: -D 15 -R 2 -L 22 -i S,1,1.15 (default in --end-to-endmode)   | 
 | very-sensitive        |   Same as: -D 20 -R 3 -N 0 -L 20 -i S,1,0.50   | 
-**Strand type：**链特异性信息。
-　　　　　　Predict By Software:软件自动匹配，推荐使用；
-　　　　　　consider strand:不考虑链特异信息；
-　　　　　　1st Read is strand:推荐Ion Proton 使用，read1在5"端上游, 和前导链一致, read2在3"下游, 和前导链反向互补. 或者read2在上游, read1在下游反向互补；
-　　　　　　2nd Read is strand:read1在5"端上游, 和前导链反向互补, read2在3"端下游, 和前导链一致。
-**trim5：**5’端剪切掉多少碱基。
-**trim3：**3’端剪切掉多少碱基。
-**Dta：**转录本重构时定制参数，可以减少转录本重构使用计算内存。
+　<label id='trim5'>trim5：</label>5’端剪切掉多少碱基。
+  <label id='trim3'>trim3：</label>3’端剪切掉多少碱基。
+<label id='dta'>Dta：</label>转录本重构时定制参数，可以减少转录本重构使用计算内存。
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

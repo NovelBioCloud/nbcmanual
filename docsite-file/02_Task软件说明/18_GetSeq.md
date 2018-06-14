@@ -35,20 +35,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;提取到的指定区域的序列文件，以fasta格式存储。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**<span>
-**物种：**选择参考基因组物种。
-**版本：**参考序列的版本。
-**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择特定数据库的gtf文件。
-**染色体所在列号：**染色体信息在输入文件中的列号。
-**获取所有的ISO：**是否获取所有转录本序列。
-**获取miRNA：**是否获取miRNA序列。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择特定数据库的gtf文件。
+<label id='chrIdCol'>染色体所在列号：</label>染色体信息在输入文件中的列号。
+<label id='getAllIso'>获取所有的ISO：</label>是否获取所有转录本序列。
+<label id='getmiRNA'>获取miRNA：</label>是否获取miRNA序列。
 **SeqType：**选择按照什么方式提取序列，当参数“Genomewide”不选中时，该参数显示并有效，其选项有：Region、Site、Gene。
-**开始：**需要提取序列的起始位置在输入文件中所在的列号。
-**结束：**需要提取序列的终止位置在输入文件中所在的列号。
-**Genomewide：**提取该物种的整个基因组序列。
-**基因结构：**按基因结构选择需要提取部分，该参数值有：ALLLENGTH、TSS、TES、ATG、UAG、CDS、EXON、INTRON、UTR5、UTR3。
-**转录起始位点-上游：**设置提取转录起始位点上游碱基数。
-**转录起始位点-下游：**设置提取转录起始位点下游碱基数。
-**获取Aminoacid：**获取氨基酸序列，即将结果以氨基酸序列形式输出。
+<label id='startCol'>开始：</label>需要提取序列的起始位置在输入文件中所在的列号。
+<label id='endCol'>结束：</label>需要提取序列的终止位置在输入文件中所在的列号。
+<label id='genomwide'>Genomewide：</label>提取该物种的整个基因组序列。
+<label id='geneStructure'>基因结构：</label>按基因结构选择需要提取部分，该参数值有：ALLLENGTH、TSS、TES、ATG、UAG、CDS、EXON、INTRON、UTR5、UTR3。
+<label id='tssUp'>转录起始位点-上游：</label>设置提取转录起始位点上游碱基数。
+<label id='tssDown'>转录起始位点-下游：</label>设置提取转录起始位点下游碱基数。
+<label id='getAminoacid'>&获取Aminoacid：</label>获取氨基酸序列，即将结果以氨基酸序列形式输出。
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**<span>
 **\*.fa：**提取到的序列文件，以fasta文件格式存储。

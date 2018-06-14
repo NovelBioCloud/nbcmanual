@@ -24,8 +24,7 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**阈值：**p值和FDR值的阈值，默认为0.05。
-**物种：**选择基因的物种，用于在结果表格中添加基因的description信息。
+<label id='species'>物种：</label>选择基因的物种，用于在结果表格中添加基因的description信息。
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

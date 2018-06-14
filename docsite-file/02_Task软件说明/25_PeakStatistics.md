@@ -24,14 +24,15 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**版本：**参考序列的版本。
-**转录起始位点-上游：**选定参考基因组转录起始范围上游。
-**转录起始位点-下游：**选定参考基因组转录起始范围下游。
-**转录终止位点-上游：**选定参考基因组转录终止范围上游。
-**转录终止位点-下游：**选定参考基因组转录终止范围下游。
-**染色体列号：**表格中染色体号对应列数。
-**Peaksummit位点：**表格中Peaksummit对应列数。
+
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。
+<label id='tssUp'>转录起始位点-上游：</label>选定参考基因组转录起始范围上游。
+<label id='tssDown'>转录起始位点-下游：</label>选定参考基因组转录起始范围下游。
+<label id='tesUp'>转录终止位点-上游：</label>选定参考基因组转录终止范围上游。
+<label id='tesDown'> 转录终止位点-下游：</label>选定参考基因组转录终止范围下游。
+<label id='chrcol'>染色体列号：</label>表格中染色体号对应列数。
+<label id='peakStartCol'>Peaksummit位点：</label>表格中Peaksummit对应列数。
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

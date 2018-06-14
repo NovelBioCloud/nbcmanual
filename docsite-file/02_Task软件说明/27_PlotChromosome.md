@@ -15,12 +15,11 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**版本：**参考序列的版本。　 
-**数据库类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择特定数据库gtf文件。
-**InvNum：**取样区段，默认以10bp取样。
-**Normalized type：**取样后得到数据的标准化方式。
-
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。　 
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择特定数据库gtf文件。
+<label id='invNum'>InvNum：</label>取样区段，默认以10bp取样。
+<label id='normalizedType'>NormalizedType：</label>取样后得到数据的标准化方式。
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 **\* _chrome\_distribution\_*.png：**测序Reads在染色体上的分布图。每条染色体生成一张图。

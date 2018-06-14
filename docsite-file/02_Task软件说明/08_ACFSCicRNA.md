@@ -26,7 +26,7 @@
 　<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
 　<label id='filter'>FilterReadsWithN：</label>是否过滤掉含N的reads，其值有两个选项Filter和NotFilter。
 　<label id='seq_len'>SeqLength：</label>输入的reads长度。
-　**isCallFusionCirc：**是否检测融合circRNA。
+　<label id='isCallFusion'>isCallFusionCirc：</label>是否检测融合circRNA。
 　<label id='thread'>Threads：</label>线程数。
  　<label id='seq_len'>Memory：</label>分析过程中使用内存。
 

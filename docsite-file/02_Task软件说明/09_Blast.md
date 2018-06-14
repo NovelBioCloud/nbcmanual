@@ -27,16 +27,16 @@
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ResultType_Simple：简单结果格式，不显示比对结果的一致性。选择该参数值时，相当于blast的“-outfmt”值设置为“6”。一般情况下，选用这种输出文件格式，便于查看以及后续分析处理。
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ResultType_Normal：显示具体匹配信息。选择该参数值时，相当于blast的“-outfmt”值设置为“0”。
 &nbsp; **BlastNR**：当勾选时，要求输入的目标序列是BlastDB文件，即是创建索引以后的序列文件（并要求序列文件与索引文件在相同路径下）；此时，程序会直接使用已经存在的索引文件，进行下一步的比对分析。 
-　**blastType**：选择比对方式，根据输入序列的情况，选择合适的比对方式，其选项有以下五种。
+　<label id='blastType'>blastType：</label>选择比对方式，根据输入序列的情况，选择合适的比对方式，其选项有以下五种。
 　　　　　 TBLASTN_AA2NR_WITH_AA：蛋白序列对核酸库的比对。
 　　　　　　TBLASTX_NR2NR_WITH_AA：核酸序列对核酸库在蛋白级别的比对，将库和待查序列都翻译成蛋白序列，然后对蛋白序列进行比对。
 　　　　　　BLASTN_NR2NR_WITH_NR：核酸序列对核酸库的比对，直接比较核酸序列的同源性。
 　　　　　　BLASTX_NR2AA_WITH_AA：核酸序列对蛋白库的比对，将核酸序列翻译成蛋白序列，与蛋白质数据库进行比对。
 　　　　　　BLASTP_AA2AA_WITH_AA：蛋白序列对蛋白库的比对，直接比对蛋白序列的同源性。
-　**evalue**：期望值，这一参数控制搜索的灵敏度，取值范围在0-1之间，通常取0.01。e值越大，随机匹配的可能性越大；e值接近零或为零时，完全匹配。
-　**resultNum**：当输出文件格式为tabular格式时，（即：当参数“结果样式”选择为“ResultType_Simple”时）输出结果的条数。
+　<label id='evalue'>evalue：</label>期望值，这一参数控制搜索的灵敏度，取值范围在0-1之间，通常取0.01。e值越大，随机匹配的可能性越大；e值接近零或为零时，完全匹配。
+　<label id='resultNum'>resultNum：</label>当输出文件格式为tabular格式时，（即：当参数“结果样式”选择为“ResultType_Simple”时）输出结果的条数。
 　**alignmentNum**：显示一条reads比对到数据库序列的比对结果条数，如：当一条reads比对到基因组5个位置，当该值设置为1时，结果文件中文件中只输出比对上的1个位置的信息；当该值设置为3时，结果文件中文件中输出比对上的3个位置的信息；当该值设置为6时，结果文件中输出比对上的全部5个位置的信息。
-　**threadNum**：Task使用的线程数。
+　<label id='threadNum'>threadNum：</label>Task使用的线程数。
 　**containerNumber**：Task使用的container数。
 **高级选项**：
 　**isSuperTask**：是否设置为supertask，如果选中，会根据组名（即：prefix）进行task切分，例如，如果组名有3个就切分成3个子task进行运行。将输入查询序列进行切分后，就可以并行运行切分后的文件，实现大幅度减少程序运行时间的目的。
@@ -61,5 +61,6 @@ SubjectEnd：比对上的数据库中序列的终止位置
 E-value：表示随机匹配的可能性。E值越大，随机匹配的可能性也越大。E值接近零或为零时，基本上就是完全匹配了。
 Score：比对得分，如果序列匹配上得分，不一样，减分，分值越高，两个序列相似性越高
 
-参考文献：
+**参考文献：**
 1.Camacho C, Coulouris G, Avagyan V, Ma N, Papadopoulos J, Bealer K, et al. BLAST: Architecture and applications. BMC Bioinformatics. 2009;10:421. [PMC free article] [PubMed]
+***

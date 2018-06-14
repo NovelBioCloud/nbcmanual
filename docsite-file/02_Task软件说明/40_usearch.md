@@ -20,8 +20,8 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**Usearch identity：**序列一致性（两个序列之间的相似性）的阈值。
-**Reverse-complemented matching：**核酸序列聚类时是否采用反向互补配对（Reverse-complemented matching）的方式。
+<label id='uIdentity'>Usearch identity：</label>序列一致性（两个序列之间的相似性）的阈值。
+<label id='reverseMatch'>Reverse-complemented matching：</label>核酸序列聚类时是否采用反向互补配对（Reverse-complemented matching）的方式。
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 1)	**\*.conSeq.fa：**聚类得到的序列文件，以fasta格式存储。

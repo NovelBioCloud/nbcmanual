@@ -21,14 +21,15 @@
 组装后序列文件（\* .trinity.Trinity.fasta），可用于后续的RNA分析中，当做参考序列使用。
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　	**序列格式：**输入的reads类型，fa或fq。
-　	**最大内存：**Trinity在运行过程中使用的最大内存。
-　	**链特异性：**测序reads 的链特异性方向。
-　	**CPU：**Trinity在运行过程中使用的CPU数量。
-　	**最小长度：**组装的最小序列长度。
-　	**bflyHeapSpaceMax：**运行Butterfly时java最大的堆积空间。
-　	**bflyHeapSpaceInit：**java初始的堆积空间。 
-　	**contaionerNumber：**任务运行时使用contaioner数。
+<label id='seqType'>序列格式：</label>输入的reads类型，fa或fq。
+<label id='max_memory'>最大内存：</label>Trinity在运行过程中使用的最大内存。
+<label id='SS_lib_type'>链特异性：</label>测序reads 的链特异性方向。
+<label id='thread'>CPU：</label>Trinity在运行过程中使用的CPU数量。
+<label id='min_contig_length'>最小长度：</label>组装的最小序列长度。
+<label id='bflyHeapSpaceMax'>bflyHeapSpaceMax：</label>运行Butterfly时java最大的堆积空间。
+<label id='bflyHeapSpaceInit'>bflyHeapSpaceInit：</label>java初始的堆积空间。 
+**contaionerNumber：**任务运行时使用contaioner数。
+
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

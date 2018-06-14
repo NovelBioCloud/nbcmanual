@@ -22,10 +22,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;基因之间存在的相互作用关系列表（*Gene_Act_Net.gene.xls），通常作为cytoscape的输入文件来绘制基因关系网络图。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**AccID列号：**表格中基因名称所在列数。
-**isBlast：**如需增加基因间相互调控关系，可在此添加另一个近源物种进行比对从而增加信息。
-**blast物种：**选择isBlast的物种。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='accIDColNum'>AccID列号：</label>表格中基因名称所在列数。
+<label id='isBlast'>isBlast：</label>如需增加基因间相互调控关系，可在此添加另一个近源物种进行比对从而增加信息。
+<label id='blastSpecies'>blast物种：</label>选择isBlast的物种。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

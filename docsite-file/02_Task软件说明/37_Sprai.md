@@ -15,15 +15,15 @@
 #### **<i class="fa fa-dot-circle-o" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
 组装好的序列文件，可用于后续的基因序列方向确定，以及基因组分析和注释。
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　 **minLenForQuery：**进行数据校正的reads的最短长度。
-　 **estimatedGenomeSize：**组装物种基因组大小的估计值。
-　 **estimatedDepth：**测序深度估计值。
-　 **线程数：**组装过程中使用的线程数。
-　 **merSize：**K-mer长度，默认为22。
-　 **merylMemory：**CA（Celera Assembler，一种基因组组装算法）软件中调用的Mighty Meryl软件使用的内存总量。
-　 **merylThreads：**CA软件中调用的Mighty Meryl软件使用的线程数。
-　 **ovlStoreMemory：**使用内存的总量，以MB为单位，用来构建overlap store（即所有的overlap序列集合）。
-　 **containerNumer：**运行过程中使用的contatiner数。
+<label id='minLenForQuery'>minLenForQuery：</label>进行数据校正的reads的最短长度。
+<label id='estimatedGenomeSize'>estimatedGenomeSize：</label>组装物种基因组大小的估计值。
+<label id='estimatedDepth'>estimatedDepth：</label>测序深度估计值。
+<label id='threadNum'>线程数：</label>组装过程中使用的线程数。
+<label id='merSize'>merSize：</label>K-mer长度，默认为22。
+<label id='merylMemory'>merylMemory：</label>CA（Celera Assembler，一种基因组组装算法）软件中调用的Mighty Meryl软件使用的内存总量。
+<label id='merylThreads'>merylThreads：</label>CA软件中调用的Mighty Meryl软件使用的线程数。
+<label id='ovlStoreMemory'>ovlStoreMemory：</label>使用内存的总量，以MB为单位，用来构建overlap store（即所有的overlap序列集合）。
+**containerNumer：**运行过程中使用的contatiner数。
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

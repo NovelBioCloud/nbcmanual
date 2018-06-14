@@ -16,8 +16,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;合并信息后的文件列表（intersection.txt）以及绘制得到的venn图（intersection.png）。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**CompareID：**设置需要根据哪些列信息进行信息合并，如果多列可用空格隔开，如“1 2 3 4”，表示两个表中的第1列、第2列、第3列和第4列都相同的，则认为是两个表中共有的，并将两个表中的信息合并成一行信息。
-**Memory：**程序运行过程中所使用的内存大小，以M为单位。
+<label id='combineId'>combineId：</label>设置需要根据哪些列信息进行信息合并，如果多列可用空格隔开，如“1 2 3 4”，表示两个表中的第1列、第2列、第3列和第4列都相同的，则认为是两个表中共有的，并将两个表中的信息合并成一行信息。
+<label id='memory'>Memory：</label>程序运行过程中所使用的内存大小，以M为单位。
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 1)	**intersection.png：**交集Venn图，如：
