@@ -21,18 +21,18 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**选择参考基因组物种。
-　**物种版本：**参考基因组的版本。
-　**物种类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**HTSeqMode：**判断一个reads属于某个基因的模型，用来判断统计reads的时候对一些比较特殊的reads定义是否计入。该参数选项值有以下三种，union、intersection-strict、intersection-nonempty（默认值为union）。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本。
+<label id='dbType'>物种类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
+<label id='Mode'>HTSeqMode：</label>判断一个reads属于某个基因的模型，用来判断统计reads的时候对一些比较特殊的reads定义是否计入。该参数选项值有以下三种，union、intersection-strict、intersection-nonempty（默认值为union）。
 <div style="text-align:center"><img data-src="6.png" width="300px" ></img></div>
 
-　**StrandSpecific：**输入数据是否是来自链特异性建库（默认 yes)，该参数选项值有以下三种：
+<label id='StrandSpecific'>StrandSpecific：</label>输入数据是否是来自链特异性建库（默认 yes)，该参数选项值有以下三种：
 　　　Not consider strand：不考虑链特异性。
 　　　Strand Specific：表示考虑链特异性，对于single-end reads，reads必须要比对到同一链上，对于paired-end reads，一端reads比对到一条链上，另一端reads比对到另外一条链上。
 　　　Reverse Strand Specific：考虑链特异性，但原则与“Strand Specific”正好相反。
-　**MinQuality：**指定一个最低 read mapping质量值，低于<minaqual>值会被过滤掉（默认是10，0.5.4版本以前默认值是 0）。
-　**OnlyUniqueMappedReads：**仅用UniqueMappedReads计算表达量。
+<label id='minqual'>MinQuality：</label>指定一个最低 read mapping质量值，低于<minaqual>值会被过滤掉（默认是10，0.5.4版本以前默认值是 0）。
+<label id='isOnlyUseUnuqueReads'>OnlyUniqueMappedReads：</label>仅用UniqueMappedReads计算表达量。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

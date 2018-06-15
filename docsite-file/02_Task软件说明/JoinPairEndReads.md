@@ -19,8 +19,8 @@ https://code.google.com/p/ea-utils/wiki/FastqJoin
 &nbsp;&nbsp;&nbsp;&nbsp;合并后序列文件，以fastq文件格式存储，可作为FastQC的输入文件。
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**Min Overlap：**overlap 最少碱基数，默认值为6bp。
-**MaxDifPercent：**最大差异百分比（即两条序列的重叠区域，差异碱基所占的百分比），默认值为8%。
+<label id='minoverlap'>Min Overlap：</label>overlap 最少碱基数，默认值为6bp。
+<label id='maxdif'>MaxDifPercent：</label>最大差异百分比（即两条序列的重叠区域，差异碱基所占的百分比），默认值为8%。
 ****
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**

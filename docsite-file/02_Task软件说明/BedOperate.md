@@ -30,12 +30,12 @@
 处理后的结果文件（\*.bed、\*.bam、*.fa）
 ***
  #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**物种版本：**参考基因组的版本。
-**物种类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，通过该选项可选择不同数据库gtf文件。
-**线程数：**运行过程中使用的线程数。
-内存：运行过程中使用的最大内存。
-**Operate： **选择对输入文件进行的操作，有以下几个选项：
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本。
+<label id='dbType'>物种类型：</label><label id='speciesVersion'>物种版本：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，通过该选项可选择不同数据库gtf文件。
+<label id='threadNum'>线程数：</label>运行过程中使用的线程数。
+<label id='memory'>内存：</label>运行过程中使用的最大内存。
+<label id='Operate'>Operate：</label>选择对输入文件进行的操作，有以下几个选项：
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bamToBed：将bam格式文件转化为bed格式文件；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BedFilter：Bed文件过滤；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bedToBam：将bed格式文件转化为bam格式文件；
@@ -43,10 +43,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extendBed：bed文件延伸；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fastaFormBed：根据bed文件提取指定区域的序列；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MergeBed：将bed文件进行合并；
-**ExtendValue：**延长值，即bed文件延伸的碱基长度。当Operate参数选择extendBed选项时，该参数有效。
-**minMappingNum：**最少的比对reads数。
-**maxMappingNum：**最多的比对reads数。
-**排序方式：**对bed文件进行排序时，排序的方式，其选项值为：
+<label id='extend'>ExtendValue：</label>延长值，即bed文件延伸的碱基长度。当Operate参数选择extendBed选项时，该参数有效。
+<label id='minMappingNum'>minMappingNum：</label>最少的比对reads数。
+<label id='maxMappingNum'>maxMappingNum：</label>最多的比对reads数。
+<label id='sortType'>排序方式：</label>对bed文件进行排序时，排序的方式，其选项值为：
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sizeA：根据特征值进行升序排序；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sizeD：根据特征值进行降序排序；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrThenSizeA：首先根据染色体进行升序排序，然后根据特征值进行升序排序；

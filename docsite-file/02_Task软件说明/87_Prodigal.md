@@ -18,14 +18,16 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**Output Format：**选择输出文件格式，选择值有gbk、gff、sco。
+
+<label id='outputFormat'>Output Format：</label>选择输出文件格式，选择值有gbk、gff、sco。
 &nbsp;&nbsp;&nbsp;&nbsp;gbk：Genbank-like feature table格式，详细说明请见：http://www.insdc.org/files/feature_table.html
 &nbsp;&nbsp;&nbsp;&nbsp;gff：Generic Feature Format Version 3，细说明请见：https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md。
 &nbsp;&nbsp;&nbsp;&nbsp;sco：Simple coordinate output，详细说明请见：http://tico.gobics.de/ioexamples.jsp
-**Exclude Run off Edges Gene：**不允许基因一边断开，也就是要求完整的开放阅读框（Open Read Frame,ORF），含有起始和终止结构。
-**Translation Table：**指定翻译表编码，默认为11。
-**Treat N as masked Seq：**屏蔽基因组中含N碱基序列。
+<label id='closedEnds'>Exclude Run off Edges Gene：</label>不允许基因一边断开，也就是要求完整的开放阅读框（Open Read Frame,ORF），含有起始和终止结构。
+<label id='tranTable'>Translation Table：</label>指定翻译表编码，默认为11。
+<label id='treatN'>Treat N as masked Seq：</label>屏蔽基因组中含N碱基序列。
 **containerNumber：**软件运行时，使用container数。
+
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

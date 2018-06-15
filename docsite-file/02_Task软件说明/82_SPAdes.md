@@ -26,17 +26,17 @@ http://spades.bioinf.spbau.ru/release3.1.1/manual.html#sec2.1
 &nbsp;&nbsp;&nbsp;&nbsp;组装后序列文件（scaffolds.fasta），以fasta文件格式存储。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**threadNum：**使用线程数。
-**maxMemory(G)：**最大内存数。
-**数据类型：**选择输入数据的类型，其选项有：
+
+<label id='threadNum'>threadNum：</label>使用线程数。
+<label id='maxMemory'>maxMemory(G)：</label>最大内存数。
+<label id='dataType'>数据类型：</label>选择输入数据的类型，其选项有：
 &nbsp;&nbsp;&nbsp;&nbsp;MDA: single-cell数据
 &nbsp;&nbsp;&nbsp;&nbsp;metagenomic: 宏基因组数据
 &nbsp;&nbsp;&nbsp;&nbsp;RNA-Seq：RNA-Seq数据
 &nbsp;&nbsp;&nbsp;&nbsp;Plasmid：质粒数据
 &nbsp;&nbsp;&nbsp;&nbsp;Ion Torrent：IonTorrent 测序数据
-**k-mer size：**组装过程中使用的k-mer大小，可使用逗号将多个不同的k-mer值进行分隔。注意，所有的k-mer值必须是奇数，并小于128，而且要按照升序排列，如：21,33,51,75，如果设置了-sc，那么默认值为21,33,55。对于多单元数据集，系统根据最大read长度自动选择K-mer值，对于Illumina组装的长reads，k-mer的设置详细说明可参照：http://spades.bioinf.spbau.ru/release3.11.1/manual.html#sec3.4。
+<label id='kMer'>k-mer size：</label>组装过程中使用的k-mer大小，可使用逗号将多个不同的k-mer值进行分隔。注意，所有的k-mer值必须是奇数，并小于128，而且要按照升序排列，如：21,33,51,75，如果设置了-sc，那么默认值为21,33,55。对于多单元数据集，系统根据最大read长度自动选择K-mer值，对于Illumina组装的长reads，k-mer的设置详细说明可参照：http://spades.bioinf.spbau.ru/release3.11.1/manual.html#sec3.4。
 **containerNumber：**运行过程中使用的container数。
-
 
 
 ***

@@ -8,8 +8,8 @@ inputFaFile：输入组装完成的序列，格式为contigs.fasta。
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-Min Contig:组装时最小contig值，默认500bp。
-threadNum:运行时使用线程数。
+<label id='minContig'>Min Contig：</label>组装时最小contig值，默认500bp。
+<label id='threadNum'>threadNum：</label>运行时使用线程数。
 containerNumber:运行时使用container数。
 
 ***

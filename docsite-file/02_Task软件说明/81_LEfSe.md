@@ -33,12 +33,12 @@ https://bitbucket.org/biobakery/biobakery/wiki/lefse
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**Normalization Value：**标准值，通过将输入的丰度值与该标准值相乘，使得丰度值变大，默认值为30000。
-**AnovaAlphaValue: **Kruskal-Wallis秩和检验筛选biomarker的p-value值，默认值为0.05。
-**WilcoxonAlphaValue：**两组组间Wilcoxon秩和检验筛选biomarker的p-value值，默认值为0.05。
-**LDAValue：**对LDA值取对数后的最小绝对值，默认值为2。
-**Strategy for multi-class analysis：**设置测试运行模式，其选项有one-against-one（比较严格）和one-against-all（不太严格），默认值为：one-against-all。
-**MaxLevel：**绘制进化分布图时，在图中显示的最多物种分类级别。
+<label id='normalization'>NormalizationValue：</label>标准值，通过将输入的丰度值与该标准值相乘，使得丰度值变大，默认值为30000。
+<label id='anova'>AnovaAlphaValue：</label>Kruskal-Wallis秩和检验筛选biomarker的p-value值，默认值为0.05。
+<label id='wilcoxon'>WilcoxonAlphaValue：</label>两组组间Wilcoxon秩和检验筛选biomarker的p-value值，默认值为0.05。
+<label id='LDA'>LDAValue：</label>对LDA值取对数后的最小绝对值，默认值为2。
+<label id='strategy'>Strategy for multi-class analysis：</label>设置测试运行模式，其选项有one-against-one（比较严格）和one-against-all（不太严格），默认值为：one-against-all。
+<label id='maxlevel'>MaxLevel：</label>绘制进化分布图时，在图中显示的最多物种分类级别。
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**

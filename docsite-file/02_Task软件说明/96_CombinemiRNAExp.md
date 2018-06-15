@@ -25,7 +25,7 @@
 #### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
 　　整合后的miRNA表达量列表（txt）文件。
 <hr/>**<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**TpmCoefficient：**在计算TPM值时乘以的系数，默认为1000000。
+<label id='TpmCoefficient'>TpmCoefficient：</label>在计算TPM值时乘以的系数，默认为1000000。
  ***
 **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**
 　　1)Sample_Exp： 每个样本的TPM列表文件。

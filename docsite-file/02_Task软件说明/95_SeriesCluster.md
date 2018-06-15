@@ -21,16 +21,16 @@
   
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**NormalizedType：** 标准化数据的方式，在基因表达时间序列与模型表达趋势匹配之前，需要将时间序列转换为从0开始，这种转换有三种方法：
+<label id='Normalized'>NormalizedType：</label> 标准化数据的方式，在基因表达时间序列与模型表达趋势匹配之前，需要将时间序列转换为从0开始，这种转换有三种方法：
 　　1. Log normalize data 将向量转化为<div style="text-align:center"><img data-src="2.png" width="250px" </img></div>
 　　2. Normalize data将向量转化为<div style="text-align:center"><img data-src="3.png" width="250px" </img></div>
 　　3. No normalization/add 0 ，不标准化，直接加0（0，v0，v1，v2，…vn）
   
-　**Change_based_on：**选择基因过滤的方法，其选项有：
+<label id='ChangeBaseOn'>Change_based_on：</label>选择基因过滤的方法，其选项有：
 　　　Maximum-Minimum：两点差值的最大绝对值的基因会被过滤掉。
 　　　Difference From 0：如果基因从时间点0到任意时间点的表达变化值小于最小绝对表达变化值参数所设定的值，则会被过滤掉。
-　**MaxProfile：**可被选择的最大的趋势模型数。
-　**Maximum_Unit_Change_between_Time_Points：**用来指定时间点之间趋势模型可以改变的一个单位的最大数量。
+<label id='MaxProfile'>MaxProfile：</label>可被选择的最大的趋势模型数。
+<label id='Maximum_Unit'>Maximum_Unit_Change_between_Time_Points：</label>用来指定时间点之间趋势模型可以改变的一个单位的最大数量。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

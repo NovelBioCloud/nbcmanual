@@ -17,7 +17,7 @@
 
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**Prediction_Type：**选择功能分析类型，可以多选，其选项有以下三种：
+<label id='Type'>Prediction_Type：</label>选择功能分析类型，可以多选，其选项有以下三种：
 　　“ko”：KEGG 代谢途径分析；
 　　“COG”：同源蛋白注释的数据库；
 　　“Rfam”：鉴定non-coding RNAs的数据库，常用于注释新的核酸序列或者基因组序列。

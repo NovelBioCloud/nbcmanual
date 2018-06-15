@@ -6,12 +6,12 @@
 inputFile (FASTA)：输入序列，fasta格式。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-Match：匹配的权重，默认为2。
-Mismatch：没有匹配的权重，默认为7。
-Delta：插入删除的匹配的权重，默认为7。
-匹配上的概率：匹配上的概率（PM），默认为80。
-最小匹配分值：最小的匹配分值，默认为50。
-最大的重复单元数：最大的重复单元bp数，默认为500bp。
+<label id='match'>Match：</label>匹配的权重，默认为2。
+<label id='mismatch'>Mismatch：</label>没有匹配的权重，默认为7。
+<label id='delta'>Delta：</label>插入删除的匹配的权重，默认为7。
+<label id='pm'>匹配上的概率：</label>匹配上的概率（PM），默认为80。
+<label id='minscore'>最小匹配分值：</label>最小的匹配分值，默认为50。
+<label id='maxPeriod'>最大的重复单元数：</label>最大的重复单元bp数，默认为500bp。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

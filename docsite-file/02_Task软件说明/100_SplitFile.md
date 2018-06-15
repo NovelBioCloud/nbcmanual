@@ -15,7 +15,7 @@
 #### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> 输出文件**
 　　	切分后Fastq文件（\*.part.1.fq.gz/\*.part.2.fq.gz）。
  **参数设置**
-**part：**输入文件需要切分成几等份。
+<label id='part'>part：</label>输入文件需要切分成几等份。
  ***
 **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**
 \*.part.1.fq.gz 切分后Fastq文件。

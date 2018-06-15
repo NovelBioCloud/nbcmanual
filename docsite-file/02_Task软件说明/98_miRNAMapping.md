@@ -22,18 +22,14 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**选择参考基因组物种。
-　**物种版本：**参考基因组的版本。
-　**物种类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**mappingTo：**选择将测序得到的reads比对到哪种参考序列上，该参数可多选，其选项有：
-　**miRNA：**所分析物种的small RNA数据库。用于统计small RNA表达量。
-　**genome：**所分析物种的genome序列。通常情况下，当small RNA比对到物种small RNA数据库上，比对率较低时，可提取出没有比对到物种small RNA上的reads，将这些reads比对到genome上，查看这些unmapped reads在基因组上的分布情况，可为质控提供信息。
-　**Rfam：**Rfam数据库，将reads比对到Rfam数据库中，统计reads在Rfam数据库中的分布情况。
-　**Mismatch：**比对时，允许一条reads上最多错配碱基个数。
-　**Gap Extensions：** 比对结果中，比对上的序列含有的gap的最大长度。（gap是指在序列比对过程中，考虑到插入/缺失突变，采用插入空位的方法来增加匹配残基的数量，这些插入的空位即为gap）
-　**Seed Length：**seed序列长度，如果设置的seed长度大于检测（query）序列长度，那么直接使用query序列进行比对，对于长reads，该值通常会被设置的范围是25-35。
-　**Maximum number of alignments：**输出的最多比对条数，即，一条reads比对到多个位置，最多只输出设定值的比对位置信息。
-　**Threads：**运行时使用线程数。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本。
+<label id='maptodb'>mappingTo：</label>选择将测序得到的reads比对到哪种参考序列上，该参数可多选，其选项有：
+<label id='mismatch'>Mismatch：</label>比对时，允许一条reads上最多错配碱基个数。
+<label id='gap'>Gap Extensions：</label> 比对结果中，比对上的序列含有的gap的最大长度。（gap是指在序列比对过程中，考虑到插入/缺失突变，采用插入空位的方法来增加匹配残基的数量，这些插入的空位即为gap）
+<label id='seed'>Seed Length：</label>seed序列长度，如果设置的seed长度大于检测（query）序列长度，那么直接使用query序列进行比对，对于长reads，该值通常会被设置的范围是25-35。
+<label id='maxhit'>Maximum number of alignments：</label>输出的最多比对条数，即，一条reads比对到多个位置，最多只输出设定值的比对位置信息。
+<label id='thread'>Threads：</label>运行时使用线程数。
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**
 　1).Sample_Exp：每个样本small RNA表达量列表文件存放在该文件夹中。每个样本分为成熟miRNA的表达量（counts数和TPM值），以及miRNA前体的表达量（counts数和TPM值）。

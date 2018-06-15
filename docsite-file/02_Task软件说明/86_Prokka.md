@@ -19,15 +19,16 @@ http://www.vicbioinformatics.com/software.prokka.shtml
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**threadNum：**设置软件运行时使用的线程数。
-**Add Genes：**在注释的gtf文件中是否添加基因注释信息，如果选中表示添加Gene信息。
-**Add mRNA：**在注释的gtf文件中是否添加mRNA的注释信息，如果选中表示添加mRNA的信息。
-**Kingdom：**设置所分析物种所属的界名称。
-**Genus：**设置所分析物种所属的属名称。
-**Species：**设置所分析物种所属的种名称。
-**No rRNA：**选择是否注释出rRNA，如果选中表示不注释出rRNA。
-**No trna：**选择是否注释出tRNA，如果选中表示不注释出tRNA。
+<label id='threadNum'>threadNum：</label>设置软件运行时使用的线程数。
+<label id='addgenes'>Add Genes：</label>在注释的gtf文件中是否添加基因注释信息，如果选中表示添加Gene信息。
+<label id='addmrna'>Add mRNA：</label>在注释的gtf文件中是否添加mRNA的注释信息，如果选中表示添加mRNA的信息。
+<label id='kingdom'>Kingdom：</label>设置所分析物种所属的界名称。
+<label id='genus'>Genus：</label>设置所分析物种所属的属名称。
+<label id='species'>Species：</label>设置所分析物种所属的种名称。
+<label id='norrna'>No rRNA：</label>选择是否注释出rRNA，如果选中表示不注释出rRNA。
+<label id='notrna'>No trna：</label>选择是否注释出tRNA，如果选中表示不注释出tRNA。
 **containerNumber：**软件运行时，使用container数。
+
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

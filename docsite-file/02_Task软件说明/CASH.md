@@ -21,31 +21,31 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**物种版本：**选择参考基因组的版本。
-**dbType：**同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择不同数据库gtf文件。
-**MergePvalue:**对junction reads的P-value与mapping reads的P-value进行合并的方式，其选项值有：
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>物种版本：</label>选择参考基因组的版本。
+<label id='dbType'>dbType：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择不同数据库gtf文件。
+<label id='MergePvalue'>MergePvalue：</label>对junction reads的P-value与mapping reads的P-value进行合并的方式，其选项值有：
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arithmetic：算术平均值方式；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Geometric：几何平均值方式。
-**isCombine：**是否合并bam文件。当选中时，如果样本组内有重复，软件会将组内的重复样本合并成一个bam文件；不选中时，如果样本组内有重复，则当正常的生物学重复处理。默认为false。
-**isDisplayAllEvent：**是否输出每个基因的所有可变剪接形式。如果不选，一个基因只记录一条可变剪接形式。
-**StrandSpecific：**设置链特异性，选项值有：
+<label id='isCombine'>isCombine：</label>是否合并bam文件。当选中时，如果样本组内有重复，软件会将组内的重复样本合并成一个bam文件；不选中时，如果样本组内有重复，则当正常的生物学重复处理。默认为false。
+<label id='isdisplayallevent'>isDisplayAllEvent：</label>是否输出每个基因的所有可变剪接形式。如果不选，一个基因只记录一条可变剪接形式。
+<label id='StrandSpecific'>StrandSpecific：</label>设置链特异性，选项值有：
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NONE：非链特异性建库测序；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FirstStrand：链特异性建库，PE reads的第一条read 代表测序片段的方向；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SecondStrand：链特异性建库，PE reads的第二条read 代表测序片段的方向。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认为NONE。
-**SpliceCons：**是否基于RNA-Seq数据和参考注释文件构建可变剪接模型，引导检测样本中的novel 可变剪接。勾选表示根据RNA-Seq数据和gtf/gff文件构建可变剪接模型，此时软件运行时间比较长；不勾选表示仅根据gtf/gff文件推测可变剪接的模型。默认为勾选。
+<label id='SpliceCons'>SpliceCons：</label>是否基于RNA-Seq数据和参考注释文件构建可变剪接模型，引导检测样本中的novel 可变剪接。勾选表示根据RNA-Seq数据和gtf/gff文件构建可变剪接模型，此时软件运行时间比较长；不勾选表示仅根据gtf/gff文件推测可变剪接的模型。默认为勾选。
 **文件对比：**设置比对组。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CaseGroup：选择Case组；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ControlGroup：选择Control组；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OutPrefix：设置输出文件前缀。
 **打开高级选项：**
-**JuncAllSample：**当所有样本中的junction reads数量小于该值时，不进行AS的预测，默认值为25；
-**JuncOneGroup：**当一组样本中的junction reads数量小于该值时，不进行AS的预测，默认值为10；
-**minAnchorLen：**当统计junction reads时，比对到两端exon上的序列的最小长度，默认为5bp;
-**minIntronLen：**内含子最小长度，当RNA-Seq reads 之间的gap值大于该设定值时，认为该处可能是个内含子，默认值为25bp；
-**minJuncReadsForNew：**在重构的剪接位点处， junction reads的最小长度，默认为10bp；
-**runSepChr：**对于一些特殊的物种（如：Hordeum vulgare），基因组很大时，‘htsjdk(v2.9.0)’无法给该基因组序列创建索引，此时，不勾选该参数，表示不给基因组创建索引，选中则表示创建索引。当不选中该参数时，软件在运行过程中会占用较大的内存，运行时间比较长。默认是选中。
+<label id='JuncAllSample'>JuncAllSample：</label>当所有样本中的junction reads数量小于该值时，不进行AS的预测，默认值为25；
+<label id='JuncOneGroup'>JuncOneGroup：</label>当一组样本中的junction reads数量小于该值时，不进行AS的预测，默认值为10；
+<label id='minAnchorLen'>minAnchorLen：</label>当统计junction reads时，比对到两端exon上的序列的最小长度，默认为5bp;
+<label id='minIntronLen'>minIntronLen：</label>内含子最小长度，当RNA-Seq reads 之间的gap值大于该设定值时，认为该处可能是个内含子，默认值为25bp；
+<label id='minJuncReadsForNewIso'>minJuncReadsForNewIso：</label>在重构的剪接位点处， junction reads的最小长度，默认为10bp；
+<label id='runSepChr'>runSepChr：</label>对于一些特殊的物种（如：Hordeum vulgare），基因组很大时，‘htsjdk(v2.9.0)’无法给该基因组序列创建索引，此时，不勾选该参数，表示不给基因组创建索引，选中则表示创建索引。当不选中该参数时，软件在运行过程中会占用较大的内存，运行时间比较长。默认是选中。
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

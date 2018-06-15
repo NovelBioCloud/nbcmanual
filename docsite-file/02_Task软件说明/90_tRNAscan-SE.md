@@ -21,7 +21,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;预测tRNA结果文件（* tRNA.txt）。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**Type：**设置需要分析物种所属的分类，其选项有:
+<label id='type'>Type：</label>设置需要分析物种所属的分类，其选项有:
 （1）	细菌：当输入序列是细菌的序列时，选择该值。
 （2）	古细菌：当输入序列是古细菌的序列时，选择该值。
 （3）	混合序列：当输入序列是古细菌、细菌和真核生物的混合序列时，选择该参数值，该参数使用general tRNA covariance model。

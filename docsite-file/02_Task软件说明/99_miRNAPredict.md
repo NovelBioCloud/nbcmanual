@@ -23,22 +23,22 @@ https://www.mdc-berlin.de/8551903/en/
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**blastSpecies：**选择在预测novel miRNA时，需要与之比对的物种名称，没有比对到该物种miRNA数据库上的即为novel miRNA，该参数值可多选。
-**物种：**选择参考基因组物种。
-**版本：**选择参考基因组的版本。
-**PredictNovelmiRNA：**选择是否预测novel miRNA。
-**Threads：**运行时使用线程数。
+<label id='blastSpecies'>blastSpecies：</label>选择在预测novel miRNA时，需要与之比对的物种名称，没有比对到该物种miRNA数据库上的即为novel miRNA，该参数值可多选。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>选择参考基因组的版本。
+<label id='ispredictnovel'>PredictNovelmiRNA：</label>选择是否预测novel miRNA。
+<label id='thread'>Threads：</label>运行时使用线程数。
 **高级选项：**
-**UseKnownMiRNA：**预测过程中是否将预测序列比对到已知的miRNA;
-**BWA_Mismatch：**允许一条reads上最多错配碱基个数；
-**BWA_GapExtensions：**每个gap允许的最大长度；
-**BWA_SeesLen：**seed长度。应用BWA对DNA序列进行比对时，会先将read切分成较短的序列，该序列即为seed序列，切分之后将seed序列比对到参考基因组;
-**BWA_MaxSeedDif：**seed序列与参考基因组序列比对时，seed序列与比对到的参考序列的最大差异碱基（mismatch）数，默认值为2；
-**BWA_MaxHits：**每对reads输出到结果中的最多比对数；
-**minLen：**预测novel miRNA的最小长度；
-**MaxLen：**预测novel miRNA的最大长度；
-**TPMCoefficient：**计算TPM值（基因表达量的一种衡量指标）时乘以的系数；
-**mirDeep_ScoreCut：**预测novel miRNAs时的最小score阈值，默认为0。
+<label id='useknown'>UseKnownMiRNA：</label>预测过程中是否将预测序列比对到已知的miRNA;
+<label id='mismatch'>BWA_Mismatch：</label>允许一条reads上最多错配碱基个数；
+<label id='gap'>BWA_GapExtensions：</label>每个gap允许的最大长度；
+<label id='seed'>BWA_SeesLen：</label>seed长度。应用BWA对DNA序列进行比对时，会先将read切分成较短的序列，该序列即为seed序列，切分之后将seed序列比对到参考基因组;
+<label id='seeddif'>BWA_MaxSeedDif：</label>seed序列与参考基因组序列比对时，seed序列与比对到的参考序列的最大差异碱基（mismatch）数，默认值为2；
+<label id='maxhit'>BWA_MaxHits：</label>每对reads输出到结果中的最多比对数；
+<label id='minlen'>minLen：</label>预测novel miRNA的最小长度；
+<label id='maxlen'>MaxLen：</label>预测novel miRNA的最大长度；
+<label id='TPMCoefficient'>TPMCoefficient：</label>计算TPM值（基因表达量的一种衡量指标）时乘以的系数；
+<label id='ScoreCutoff'>mirDeep_ScoreCut：</label>预测novel miRNAs时的最小score阈值，默认为0。
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

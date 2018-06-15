@@ -20,7 +20,7 @@ Newick文件说明具体请见 https://en.wikipedia.org/wiki/Newick_format。
 每个样本的Beta 多样性文件。
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　	**Seqs Per Sample：**每个样本的序列条数。因为不同样本测序深度不同，产生的序列条数不同，所以需要对每个样本的序列数目进行标准化，即resampling，具体数值可设置为输入样品中序列数目最少的样本序列数，默认值为30000。
+<label id='seqpersample'>Seqs Per Sample：</label>每个样本的序列条数。因为不同样本测序深度不同，产生的序列条数不同，所以需要对每个样本的序列数目进行标准化，即resampling，具体数值可设置为输入样品中序列数目最少的样本序列数，默认值为30000。
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**
 　1)**beta_diversity：**距离矩阵结果。

@@ -26,11 +26,11 @@ http://rna-cpat.sourceforge.net/
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**StartCodons：**设置起始密码子，默认为：ATG；
-**StopCodons：**设置终止密码子，默认为：TAG,TAA,TGA；
-**是否是模式生物：**需要分析的序列是否是模式物种；
-**模式物种名称：**如果分析的序列是模式物种，选择设置模式物种的物种名称；
-**coding Threshold：**设置判断是否是编码RNA的阈值，小于该阈值的为ncRNA。
+<label id='startCodons'>StartCodons：</label>设置起始密码子，默认为：ATG；
+<label id='stopCodons'>StopCodons：</label>设置终止密码子，默认为：TAG,TAA,TGA；
+<label id='isModelOrganism'>是否是模式生物：</label>需要分析的序列是否是模式物种；
+<label id='organism'>模式物种名称：</label>如果分析的序列是模式物种，选择设置模式物种的物种名称；
+<label id='codingThreshold'>coding Threshold：</label>设置判断是否是编码RNA的阈值，小于该阈值的为ncRNA。
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

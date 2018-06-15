@@ -21,10 +21,10 @@ Newick文件说明具体请见 https://en.wikipedia.org/wiki/Newick_format。
 每个样本的alpha 多样性文件。
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　	**MinSeqNumber：**抽选的最小序列条数。在计算alpha多样性时，要去除因测序深度不一致产生的影响，因此需要重采样，默认为10。
-　	**MaxSeqNumber：**抽选的最大序列条数。在计算alpha多样性时，要去除因测序深度不一致产生的影响，因此需要重采样，默认为26000。
-　	**StepSize：**步长，即下一次采样的序列条数,默认为2500条。
-　	
+<label id='min'>MinSeqNumber：</label>抽选的最小序列条数。在计算alpha多样性时，要去除因测序深度不一致产生的影响，因此需要重采样，默认为10。
+<label id='max'>MaxSeqNumber：</label>抽选的最大序列条数。在计算alpha多样性时，要去除因测序深度不一致产生的影响，因此需要重采样，默认为26000。
+<label id='stepsize'>StepSize：</label>步长，即下一次采样的序列条数,默认为2500条。
+　　	
 
 ****
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**
@@ -54,3 +54,4 @@ Newick文件说明具体请见 https://en.wikipedia.org/wiki/Newick_format。
 **参考文献：**
 1.	Caporaso, J. Gregory, Justin Kuczynski, Jesse Stombaugh, Kyle Bittinger, Frederic D. Bushman, Elizabeth K. Costello, Noah Fierer et al. “QIIME allows analysis of high-throughput community sequencing data.” Nature methods 7, no. 5 (2010): 335-336.
 2.	Schloss, Patrick D., Sarah L. Westcott, Thomas Ryabin, Justine R. Hall, Martin Hartmann, Emily B. Hollister, Ryan A. Lesniewski et al. “Introducing mothur: open-source, platform-independent, community-supported software for describing and comparing microbial communities.” Applied and environmental microbiology 75, no. 23 (2009): 7537-7541.
+***

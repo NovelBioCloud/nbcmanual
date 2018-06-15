@@ -16,16 +16,16 @@
 　　预测出的miRNA与靶基因对应的关系列表（txt）文件。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**software：**选择所使用软件，Miranda和RNAhybird可以同时选择。
-**Seed_Strict：**选中参数。对于miranda软件表示，添加这个参数-strict；添加这个参数的意思是要求miRNA的第2到第8个碱基必须是完全比对上的；对于RNAhybrid软件表示添加-f的参数，且其值为 2,7 ；-f 2,7 表示要求miRNA的第2到第7个碱基必须是完全比对上的。
-**Miranda_Score：**miRNA和靶基因结合的效率水平。
-**Miranda_Energy：**miRNA和靶基因结合的吉布斯自由能，其绝对值越大，说明两者结合的越稳定。
-**RNAhybrid_Model：**参考基因组的物种。
-**RNAhybrid_MaxTargetLen：**RNAhybrid 中3`UTR序列最大长度。
-**RNAhybrid_MaxQueryLen：**RNAhybrid 中miRNA序列最大长度。
-**RNAhybrid_Energy：**miRNA和靶基因结合的吉布斯自由能，其绝对值越大，说明两者结合的越稳定。
-**RNAhybrid_Pvalue：**靶向关系的结合显著性值，统计学根据显著性检验方法所得到的P值。
-**RNAhybrid_HitsPerTarget：**一个小RNA和一个靶基因的某一段序列匹配情况最多列出几次，比如一个小RNA和一个靶基因的某一段序列匹配存在多种情况，则为1的话只列出最优的匹配情况，一般选1就比较好。
+<label id='software'>software：</label>选择所使用软件，Miranda和RNAhybird可以同时选择。
+<label id='strict'>Seed_Strict：</label>选中参数。对于miranda软件表示，添加这个参数-strict；添加这个参数的意思是要求miRNA的第2到第8个碱基必须是完全比对上的；对于RNAhybrid软件表示添加-f的参数，且其值为 2,7 ；-f 2,7 表示要求miRNA的第2到第7个碱基必须是完全比对上的。
+<label id='score'>Miranda_Score：</label>miRNA和靶基因结合的效率水平。
+<label id='energy'>Miranda_Energy：</label>miRNA和靶基因结合的吉布斯自由能，其绝对值越大，说明两者结合的越稳定。
+<label id='type'>RNAhybrid_Model：</label>参考基因组的物种。
+<label id='maxtargetlen'>RNAhybrid_MaxTargetLen：</label>RNAhybrid 中3`UTR序列最大长度。
+<label id='maxquerylen'>RNAhybrid_MaxQueryLen：</label>RNAhybrid 中miRNA序列最大长度。
+<label id='hyenergy'>RNAhybrid_Energy：</label>miRNA和靶基因结合的吉布斯自由能，其绝对值越大，说明两者结合的越稳定。
+<label id='pvalue'>RNAhybrid_Pvalue：</label>靶向关系的结合显著性值，统计学根据显著性检验方法所得到的P值。
+<label id='hits'>RNAhybrid_HitsPerTarget：</label>一个小RNA和一个靶基因的某一段序列匹配情况最多列出几次，比如一个小RNA和一个靶基因的某一段序列匹配存在多种情况，则为1的话只列出最优的匹配情况，一般选1就比较好。
 **文件对比：**增加数据处理对应关系，miRNA_Seq为需要分析的miRNA序列文件；3’UTR_Seq可以选择circRNA、mRNA、ncRNA序列文件；outFileArray为输出文件名。
 组名修改：
 　　　　　group1Array：选择对比组1，在该task中此参数通常选择为miRNA；

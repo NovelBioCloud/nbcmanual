@@ -25,18 +25,18 @@
 ***
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择基因的物种；
-**版本：**选择基因的物种版本；
-**数据库类型：**选择分析使用的基因组注释文件，同一版本的基因组数据，在不同数据库汇总记录的信息不同；
-**上下游基因的距离：**lncRNA在基因组上距离上下游编码基因的距离；
-**查询方式：** 查找信息的方式，其值有：
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。
+<label id='dbType'>数据库类型：</label>同一版本的基因组数据，在不同数据库中记录的信息不同，通过该参数可选择特定数据库gtf文件。
+
+<label id='distanceGene'>上下调基因的距离：</label>lncRNA在基因组上距离上下游编码基因的距离；
+<label id='radioByType'>查询方式：</label>查找信息的方式，其值有：
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByName：根据lncRNA名称；
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByLoc：根据lncRNA位置。
-**LncID列号：**当“查询方式”选择为“ByName”时，显示该参数，在此处设置lncRNA名称在输入列表文件中所在的列数；
-**染色体列号：**当“查询方式”选择为“ByLoc”时，显示该参数，在此处设置染色体号在输入列表文件中所在的列数；
-**开始列号：**当“查询方式”选择为“ByLoc”时，显示该参数，在此处设置lncRNA起始位置在输入列表文件中所在的列数；
-
-**结束列号：**当“查询方式”选择为“ByLoc”时，显示该参数，在此处设置lncRNA终止位置在输入列表文件中所在的列数；
+<label id='lncIDNum'>LncID列号：</label>当“查询方式”选择为“ByName”时，显示该参数，在此处设置lncRNA名称在输入列表文件中所在的列数；
+<label id='chrNum'>染色体列号：</label>当“查询方式”选择为“ByLoc”时，显示该参数，在此处设置染色体号在输入列表文件中所在的列数；
+<label id='startNum'>开始列号：</label>当“查询方式”选择为“ByLoc”时，显示该参数，在此处设置lncRNA起始位置在输入列表文件中所在的列数；
+<label id='endNum'>结束列号：</label>当“查询方式”选择为“ByLoc”时，显示该参数，在此处设置lncRNA终止位置在输入列表文件中所在的列数；
 ***
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

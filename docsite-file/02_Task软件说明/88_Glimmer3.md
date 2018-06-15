@@ -14,12 +14,13 @@ chrSeq (FASTA)：参考序列，Fasta格式。
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-物种：参考序列物种。
-版本：考序列版本。
-Gene Length：基因长度。
-Maximum Overlap Length：最大overlap长度。
-Gene Threshold：基因阈值。
-containerNumber：运行时container数。
+　<label id='species'>物种：</label>选择参考基因组物种。
+　<label id='speciesVersion'>物种版本：</label>参考序列的版本。
+
+<label id='geneLen'>Gene Length：</label>基因长度。
+<label id='maxOlap'>Maximum Overlap Length：</label>最大overlap长度。
+<label id='threshold'>Gene Threshold：</label>基因阈值。
+**containerNumber：**运行时container数。
 
 
 ***

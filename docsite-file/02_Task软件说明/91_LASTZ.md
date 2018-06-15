@@ -8,8 +8,8 @@ Subject：每一条序列称为subject，格式为.fa。
 Query：待查的序列，格式为.fa。
 ****
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-Search Both Strands：查找哪条链，默认both。
-Output Format：输出格式。
+<label id='strand'>Search Both Strands：</label>查找哪条链，默认both。
+<label id='outputFormat'>Output Format：</label>输出格式。
 containerNumber：软件使用时，所使用container数。
 
 ****

@@ -18,19 +18,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;将重复序列区用N或者X替换后的基因组序列文件（* .masked）。
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**ThreadNum：**设置软件运行时使用的线程数。
-**Species：**所分析序列的物种名称。
-**Slow Search：**是否使用低速检索算法。
-**Quick Search：**是否使用快速检索算法。
-**No simple repeats mark：**不标记简单重复序列。
-**Olny mask simple repeats：**只标记简单重复序列。
-**Not mask small RNA：**不标记小RNA或者假基因。
-**Skips Bacterial Insertion：**跳过细菌插入的序列。
-**Complete Lower Case：**把序列改为小写。
-**Repetitive Lowercase：**把重复序列改为小写。
-**Masked Repeat with Xs：**重复区域用X代替。
+<label id='threadNum'>ThreadNum：</label>设置软件运行时使用的线程数。
+<label id='species'>Species：</label>所分析序列的物种名称。
+<label id='slowSearch'>Slow Search：</label>是否使用低速检索算法。
+<label id='quickSearch'>Quick Search：</label>是否使用快速检索算法。
+<label id='nolow'>No simple repeats mark：</label>不标记简单重复序列。
+<label id='noint'>Olny mask simple repeats：</label>只标记简单重复序列。
+<label id='norna'>Not mask small RNA：</label>不标记小RNA或者假基因。
+<label id='noIs'>Skips Bacterial Insertion：</label>跳过细菌插入的序列。
+<label id='small'>Complete Lower Case：</label>把序列改为小写。
+<label id='xsmall'>Repetitive Lowercase：</label>把重复序列改为小写。
+<label id='repRegWithX'>Masked Repeat with Xs：</label>重复区域用X代替。
 **containerNumber：**软件运行时，使用container数。
-
 
 ***
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果说明**

@@ -20,16 +20,16 @@
 ****
 
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-**物种：**选择参考基因组物种。
-**版本：**参考序列的版本。
-**software：**选择使用软件的版本，有两个版本macs1.4和macs2，macs2在很多方面都对macs1.4做了重大改进，但目前还在测试阶段。
-**EffectSize：**分析过程中需将基因组中染色体的长度进行缩放，该参数为设置的缩放比例，即将染色体长度乘以该值。默认值为0.9。
-**mFoldMin：**构建双峰模型时使用，表示选择那些倍数变化大于该设定值的富集区域。默认值为2。
-**mFoldMax：**构建双峰模型时使用，表示选择那些倍数变化小于该设定值的富集区域。默认值为50。
-**pvalue：**设定peak置信概率的临界值（threshold），Pvalue小于该值，说明检测到的peak准确度高，可信度高。默认是不设置的，该参数值与参数“qvalue”是互斥的，如果“pvalue”的阈值做了设置，那么就不会计算参数“qvalue”。
-**qvalue：**设置peak检测最小的q-value(FDR）阈值，q-value小于该值，说明检测到的peak准确度高，可信度高。默认为0.05。该参数值与参数“pvalue”是互斥的。
-**Buffersize：**设置软件运行时的缓存区大小，通常情况下不用修改此参数，当参数“software”选择为“macs2”时，显示该参数，默认值：100000。
-**nolambda：**如果选中，软件会使用固定的λ值作为每个peak区域的局部λ值，否则，软件计算动态区域λ值来反映由于染色质结构造成的局部偏差。
+<label id='species'>物种：</label>选择参考基因组物种。
+<label id='speciesVersion'>版本：</label>参考序列的版本。
+<label id='software'>software：</label>选择使用软件的版本，有两个版本macs1.4和macs2，macs2在很多方面都对macs1.4做了重大改进，但目前还在测试阶段。
+<label id='EffectSize'>EffectSize：</label>分析过程中需将基因组中染色体的长度进行缩放，该参数为设置的缩放比例，即将染色体长度乘以该值。默认值为0.9。
+<label id='mFoldMin'>mFoldMin：</label>构建双峰模型时使用，表示选择那些倍数变化大于该设定值的富集区域。默认值为2。
+<label id='mFoldMax'>mFoldMax：</label>构建双峰模型时使用，表示选择那些倍数变化小于该设定值的富集区域。默认值为50。
+<label id='pvalue'>pvalue：</label>设定peak置信概率的临界值（threshold），Pvalue小于该值，说明检测到的peak准确度高，可信度高。默认是不设置的，该参数值与参数“qvalue”是互斥的，如果“pvalue”的阈值做了设置，那么就不会计算参数“qvalue”。
+<label id='qvalue'>qvalue：</label>设置peak检测最小的q-value(FDR）阈值，q-value小于该值，说明检测到的peak准确度高，可信度高。默认为0.05。该参数值与参数“pvalue”是互斥的。
+<label id='buffersize'>buffersize：</label>设置软件运行时的缓存区大小，通常情况下不用修改此参数，当参数“software”选择为“macs2”时，显示该参数，默认值：100000。
+<label id='nolambda'>nolambda：</label>如果选中，软件会使用固定的λ值作为每个peak区域的局部λ值，否则，软件计算动态区域λ值来反映由于染色质结构造成的局部偏差。
 ****
 
 #### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> 结果文件**

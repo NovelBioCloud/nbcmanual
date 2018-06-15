@@ -18,10 +18,9 @@
 
 ***
 #### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">参数设置**
-　**物种：**选择参考基因组物种
-　**物种版本：**参考基因组的版本
-　**物种类型：**同一版本的基因组数据，在不同数据库中记录的信息不同，选择不同数据库gtf文件。
-　**Unsafe：**GATK运行时，输入文件较严格，Unsafe选项是在运行过程中输入文件是否做检查。该参数值有以下几个：
+<label id='species'>物种：</label>选择参考基因组物种
+<label id='speciesVersion'>物种版本：</label>参考基因组的版本
+<label id='unsafe'>Unsafe：</label>GATK运行时，输入文件较严格，Unsafe选项是在运行过程中输入文件是否做检查。该参数值有以下几个：
 　　　(1) SAFE：严格，输入文件格式做检查。
 　　　(2) ALLOW_SEQ_DICT_INCOMPATIBILITY：允许fa文件和数据字典不匹配。
 　　　(3) ALLOW_UNINDEXED_BAM：允许BAM文件没有索引。
