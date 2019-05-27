@@ -1,47 +1,47 @@
 # Taxonomy_Plot 
-¡¡¡¡OTU±íÖĞ×îÖØÒªµÄ×¢ÊÍĞÅÏ¢ÊÇÎïÖÖ×¢ÊÍĞÅÏ¢¡£Í¨³£µÄÎïÖÖ×¢ÊÍĞÅÏ¢·ÖÎª7¸ö¼¶±ğ£º½ç¡¢ÃÅ¡¢¸Ù¡¢Ä¿¡¢¿Æ¡¢Êô¡¢ÖÖ¡£ÎÒÃÇ³ıÁË¿ÉÒÔ±È½ÏÑù±¾¼äºÍ×é¼äµÄOTUË®Æ½²îÒìÍâ£¬»¹¿ÉÒÔÑĞ¾¿²»Í¬·ÖÀà¼¶±ğÉÏµÄ²îÒì£¬À´ÑĞ¾¿ËüÃÇÊÇ·ñ´æÔÚ¹²Í¬µÄ±ä»¯¹æÂÉ¡£
-**¹¦ÄÜ£º**
-¡¡		°´ÕÕ×¢ÊÍµÄ¼¶±ğ½øĞĞ·ÖÀà»ã×Ü¡£
- **Ê¹ÓÃÈí¼ş£º**
-¡¡¡¡**QIIME2£º**QIIME £¨Quantitative Insights Into Microbial Ecology£©ÊÇÒ»¸ö×¨ÃÅÕë¶ÔÓÚÎ¢ÉúÎïÈºÂäµÄ·ÖÎöÁ÷³Ì£¬Ö÷ÒªÓÃPython±àĞ´£¬Ò²ÕûºÏÁËºÜ¶àÆäËüµÄ¹¤¾ß°ü£¬¿ÉÒÔ½øĞĞOTU·ÖÎöºÍ¶àÑùĞÔ·ÖÎöµÈ¡£QIIME2ÓµÓĞ´¦Àí16s rRNAËùĞèÒªµÄÈí¼ş£¬²¢³ÊÏÖ³öÏàÓ¦µÄ´¦Àí½á¹û¡£
-**Èí¼ş¹ÙÍø£º**http://qiime.org/
-**Ó¦ÓÃ·¶Î§:**
-&nbsp;&nbsp;&nbsp;&nbsp;°´ÕÕÃÅ¡¢¸Ù¡¢Ä¿¡¢¿Æ¡¢ÊôÎå¸ö¼¶±ğ½øĞĞ·ÖÀà»ã×Ü¡£
+ã€€ã€€OTUè¡¨ä¸­æœ€é‡è¦çš„æ³¨é‡Šä¿¡æ¯æ˜¯ç‰©ç§æ³¨é‡Šä¿¡æ¯ã€‚é€šå¸¸çš„ç‰©ç§æ³¨é‡Šä¿¡æ¯åˆ†ä¸º7ä¸ªçº§åˆ«ï¼šç•Œã€é—¨ã€çº²ã€ç›®ã€ç§‘ã€å±ã€ç§ã€‚æˆ‘ä»¬é™¤äº†å¯ä»¥æ¯”è¾ƒæ ·æœ¬é—´å’Œç»„é—´çš„OTUæ°´å¹³å·®å¼‚å¤–ï¼Œè¿˜å¯ä»¥ç ”ç©¶ä¸åŒåˆ†ç±»çº§åˆ«ä¸Šçš„å·®å¼‚ï¼Œæ¥ç ”ç©¶å®ƒä»¬æ˜¯å¦å­˜åœ¨å…±åŒçš„å˜åŒ–è§„å¾‹ã€‚
+**åŠŸèƒ½ï¼š**
+ã€€		æŒ‰ç…§æ³¨é‡Šçš„çº§åˆ«è¿›è¡Œåˆ†ç±»æ±‡æ€»ã€‚
+ **ä½¿ç”¨è½¯ä»¶ï¼š**
+ã€€ã€€**QIIME2ï¼š**QIIME ï¼ˆQuantitative Insights Into Microbial Ecologyï¼‰æ˜¯ä¸€ä¸ªä¸“é—¨é’ˆå¯¹äºå¾®ç”Ÿç‰©ç¾¤è½çš„åˆ†ææµç¨‹ï¼Œä¸»è¦ç”¨Pythonç¼–å†™ï¼Œä¹Ÿæ•´åˆäº†å¾ˆå¤šå…¶å®ƒçš„å·¥å…·åŒ…ï¼Œå¯ä»¥è¿›è¡ŒOTUåˆ†æå’Œå¤šæ ·æ€§åˆ†æç­‰ã€‚QIIME2æ‹¥æœ‰å¤„ç†16s rRNAæ‰€éœ€è¦çš„è½¯ä»¶ï¼Œå¹¶å‘ˆç°å‡ºç›¸åº”çš„å¤„ç†ç»“æœã€‚
+**è½¯ä»¶å®˜ç½‘ï¼š**http://qiime.org/
+**åº”ç”¨èŒƒå›´:**
+&nbsp;&nbsp;&nbsp;&nbsp;æŒ‰ç…§é—¨ã€çº²ã€ç›®ã€ç§‘ã€å±äº”ä¸ªçº§åˆ«è¿›è¡Œåˆ†ç±»æ±‡æ€»ã€‚
 
 
 ***
-#### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> ÊäÈëÎÄ¼ş**
-¡¡¡¡¸ÃTaskµÄÊäÈëÊı¾İÊÇOTUAnalysisµÄ½á¹ûÎÄ¼ş£¬Èç£ºotu_table.biom¡£
-**InputBiom£º**ÊäÈëBIOM¸ñÊ½µÄOTUÎÄ¼ş¡£\*.biomÎÄ¼şÎªQIIMEÈí¼ş·ÖÎö¹ı³ÌÖĞÉú³ÉµÄOTU tableÎÄ¼ş£¬ ¼´OTU·á¶ÈÒÔ¼°×¢ÊÍµÄ¾ØÕóÎÄ¼ş¡£ÎÄ¼şÏêÏ¸ËµÃ÷Çë¼û¹Ù·½ÎÄµµ£ºhttp://qiime.org/scripts/make_otu_table.html
-**MapFile£º**Ñù±¾metdata mappingÎÄ¼ş£¬ÎÄ¼şÏêÏ¸½âÊÍËµÃ÷Çë¼û£¬¹Ù·½ÎÄµµËµÃ÷£ºhttp://qiime.org/documentation/file_formats.html#metadata-mapping-files¡£
+#### **<i class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> è¾“å…¥æ–‡ä»¶**
+ã€€ã€€è¯¥Taskçš„è¾“å…¥æ•°æ®æ˜¯OTUAnalysisçš„ç»“æœæ–‡ä»¶ï¼Œå¦‚ï¼šotu_table.biomã€‚
+**InputBiomï¼š**è¾“å…¥BIOMæ ¼å¼çš„OTUæ–‡ä»¶ã€‚\*.biomæ–‡ä»¶ä¸ºQIIMEè½¯ä»¶åˆ†æè¿‡ç¨‹ä¸­ç”Ÿæˆçš„OTU tableæ–‡ä»¶ï¼Œ å³OTUä¸°åº¦ä»¥åŠæ³¨é‡Šçš„çŸ©é˜µæ–‡ä»¶ã€‚æ–‡ä»¶è¯¦ç»†è¯´æ˜è¯·è§å®˜æ–¹æ–‡æ¡£ï¼šhttp://qiime.org/scripts/make_otu_table.html
+**MapFileï¼š**æ ·æœ¬metdata mappingæ–‡ä»¶ï¼Œæ–‡ä»¶è¯¦ç»†è§£é‡Šè¯´æ˜è¯·è§ï¼Œå®˜æ–¹æ–‡æ¡£è¯´æ˜ï¼šhttp://qiime.org/documentation/file_formats.html#metadata-mapping-filesã€‚
 ***
 
 
-#### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> Êä³öÎÄ¼ş**
-¡¡¡¡·ÖÀà»ã×Ü½á¹ûÁĞ±í£¨txt£©£¬ÒÔ¼°¶ÔÓ¦µÄbarÍ¼£¨pdf£©¡£
+#### **<i class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#3090C7"></i><span style="color:#3090C7"> è¾“å‡ºæ–‡ä»¶**
+ã€€ã€€åˆ†ç±»æ±‡æ€»ç»“æœåˆ—è¡¨ï¼ˆtxtï¼‰ï¼Œä»¥åŠå¯¹åº”çš„barå›¾ï¼ˆpdfï¼‰ã€‚
 
 ***
-#### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">²ÎÊıÉèÖÃ**
-<label id='isplotGroup'>Plot in Group£º</label>ÊÇ·ñ¸ù¾İmappingÎÄ¼ş£¬½«ÊäÈëµÄbiomÎÄ¼ş½øĞĞ·Ö×éÍ³¼Æ£¬²¢Êä³öÓÃÓÚLefSe·ÖÎöµÄÊı¾İ¡£
+#### **<i class="fa fa-cog" aria-hidden="true" style="color:#F88158"></i> <span style="color:#F88158">å‚æ•°è®¾ç½®**
+<label id='isplotGroup'>Plot in Groupï¼š</label>æ˜¯å¦æ ¹æ®mappingæ–‡ä»¶ï¼Œå°†è¾“å…¥çš„biomæ–‡ä»¶è¿›è¡Œåˆ†ç»„ç»Ÿè®¡ï¼Œå¹¶è¾“å‡ºç”¨äºLefSeåˆ†æçš„æ•°æ®ã€‚
 ***
-#### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> ½á¹ûËµÃ÷**
-¡¡1)	**taxa_summary£º**Í³¼ÆÃ¿¸öÑùÆ·ÄÚ·ÖÀàÈº×éµÄÕªÒªĞÅÏ¢¡£Èç£º
+#### **<i class="fa fa-file-text" aria-hidden="true" style="color:#848b79"></i><span style="color:#848b79"> ç»“æœè¯´æ˜**
+ã€€1)	**taxa_summaryï¼š**ç»Ÿè®¡æ¯ä¸ªæ ·å“å†…åˆ†ç±»ç¾¤ç»„çš„æ‘˜è¦ä¿¡æ¯ã€‚å¦‚ï¼š
 <div style="text-align:center">
 	<img data-src="1.png" width="500px" ></img>
 </div>
-½á¹ûÎÄ¼şÏêÏ¸ËµÃ÷£¬Çë¼û¹Ù·½ÎÄµµ£ºhttp://qiime.org/scripts/summarize_taxa.html
-2) **taxa_summary_group£º**¸ù¾İmapping ÎÄ¼ş¶Ôbiom±í½øĞĞÖØĞÂ·ÖÅäµÄ½á¹ûÎÄ¼ş¡£Èç£º
+ç»“æœæ–‡ä»¶è¯¦ç»†è¯´æ˜ï¼Œè¯·è§å®˜æ–¹æ–‡æ¡£ï¼šhttp://qiime.org/scripts/summarize_taxa.html
+2) **taxa_summary_groupï¼š**æ ¹æ®mapping æ–‡ä»¶å¯¹biomè¡¨è¿›è¡Œé‡æ–°åˆ†é…çš„ç»“æœæ–‡ä»¶ã€‚å¦‚ï¼š
 <div style="text-align:center">
 	<img data-src="2.jpg" width="300px" ></img>
 </div>
-½á¹ûÎÄ¼şÏêÏ¸ËµÃ÷£¬Çë¼û¹Ù·½ÎÄµµ£º 
+ç»“æœæ–‡ä»¶è¯¦ç»†è¯´æ˜ï¼Œè¯·è§å®˜æ–¹æ–‡æ¡£ï¼š 
 http://qiime.org/scripts/jackknifed_beta_diversity.html
-3)	**ForDif.txt£º**ÖÖÈºÔÚ¸÷¸öÑù±¾ÖĞµÄ·Ö²¼Á¿±ê×¼»¯ÁĞ±í£¬¿ÉÓÃÓÚºóĞø½øĞĞ²îÒì·ÖÎö¡£
-4)	**ForLefse.txt£º**Éú³ÉµÄLEfSeÊäÈëÎÄ¼ş¡£
+3)	**ForDif.txtï¼š**ç§ç¾¤åœ¨å„ä¸ªæ ·æœ¬ä¸­çš„åˆ†å¸ƒé‡æ ‡å‡†åŒ–åˆ—è¡¨ï¼Œå¯ç”¨äºåç»­è¿›è¡Œå·®å¼‚åˆ†æã€‚
+4)	**ForLefse.txtï¼š**ç”Ÿæˆçš„LEfSeè¾“å…¥æ–‡ä»¶ã€‚
 
 ***
 
-**²Î¿¼ÎÄÏ×£º**
-1.	Caporaso, J. Gregory, Justin Kuczynski, Jesse Stombaugh, Kyle Bittinger, Frederic D. Bushman, Elizabeth K. Costello, Noah Fierer et al. ¡°QIIME allows analysis of high-throughput community sequencing data.¡± Nature methods 7, no. 5 (2010): 335-336.
-2.	Schloss, Patrick D., Sarah L. Westcott, Thomas Ryabin, Justine R. Hall, Martin Hartmann, Emily B. Hollister, Ryan A. Lesniewski et al. ¡°Introducing mothur: open-source, platform-independent, community-supported software for describing and comparing microbial communities.¡± Applied and environmental microbiology 75, no. 23 (2009): 7537-7541.
+**å‚è€ƒæ–‡çŒ®ï¼š**
+1.	Caporaso, J. Gregory, Justin Kuczynski, Jesse Stombaugh, Kyle Bittinger, Frederic D. Bushman, Elizabeth K. Costello, Noah Fierer et al. â€œQIIME allows analysis of high-throughput community sequencing data.â€ Nature methods 7, no. 5 (2010): 335-336.
+2.	Schloss, Patrick D., Sarah L. Westcott, Thomas Ryabin, Justine R. Hall, Martin Hartmann, Emily B. Hollister, Ryan A. Lesniewski et al. â€œIntroducing mothur: open-source, platform-independent, community-supported software for describing and comparing microbial communities.â€ Applied and environmental microbiology 75, no. 23 (2009): 7537-7541.
 
