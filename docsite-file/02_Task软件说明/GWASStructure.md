@@ -13,16 +13,16 @@
 **<font color="#007979">输入参数</font>**
 
 > * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
-> * &#160; &#160;Chromosome：染色体号；
-> * &#160; &#160;Start position：起始位置；
-> * &#160; &#160;End position：终止位置；
-> * &#160; &#160;Gene； locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
-> * &#160; &#160;Gene：基因名称，如：Os01g0100100；
-> * &#160; &#160;Upstream：基因上游长度；
-> * &#160; &#160;Downstream：基因下游长度；
-> * &#160; &#160;MinMAF：排除等位基因频率小于该阈值的位点，默认为0.01
-> * &#160; &#160;hwe：排除哈迪-温伯格平衡准确检验p-value值小于该设置阈值的位点；
-> * &#160; &#160;geno：排除缺失率大于该设定阈值的位点，默认为0.1，（注意只有在—geno没有参数的情况下才应用该默认的阈值；当—geno没有调用时，将不强制限制使用每个突变缺失率上限，其他inclusion/exclusion默认阈值的工作方式也是一样的）
+> * &#160; &#160;<label id='chromsome'>Chromosome：</label>染色体号；
+> * &#160; &#160;<label id='start'>Start position：</label>起始位置；
+> * &#160; &#160;<label id='end'>End position：</label>终止位置；
+> * &#160; &#160;Gene locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
+> * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
+> * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='minMAF'>MinMAF：</label>排除等位基因频率小于该阈值的位点，默认为0.01
+> * &#160; &#160;<label id='hwe'>hwe：</label>排除哈迪-温伯格平衡准确检验p-value值小于该设置阈值的位点；
+> * &#160; &#160;<label id='geno'>geno：</label>排除缺失率大于该设定阈值的位点，默认为0.1，（注意只有在—geno没有参数的情况下才应用该默认的阈值；当—geno没有调用时，将不强制限制使用每个突变缺失率上限，其他inclusion/exclusion默认阈值的工作方式也是一样的）
 maxK：最大K值，K指群体数量
 
 **<font color="#007979">结果文件</font>**

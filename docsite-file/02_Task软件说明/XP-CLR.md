@@ -13,18 +13,18 @@
 **<font color="#007979">输入参数</font>**
 
 > * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
-> * &#160; &#160;Chromosome：染色体号；
-> * &#160; &#160;Start position：起始位置；
-> * &#160; &#160;End position：终止位置；
-> * &#160; &#160;Gene； locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
-> * &#160; &#160;Gene：基因名称，如：Os01g0100100；
-> * &#160; &#160;Upstream：基因上游长度；
-> * &#160; &#160;Downstream：基因下游长度；
-> * &#160; &#160;snpWin：窗口内最大snp数，XP-CLR分数取决于SNPs的数量，为了使 XP-CLR值在区域内有可比性，有必要控制一个窗口内SNP的最大数据量，根据输入数据的snp密度选择设置窗口内最大snp数量；
-> * &#160; &#160;gridSize：两个grid之间的距离，单位是bp;
-> * &#160; &#160;IsPhased：基因型数据已经分阶段;
-> * &#160; &#160;corrLevel：该值范围为[0,1]，如果该值在(0,1]之间，改值会在加权综合似然比检验的过程中被作为加权标准，如果两个SNP的相关性比较高(r2> corrLevel),它们对XP-CLR是低权的影响。如果corrLevel设置为0，那么XP-CLR就是无权计算;
-> * &#160; &#160;chrNum：染色体数;
+> * &#160; &#160;<label id='chromosome'>Chromosome：</label>染色体号；
+> * &#160; &#160;<label id='start'>Start position：</label>起始位置；
+> * &#160; &#160;<label id='end'>End position：</label>终止位置；
+> * &#160; &#160;Gene locus：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
+> * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
+> * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='snpWin'>snpWin：</label>窗口内最大snp数，XP-CLR分数取决于SNPs的数量，为了使 XP-CLR值在区域内有可比性，有必要控制一个窗口内SNP的最大数据量，根据输入数据的snp密度选择设置窗口内最大snp数量；
+> * &#160; &#160;<label id='gridSize'>gridSize：</label>两个grid之间的距离，单位是bp;
+> * &#160; &#160;<label id='isPhased'>IsPhased：</label>基因型数据已经分阶段;
+> * &#160; &#160;<label id='corrLevel'>corrLevel：</label>该值范围为[0,1]，如果该值在(0,1]之间，改值会在加权综合似然比检验的过程中被作为加权标准，如果两个SNP的相关性比较高(r2> corrLevel),它们对XP-CLR是低权的影响。如果corrLevel设置为0，那么XP-CLR就是无权计算;
+> * &#160; &#160;<label id='chrNum'>chrNum：</label>染色体数;
 
 
 **<font color="#007979">结果文件</font>**

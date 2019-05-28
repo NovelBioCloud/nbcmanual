@@ -13,16 +13,16 @@
 **<font color="#007979">输入参数</font>**
 
 > * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
-> * &#160; &#160;Chromosome：染色体号；
-> * &#160; &#160;Start position：起始位置；
-> * &#160; &#160;End position：终止位置；
-> * &#160; &#160;Gene； locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
-> * &#160; &#160;Gene：基因名称，如：Os01g0100100；
-> * &#160; &#160;Upstream：基因上游长度；
-> * &#160; &#160;Downstream：基因下游长度；
-> * &#160; &#160;TreeType：建数使用的方法，其选项值有NJ、MP和ML；NJ表示基于距离矩阵的方法（邻接法）;MP（最大简约法）；ML最大似然法
-> * &#160; &#160;SeqType：输入序列类型，其选项为DNA或者AA，DNA表示核酸序列；AA表示蛋白序列；
-> * &#160; &#160;DootstrapDup：设置bootstrap的值，即重复的replicate的数目，通常使用1000或者100
+> * &#160; &#160;<label id='chromosome'>Chromosome：</label>染色体号；
+> * &#160; &#160;<label id='start'>Start position：</label>起始位置；
+> * &#160; &#160;<label id='end'>End position：</label>终止位置；
+> * &#160; &#160;Gene locus：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
+> * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
+> * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='treeType'>TreeType：</label>建数使用的方法，其选项值有NJ、MP和ML；NJ表示基于距离矩阵的方法（邻接法）;MP（最大简约法）；ML最大似然法
+> * &#160; &#160;<label id='seqType'>SeqType：</label>输入序列类型，其选项为DNA或者AA，DNA表示核酸序列；AA表示蛋白序列；
+> * &#160; &#160;<label id='dootstrapDup'>DootstrapDup：</label>设置bootstrap的值，即重复的replicate的数目，通常使用1000或者100
 
 **<font color="#007979">结果文件</font>**
 

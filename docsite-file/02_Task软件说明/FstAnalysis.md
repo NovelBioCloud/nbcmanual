@@ -13,15 +13,15 @@
 **<font color="#007979">输入参数</font>**
 
 > * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
-> * &#160; &#160;Chromosome：染色体号；
-> * &#160; &#160;Start position：起始位置；
-> * &#160; &#160;End position：终止位置；
-> * &#160; &#160;Gene； locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
-> * &#160; &#160;Gene：基因名称，如：Os01g0100100；
-> * &#160; &#160;Upstream：基因上游长度；
-> * &#160; &#160;Downstream：基因下游长度；
-> * &#160; &#160;winSize (--fst-window-size)  窗口大小，整数
-> * &#160; &#160;winStep  (--fst-window-step)  窗口步长，这两个参数可以与“--weir-fst-pop”一起使用，实现在窗口基础上而不是在每个位点的基础上进行Fst的统计，整数。
+> * &#160; &#160;<label id='chromsome'>Chromosome：</label>染色体号；
+> * &#160; &#160;<label id='start'>Start position：</label>起始位置；
+> * &#160; &#160;<label id='end'>End position：</label>终止位置；
+> * &#160; &#160;Gene locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
+> * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
+> * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='winSize'>winSize:</label> (--fst-window-size)  窗口大小，整数
+> * &#160; &#160;<label id='winStep'>winStep:</label>  (--fst-window-step)  窗口步长，这两个参数可以与“--weir-fst-pop”一起使用，实现在窗口基础上而不是在每个位点的基础上进行Fst的统计，整数。
 
 **<font color="#007979">结果文件</font>**
 

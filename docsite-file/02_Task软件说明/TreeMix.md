@@ -13,15 +13,15 @@ TreeMix是一个用户全基因组等位基因频率数据推断种群分化和�
 **<font color="#007979">输入参数</font>**
 
 > * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
-> * &#160; &#160;Chromosome：染色体号；
-> * &#160; &#160;Start position：起始位置；
-> * &#160; &#160;End position：终止位置；
-> * &#160; &#160;Gene； locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
-> * &#160; &#160;Gene：基因名称，如：Os01g0100100；
-> * &#160; &#160;Upstream：基因上游长度；
-> * &#160; &#160;Downstream：基因下游长度；
-> * &#160; &#160;Disequilibrium：为了说明周围snp不是独立事件，使用k标志将他们组合在一个大小为nSNP的窗口中。假设snp在基因组上的顺序与输入文件中的顺序相同（例如是3），那么建议使用远远超过该生物已知LD范围的n值（当然，这个取决于SNP密度）。
-> * &#160; &#160;Migration：如果想让树中有更多的迁移事件，可以使用该（-m）参数，参数值为允许的迁移事件的数量。
+> * &#160; &#160;<label id='chromosome'>Chromosome：</label>染色体号；
+> * &#160; &#160;<label id='start'>Start position：</label>起始位置；
+> * &#160; &#160;<label id='end'>End position：</label>终止位置；
+> * &#160; &#160;Gene locus：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
+> * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
+> * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='disequilibrium'>Disequilibrium：</label>为了说明周围snp不是独立事件，使用k标志将他们组合在一个大小为nSNP的窗口中。假设snp在基因组上的顺序与输入文件中的顺序相同（例如是3），那么建议使用远远超过该生物已知LD范围的n值（当然，这个取决于SNP密度）。
+> * &#160; &#160;<label id='migration'>Migration：</label>如果想让树中有更多的迁移事件，可以使用该（-m）参数，参数值为允许的迁移事件的数量。
 
 
 **<font color="#007979">结果文件</font>**
