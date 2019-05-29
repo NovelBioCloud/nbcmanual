@@ -5,11 +5,6 @@
 
 &#160; &#160; &#160; &#160;衡量特定群体多态性高低的参数，是指在同一群体中随机挑选的两条DNA序列在各个核苷酸位点上核苷酸差异的均值。π值越大，说明其对应的亚群多态性越高。
 
-**<font color="#007979">输入方式</font>**
-
-&#160; &#160; &#160; &#160;(1) 以文件形式进行输入，输入的文件为ped、bim、strainList.txt
-&#160; &#160; &#160; &#160;(2) 以页面参数形式输入，分别选择输入染色体名称，起始位置、终止位置、数据库类型，以及需要分析的亚种等信息。 
-
 **<font color="#007979">输入参数</font>**
 
 > * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
@@ -20,6 +15,8 @@
 > * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
 > * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
 > * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
+> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='windowPi'>windowPi：</label> 窗口大小(--window-pi)，整数；
 > * &#160; &#160;<label id='windowStep'>windowStep：</label> 窗口步长(--window-pi-step) ，以设置的数值为窗口大小，计算窗口中的核苷酸多态性。第二个参数是设定窗口之间的步长，整数。
 

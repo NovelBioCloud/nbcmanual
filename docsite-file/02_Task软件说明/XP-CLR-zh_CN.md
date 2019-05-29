@@ -5,11 +5,6 @@
 &#160; &#160; &#160; &#160;选择性清除：指由于最近的较强的正向自然选择，一个突变位点相邻DNA上的核苷酸之间的差异下降或消除。
 &#160; &#160; &#160; &#160;XP-CLR使用了复合似然的方法，通过分析两个种群的差异来进行选择性清除的检测。
 
-**<font color="#007979">输入方式</font>**
-
-&#160; &#160; &#160; &#160;(1) 以文件形式进行输入，输入的文件为ped、bim、strainList.txt
-&#160; &#160; &#160; &#160;(2) 以页面参数形式输入，分别选择输入染色体名称，起始位置、终止位置、数据库类型，以及需要分析的亚种等信息。 
-
 **<font color="#007979">输入参数</font>**
 
 > * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
@@ -20,6 +15,8 @@
 > * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
 > * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
 > * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
+> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='snpWin'>snpWin：</label>窗口内最大snp数，XP-CLR分数取决于SNPs的数量，为了使 XP-CLR值在区域内有可比性，有必要控制一个窗口内SNP的最大数据量，根据输入数据的snp密度选择设置窗口内最大snp数量；
 > * &#160; &#160;<label id='gridSize'>gridSize：</label>两个grid之间的距离，单位是bp;
 > * &#160; &#160;<label id='isPhased'>IsPhased：</label>基因型数据已经分阶段;

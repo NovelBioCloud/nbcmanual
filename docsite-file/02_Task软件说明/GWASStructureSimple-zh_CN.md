@@ -7,19 +7,13 @@
 
 **<font color="#007979">输入方式</font>**
 
-&#160; &#160; &#160; &#160;(1) 以文件形式进行输入，输入的文件为ped、bim、strainList.txt
-&#160; &#160; &#160; &#160;(2) 以页面参数形式输入，分别选择输入染色体名称，起始位置、终止位置、数据库类型，以及需要分析的亚种等信息。 
+(1) 输入ped文件，ped文件是一个纯文本的文件，至少需要6列，每列有空格或者\t分隔。这6列分别表示：“Family ID”、“Individual ID”、“Paternal ID”、“Maternal ID”、“Sex”、“Phenotype”；
+(2) 输入bim文件，PLINK extended MAP file，bim文件是对map文件的拓展，总共有六行，包含了snp（variants）的具体信息，6列分别是：“染色体信息”、“snp的名字”、“摩尔距离”、“物理距离”、“要等位基因”、“主要等位基因”；
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
-> * &#160; &#160;<label id='chromsome'>Chromosome：</label>染色体号；
-> * &#160; &#160;<label id='start'>Start position：</label>起始位置；
-> * &#160; &#160;<label id='end'>End position：</label>终止位置；
-> * &#160; &#160;Gene locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
-> * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
-> * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
-> * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
+> * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
+> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='minMAF'>MinMAF：</label>排除等位基因频率小于该阈值的位点，默认为0.01
 > * &#160; &#160;<label id='hwe'>hwe：</label>排除哈迪-温伯格平衡准确检验p-value值小于该设置阈值的位点；
 > * &#160; &#160;<label id='geno'>geno：</label>排除缺失率大于该设定阈值的位点，默认为0.1，（注意只有在—geno没有参数的情况下才应用该默认的阈值；当—geno没有调用时，将不强制限制使用每个突变缺失率上限，其他inclusion/exclusion默认阈值的工作方式也是一样的）
