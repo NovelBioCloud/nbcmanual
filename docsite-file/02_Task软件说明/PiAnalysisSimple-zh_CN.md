@@ -12,11 +12,8 @@
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
-> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='windowPi'>windowPi：</label> 窗口大小(--window-pi)，整数；
-> * &#160; &#160;<label id='windowStep'>windowStep：</label> 窗口步长(--window-pi-step) ，以设置的数值为窗口大小，计算窗口中的核苷酸多态性。第二个参数是设定窗口之间的步长，整数。
 
-**<font color="#007979">结果文件</font>**
+**<font color="#007979">结果说明</font>**
 
 &#160; &#160; &#160; &#160;* .windowed.pi，输出文件中有以下这四列信息，分别为“CHROM”、“BIN_START”、“BIN_END”、“N_VARIANTS PI”。

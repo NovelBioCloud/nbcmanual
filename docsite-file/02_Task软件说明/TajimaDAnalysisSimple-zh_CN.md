@@ -11,11 +11,9 @@
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
-> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='tajimaD'>TajimaD：</label> 当bin中有指定数量大小时输出Tajima’s D的值，该参数为整数值。
 
-**<font color="#007979">结果文件</font>**
+**<font color="#007979">结果说明</font>**
 
 &#160; &#160; &#160; &#160;后缀为“.Tajima.D”的文件。该文件中一共有4列，分别为“CHROM、BIN_START、N_SNPS、TajimaD”
 

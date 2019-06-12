@@ -7,17 +7,18 @@
 
 **<font color="#007979">输入文件</font>**
 
-(1) 输入ped文件，ped文件是一个纯文本的文件，至少需要6列，每列有空格或者\t分隔。这6列分别表示：“Family ID”、“Individual ID”、“Paternal ID”、“Maternal ID”、“Sex”、“Phenotype”；
-(2) 输入bim文件，PLINK extended MAP file，bim文件是对map文件的拓展，总共有六行，包含了snp（variants）的具体信息，6列分别是：“染色体信息”、“snp的名字”、“摩尔距离”、“物理距离”、“要等位基因”、“主要等位基因”；
+(1) strainInfo.txt：品种对应亚种的文本文件，至少要有两列信息，第一列品种，第二列品种对应的亚种；
+(2) 输入ped文件，ped文件是一个纯文本的文件，至少需要6列，每列有空格或者\t分隔。这6列分别表示：“Family ID”、“Individual ID”、“Paternal ID”、“Maternal ID”、“Sex”、“Phenotype”；
+(3) 输入bim文件，PLINK extended MAP file，bim文件是对map文件的拓展，总共有六行，包含了snp（variants）的具体信息，6列分别是：“染色体信息”、“snp的名字”、“摩尔距离”、“物理距离”、“要等位基因”、“主要等位基因”；
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
-> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='winSize'>winSize:</label> (--fst-window-size)  窗口大小，整数
 > * &#160; &#160;<label id='winStep'>winStep:</label>  (--fst-window-step)  窗口步长，这两个参数可以与“--weir-fst-pop”一起使用，实现在窗口基础上而不是在每个位点的基础上进行Fst的统计，整数。
+> * &#160; &#160;<label id='subSp'>subSpA：</label>选择分析亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
+> * &#160; &#160;<label id='subSp'>subSpB：</label>选择分析亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
 
-**<font color="#007979">结果文件</font>**
+**<font color="#007979">结果说明</font>**
 
 *.windowed.weir.fst 列表文件
 结果文件中包含六列，分别为染色体序号、Bin起始位置、Bin终止位置、变异数、WEIGHTED_FST、MEAN_FST

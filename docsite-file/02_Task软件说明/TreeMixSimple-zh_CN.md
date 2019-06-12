@@ -9,11 +9,11 @@ TreeMix是一个用户全基因组等位基因频率数据推断种群分化和�
 
 (1) 输入ped文件，ped文件是一个纯文本的文件，至少需要6列，每列有空格或者\t分隔。这6列分别表示：“Family ID”、“Individual ID”、“Paternal ID”、“Maternal ID”、“Sex”、“Phenotype”；
 (2) 输入bim文件，PLINK extended MAP file，bim文件是对map文件的拓展，总共有六行，包含了snp（variants）的具体信息，6列分别是：“染色体信息”、“snp的名字”、“摩尔距离”、“物理距离”、“要等位基因”、“主要等位基因”；
+(3) strainInfo.txt：品种对应亚种的文本文件，至少要有两列信息，第一列品种，第二列品种对应的亚种；
+
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
-> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='disequilibrium'>Disequilibrium：</label>为了说明周围snp不是独立事件，使用k标志将他们组合在一个大小为nSNP的窗口中。假设snp在基因组上的顺序与输入文件中的顺序相同（例如是3），那么建议使用远远超过该生物已知LD范围的n值（当然，这个取决于SNP密度）。
 > * &#160; &#160;<label id='migration'>Migration：</label>如果想让树中有更多的迁移事件，可以使用该（-m）参数，参数值为允许的迁移事件的数量。
 
