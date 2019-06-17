@@ -31,12 +31,12 @@ http://clip.med.yale.edu/qusage/
 ### **参数设置**
 　  
 
-#### <label id='rdsFile'> **输入文件参数 Input Seurat rds File** </label>
+#### **输入文件参数 Input Seurat rds File**
 基因表达数据文件（.rds文件）  
 参数说明：
 Seurat rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。rds文件内部的基因表达矩阵（Expresssion Matrix）和细胞分群列表（Cluster List）分别是qusage算法的前2个输入参数，因此Seurat rds文件是必需参数。
 　  
-<label id='genesetFile'></label>
+
 ####  **输入文件参数 Input GeneSet File (optional)**
 基因集合文件（.gmt或其它表格文件）  
 参数说明：
@@ -54,8 +54,8 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 1 支持多个以上不同格式的文件同时作为输入参数。  
 2 如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
 　  
-
-#### <label id='qusageSpecies'> **页面显示参数 Species** </label>
+<label id='qusageSpecies'>  </label>
+#### **页面显示参数 Species**
 物种  
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
@@ -118,6 +118,8 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 　　┣━ **GeneSets2_heatmap.txt**  
 　　┣━ ...  
 　  
+　  
+
 
 #### **QuSAGE rds文件**
 QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表。在重新运行Task时，不删除QuSAGE_rds文件夹可以跳过qusage函数运算，节省大量运行时间。  
