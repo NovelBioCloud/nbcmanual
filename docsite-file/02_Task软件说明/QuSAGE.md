@@ -1,5 +1,5 @@
-# **QuSAGE**  
-
+# **QuSAGE**
+　  
 
 ### **工具介绍**
 　  
@@ -7,13 +7,12 @@
 #### **功能概述**
 
 QuSAGE（Quantitative Set Analysis for Gene Expression, 基因表达定量集合分析），是一种定量分析基因群在不同样本中差异表达的分析方法。QuSAGE通过概率密度函数（Probability Density Function, PDF）量化被分析的基因群体的整体表达活跃程度，并通过概率密度曲线图（Probability Density Curve Plot）、置信区间图（Confidence Interval Plot）等数据可视化方式，展示被分析的基因群体的整体表达情况。
-
+　  
 #### **软件特点**
 
 QuSAGE可通过PDF轻松获得相应的P-Value和置信区间。  
 在计算过程中，QuSAGE通过方差膨胀因子（Variance Inflation Factor）来消除基因群内不同基因之间的相关性导致的假阳性错误。
 　  
-
 #### **软件官网**
 http://clip.med.yale.edu/qusage/
 　  
@@ -24,7 +23,7 @@ http://clip.med.yale.edu/qusage/
 下游工具：sc_heatmap  
 连接示例：
 <div style="text-align:center">
-<img data-src="1.png" height="150px" ></img>
+<img data-src="1.png" height="175px" ></img>
 </div>
  
 
@@ -100,21 +99,21 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 
 #### **结果文件结构**
 
-┣━ <font color=cyan>**QuSAGE_rds**</font> （QuSAGE作图文件目录）  
-┃　┣━ <font color=cyan>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
+┣━ <font color=lightblue>**QuSAGE_rds**</font> （QuSAGE作图文件目录）  
+┃　┣━ <font color=lightblue>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
 ┃　┃　┣━ **ClusterID.qs.rds** （QuSAGE rds文件）  
 ┃　┃　┣━ ...  
-┃　┣━ <font color=cyan>**GeneSetsFile Name2**</font>  
+┃　┣━ <font color=lightblue>**GeneSetsFile Name2**</font>  
 ┃　　 ┣━ ...  
-┣━ <font color=cyan>**QuSAGE_result**</font> （QuSAGE结果目录）  
-┃　┣━ <font color=cyan>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
+┣━ <font color=lightblue>**QuSAGE_result**</font> （QuSAGE结果目录）  
+┃　┣━ <font color=lightblue>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
 ┃　┃　┣━ **plotDC_ClusterID_GeneSets.png** （概率密度曲线图）  
 ┃　┃　┣━ **plotCI_ClusterID_GeneSets.png** （置信区间图）  
 ┃　┃　┣━ **table_ClusterID_GeneSets.txt** （基因集合数据汇总表）  
 ┃　┃　┣━ ...  
-┃　┣━ <font color=cyan>**GeneSetsFile Name2**</font>  
+┃　┣━ <font color=lightblue>**GeneSetsFile Name2**</font>  
 ┃　　 ┣━ ...  
-┣━ <font color=cyan>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
+┣━ <font color=lightblue>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
 　 ┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
 　 ┣━ **GeneSets2_heatmap.txt**  
 　 ┣━ ...  
@@ -145,7 +144,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 #### **基因集合数据汇总表**
 
 <div style="text-align:center">
-<img data-src="4.png" height="500px" ></img>
+<img data-src="4.png" height="300px" ></img>
 </div>
 说明：
 表中每行记录一个基因群的数据。表头含义分别为：基因集合名称，差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从小到大排序。
