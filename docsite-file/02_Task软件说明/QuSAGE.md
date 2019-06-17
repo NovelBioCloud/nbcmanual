@@ -1,6 +1,7 @@
-# QuSAGE　  
+# **QuSAGE**  
 
-### 工具介绍
+
+### **工具介绍**
 　  
 
 #### **功能概述**
@@ -17,18 +18,18 @@ QuSAGE可通过PDF轻松获得相应的P-Value和置信区间。
 http://clip.med.yale.edu/qusage/
 　  
 
-### 分析流程
+### **分析流程**
 
 上游工具：Seurat_Cluster/Seurat_ReCluster  
 下游工具：sc_heatmap  
 连接示例：
 <div style="text-align:center">
-<img data-src="1.png" height="200px" ></img>
+<img data-src="1.png" height="150px" ></img>
 </div>
  
 
 
-### 参数设置
+### **参数设置**
 　  
 
 #### **输入文件参数 Input Seurat rds File**
@@ -94,10 +95,10 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 设置内存大小，默认8000MB
 
 
-### 结果解读
+### **结果解读**
 　  
 
-#### 结果文件结构
+#### **结果文件结构**
 
 ┣━ <font color=cyan>**QuSAGE_rds**</font> （QuSAGE作图文件目录）  
 ┃　┣━ <font color=cyan>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
