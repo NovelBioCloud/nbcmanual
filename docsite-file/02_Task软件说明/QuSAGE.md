@@ -8,7 +8,7 @@
 
 QuSAGE（Quantitative Set Analysis for Gene Expression, 基因表达定量集合分析），是一种定量分析基因群在不同样本中差异表达的分析方法。QuSAGE通过概率密度函数（Probability Density Function, PDF）量化被分析的基因群体的整体表达活跃程度，并通过概率密度曲线图（Probability Density Curve Plot）、置信区间图（Confidence Interval Plot）等数据可视化方式，展示被分析的基因群体的整体表达情况。
 　  
-   
+
 #### **软件特点**
 
 QuSAGE可通过PDF轻松获得相应的P-Value和置信区间。  
@@ -26,8 +26,7 @@ http://clip.med.yale.edu/qusage/
 <div style="text-align:center">
 <img data-src="1.png" height="175px" ></img>
 </div>
- 
-
+　  
 
 ### **参数设置**
 　  
@@ -52,11 +51,11 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 |T_cell      |CD3      |
 
 注：  
-1支持多个以上不同格式的文件同时作为输入参数。  
-2如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
+1 支持多个以上不同格式的文件同时作为输入参数。  
+2 如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
 　  
 
-#### <label id='qusageSpecies'> **页面显示参数 Species** </label>
+#### **<label id='qusageSpecies'> 页面显示参数 Species </label>**
 物种  
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
@@ -67,8 +66,8 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 参数说明：
 来自MSigDB数据库的19个.gmt文件，可以选择一个或多个。
 注：  
-1本参数和输入文件参数Input GeneSet File都可以传入基因集合文件，两种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
-2小鼠和大鼠gmt文件是通过转换人类gmt文件中同源基因名称所得，并非数据库原始数据。
+1 本参数和输入文件参数Input GeneSet File都可以传入基因集合文件，两种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
+2 小鼠和大鼠gmt文件是通过转换人类gmt文件中同源基因名称所得，并非数据库原始数据。
 　  
 
 #### <label id='curveNum'> **页面显示参数 MaxCurveNum**</label>
