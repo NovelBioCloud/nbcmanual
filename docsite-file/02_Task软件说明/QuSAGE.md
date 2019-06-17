@@ -31,13 +31,13 @@ http://clip.med.yale.edu/qusage/
 ### **参数设置**
 　  
 
-#### <label id='rdsFile'> **输入文件参数 Input Seurat rds File**</label>
+#### <label id='rdsFile'> **输入文件参数 Input Seurat rds File** </label>
 基因表达数据文件（.rds文件）  
 参数说明：
 Seurat rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。rds文件内部的基因表达矩阵（Expresssion Matrix）和细胞分群列表（Cluster List）分别是qusage算法的前2个输入参数，因此Seurat rds文件是必需参数。
 　  
-
-#### <label id='genesetFile'> **输入文件参数 Input GeneSet File (optional)**</label>
+<label id='genesetFile'></label>
+####  **输入文件参数 Input GeneSet File (optional)**
 基因集合文件（.gmt或其它表格文件）  
 参数说明：
 基因集合（GeneSets）是qusage算法的第4个输入参数，包含此数据的.gmt或其它表格文件是必需参数。
@@ -55,7 +55,7 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 2 如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
 　  
 
-#### **<label id='qusageSpecies'> 页面显示参数 Species </label>**
+#### <label id='qusageSpecies'> **页面显示参数 Species** </label>
 物种  
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
