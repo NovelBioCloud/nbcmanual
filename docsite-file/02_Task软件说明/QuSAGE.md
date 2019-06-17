@@ -28,12 +28,12 @@ http://clip.med.yale.edu/qusage/
 
 ### 参数设置
 
-#### 输入文件参数 Input Seurat rds File
+#### **输入文件参数 Input Seurat rds File**
 基因表达数据文件（.rds文件）  
 参数说明：
 Seurat rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。rds文件内部的基因表达矩阵（Expresssion Matrix）和细胞分群列表（Cluster List）分别是qusage算法的前2个输入参数，因此Seurat rds文件是必需参数。
 
-#### 输入文件参数 Input GeneSet File (optional)
+#### **输入文件参数 Input GeneSet File (optional)**
 基因集合文件（.gmt或其它表格文件）  
 参数说明：
 基因集合（GeneSets）是qusage算法的第4个输入参数，包含此数据的.gmt或其它表格文件是必需参数。
@@ -50,12 +50,12 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 1支持多个以上不同格式的文件同时作为输入参数。  
 2如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
 
-#### 页面显示参数 Species
+#### **页面显示参数 Species**
 物种  
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
 
-#### 页面显示参数 Select GeneSet File (optional)
+#### **页面显示参数 Select GeneSet File (optional)**
 基因集合文件（.gmt文件）   
 参数说明：
 来自MSigDB数据库的19个.gmt文件，可以选择一个或多个。
@@ -63,22 +63,22 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 1本参数和输入文件参数Input GeneSet File都可以传入基因集合文件，两种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
 2小鼠和大鼠gmt文件是通过转换人类gmt文件中同源基因名称所得，并非数据库原始数据。
 
-#### 页面显示参数 MaxCurveNum
+#### **页面显示参数 MaxCurveNum**
 最大曲线数量  
 参数说明：
 本参数为结果文件置信区间图中被展示基因集合的数量上限。例如：默认值50表示在P值升序和差异倍数降序综合排序表中，取不超过50个基因集合作图。
 
-#### 页面显示参数 LabelFontSize
+#### **页面显示参数 LabelFontSize**
 标签字体大小  
 参数说明：
 本参数为结果文件置信区间图中标签字体大小。
 
-#### 页面显示参数 ThreadNum
+#### **页面显示参数 ThreadNum**
 线程数  
 参数说明：
 设置线程数，默认4线程
 
-#### 页面显示参数 Memory(MB)
+#### **页面显示参数 Memory(MB)**
 内存（MB）  
 参数说明：
 设置内存大小，默认8000MB
