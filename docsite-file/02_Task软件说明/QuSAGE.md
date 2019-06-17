@@ -55,7 +55,7 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 2如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
 　  
 
-#### **页面显示参数 Species**
+#### <label id='species'>**页面显示参数 Species**</label>
 物种  
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
@@ -99,24 +99,24 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 
 #### **结果文件结构**
 
-┣━ <font color=lightblue>**QuSAGE_rds**</font> （QuSAGE作图文件目录）  
-┃　┣━ <font color=lightblue>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
+┣━ <font color=#00BFFF>**QuSAGE_rds**</font> （QuSAGE作图文件目录）  
+┃　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
 ┃　┃　┣━ **ClusterID.qs.rds** （QuSAGE rds文件）  
 ┃　┃　┣━ ...  
-┃　┣━ <font color=lightblue>**GeneSetsFile Name2**</font>  
-┃　　 ┣━ ...  
-┣━ <font color=lightblue>**QuSAGE_result**</font> （QuSAGE结果目录）  
-┃　┣━ <font color=lightblue>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
+┃　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
+┃　 　 ┣━ ...  
+┣━ <font color=#00BFFF>**QuSAGE_result**</font> （QuSAGE结果目录）  
+┃　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
 ┃　┃　┣━ **plotDC_ClusterID_GeneSets.png** （概率密度曲线图）  
 ┃　┃　┣━ **plotCI_ClusterID_GeneSets.png** （置信区间图）  
 ┃　┃　┣━ **table_ClusterID_GeneSets.txt** （基因集合数据汇总表）  
 ┃　┃　┣━ ...  
-┃　┣━ <font color=lightblue>**GeneSetsFile Name2**</font>  
-┃　　 ┣━ ...  
-┣━ <font color=lightblue>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
-　 ┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
-　 ┣━ **GeneSets2_heatmap.txt**  
-　 ┣━ ...  
+┃　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
+┃　 　 ┣━ ...  
+┣━ <font color=#00BFFF>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
+ 　 ┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
+ 　 ┣━ **GeneSets2_heatmap.txt**  
+ 　 ┣━ ...  
 　  
 
 #### **QuSAGE rds文件**
@@ -148,6 +148,6 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 </div>
 说明：
 表中每行记录一个基因群的数据。表头含义分别为：基因集合名称，差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从小到大排序。
-
+　  
 文档更新：2019.06.17 技术部 李亚当  
 文档整理：2019.04.19 技术部 李亚当
