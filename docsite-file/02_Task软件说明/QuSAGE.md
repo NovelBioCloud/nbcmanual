@@ -55,7 +55,7 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 2如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
 　  
 
-#### <label id='species'>**页面显示参数 Species**</label>
+#### <label id='qusageSpecies'>**页面显示参数 Species**</label>
 物种  
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
@@ -114,15 +114,15 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 ┃　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
 ┃　 　 ┣━ ...  
 ┣━ <font color=#00BFFF>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
- 　 ┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
- 　 ┣━ **GeneSets2_heatmap.txt**  
- 　 ┣━ ...  
+　　┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
+　　┣━ **GeneSets2_heatmap.txt**  
+　　┣━ ...  
 　  
 
 #### **QuSAGE rds文件**
 QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表。在重新运行Task时，不删除QuSAGE_rds文件夹可以跳过qusage函数运算，节省大量运行时间。
 　  
-
+　  
 #### **概率密度曲线图**
 
 <div style="text-align:center">
