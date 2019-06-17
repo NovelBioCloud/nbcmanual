@@ -8,6 +8,7 @@
 
 QuSAGE（Quantitative Set Analysis for Gene Expression, 基因表达定量集合分析），是一种定量分析基因群在不同样本中差异表达的分析方法。QuSAGE通过概率密度函数（Probability Density Function, PDF）量化被分析的基因群体的整体表达活跃程度，并通过概率密度曲线图（Probability Density Curve Plot）、置信区间图（Confidence Interval Plot）等数据可视化方式，展示被分析的基因群体的整体表达情况。
 　  
+   
 #### **软件特点**
 
 QuSAGE可通过PDF轻松获得相应的P-Value和置信区间。  
@@ -55,7 +56,7 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 2如果点选了页面显示参数Select GeneSet File的.gmt文件，此处可以不传入基因集合文件。
 　  
 
-#### <label id='qusageSpecies'> **页面显示参数 Species**</label>
+#### <label id='qusageSpecies'> **页面显示参数 Species** </label>
 物种  
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
