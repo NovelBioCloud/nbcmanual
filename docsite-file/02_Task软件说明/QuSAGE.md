@@ -60,8 +60,8 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
 　  
-
-#### <label id='MSigDB'> **页面显示参数 Select GeneSet File (optional)**</label>
+<label id='MSigDB'> </label>
+#### **页面显示参数 Select GeneSet File (optional)**
 基因集合文件（.gmt文件）   
 参数说明：
 来自MSigDB数据库的19个.gmt文件，可以选择一个或多个。
@@ -69,26 +69,26 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 1 本参数和输入文件参数Input GeneSet File都可以传入基因集合文件，两种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
 2 小鼠和大鼠gmt文件是通过转换人类gmt文件中同源基因名称所得，并非数据库原始数据。
 　  
-
-#### <label id='curveNum'> **页面显示参数 MaxCurveNum**</label>
+<label id='curveNum'> </label>
+#### **页面显示参数 MaxCurveNum**
 最大曲线数量  
 参数说明：
 本参数为结果文件置信区间图中被展示基因集合的数量上限。例如：默认值50表示在P值升序和差异倍数降序综合排序表中，取不超过50个基因集合作图。
 　  
-
-#### <label id='XFontSize'> **页面显示参数 LabelFontSize**</label>
+<label id='XFontSize'> </label>
+#### **页面显示参数 LabelFontSize**
 标签字体大小  
 参数说明：
 本参数为结果文件置信区间图中标签字体大小。
 　  
-
-#### <label id='thread'> **页面显示参数 ThreadNum**</label>
+<label id='thread'> </label>
+#### **页面显示参数 ThreadNum**
 线程数  
 参数说明：
 设置线程数，默认4线程
 　  
-
-#### <label id='memory'> **页面显示参数 Memory(MB)**</label>
+<label id='memory'> </label>
+#### **页面显示参数 Memory(MB)**
 内存（MB）  
 参数说明：
 设置内存大小，默认8000MB
