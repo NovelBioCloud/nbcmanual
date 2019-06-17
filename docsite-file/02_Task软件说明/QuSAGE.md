@@ -1,5 +1,4 @@
-# QuSAGE
-　  
+# QuSAGE　  
 
 ### 工具介绍
 　  
@@ -24,7 +23,7 @@ http://clip.med.yale.edu/qusage/
 下游工具：sc_heatmap  
 连接示例：
 <div style="text-align:center">
-<img data-src="1.png" height="100px" ></img>
+<img data-src="1.png" height="200px" ></img>
 </div>
  
 
@@ -105,7 +104,7 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 ┃　┃　┣━ **ClusterID.qs.rds** （QuSAGE rds文件）  
 ┃　┃　┣━ ...  
 ┃　┣━ <font color=cyan>**GeneSetsFile Name2**</font>  
-┃　　　┣━ ...  
+┃　　 ┣━ ...  
 ┣━ <font color=cyan>**QuSAGE_result**</font> （QuSAGE结果目录）  
 ┃　┣━ <font color=cyan>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
 ┃　┃　┣━ **plotDC_ClusterID_GeneSets.png** （概率密度曲线图）  
@@ -113,11 +112,11 @@ gmt文件可通过数据库（如MSigDB）下载，或按其规定格式手动�
 ┃　┃　┣━ **table_ClusterID_GeneSets.txt** （基因集合数据汇总表）  
 ┃　┃　┣━ ...  
 ┃　┣━ <font color=cyan>**GeneSetsFile Name2**</font>  
-┃　　　┣━ ...  
+┃　　 ┣━ ...  
 ┣━ <font color=cyan>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
- 　┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
- 　┣━ **GeneSets2_heatmap.txt**  
- 　┣━ ...  
+　 ┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
+　 ┣━ **GeneSets2_heatmap.txt**  
+　 ┣━ ...  
 　  
 
 #### **QuSAGE rds文件**
@@ -127,7 +126,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 #### **概率密度曲线图**
 
 <div style="text-align:center">
-<img data-src="2.png" width="500px" ></img>
+<img data-src="2.png" width="600px" ></img>
 </div>
 说明：
 图中每条概率密度曲线代表一个基因群，曲线顶点在横轴上的位置表示这个基因群的活跃度。活跃度大于零，表示相对于其它细胞群，这群基因在这个细胞群中整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。
@@ -136,7 +135,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 #### **置信区间图**
 
 <div style="text-align:center">
-<img data-src="3.png" width="500px" ></img>
+<img data-src="3.png" width="600px" ></img>
 </div>
 说明：
 图中每条竖线代表一个基因群，竖线的中点在纵轴上的位置表示这个基因群的活跃度。活跃度大于零，表示相对于其它细胞群，这群基因在这个细胞群中整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。每条竖线两端的短线表示概率密度曲线的95%置信区间。竖线的颜色表示P值大小，颜色越亮，P值越小，表达上下调分别用红绿表示。
@@ -145,7 +144,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 #### **基因集合数据汇总表**
 
 <div style="text-align:center">
-<img data-src="4.png" width="500px" ></img>
+<img data-src="4.png" height="500px" ></img>
 </div>
 说明：
 表中每行记录一个基因群的数据。表头含义分别为：基因集合名称，差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从小到大排序。
