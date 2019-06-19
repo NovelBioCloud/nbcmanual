@@ -105,7 +105,7 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 参数说明：
 设置内存大小，默认16000MB
 
-
+　  
 ### **结果解读**
 　  
 
@@ -113,30 +113,27 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 
 ┣━ <font color=#00BFFF>**QuSAGE_rds**</font> （QuSAGE作图文件目录）  
 ┊　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
-┃　┃　┣━ **ClusterID.qs.rds** （QuSAGE rds文件）  
-┃　┃　┣━ ...  
-┃　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
-┃　 　 ┣━ ...  
+┊　┊　┣━ **ClusterID.qs.rds** （QuSAGE rds文件）  
+┊　┊　┣━ ...  
+┊　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
+┊　 　 ┣━ ...  
 ┣━ <font color=#00BFFF>**QuSAGE_result**</font> （QuSAGE结果目录）  
-┃　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
-┃　┃　┣━ **plotDC_ClusterID_GeneSets.png** （概率密度曲线图）  
-┃　┃　┣━ **plotCI_ClusterID_GeneSets.png** （置信区间图）  
-┃　┃　┣━ **table_ClusterID_GeneSets.txt** （基因集合数据表）  
-┃　┃　┣━ ...  
-┃　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
+┊　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
+┊　┊　┣━ **plotDC_ClusterID_GeneSets.png** （概率密度曲线图）  
+┊　┊　┣━ **plotCI_ClusterID_GeneSets.png** （置信区间图）  
+┊　┊　┣━ **table_ClusterID_GeneSets.txt** （基因集合数据表）  
+┊　┊　┣━ ...  
+┊　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
 ┊　 　 ┣━ ...  
 ┣━ <font color=#00BFFF>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
-　┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
-　┣━ **GeneSets2_heatmap.txt**  
-　┣━ ...  
-　  
-　  
+&#8194　┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
+&#8194　┣━ **GeneSets2_heatmap.txt**  
+&#8194　┣━ ...  
 
-
+　  
 #### **QuSAGE rds文件**
 QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表。在重新运行Task时，不删除QuSAGE_rds文件夹可以跳过qusage函数运算，节省大量运行时间。  
-  　  
-　  
+
 　  
 #### **概率密度曲线图**
 
@@ -165,6 +162,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 </div>
 说明：
 表中每行记录一个基因群的数据。表头含义分别为：基因集合名称，差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从小到大排序。  
-    　  
+
+　  
 文档更新：2019.06.19 技术部 李亚当  
 文档整理：2019.04.19 技术部 李亚当
