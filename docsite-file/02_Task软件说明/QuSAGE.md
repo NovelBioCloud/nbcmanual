@@ -37,6 +37,7 @@ http://clip.med.yale.edu/qusage/
 Seurat rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。rds文件内部的基因表达矩阵（Expresssion Matrix）和细胞分群列表（Cluster List）分别是qusage算法的前2个输入参数，因此Seurat rds文件是必需参数。
   　  
 
+　  
 ####  **输入文件参数 Input GeneSetsFile (optional)**
 基因集合文件（.txt表格文件）
 参数说明：
@@ -51,10 +52,10 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 |T_cell      |CD3      |
 
 注：  
-1 支持同时传入多个txt表格文件
-2 如果点选了页面显示参数MSigDB GeneSetsFile或Novelbio GeneSetsFile中的.gmt文件，此处可以不传入基因集合文件
+1 支持同时传入多个txt表格文件。
+2 如果点选了页面显示参数MSigDB GeneSetsFile或Novelbio GeneSetsFile中的.gmt文件，此处可以不传入基因集合文件。
 
-　  
+
 <label id='qusageSpecies'>  </label>
 #### **页面显示参数 Species**
 物种  
@@ -67,7 +68,7 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 参数说明：
 来自MSigDB数据库的19个.gmt文件，可以选择一个或多个。
 注：
-1 本参数和Input GeneSetsFile/Novelbio GeneSetsFile都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
+1 本参数和Input GeneSetsFile参数/Novelbio GeneSetsFile参数都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
 2 小鼠和大鼠gmt文件是通过转换人类gmt文件中同源基因名称所得，并非数据库原始数据。
 
 <label id='NBgmt'> </label>
@@ -76,16 +77,16 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 参数说明：
 烈冰生物技术部制作的.gmt文件，可以选择一个或多个。
 注：
-1本参数和Input GeneSetsFile/MSigDB GeneSetsFile都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
+1 本参数和Input GeneSetsFile参数/MSigDB GeneSetsFile参数都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
 
-　  
+
 <label id='curveNum'> </label>
 #### **页面显示参数 MaxCurveNum**
 最大曲线数量
 参数说明：
 本参数为结果文件置信区间图中被展示基因集合的数量上限。例如：默认值50表示在基因集合数据表中按显著性排序，取不超过50个基因集合作图。
 
-　  
+
 <label id='FontSize'> </label>
 #### **页面显示参数 LabelFontSize**
 标签字体大小  
@@ -111,7 +112,7 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 #### **结果文件结构**
 
 ┣━ <font color=#00BFFF>**QuSAGE_rds**</font> （QuSAGE作图文件目录）  
-┃　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
+┊　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应1个文件）  
 ┃　┃　┣━ **ClusterID.qs.rds** （QuSAGE rds文件）  
 ┃　┃　┣━ ...  
 ┃　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
@@ -120,14 +121,14 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 ┃　┣━ <font color=#00BFFF>**GeneSetsFile Name1**</font> （基因集合文件名子目录，每个cluster对应3个文件）  
 ┃　┃　┣━ **plotDC_ClusterID_GeneSets.png** （概率密度曲线图）  
 ┃　┃　┣━ **plotCI_ClusterID_GeneSets.png** （置信区间图）  
-┃　┃　┣━ **table_ClusterID_GeneSets.txt** （基因集合数据汇总表）  
+┃　┃　┣━ **table_ClusterID_GeneSets.txt** （基因集合数据表）  
 ┃　┃　┣━ ...  
 ┃　┣━ <font color=#00BFFF>**GeneSetsFile Name2**</font>  
 ┊　 　 ┣━ ...  
 ┣━ <font color=#00BFFF>**QuSAGE_for_heatmap**</font> （下游热图工具输入文件目录，每个基因集合文件对应1张表)   
-&ensp　┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
-&ensp　┣━ **GeneSets2_heatmap.txt**  
-&ensp　┣━ ...  
+　┣━ **GeneSets1_heatmap.txt** （热图用矩阵表）  
+　┣━ **GeneSets2_heatmap.txt**  
+　┣━ ...  
 　  
 　  
 
@@ -135,6 +136,7 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 #### **QuSAGE rds文件**
 QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表。在重新运行Task时，不删除QuSAGE_rds文件夹可以跳过qusage函数运算，节省大量运行时间。  
   　  
+　  
 　  
 #### **概率密度曲线图**
 
@@ -145,6 +147,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 图中每条概率密度曲线代表一个基因群，曲线顶点在横轴上的位置表示这个基因群的活跃度。活跃度大于零，表示相对于其它细胞群，这群基因在这个细胞群中整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。  
   　  
 
+　  
 #### **置信区间图**
 
 <div style="text-align:center">
@@ -154,6 +157,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 图中每条竖线代表一个基因群，竖线的中点在纵轴上的位置表示这个基因群的活跃度。活跃度大于零，表示相对于其它细胞群，这群基因在这个细胞群中整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。每条竖线两端的短线表示概率密度曲线的95%置信区间。竖线的颜色表示P值大小，颜色越亮，P值越小，表达上下调分别用红绿表示。  
   　  
 
+　  
 #### **基因集合数据表**
 
 <div style="text-align:center">
