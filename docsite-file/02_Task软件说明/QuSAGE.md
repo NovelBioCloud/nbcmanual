@@ -21,9 +21,9 @@ http://clip.med.yale.edu/qusage/
 ### **分析流程**
 　  
 
-上游工具：Seurat_Cluster/Seurat_ReCluster  
-下游工具：sc_heatmap  
-连接示例：
+**上游工具**：Seurat_Cluster/Seurat_ReCluster  
+**下游工具**：sc_heatmap  
+**连接示例**：
 <div style="text-align:center">
 <img data-src="1.png" height="175px" ></img>
 </div>
