@@ -169,7 +169,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 #### **热图用矩阵表**
 
 <div style="text-align:center">
-<img data-src="5.png" height="240px" ></img>
+<img data-src="5.png" height="180px" ></img>
 </div>
 说明：
 表中第1列为基因集合名称，第1行为细胞类群名称，数据格表示某基因集合在某细胞类群中相较其它细胞类群的整体表达差异倍数的对数值。  
