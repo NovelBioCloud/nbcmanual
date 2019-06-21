@@ -160,7 +160,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 #### **基因集合数据表**
 
 <div style="text-align:center">
-<img data-src="4.png" height="300px" ></img>
+<img data-src="4.png" height="240px" ></img>
 </div>
 说明：
 表中每行记录1个基因集合。表头含义分别为：基因集合名称，差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。  
@@ -169,10 +169,10 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 #### **热图用矩阵表**
 
 <div style="text-align:center">
-<img data-src="4.png" height="300px" ></img>
+<img data-src="5.png" height="240px" ></img>
 </div>
 说明：
 表中第1列为基因集合名称，第1行为细胞类群名称，数据格表示某基因集合在某细胞类群中相较其它细胞类群的整体表达差异倍数的对数值。  
 　  
-文档更新：2019.06.20 技术部 李亚当  
+文档更新：2019.06.21 技术部 李亚当  
 文档整理：2019.04.19 技术部 李亚当
