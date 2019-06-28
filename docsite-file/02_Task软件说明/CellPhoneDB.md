@@ -42,7 +42,7 @@ rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。
 细胞类群重命名文件（.txt文件）
 参数说明：
 rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要改成有含义的字符串时，可传入细胞类群重命名文件，进行细胞类群名称替换。文件格式为每行两列，左列为细胞名称，右列为所属细胞类群名称。例如：
-|Cell      |Cluster|
+|Cell|Cluster|
 |:--------:|:-----:|
 |N_TGCG... |MPC    |
 |N_ATTC... |FC-1   |
@@ -61,13 +61,13 @@ rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要�
 参数说明：
 目前支持物种包括：人、小鼠、大鼠
 
-<label id='thread'></label>
+<label id='cpu'></label>
 #### **页面显示参数 Threads**
 线程数
 参数说明：
 设置线程数
 
-<label id='memory'></label>
+<label id='mem'></label>
 #### **页面显示参数 Memory(MB)**
 内存（MB）
 参数说明：
@@ -88,21 +88,21 @@ rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要�
 #### **结果文件结构**
 
 ├─ <font color=#00BFFF>**out**</font> (CellPhoneDB原始结果文件)
-┆   ├─ **pvalues.txt** (原始P值表)
-┆   ├─ **means.txt** (原始均值表)
-┆   ├─ **pvalues_means.txt** (原始P值和均值汇总表)
-┆   ├─ **significant_means.txt** (原始显著均值表)
+┊　├─ **pvalues.txt** (原始P值表)
+┊　├─ **means.txt** (原始均值表)
+┊　├─ **pvalues_means.txt** (原始P值和均值汇总表)
+┊　├─ **significant_means.txt** (原始显著均值表)
 ├─ **pvalues_revise.txt** （修正过顺序的P值表）
 ├─ **significant_means_revise.txt** （修正过顺序的显著均值表）
 ├─ **pvalues_0.05.txt** （修正过顺序的显著P值和均值汇总表）
 ├─ <font color=#00BFFF>**BubblePlot**</font> (下游气泡图工具的输入文件，其中每个cluster对应4个文件) 
-┆   ├─ **Means_for_Plot.txt** （作图用均值表）
-┆   ├─ **Pvalues_for_Plot.txt** （作图用P值表）
-┆   ├─ **0_Ligand.cluster.txt** （cluster 0作为配体时，cluster互作对列表）
-┆   ├─ **0_Ligand.gene.txt** （cluster 0作为配体时，gene互作对列表）
-┆   ├─ **0_Receptor.cluster.txt** （cluster 0作为受体时，cluster互作对列表）
-┆   ├─ **0_Receptor.gene.txt** （cluster 0作为受体时，gene互作对列表）
-┆   ├─ ...
+┊　├─ **Means_for_Plot.txt** （作图用均值表）
+┊　├─ **Pvalues_for_Plot.txt** （作图用P值表）
+┊　├─ **0_Ligand.cluster.txt** （cluster 0作为配体时，cluster互作对列表）
+┊　├─ **0_Ligand.gene.txt** （cluster 0作为配体时，gene互作对列表）
+┊　├─ **0_Receptor.cluster.txt** （cluster 0作为受体时，cluster互作对列表）
+┊　├─ **0_Receptor.gene.txt** （cluster 0作为受体时，gene互作对列表）
+┊　├─ ...
 
 　  
 #### **修正P值表**
@@ -150,8 +150,7 @@ rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要�
 #### **气泡图工具输入文件**
 
 <div style="text-align:center">
-<img data-src="5.png" height="80px" ></img>
-<img data-src="6.png" height="80px" ></img>
+<img data-src="5.png" height="80px" ></img> <img data-src="6.png" height="80px" ></img>
 </div>
 <div style="text-align:center">
 </div>
