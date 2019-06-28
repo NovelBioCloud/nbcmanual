@@ -42,6 +42,7 @@ rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。
 细胞类群重命名文件（.txt文件）
 参数说明：
 rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要改成有含义的字符串时，可传入细胞类群重命名文件，进行细胞类群名称替换。文件格式为每行两列，左列为细胞名称，右列为所属细胞类群名称。例如：
+
 |Cell|Cluster|
 |:--:|:-----:|
 |N_TGCG... |MPC    |
@@ -148,11 +149,6 @@ rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要�
 　  
 #### **气泡图工具输入文件**
 
-<div style="text-align:center">
-<img data-src="5.png" height="80px" ></img> <img data-src="6.png" height="80px" ></img>
-</div>
-<div style="text-align:center">
-</div>
 说明：
 Means_for_Polt.txt是气泡图作图用的均值表
 Pvalues_for_Plot.txt是气泡图作图用的P值表
