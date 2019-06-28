@@ -1,7 +1,9 @@
 # **CellPhoneDB**
 
+　  
 ### **基本介绍**
 
+　  
 #### **功能概述**
 
 CellPhoneDB（细胞通讯数据库），是一个公开的细胞配体-受体互作对的存储库。CellPhoneDB可基于单细胞转录组数据和数据库中记录的配体-受体互作关系，通过计算分析不同细胞类群之间的分子相互作用，从而预测细胞类群之间的通讯关系。
@@ -14,33 +16,37 @@ CellPhoneDB的细胞通讯信息来源于文献挖掘和整合数据库(UniProt,
 #### **软件官网**
 https://www.cellphonedb.org/
 
+　  
 ### **分析流程**
 
+　  
 **上游工具**：Seurat_Cluster / Seurat_ReCluster
 **下游工具**：ScBubblePlot
 **连接示例**：
 <div style="text-align:center">
-<img data-src="1.png" width="175px" ></img>
+<img data-src="1.png" height="175px" ></img>
 </div>
 
-
+　  
 ### **参数设置**
 
+　  
 #### **输入文件参数 Input Seurat rds File**
 基因表达数据文件（.rds文件）
 参数说明：
 包含单细胞转录组表达数据的rds文件是必需参数。
 rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。
 
+　  
 #### **输入文件参数 Cluster Rename File (optional)**
 细胞类群重命名文件（.txt文件）
 参数说明：
 rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要改成有含义的字符串时，可传入细胞类群重命名文件，进行细胞类群名称替换。文件格式为每行两列，左列为细胞名称，右列为所属细胞类群名称。例如：
-|Cell   	  |Cluster|
+|Cell      |Cluster|
 |:--------:|:-----:|
-|N_TGCG...	|MPC    |
-|N_ATTC...	|FC-1   |
-|N_TTCT...	|ProFC  |
+|N_TGCG... |MPC    |
+|N_ATTC... |FC-1   |
+|N_TTCT... |ProFC  |
 |...       |...    |
 
 注：
@@ -75,8 +81,10 @@ rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要�
 注：
 本参数为必填参数，且必须大于零
 
+　  
 ### **结果解读**
 
+　  
 #### **结果文件结构**
 
 ├─ <font color=#00BFFF>**out**</font> (CellPhoneDB原始结果文件)
@@ -96,12 +104,12 @@ rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要�
 ┆   ├─ **0_Receptor.gene.txt** （cluster 0作为受体时，gene互作对列表）
 ┆   ├─ ...
 
-
-
+　  
 #### **修正P值表**
 
+　  
 <div style="text-align:center">
-<img data-src="2.png" width="60px" ></img>
+<img data-src="2.png" height="60px" ></img>
 </div>
 说明：
 表中每行记录一条配体受体互作对信息。每列含义如下：
@@ -118,31 +126,34 @@ rds文件中的细胞类群（cluster）名称通常为阿拉伯数字。需要�
 **P值** 一个互作对的P值是它在两个互作细胞类群中的富集度。其中0 >> 1表示互作分子分别来自细胞类群0和1
 注：原始P值表配体受体次序不统一，修正后统一左右两边分别为配体受体，其中RR类型的条目在列表中出现两次，第1次表示a、b分别为配体受体，第2次表示b、a分别为配体受体。
 
+　  
 #### **修正显著均值表**
 
 <div style="text-align:center">
-<img data-src="3.png" width="60px" ></img>
+<img data-src="3.png" height="60px" ></img>
 </div>
 说明：
 本表与P值表前10列相同，不同部分如下：
 **rank** 互作关系的独特性，值越接近0，代表该互作关系在全部细胞类群中越独特，比如某两个细胞类群独有的互作关系，其它细胞类群之间没有这个关系。
 **means** 互作对两个分子平均表达值的和，其中0 >> 1表示互作分子分别来自细胞类群0和1。只有p值小于0.05对应的means会被保留，称为significant_means。该值越大表示该互作关系强度越强。
 
+　  
 #### **修正显著P值和均值汇总表**
 
 <div style="text-align:center">
-<img data-src="4.png" width="60px" ></img>
+<img data-src="4.png" height="60px" ></img>
 </div>
 说明：
 本表与上面两张表前10列相同，后面5列是前两张表信息的汇总。其中a和b是互作细胞类群名称，P-value/rank/significant_means取自上面两张表中满足p值小于0.05的数据。
 
+　  
 #### **气泡图工具输入文件**
 
 <div style="text-align:center">
-<img data-src="5.png" width="80px" ></img>
+<img data-src="5.png" height="80px" ></img>
+<img data-src="6.png" height="80px" ></img>
 </div>
 <div style="text-align:center">
-<img data-src="6.png" width="80px" ></img>
 </div>
 说明：
 Means_for_Polt.txt是气泡图作图用的均值表
@@ -150,5 +161,6 @@ Pvalues_for_Plot.txt是气泡图作图用的P值表
 XXX.gene.txt 是气泡图作图用的互作基因对列表
 XXX.cluster.txt 是气泡图作图用的互作细胞类群对列表
 
+　  
 文档更新：2019.06.28 技术部 李亚当 
 文档整理：2019.04.26 技术部 李亚当 
