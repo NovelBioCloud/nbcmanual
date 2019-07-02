@@ -18,7 +18,8 @@
 <div style="text-align:center">
 	<img data-src="1.png" width="100px" ></img>
 </div>
-注意：1.表格中必须要有一行title ,对于title名称无特殊要求；2.输入表格中必须要有一列基因名称。&nbsp;
+注意：<br/>
+1.表格中必须要有一行title ,对于title名称无特殊要求；2.输入表格中必须要有一列基因名称。&nbsp;
 
 **LocationFile：**用于统计的bed区域列表，要求输入的格式与结果中的gene.Bed一致，gene.Bed的格式如下所示：
 <div style="text-align:center">
