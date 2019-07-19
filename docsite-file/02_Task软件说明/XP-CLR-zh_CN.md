@@ -7,16 +7,17 @@
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
+> * &#160; &#160; Region in chromosome：选中该标签，表示按照输入染色体区域的方式进行分析，此时需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
 > * &#160; &#160;<label id='chromosome'>Chromosome：</label>染色体号；
 > * &#160; &#160;<label id='start'>Start position：</label>起始位置；
 > * &#160; &#160;<label id='end'>End position：</label>终止位置；
-> * &#160; &#160;Gene locus：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;Gene locus：选中该标签，表示按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，此时需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
 > * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
 > * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
 > * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
 > * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
-> * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
+> * &#160; &#160;<label id='subSp'>ObjectPop：</label>选择分析的对照亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
+> * &#160; &#160;<label id='subSp'>RefPop：</label>选择分析的参照亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
 > * &#160; &#160;<label id='snpWin'>snpWin：</label>窗口内最大snp数，XP-CLR分数取决于SNPs的数量，为了使 XP-CLR值在区域内有可比性，有必要控制一个窗口内SNP的最大数据量，根据输入数据的snp密度选择设置窗口内最大snp数量；
 > * &#160; &#160;<label id='gridSize'>gridSize：</label>两个grid之间的距离，单位是bp;
 > * &#160; &#160;<label id='isPhased'>IsPhased：</label>基因型数据已经分阶段;

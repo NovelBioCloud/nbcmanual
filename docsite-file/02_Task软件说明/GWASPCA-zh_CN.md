@@ -8,11 +8,11 @@
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160; Region in chromosome：是否按照输入染色体区域的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
+> * &#160; &#160; Region in chromosome：选中该标签，表示按照输入染色体区域的方式进行分析，此时需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
 > * &#160; &#160;<label id='chromsome'>Chromosome：</label>染色体号；
 > * &#160; &#160;<label id='start'>Start position：</label>起始位置；
 > * &#160; &#160;<label id='end'>End position：</label>终止位置；
-> * &#160; &#160;Gene locus：：是否按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，该参数为单选框，如果选中该参数，则需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;Gene locus：：选中该标签，表示按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，此时需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
 > * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
 > * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
 > * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
