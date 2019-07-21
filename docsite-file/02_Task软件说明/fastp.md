@@ -71,9 +71,11 @@ https://github.com/OpenGene/fastp
 　  
 #### **页面显示参数 SplitType**
 对输出的FASTQ进行切分，分成大小均匀的多个文件，这样可以使用比对软件并行地比对，提高并行处理的速度。fastp软件提供两种模式，分别是指定切分后文件的个数，或者指定每个切分后文件的行数。
+
 　  
 #### **页面显示参数 SplitParts**
 默认值40
+
 　  
 #### **页面显示参数 SplitLines**
 默认值8000000
@@ -85,7 +87,8 @@ https://github.com/OpenGene/fastp
    ├─ SampleID.Before
 
 ├─ QualityPlot (结果目录) 
-┆   ├─ SampleID.Before
+│  ├─ SampleID.Before
+│  └─ SampleID.Before
 
 
 
