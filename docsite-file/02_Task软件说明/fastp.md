@@ -87,8 +87,8 @@ https://github.com/OpenGene/fastp
    ├─ SampleID.Before
 
 ├─ QualityPlot (结果目录) 
-│  ├─ SampleID.Before
-│  └─ SampleID.Before
+│　 ├─ SampleID.Before
+│　  └─ SampleID.Before
 
 
 
