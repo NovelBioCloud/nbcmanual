@@ -1,28 +1,33 @@
-# **fastp**
+# **﻿fastp**
 　 
 ### **工具介绍**
+
 　  
 #### **功能概述**
 对fastq数据进行质控和预处理，以保证下游分析输入的数据干净可靠的。本工具采用海普洛斯公司开发的fastq文件预处理软件fastp，可以对fastq进行过滤、接头处理、滑窗质量裁剪、双端测序数据碱基校正等处理，并生成HTML格式的报告。
+
 　  
 #### **软件特点**
 功能丰富，简化数据预处理流程。
 使用C++开发，算法高效并支持多线程。
+
 　  
 #### **软件官网**
 https://github.com/OpenGene/fastp
 　 
-### **分析流程**　 
-**上游工具**：RawFastq　 
+### **分析流程**　  
+**上游工具**：RawFastq
 **下游工具**：UMI_Tools_WhiteList / UMI_Tools_Extract
 
 <div style="text-align:center">
 <img data-src="1.png" height="175px" ></img>
 </div>　 
 ### **参数设置**
+
 　  
 #### **输入文件参数 leftInputData**
 左端fastq文件，从上游工具RawFastq获取。（必传参数）
+
 　  
 #### **输入文件参数 rightInputData**
 右端fastq文件，从上游工具RawFastq获取。（必传参数）
