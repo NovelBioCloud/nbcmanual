@@ -1,4 +1,4 @@
-# **﻿Seurat_NormalizedForTab**
+# **Seurat_NormalizedForTab**
 
 　 
 ### **工具介绍**
@@ -63,7 +63,7 @@ https://satijalab.org/seurat/
 默认0.2表示线粒基因超过20%有可能是一个死细胞，会被过滤掉
 
 <label id='NormMethod'> </label>
-#### **页面显示参数 NormMethod **
+#### **页面显示参数 NormMethod** 
 标准化方法
 默认LogNormalize 数值加1以e为底取对数
 genesCLR
