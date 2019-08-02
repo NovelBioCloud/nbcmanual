@@ -2,7 +2,7 @@
 
 ---
 
-&#160; &#160; &#160; &#160;Selective clearance: reduction or elimination of differences between nucleotides in adjacent DNA at a mutated site due to recent strong positive natural selection.
+&#160; &#160; &#160; &#160;Selective sweep: reduction or elimination of differences between nucleotides in adjacent DNA at a mutated site due to recent strong positive natural selection.
 &#160; &#160; &#160; &#160;The XP-CLR package implements a composite likelihood method for detecting selective sweeps via the differentiation of two populations.
 
 
