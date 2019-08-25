@@ -62,19 +62,19 @@ Y轴标签列表文件
 　 
 ### **参数设置**
 
-<label id='AttrCol'> </label>
+<label id='attrCol'> </label>
 #### **运行参数 AttrCol**
 绘图关键数据所在列
 参数说明：
 根据CellPhoneDB结果文件的规则，默认第2列，即基因互作对名称所在列。必需参数。
 
-<label id='SizeLabel'> </label>
+<label id='sizeLabel'> </label>
 #### **运行参数 SizeLabel**
 面积标签
 参数说明：
 图例中气泡面积的字符串标签
 
-<label id='isSizeValueNeedLog'> </label>
+<label id='isSizeNeedLog'> </label>
 #### **运行参数 isSizeValueNeedLog**
 面积数值是否需要对数变换
 参数说明：
@@ -86,7 +86,7 @@ Y轴标签列表文件
 参数说明：
 小于本参数的面积值会被转换成这个值，以便进行对数运算。
 
-<label id='ColorLabel'> </label>
+<label id='colorLabel'> </label>
 #### **运行参数 ColorLabel**
 颜色标签
 参数说明：
@@ -100,41 +100,41 @@ Y轴标签列表文件
 默认为darkblue,blue,yellow,red，表示颜色从深蓝到红色渐变。支持自定义颜色。
 
 
-<label id='NAValueColor'> </label>
+<label id='naColor'> </label>
 #### **运行参数 NAValueColor**
 空值颜色
 参数说明：
 绘图时，空值使用的颜色。默认为gray。设置为white时，实际为透明效果。支持自定义颜色。
 
-<label id='isColorValueNeedNorm'> </label>
+<label id='isColorNeedNorm'> </label>
 #### **运行参数 isColorValueNeedNorm**
 颜色值是否需要标化
 参数说明：
 气泡颜色值标化处理，以便绘图。
 
-<label id='x轴切割符'> </label>
+<label id='cut_chara_x'> </label>
 #### **运行参数 x轴切割符**
 参数说明：
 X轴标签列表文件中，分隔细胞互作对的分隔符。
 
-<label id='y轴切割符'> </label>
+<label id='cut_chara_y'> </label>
 #### **运行参数 y轴切割符**
 参数说明：
 Y轴标签列表文件中，分隔基因互作对的分隔符。
 
-<label id='PlotWidth'> </label>
+<label id='width'> </label>
 #### **运行参数 PlotWidth**
 绘图宽度
 参数说明：
 根据需要设置绘图宽度
 
-<label id='PlotHeight'> </label>
+<label id='height'> </label>
 #### **运行参数 PlotHeight**
 绘图高度
 参数说明：
 根据需要设置绘图高度
 
-<label id='Threads'> </label>
+<label id='thread'> </label>
 #### **运行参数 Threads**
 线程数
 参数说明：
@@ -158,7 +158,7 @@ Y轴标签列表文件中，分隔基因互作对的分隔符。
 
 #### **BubblePlot气泡图**
 <div style="text-align:center">
-<img data-src=".png" height="600px" ></img>
+<img data-src="2.png" height="600px" ></img>
 </div>
 说明：
 横轴表示细胞类群互作对，蓝色表示配体细胞，红色表示受体细胞。
