@@ -13,9 +13,9 @@
 
 **<font color="#007979">Input Parameters</font>**
 
-> * &#160; &#160;<label id='isHetFilter'>过滤杂合子：</label>Whether to filter heterozygotes in the input data；
-> * &#160; &#160;<label id='isAFFilter'>过滤低频突：</label>Whether to filter low frequency sites；
-> * &#160; &#160;<label id='isCorrFilter'>过滤连锁：</label>Whether to filter linkage sites；
+> * &#160; &#160;<label id='isHetFilter'>isHetFilter：</label>Whether to filter heterozygotes in the input data；
+> * &#160; &#160;<label id='isAFFilter'>isAFFilter：</label>Whether to filter low frequency sites；
+> * &#160; &#160;<label id='isCorrFilter'>isCorrFilter：</label>Whether to filter linkage sites；
 > * &#160; &#160;<label id='fastaFilterProp'>fastaFilterProp：</label>Filter out the sites which the variation rate is less than the set value (ped file is a matrix with one column for each loci, and delete the column if the ratio of two alleles of SNP in a column is greater than 0.95 and less than 0.05). The default value is 0.05.；
 
 **<font color="#007979">Result</font>**
