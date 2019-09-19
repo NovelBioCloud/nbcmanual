@@ -12,7 +12,7 @@
 > * &#160; &#160;<label id='chromsome'>Chromosome：</label>The chromosome number;
 > * &#160; &#160;<label id='start'>Start position：</label>The start position on the chromosome;
 > * &#160; &#160;<label id='end'>End position：</label>The end position on the chromosome;
-> * &#160; &#160;选择IRGSPID：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
+> * &#160; &#160;Gene locus：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
 > * &#160; &#160;<label id='gene'>Gene：</label>gene name，Such as: Os01g0100100;
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
