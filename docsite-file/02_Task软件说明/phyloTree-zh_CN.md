@@ -17,9 +17,14 @@
 > * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
 > * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
 > * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
-> * &#160; &#160;<label id='treeType'>TreeType：</label>建数使用的方法，其选项值有NJ、MP和ML；NJ表示基于距离矩阵的方法（邻接法）;MP（最大简约法）；ML最大似然法
 > * &#160; &#160;<label id='seqType'>SeqType：</label>输入序列类型，其选项为DNA或者AA，DNA表示核酸序列；AA表示蛋白序列；
-> * &#160; &#160;<label id='dootstrapDup'>DootstrapDup：</label>设置bootstrap的值，即重复的replicate的数目，通常使用1000或者100
+> * &#160; &#160;<label id='fastest'>fastest</label>search the visible set (the top hit for each node) only Unlike the original fast neighbor-joining, -fastest updates visible(C) after joining A and B if join(AB,C) is better than join(C,visible(C)),-fastest also updates out-distances in a very lazy way,-fastest sets -2nd on as well, use -fastest -no2nd to avoid this.
+> * &#160; &#160;<label id='lg'>lg</label> 用Le-Gascuel 2008 模型代替默认的Jones-Taylor-Thorton 1992 模型 (a.a. only)
+> * &#160; &#160;<label id='gtr'>gtr</label> generalized time-reversible instead of (default) Jukes-Cantor (nt only)
+> * &#160; &#160;<label id='gamma'>gamma</label> 使用 CAT 模型最后一轮优化分支长度后, 报告离散 gamma 模型下相同分类数量的可能性。FastTree使用相同的分支长度，但优化了gamma的形状参数并调节了长度。最后进化树将重新调节长度。为了使用CONSEL，也可以用-log产生每一个位点的可能性, 请参阅GammaLogToPaup.pl和FastTree网站文档.
+> * &#160; &#160;<label id='noml'>noml</label>关闭最大似然法
+> * &#160; &#160;<label id='nome'>nome</label>关闭最小进化 NNIs 和 SPRs,(用-intree额外运行ML NNIs时建议勾选)
+> * &#160; &#160;<label id='wag'>wag</label>Whelan-And-Goldman 2001模型（仅限氨基酸比对）
 
 **<font color="#007979">结果文件</font>**
 
