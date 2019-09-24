@@ -16,6 +16,8 @@
 > * &#160; &#160;<label id='isAFFilter'>过滤低频突：</label>是否过滤低频位点；
 > * &#160; &#160;<label id='isCorrFilter'>过滤连锁：</label>是否过滤连锁位点；
 > * &#160; &#160;<label id='fastaFilterProp'>fastaFilterProp：</label>过滤变异率小于该设置值的位点（ped文件是个矩阵，每个位点一列，如果某列中snp两个等位比例大于0.95小于0.05，则删除该列），默认值为0.05；
+> * &#160; &#160;<label id='SNPNum'>SNPNum：</label>筛选指定数量的突变进行单倍型分析，如当设置为10时，会将输入文件等分位10份，然后提出每小份中的第一行突变，生成筛选结果文件;
+> * &#160; &#160;<label id='MaxNodeNum'>MaxNodeNum：</label>设置单倍型网络图中的最多节点数;
 
 **<font color="#007979">结果说明</font>**
 

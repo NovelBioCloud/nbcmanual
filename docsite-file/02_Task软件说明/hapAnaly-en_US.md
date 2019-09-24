@@ -6,16 +6,18 @@
 
 **<font color="#007979">Input Parameters</font>**
 
-> * &#160; &#160; Region in chromosome：select the label, indicating that the analysis is conducted according to the way of input Chromosome region, then the following three parameters need to be filled in, that is, "Chromosome","Start position" and "End position";
+> * &#160; &#160; *Region in chromosome*：select the label, indicating that the analysis is conducted according to the way of input Chromosome region, then the following three parameters need to be filled in, that is, "Chromosome","Start position" and "End position";
 > * &#160; &#160;<label id='chromsome'>Chromosome：</label>The chromosome number;
 > * &#160; &#160;<label id='start'>Start position：</label>The start position on the chromosome;
 > * &#160; &#160;<label id='end'>End position：</label>The end position on the chromosome;
-> * &#160; &#160;Gene locus：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
+> * &#160; &#160;*Gene locus*：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
 > * &#160; &#160;<label id='gene'>Gene：</label>gene name，Such as: Os01g0100100;
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
 > * &#160; &#160;<label id='dataset'>dataSet：</label>Select the analysis data set,Multiple data sets can be selected;
 > * &#160; &#160;<label id='subSp'>subSp：</label>Selective analysis of subspecies,Multiple subspecies can be selected;
+> * &#160; &#160;<label id='SNPNum'>SNPNum：</label>Select a specified number of mutations for haplotype analysis, such as when set to 10, the input file is divided into 10 equal parts, and then the first row mutation in each small part is presented to generate the filter result file;
+> * &#160; &#160;<label id='MaxNodeNum'>MaxNodeNum：</label>Sets the maximum number of nodes in the haplotype network graph;
 
 
 **<font color="#007979">Result</font>**

@@ -7,11 +7,11 @@
 
 **<font color="#007979">输入参数</font>**
 
-> * &#160; &#160; Region in chromosome：选中该标签，表示按照输入染色体区域的方式进行分析，此时需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
+> * &#160; &#160; *Region in chromosome*：选中该标签，表示按照输入染色体区域的方式进行分析，此时需要填写以下三个参数，即：“Chromosome”、“Start position”、“End position”；
 > * &#160; &#160;<label id='chromsome'>Chromosome：</label>染色体号；
 > * &#160; &#160;<label id='start'>Start position：</label>起始位置；
 > * &#160; &#160;<label id='end'>End position：</label>终止位置；
-> * &#160; &#160;Gene locus：：选中该标签，表示按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，此时需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
+> * &#160; &#160;*Gene locus*：选中该标签，表示按照输入基因名称以及距离该基因上下游位置距离的方式进行分析，此时需要填写以下三个参数，即：“Gene”、“Upstream”、“Downstream”；
 > * &#160; &#160;<label id='gene'>Gene：</label>基因名称，如：Os01g0100100；
 > * &#160; &#160;<label id='upstream'>Upstream：</label>基因上游长度；
 > * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
@@ -19,6 +19,8 @@
 > * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
 > * &#160; &#160;<label id='winSize'>winSize:</label> (--fst-window-size)  窗口大小，整数
 > * &#160; &#160;<label id='winStep'>winStep:</label>  (--fst-window-step)  窗口步长，这两个参数可以与“--weir-fst-pop”一起使用，实现在窗口基础上而不是在每个位点的基础上进行Fst的统计，整数。
+> * &#160; &#160;<label id='subSp'>subSpA：</label>选择分析亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
+> * &#160; &#160;<label id='subSp'>subSpB：</label>选择分析亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
 
 **<font color="#007979">结果文件</font>**
 

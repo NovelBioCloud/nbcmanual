@@ -14,7 +14,6 @@
 
 > * &#160; &#160;<label id='maf'>Maf: </label>过滤掉等位基因频率（MAF）小于该设定值的位点，如0.01。
 > * &#160; &#160;<label id='pca'>pca：</label>输出第n（默认n=20）个特征向量（保存为以\*. Eigenvec为后缀的text文件）和所有的特征值（保存为以\*.eigenval为后缀的text文件），这些特征值与EIGENSTRAT程序计算的值相等。这个选项唯一可能的目的是计算第一个m特征向量，然后在估计所有SNPs解释的方差时将它们作为协变量包含在模型中。如果你需要更复杂的总体结构的主成分分析，请使用EIGENSTRAT软件。
-> * &#160; &#160;<label id='subSp'>subsp：</label>选择分析亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
 
 **<font color="#007979">结果说明</font>**
 

@@ -17,7 +17,6 @@
 > * &#160; &#160;<label id='gridSize'>gridSize：</label>两个grid之间的距离，单位是bp;
 > * &#160; &#160;<label id='isPhased'>IsPhased：</label>基因型数据已经分阶段;
 > * &#160; &#160;<label id='corrLevel'>corrLevel：</label>该值范围为[0,1]，如果该值在(0,1]之间，改值会在加权综合似然比检验的过程中被作为加权标准，如果两个SNP的相关性比较高(r2> corrLevel),它们对XP-CLR是低权的影响。如果corrLevel设置为0，那么XP-CLR就是无权计算;
-> * &#160; &#160;<label id='chrNum'>chrN：</label>染色体编号;
 > * &#160; &#160;<label id='subSp'>ObjectPop：</label>选择分析的对照亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
 > * &#160; &#160;<label id='subSp'>RefPop：</label>选择分析的参照亚种，可以选择多个亚种（该下拉框中的值是来源于输入文件strainInfo.txt的第二列，所以，需要先输入strainInfo.txt文件以后，该参数值才是可选的）；
 

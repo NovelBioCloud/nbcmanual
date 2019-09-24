@@ -14,7 +14,6 @@
 
 > * &#160; &#160;<label id='maf'>Maf: </label>exclude SNPs with minor allele frequency(MAF) less than a specified value, e.g. 0.01。
 > * &#160; &#160;<label id='pca'>pca：</label>output the first n (n = 20, by default) eigenvectors (saved as *.eigenvec, plain text file) and all the eigenvalues (saved as *.eigenval, plain text file), which are equivalent to those calculated by the program EIGENSTRAT. The only purpose of this option is to calculate the first m eigenvectors, and subsequently include them as covariates in the model when estimating the variance explained by all the SNPs (see below for the option of estimating the variance explained by genome-wide SNPs). Please find the EIGENSTRAT software if you need more sophisticated principal component analysis of the population structure.
-> * &#160; &#160;<label id='subSp'>subsp：</label>Select analysis subspecies, you can select multiple subspecies (the value in the drop-down box is from the second column of the input file straininfo.txt, so the parameter value is optional after the input of straininfo.txt)；
 
 **<font color="#007979">Result</font>**
 

@@ -22,7 +22,6 @@
 > * &#160; &#160;<label id='gridSize'>gridSize：</label>he spacing between two grid points. It is in unit of bp;
 > * &#160; &#160;<label id='isPhased'>IsPhased：</label>whether data is phased for more precise r2 calculation;
 > * &#160; &#160;<label id='corrLevel'>corrLevel：</label>the range of its value is on [0 1]. If it is on (0 1], this corrLevel value is used as a criterion in the weighted composite likelihood ratio test. If two SNPs are highly correlated (r2 > corrLevel), their contribution to XPCLR is down-weighted. If corrLevel is set to be 0, XPCLR is estimated un-weightedly.
-> * &#160; &#160;<label id='chrNum'>chrN：</label>Which contig analysis is based on;
 
 **<font color="#007979">Result</font>**
 &#160; &#160; &#160; &#160;\*.XPCLR.xpclr.txt，The file contains six columns of information:“chr#”、“grid#”、“#ofSNPs_in_window”、“physical_pos”、“genetic_pos”、“XPCLR_score”.    

@@ -7,11 +7,11 @@ TreeMix is a program for the inference of patterns of population splitting and m
 
 **<font color="#007979">Input Parameters</font>**
 
-> * &#160; &#160; Region in chromosome：select the label, indicating that the analysis is conducted according to the way of input Chromosome region, then the following three parameters need to be filled in, that is, "Chromosome","Start position" and "End position";
+> * &#160; &#160; *Region in chromosome*：select the label, indicating that the analysis is conducted according to the way of input Chromosome region, then the following three parameters need to be filled in, that is, "Chromosome","Start position" and "End position";
 > * &#160; &#160;<label id='chromsome'>Chromosome：</label>The chromosome number;
 > * &#160; &#160;<label id='start'>Start position：</label>The start position on the chromosome;
 > * &#160; &#160;<label id='end'>End position：</label>The end position on the chromosome;
-> * &#160; &#160;Gene locus：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
+> * &#160; &#160; *Gene locus*：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
 > * &#160; &#160;<label id='gene'>Gene：</label>gene name,Such as: Os01g0100100;
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);

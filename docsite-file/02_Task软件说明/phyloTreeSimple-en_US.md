@@ -16,9 +16,9 @@
 > * &#160; &#160;<label id='lg'>lg</label> Le-Gascuel 2008 model instead of (default) Jones-Taylor-Thorton 1992 model (a.a. only)
 > * &#160; &#160;<label id='gtr'>gtr</label> generalized time-reversible instead of (default) Jukes-Cantor (nt only)
 > * &#160; &#160;<label id='gamma'>gamma</label> after the final round of optimizing branch lengths with the CAT model,report the likelihood under the discrete gamma model with the same number of categories. FastTree uses the same branch lengths but optimizes the gamma shape parameter and the scale of the lengths.The final tree will have rescaled lengths. Used with -log, this also generates per-site likelihoods for use with CONSEL, see GammaLogToPaup.pl and documentation on the FastTree web site.
-> * &#160; &#160;<label id='noml'>noml</label>to turn off maximum-likelihood
-> * &#160; &#160;<label id='nome'>nome</label>to turn off minimum-evolution NNIs and SPRs,(recommended if running additional ML NNIs with -intree)
-> * &#160; &#160;<label id='wag'>wag</label>Whelan-And-Goldman 2001 model (amino acid alignments only)
+> * &#160; &#160;<label id='noml'>noml</label> to turn off maximum-likelihood
+> * &#160; &#160;<label id='nome'>nome</label> to turn off minimum-evolution NNIs and SPRs,(recommended if running additional ML NNIs with -intree)
+> * &#160; &#160;<label id='wag'>wag</label> Whelan-And-Goldman 2001 model (amino acid alignments only)
 
 
 **<font color="#007979">Result</font>**

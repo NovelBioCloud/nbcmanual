@@ -17,6 +17,9 @@
 > * &#160; &#160;<label id='isAFFilter'>isAFFilter：</label>Whether to filter low frequency sites；
 > * &#160; &#160;<label id='isCorrFilter'>isCorrFilter：</label>Whether to filter linkage sites；
 > * &#160; &#160;<label id='fastaFilterProp'>fastaFilterProp：</label>Filter out the sites which the variation rate is less than the set value (ped file is a matrix with one column for each loci, and delete the column if the ratio of two alleles of SNP in a column is greater than 0.95 and less than 0.05). The default value is 0.05.；
+> * &#160; &#160;<label id='SNPNum'>SNPNum：</label>Select a specified number of mutations for haplotype analysis, such as when set to 10, the input file is divided into 10 equal parts, and then the first row mutation in each small part is presented to generate the filter result file;
+> * &#160; &#160;<label id='MaxNodeNum'>MaxNodeNum：</label>Sets the maximum number of nodes in the haplotype network graph;
+
 
 **<font color="#007979">Result</font>**
 

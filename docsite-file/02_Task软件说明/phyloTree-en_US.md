@@ -7,11 +7,11 @@
 
 **<font color="#007979">Input Parameters</font>**
 
-> * &#160; &#160; Region in chromosome：select the label, indicating that the analysis is conducted according to the way of input Chromosome region, then the following three parameters need to be filled in, that is, "Chromosome","Start position" and "End position";
+> * &#160; &#160; *Region in chromosome*：select the label, indicating that the analysis is conducted according to the way of input Chromosome region, then the following three parameters need to be filled in, that is, "Chromosome","Start position" and "End position";
 > * &#160; &#160;<label id='chromsome'>Chromosome：</label>The chromosome number;
 > * &#160; &#160;<label id='start'>Start position：</label>The start position on the chromosome;
 > * &#160; &#160;<label id='end'>End position：</label>The end position on the chromosome;
-> * &#160; &#160;Gene locus：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
+> * &#160; &#160; *Gene locus*：select the label，according to input the Gene location of Upstream and Downstream of the Gene names and distance distance way were analyzed, and the need to fill in the following three parameters, that is: "Gene" , "Upstream" and "Downstream";
 > * &#160; &#160;<label id='gene'>Gene：</label>gene name，Such as: Os01g0100100;
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
@@ -22,12 +22,12 @@
 > * &#160; &#160;<label id='lg'>lg</label> Le-Gascuel 2008 model instead of (default) Jones-Taylor-Thorton 1992 model (a.a. only)
 > * &#160; &#160;<label id='gtr'>gtr</label> generalized time-reversible instead of (default) Jukes-Cantor (nt only)
 > * &#160; &#160;<label id='gamma'>gamma</label> after the final round of optimizing branch lengths with the CAT model,report the likelihood under the discrete gamma model with the same number of categories. FastTree uses the same branch lengths but optimizes the gamma shape parameter and the scale of the lengths.The final tree will have rescaled lengths. Used with -log, this also generates per-site likelihoods for use with CONSEL, see GammaLogToPaup.pl and documentation on the FastTree web site.
-> * &#160; &#160;<label id='noml'>noml</label>to turn off maximum-likelihood
-> * &#160; &#160;<label id='nome'>nome</label>to turn off minimum-evolution NNIs and SPRs,(recommended if running additional ML NNIs with -intree)
-> * &#160; &#160;<label id='wag'>wag</label>Whelan-And-Goldman 2001 model (amino acid alignments only)
+> * &#160; &#160;<label id='noml'>noml</label> to turn off maximum-likelihood
+> * &#160; &#160;<label id='nome'>nome</label> to turn off minimum-evolution NNIs and SPRs,(recommended if running additional ML NNIs with -intree)
+> * &#160; &#160;<label id='wag'>wag</label> Whelan-And-Goldman 2001 model (amino acid alignments only)
 
 
 **<font color="#007979">Result</font>**
 
-&#160; &#160; &#160; &#160;*.tre: constree file,It can be opened in treeview.
-&#160; &#160; &#160; &#160;*.png/pdf: The evolution tree is stored graphically in PNG/PDF format.
+&#160; &#160; &#160; &#160; \*.tre: constree file,It can be opened in treeview.
+&#160; &#160; &#160; &#160; \*.png/pdf: The evolution tree is stored graphically in PNG/PDF format.

@@ -20,7 +20,8 @@
 > * &#160; &#160;<label id='downstream'>Downstream：</label>基因下游长度；
 > * &#160; &#160;<label id='dataset'>dataSet：</label>选择分析数据集，可选择多个数据集；
 > * &#160; &#160;<label id='subSp'>subSp：</label>选择分析亚种，可以选择多个亚种；
-
+> * &#160; &#160;<label id='SNPNum'>SNPNum：</label>筛选指定数量的突变进行单倍型分析，如当设置为10时，会将输入文件等分位10份，然后提出每小份中的第一行突变，生成筛选结果文件;
+> * &#160; &#160;<label id='MaxNodeNum'>MaxNodeNum：</label>设置单倍型网络图中的最多节点数;
 
 **<font color="#007979">结果文件</font>**
 
