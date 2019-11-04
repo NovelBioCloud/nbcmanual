@@ -15,6 +15,7 @@
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
 > * &#160; &#160;<label id='dataset'>dataSet：</label>Select the analysis data set,Multiple data sets can be selected;
+> * &#160; &#160;<label id='mode'>mode：</label>Select species classification,Subspecies or species ;
 > * &#160; &#160;<label id='subSp'>subSp：</label>Selective analysis of subspecies,Multiple subspecies can be selected;
 > * &#160; &#160;<label id='SNPNum'>SNPNum：</label>Select a specified number of mutations for haplotype analysis, such as when set to 10, the input file is divided into 10 equal parts, and then the first row mutation in each small part is presented to generate the filter result file;
 > * &#160; &#160;<label id='MaxNodeNum'>MaxNodeNum：</label>Sets the maximum number of nodes in the haplotype network graph;
