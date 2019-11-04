@@ -16,11 +16,9 @@
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
 > * &#160; &#160;<label id='dataset'>dataSet：</label>Select the analysis data set,Multiple data sets can be selected;
+> * &#160; &#160;<label id='mode'>mode：</label>Select species classification,Subspecies or species ;
 > * &#160; &#160;<label id='subSp'>ObjectPop：</label>Select analysis subspecies, you can select multiple subspecies (the value in the drop-down box is from the second column of the input file straininfo.txt, so the parameter value is optional after the input of straininfo.txt)；
 > * &#160; &#160;<label id='subSp'>RefPop：</label>Select analysis subspecies, you can select multiple subspecies (the value in the drop-down box is from the second column of the input file straininfo.txt, so the parameter value is optional after the input of straininfo.txt)；
-> * &#160; &#160;<label id='snpWin'>snpWin：</label>maximum # of SNPs within a window. XPCLR score depends on the number of SNPs. To make the XP-CLR scores comparable between regions, it is necessary to control the maximum number of SNPs within a single window. The choice of snp # depends on the SNP density of your data;
-> * &#160; &#160;<label id='gridSize'>gridSize：</label>he spacing between two grid points. It is in unit of bp;
-> * &#160; &#160;<label id='isPhased'>IsPhased：</label>whether data is phased for more precise r2 calculation;
 > * &#160; &#160;<label id='corrLevel'>corrLevel：</label>the range of its value is on [0 1]. If it is on (0 1], this corrLevel value is used as a criterion in the weighted composite likelihood ratio test. If two SNPs are highly correlated (r2 > corrLevel), their contribution to XPCLR is down-weighted. If corrLevel is set to be 0, XPCLR is estimated un-weightedly.
 
 **<font color="#007979">Result</font>**
