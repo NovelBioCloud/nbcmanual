@@ -13,11 +13,12 @@
 
 **<font color="#007979">Input Parameters</font>**
 
-> * &#160; &#160;<label id='winSize'>winSize:</label> (--fst-window-size)  window size，integer;
-> * &#160; &#160;<label id='winStep'>winStep:</label>  (--fst-window-step)   window step，integer
+
 These options can be used with "--weir-fst-pop" to do the Fst calculations on a windowed basis instead of a per-site basis. These arguments specify the desired window size and the desired step size between windows;
 > * &#160; &#160;<label id='subSp'>subSpA：</label>Select analysis subspecies, you can select multiple subspecies (the value in the drop-down box is from the second column of the input file straininfo.txt, so the parameter value is optional after the input of straininfo.txt)；
 > * &#160; &#160;<label id='subSp'>subSpB：</label>Select analysis subspecies, you can select multiple subspecies (the value in the drop-down box is from the second column of the input file straininfo.txt, so the parameter value is optional after the input of straininfo.txt);
+> * &#160; &#160;<label id='winSize'>winSize:</label> (--fst-window-size)  window size，integer;
+> * &#160; &#160;<label id='winStep'>winStep:</label>  (--fst-window-step)   window step，integer;
 
 **<font color="#007979">Result</font>**
 
