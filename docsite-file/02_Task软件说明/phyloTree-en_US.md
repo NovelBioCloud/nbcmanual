@@ -16,6 +16,7 @@
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
 > * &#160; &#160;<label id='dataset'>dataSet：</label>Select the analysis data set,Multiple data sets can be selected;
+> * &#160; &#160;<label id='mode'>mode：</label>Select species classification,Subspecies or species ;
 > * &#160; &#160;<label id='subSp'>subSp：</label>Selective analysis of subspecies,Multiple subspecies can be selected;
 > * &#160; &#160;<label id='seqType'>SeqType：</label>input sequence type, The options are DNA and AA，DNA stands for nucleic acid sequence;AA stands for protein sequence；
 > * &#160; &#160;<label id='fastest'>fastest</label>search the visible set (the top hit for each node) only Unlike the original fast neighbor-joining, -fastest updates visible(C) after joining A and B if join(AB,C) is better than join(C,visible(C)),-fastest also updates out-distances in a very lazy way,-fastest sets -2nd on as well, use -fastest -no2nd to avoid this.
