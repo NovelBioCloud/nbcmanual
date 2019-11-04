@@ -8,7 +8,7 @@
 
 (1) ped file: A ped file is a plain text file that requires at least six columns, it‘s be separated by “\t”.These are the 6 columns：“Family ID”、“Individual ID”、“Paternal ID”、“Maternal ID”、“Sex”、“Phenotype”；
 (2) bim file: PLINK extended MAP file，Bim file is an extension of the map file, which has six lines in total and contains the specific information of SNP (conconder). The six columns are: "chromosome information", "SNP name", "mole distance", "physical distance", "required alleles" and "main alleles" respectively;
-(3) strainInfo.txt：The text file should have at least two columns of information, the first column is species and the second column is species corresponding to subspecies;
+(3) strainInfo.txt：The text file should have at least three columns of information, the first column is species and the second column is species corresponding to subspecies,the third column is the country of the species;
 
 
 **<font color="#007979">Input Parameters</font>**
