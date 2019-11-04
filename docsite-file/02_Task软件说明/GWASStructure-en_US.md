@@ -16,6 +16,7 @@
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
 > * &#160; &#160;<label id='dataset'>dataSet：</label>Select the analysis data set,Multiple data sets can be selected;
+> * &#160; &#160;<label id='mode'>mode：</label>Select species classification,Subspecies or species ;
 > * &#160; &#160;<label id='subSp'>subSp：</label>Selective analysis of subspecies,Multiple subspecies can be selected;
 > * &#160; &#160;<label id='minMAF'>MinMAF：</label>Exclude variants with minor allele frequency lower than a threshold (default 0.01).
 > * &#160; &#160;<label id='hwe'>hwe：</label>Exclude variants with Hardy-Weinberg equilibrium exact test p-values below a threshold.
