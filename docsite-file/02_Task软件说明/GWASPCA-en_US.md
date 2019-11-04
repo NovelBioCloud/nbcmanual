@@ -17,6 +17,7 @@
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
 > * &#160; &#160;<label id='dataset'>dataSet：</label>Select the analysis data set,Multiple data sets can be selected;
+> * &#160; &#160;<label id='mode'>mode：</label>Select species classification,Subspecies or species ;
 > * &#160; &#160;<label id='subSp'>subsp：</label>Selective analysis of subspecies,Multiple subspecies can be selected;
 > * &#160; &#160;<label id='maf'>Maf: </label>exclude SNPs with minor allele frequency(MAF) less than a specified value, e.g. 0.01。
 > * &#160; &#160;<label id='pca'>pca：</label>output the first n (n = 20, by default) eigenvectors (saved as *.eigenvec, plain text file) and all the eigenvalues (saved as *.eigenval, plain text file), which are equivalent to those calculated by the program EIGENSTRAT. The only purpose of this option is to calculate the first m eigenvectors, and subsequently include them as covariates in the model when estimating the variance explained by all the SNPs (see below for the option of estimating the variance explained by genome-wide SNPs). Please find the EIGENSTRAT software if you need more sophisticated principal component analysis of the population structure.
