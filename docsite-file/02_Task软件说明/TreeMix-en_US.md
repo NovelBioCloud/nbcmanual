@@ -16,6 +16,7 @@ TreeMix is a program for the inference of patterns of population splitting and m
 > * &#160; &#160;<label id='upstream'>Upstream：</label>The upstream length of the gene(bp);
 > * &#160; &#160;<label id='downstream'>Downstream：</label>The downstream length of the gene(bp);
 > * &#160; &#160;<label id='dataset'>dataSet：</label>Select the analysis data set,Multiple data sets can be selected;
+> * &#160; &#160;<label id='mode'>mode：</label>Select species classification,Subspecies or species ;
 > * &#160; &#160;<label id='subSp'>subSp：</label>Selective analysis of subspecies,Multiple subspecies can be selected;
 > * &#160; &#160;<label id='disequilibrium'>Disequilibrium：</label>To account for the fact that nearby SNPs are not independent, group them together in windows of size n SNPs by using the -k flag. The order of SNPs in the input file is assumed to be their order 3 in the genome. We recommend using a value of n that far exceeds the known extent of LD in the organism in question (this will depend, of course, on the SNP density).。
 > * &#160; &#160;<label id='migration'>Migration：</label>If you wish to allow for a number of migration events in the tree, use the -m flag, followed by the number of allowed migration events.
