@@ -26,7 +26,7 @@ http://clip.med.yale.edu/qusage/
 **下游工具**：ScHeatMap  
 **连接示例**：
 <div style="text-align:center">
-<img data-src="1.png" height="175px" ></img>
+<img data-src="1.png" width="900px" ></img>
 </div>
 　  
 
@@ -62,6 +62,7 @@ tsv表格文件来源可以是其它工具的结果文件或手动生成。格�
 注：  
 1 支持同时传入多个tsv表格文件，工具会分析出每一个文件各自的结果。
 2 如果点选了运行参数MSigDB GeneSetsFile或Novelbio GeneSetsFile中的gmt文件，此处可以不传入基因集合文件；反之，此处必须传入文件。
+
 　 
 ### **参数设置**
 
@@ -109,7 +110,7 @@ tsv表格文件来源可以是其它工具的结果文件或手动生成。格�
 参数说明：
 设置线程数，默认4线程
 　  
-<label id='memory'> </label>
+<label id='mem'> </label>
 #### **运行参数 Memory(MB)**
 内存（MB）
 参数说明：
@@ -120,6 +121,7 @@ tsv表格文件来源可以是其它工具的结果文件或手动生成。格�
 保留QuSAGE结果rds文件
 参数说明：
 qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表。在重新运行Task时，保留QuSAGE_rds文件夹可以跳过qusage函数运算。
+
 　  
 ### **结果解读**
 　  
