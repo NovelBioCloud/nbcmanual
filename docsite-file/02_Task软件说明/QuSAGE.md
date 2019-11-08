@@ -56,6 +56,10 @@ tsv表格文件来源可以是其它工具的结果文件或手动生成。格�
 table th:nth-of-type(1){width: 200px;}
 </style>
 
+<style> 
+table th:nth-of-type(2){width: 200px;}
+</style>
+
 |GeneSet Name|Gene Name|
 |:----------:|:-------:|
 |B_cell      |CD19     |
