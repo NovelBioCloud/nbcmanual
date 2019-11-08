@@ -11,6 +11,7 @@ QuSAGE（Quantitative Set Analysis for Gene Expression, 基因表达定量集合
 
 #### **软件特点**
 
+QuSAGE是用R语言开发的工具。
 QuSAGE可通过PDF轻松获得相应的P-Value和置信区间。  
 在计算过程中，QuSAGE通过方差膨胀因子（Variance Inflation Factor）来消除基因群内不同基因之间的相关性导致的假阳性错误。
 　  
@@ -18,10 +19,10 @@ QuSAGE可通过PDF轻松获得相应的P-Value和置信区间。
 http://clip.med.yale.edu/qusage/
 
 　  
-### **分析流程**
+### **流程搭建**
 　  
 
-**上游工具**：Seurat_Cluster/Seurat_ReCluster  
+**上游工具**：Seurat_NormalizedForTab / SeuratFor10X_Normalized / Seurat_Cluster / Seurat_ReCluster 等
 **下游工具**：ScHeatMap  
 **连接示例**：
 <div style="text-align:center">
@@ -29,22 +30,27 @@ http://clip.med.yale.edu/qusage/
 </div>
 　  
 
-### **参数设置**
-　  
+### **文件传入**
 
-#### **输入文件参数 Input Seurat rds File**
-基因表达数据文件（.rds文件）  
+　  
+#### **输入文件 Input Expression Matrix File**
+基因表达矩阵文件（tsv文件）（必传文件）
 参数说明：
-Seurat rds文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。rds文件内部的基因表达矩阵（Expresssion Matrix）和细胞分群列表（Cluster List）分别是qusage算法的前2个输入参数，因此Seurat rds文件是必需参数。
+基因表达矩阵文件可以从Seurat_NormalizedForTab、SeuratFor10X_Normalized、Seurat_ReCluster等上游工具获取。基因表达矩阵（Expresssion Matrix）是qusage算法的第1个传入参数。
+
+　  
+#### **输入文件 Input CellClusterLinkFile**
+细胞及类群关联列表文件（tsv文件）（必传文件）
+参数说明：
+细胞及类群关联列表文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。细胞及类群关联列表（Cell Cluster Link List）是qusage算法的第2个传入参数。用户也可以根据需要，自定义细胞与细胞类群的关系。例如，当用户需要将细胞类群名称从原始的数字编号转换成有含义的字符串（例如Cluster 0改为B_cell），或将不同细胞类群合并（例如Cluster 0 2 3 合并为T_cell）或拆分（例如Cluster 0细分为）时，都可以通过传入自定义细胞及类群关联列表文件来实现。
   　  
 
 　  
-####  **输入文件参数 Input GeneSetsFile (optional)**
-基因集合文件（.txt表格文件）
+#### **输入文件 Input GeneSetsFile (optional)**
+基因集合文件（tsv文件/gmt文件）（选传文件）
 参数说明：
-基因集合（GeneSets）是qusage算法的第4个传入参数，可以通过txt表格文件将基因集合数据传入工具。
-txt表格文件可从上游工具获取或手动生成。格式必须满足：每行记录1个基因条目，前两列分别是基因集合名称和基因名称，表头不可缺少。
-例如：  
+基因集合（GeneSets）是qusage算法的第4个传入参数，可以通过tsv表格文件将基因集合数据传入工具。
+tsv表格文件来源可以是其它工具的结果文件或手动生成。格式必须满足：每行前两列分别是基因集合名称和基因名称（二者是集合与所含元素的关系），表头不可缺少。例如： 
 
 |GeneSet Name|Gene Name|
 |:----------:|:-------:|
@@ -54,59 +60,66 @@ txt表格文件可从上游工具获取或手动生成。格式必须满足：�
 |...         |...      |
 
 注：  
-1 支持同时传入多个txt表格文件。
-2 如果点选了页面显示参数MSigDB GeneSetsFile或Novelbio GeneSetsFile中的.gmt文件，此处可以不传入基因集合文件。
-
+1 支持同时传入多个tsv表格文件，工具会分析出每一个文件各自的结果。
+2 如果点选了运行参数MSigDB GeneSetsFile或Novelbio GeneSetsFile中的gmt文件，此处可以不传入基因集合文件；反之，此处必须传入文件。
+　 
+### **参数设置**
 
 <label id='qusageSpecies'>  </label>
-#### **页面显示参数 Species**
-物种  
+#### **运行参数 Species**
+物种
 参数说明：
-目前支持物种包括：人、小鼠、大鼠
+支持物种包括但不限于：人、小鼠、大鼠
 　  
 <label id='MSigDB'> </label>
-#### **页面显示参数 MSigDB GeneSetsFile (optional)**
-基因集合文件（.gmt文件）
+#### **运行参数 MSigDB GeneSetsFile (optional)**
+基因集合文件（gmt文件）
 参数说明：
-来自MSigDB数据库的19个.gmt文件，可以选择一个或多个。
+来自MSigDB数据库的19个gmt文件，可以选择一个或多个。
 注：
-1 本参数和Input GeneSetsFile参数/Novelbio GeneSetsFile参数都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
+1 本参数和Input GeneSetsFile参数 / Novelbio GeneSetsFile参数都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
 2 小鼠和大鼠gmt文件是通过转换人类gmt文件中同源基因名称所得，并非数据库原始数据。
 
+
 <label id='NBgmt'> </label>
-#### **页面显示参数 Novelbio GeneSetsFile (optional)**
-基因集合文件（.gmt文件）
+#### **运行参数 Novelbio GeneSetsFile (optional)**
+基因集合文件（gmt文件）
 参数说明：
-烈冰生物技术部制作的.gmt文件，可以选择一个或多个。
+烈冰科技技术部制作的gmt文件，可以选择一个或多个。
 注：
-1 本参数和Input GeneSetsFile参数/MSigDB GeneSetsFile参数都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
+1 本参数和Input GeneSetsFile参数 / MSigDB GeneSetsFile参数都可以传入基因集合文件，三种方式至少选择一种，以保证传入基因集合文件总数不少于1。  
 
 
 <label id='curveNum'> </label>
-#### **页面显示参数 MaxCurveNum**
+#### **运行参数 MaxCurveNum**
 最大曲线数量
 参数说明：
-本参数为结果文件置信区间图中被展示基因集合的数量上限。例如：默认值50表示在基因集合数据表中按显著性排序，取不超过50个基因集合作图。
+本参数为结果文件概率密度曲线图与置信区间图中被展示基因集合的数量上限。例如：默认值50表示在基因集合数据表中按显著性排序，取不超过50个基因集合作图。
 
 
 <label id='FontSize'> </label>
-#### **页面显示参数 LabelFontSize**
-标签字体大小  
+#### **运行参数 LabelFontSize**
+标签字体大小
 参数说明：
 本参数为结果文件置信区间图中标签字体大小。
 　  
 <label id='thread'> </label>
-#### **页面显示参数 ThreadNum**
-线程数  
+#### **运行参数 ThreadNum**
+线程数
 参数说明：
 设置线程数，默认4线程
 　  
 <label id='memory'> </label>
-#### **页面显示参数 Memory(MB)**
-内存（MB）  
+#### **运行参数 Memory(MB)**
+内存（MB）
 参数说明：
-设置内存大小，默认16000MB
+设置内存大小，默认36000MB
 
+<label id='keepQuSAGErds'> </label>
+#### **运行参数 keepQuSAGErds**
+保留QuSAGE结果rds文件
+参数说明：
+qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表。在重新运行Task时，保留QuSAGE_rds文件夹可以跳过qusage函数运算。
 　  
 ### **结果解读**
 　  
@@ -163,7 +176,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 <img data-src="4.png" height="240px" ></img>
 </div>
 说明：
-表中每行记录1个基因集合。表头含义分别为：基因集合名称，差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。  
+表中每行记录1个基因集合。表头含义分别为：基因集合名称，表达量差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。  
 
 　  
 #### **热图用矩阵表**
@@ -172,7 +185,7 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 <img data-src="5.png" height="180px" ></img>
 </div>
 说明：
-表中第1列为基因集合名称，第1行为细胞类群名称，数据格表示某基因集合在某细胞类群中相较其它细胞类群的整体表达差异倍数的对数值。  
+表中第1列是基因集合名称，第1行是细胞类群名称，表中数值是对应基因集合在对应细胞类群中相较其它所有细胞类群的表达量差异倍数对数值。  
 　  
-文档更新：2019.06.21 技术部 李亚当  
+文档更新：2019.11.08 技术部 李亚当  
 文档整理：2019.04.19 技术部 李亚当
