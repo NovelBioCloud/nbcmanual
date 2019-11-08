@@ -55,9 +55,6 @@ tsv表格文件来源可以是其它工具的结果文件或手动生成。格�
 <div class="row">
     <div class="span4">
         <table>
-        </table>
-    </div>
-</div>
 
 |GeneSet Name|Gene Name|
 |:----------:|:-------:|
@@ -65,6 +62,11 @@ tsv表格文件来源可以是其它工具的结果文件或手动生成。格�
 |B_cell      |CD79     |
 |T_cell      |CD3      |
 |...         |...      |
+
+
+        </table>
+    </div>
+</div>
 
 注：  
 1 支持同时传入多个tsv表格文件，工具会分析出每一个文件各自的结果。
