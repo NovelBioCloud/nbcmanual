@@ -51,29 +51,13 @@ http://clip.med.yale.edu/qusage/
 参数说明：
 基因集合（GeneSets）是qusage算法的第4个传入参数，可以通过tsv表格文件将基因集合数据传入工具。
 tsv表格文件来源可以是其它工具的结果文件或手动生成。格式必须满足：每行前两列分别是基因集合名称和基因名称（二者是集合与所含元素的关系），表头不可缺少。例如： 
-<div style="width: 300px;">
-  <table>
-    <thead>
-      <tr>
-        <th align="center">GeneSet Name</th>
-        <th align="center">Gene Name</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td align="center">B_cell</td>
-        <td align="center">CD19</td></tr>
-      <tr>
-        <td align="center">B_cell</td>
-        <td align="center">CD79</td></tr>
-      <tr>
-        <td align="center">T_cell</td>
-        <td align="center">CD3</td></tr>
-      <tr>
-        <td align="center">...</td>
-        <td align="center">...</td></tr>
-    </tbody>
-  </table>
-</div>
+
+|GeneSet Name|Gene Name|
+|:----------:|:-------:|
+|B_cell      |CD19     |
+|B_cell      |CD79     |
+|T_cell      |CD3      |
+|...         |...      |
 
 注：  
 1 支持同时传入多个tsv表格文件，工具会分析出每一个文件各自的结果。
