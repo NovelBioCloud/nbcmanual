@@ -36,13 +36,13 @@ http://clip.med.yale.edu/qusage/
 #### **输入文件 Input Expression Matrix File**
 基因表达矩阵文件（tsv文件）（必传文件）
 参数说明：
-基因表达矩阵文件可以从Seurat_NormalizedForTab、SeuratFor10X_Normalized、Seurat_ReCluster等上游工具获取。基因表达矩阵（Expresssion Matrix）是qusage算法的第1个传入参数。
+基因表达矩阵文件可以从上游工具获取（例如Seurat_NormalizedForTab / SeuratFor10X_Normalized / Seurat_ReCluster中的SelectedNormalizedCounts.txt.bz2）。基因表达矩阵（Expresssion Matrix）是qusage算法的第1个传入参数。
 
 　  
 #### **输入文件 Input CellClusterLinkFile**
 细胞及类群关联列表文件（tsv文件）（必传文件）
 参数说明：
-细胞及类群关联列表文件可以从Seurat_Cluster、Seurat_ReCluster等上游工具获取。细胞及类群关联列表（Cell Cluster Link List）是qusage算法的第2个传入参数。用户也可以根据需要，自定义细胞与细胞类群的关系。例如，当用户需要将细胞类群名称从原始的数字编号转换成有含义的字符串（例如Cluster 0改为B_cell），或将不同细胞类群合并（例如Cluster 0 2 3 合并为T_cell）或拆分（例如Cluster 0细分为）时，都可以通过传入自定义细胞及类群关联列表文件来实现。
+细胞及类群关联列表文件可以从上游工具获取（例如Seurat_Cluster / Seurat_ReCluster中的GraphClust.Summary_Cell.txt）。细胞及类群关联列表（Cell Cluster Link List）是qusage算法的第2个传入参数。用户也可以根据需要，自定义细胞与细胞类群的关系。例如，当用户需要将细胞类群名称从原始的数字编号转换成有含义的字符串（例如Cluster 0改为B_cell），或将不同细胞类群合并（例如Cluster 0 2 3 合并为T_cell）或拆分（例如Cluster 0细分为CD4-T、CD8-T）时，都可以通过传入自定义细胞及类群关联列表文件来实现。
   　  
 
 　  
@@ -193,5 +193,5 @@ QuSAGE rds文件是程序运行中间文件，内容是算法中qusage函数返�
 说明：
 表中第1列是基因集合名称，第1行是细胞类群名称，表中数值是对应基因集合在对应细胞类群中相较其它所有细胞类群的表达量差异倍数对数值。  
 　  
-文档更新：2019.11.08 技术部 李亚当  
+文档更新：2019.11.12 技术部 李亚当  
 文档整理：2019.04.19 技术部 李亚当
