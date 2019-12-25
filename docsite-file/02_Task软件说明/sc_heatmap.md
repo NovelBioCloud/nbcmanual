@@ -170,6 +170,7 @@ ColorBar最大值，勾选是否调整颜色范围后才会显示
 
 ├─ heatmap.png/pdf/svg （png/pdf/svg格式热图）
 
+　  
 #### **HeatMap热图**
 <div style="text-align:center">
 <img data-src="2.png" height="600px" ></img>
