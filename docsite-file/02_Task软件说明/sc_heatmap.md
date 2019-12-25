@@ -21,7 +21,7 @@ ScHeatMap既可以纵向对比一个细胞类群中不同基因集合表达的�
 **连接示例**：
 
 <div style="text-align:center">
-<img data-src="1.png" width="600px" ></img>
+<img data-src="1.png" width="200px" ></img>
 </div>
 
 　 
