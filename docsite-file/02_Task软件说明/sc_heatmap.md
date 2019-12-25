@@ -20,7 +20,9 @@ ScHeatMap既可以纵向对比一个细胞类群中不同基因集合表达的�
 **上游工具**：QuSAGE / QuSAGEPathFilter等
 **连接示例**：
 
- 
+<div style="text-align:center">
+<img data-src="1.png" height="600px" ></img>
+</div>
 
 　 
 ### **输入文件**
@@ -50,6 +52,7 @@ y轴信息文件（选传文件）
 注：
 列间隔请使用table制表符
 示例：
+
 |OriName|ReName |GroupInfo|
 |:-----:|:-----:|:-------:|
 |Gene1	|Gene1  |Group1   |
@@ -147,7 +150,7 @@ ColorBar最大值，勾选是否调整颜色范围后才会显示
 注：
 如果x轴输入文件中有分组信息，本参数无效，如果x轴输入文件仅有前两列则本参数依然有效。
 
-<label id='Threads'> </label>
+<label id='thread'> </label>
 #### **运行参数 Threads**
 线程数
 参数说明：
@@ -169,7 +172,7 @@ ColorBar最大值，勾选是否调整颜色范围后才会显示
 
 #### **HeatMap热图**
 <div style="text-align:center">
-<img data-src=".png" height="600px" ></img>
+<img data-src="2.png" height="600px" ></img>
 </div>
 说明：
 横轴标签表示细胞类群/样本名称。
