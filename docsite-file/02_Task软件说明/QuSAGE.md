@@ -26,7 +26,7 @@ http://clip.med.yale.edu/qusage/
 **下游工具**：ScHeatMap / QuSAGEPathFilter
 **连接示例**：
 <div style="text-align:center">
-<img data-src="1.png" width="150px" ></img>
+<img data-src="1.png" width="660px" ></img>
 </div>
  
 
@@ -174,7 +174,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因集合概率密度曲线图**
 <div style="text-align:center">
-<img data-src="2.png" width="600px" ></img>
+<img data-src="2.png" width="660px" ></img>
 </div>
 说明：
 图中，每条曲线代表一个基因集合，曲线顶点在横轴上的位置表示对应基因集合的活跃度。活跃度大于零，表示相对于其它细胞类群，这群基因在本细胞类群中整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。
@@ -182,7 +182,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因集合置信区间图**
 <div style="text-align:center">
-<img data-src="3.png" width="600px" ></img>
+<img data-src="3.png" width="660px" ></img>
 </div>
 说明：
 图中，横轴是基因集合的名称，代表基因集合的竖线的中点对应纵轴上的位置表示这个基因集合的活跃度。活跃度大于零，表示这群基因在本细胞类群中较其它细胞类群整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。每条竖线两端的短线表示概率密度曲线的95%置信区间。竖线的颜色表示P值大小，颜色越亮，P值越小，表达上下调分别用红绿表示。
@@ -190,7 +190,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因集合数据表**
 <div style="text-align:center">
-<img data-src="4.png" height="px" ></img>
+<img data-src="4.png" height="120px" ></img>
 </div>
 说明：
 表中每行对应1个基因集合。表头含义分别为：基因集合名称，表达量差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。
@@ -198,7 +198,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因概率密度曲线图**
 <div style="text-align:center">
-<img data-src="5.png" width="600px" ></img>
+<img data-src="5.png" width="660px" ></img>
 </div>
 说明：
 图中，黑色加粗曲线代表标题中的基因集合，其它曲线代表组成这个基因集合的基因，曲线顶点在横轴上的位置表示对应基因集合或基因的活跃度。活跃度高低反映了对应基因或基因集合的激活程度。
@@ -206,7 +206,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因置信区间图**
 <div style="text-align:center">
-<img data-src="6.png" width="600px" ></img>
+<img data-src="6.png" width="660px" ></img>
 </div>
 说明：
 图中，横轴是基因名称，代表基因的竖线的中点对应纵轴上的位置表示这个基因的活跃度。活跃度大于零，表示对应基因在本细胞类群中较其它细胞类群表达上调；反之，表达下调。每条竖线两端的短线表示概率密度曲线的95%置信区间。蓝色虚线和灰色长条表示基因集合整体的活跃度和置信区间
@@ -214,7 +214,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因集合数据表**
 <div style="text-align:center">
-<img data-src="7.png" height="px" ></img>
+<img data-src="7.png" height="100px" ></img>
 </div>
 说明：
 表中每行对应1个基因。表头含义分别为：基因名称，均值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序。
@@ -222,7 +222,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **热图用矩阵表**
 <div style="text-align:center">
-<img data-src="8.png" height="px" ></img>
+<img data-src="8.png" height="100px" ></img>
 </div>
 说明：
 表中第1列是基因集合名称，第1行是细胞类群名称，矩阵中数值是对应基因集合在对应细胞类群中相较其它所有细胞类群的表达量差异倍数对数值。
@@ -230,7 +230,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **热图**
 <div style="text-align:center">
-<img data-src="9.png" width="600px" ></img>
+<img data-src="9.png" width="660px" ></img>
 </div>
 说明： 
 横轴标签表示细胞类群名称。
