@@ -26,7 +26,7 @@ http://clip.med.yale.edu/qusage/
 **下游工具**：ScHeatMap / QuSAGEPathFilter
 **连接示例**：
 <div style="text-align:center">
-<img data-src="1.png" width="600px" ></img>
+<img data-src="1.png" width="150px" ></img>
 </div>
  
 
@@ -147,27 +147,28 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **结果文件结构**
 ├─ <font color=#00BFFF>**QuSAGE_GeneSet_result **</font>(基因集合分析结果目录，每个基因集合文件对应1个子目录)
-┊   ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每个Cluster对应3个文件) 
-┊   ┊   ├─ **GeneSetCIplot_ClusterID_GeneSetsFileName.png **(置信区间图)
-┊   ┊   ├─ **GeneSetDCplot_ClusterID_GeneSetsFileName.png **(概率密度曲线图)
-┊   ┊   ├─ **GeneSetInfo_ClusterID_GeneSetsFileName.txt **(基因集合数据表)
-┊   ┊   ├─ ...
-┊   ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
-┊   ┊   ├─ ...
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每个Cluster对应3个文件) 
+┊　 ┊　 ├─ **GeneSetCIplot_ClusterID_GeneSetsFileName.png **(置信区间图)
+┊　 ┊　 ├─ **GeneSetDCplot_ClusterID_GeneSetsFileName.png **(概率密度曲线图)
+┊　 ┊　 ├─ **GeneSetInfo_ClusterID_GeneSetsFileName.txt **(基因集合数据表)
+┊　 ┊　 ├─ ...
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
+┊　 ┊　 ├─ ...
 ├─ <font color=#00BFFF>**QuSAGE_Gene_result **</font>(基因分析结果目录，每个基因集合文件对应1个子目录)
-┊   ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每3个文件一组) 
-┊   ┊   ├─ **GeneCIplot_ClusterID_GeneSetsFileName_GeneSetName.png **(置信区间图)
-┊   ┊   ├─ **GeneDCplot_ClusterID_GeneSetsFileName_GeneSetName.png **(概率密度曲线图)
-┊   ┊   ├─ **GeneInfo_ClusterID_GeneSetsFileName_GeneSetName.txt **(基因数据表)
-┊   ┊   ├─ ...
-┊   ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
-┊   ┊   ├─ ...
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每3个文件一组) 
+┊　 ┊　 ├─ **GeneCIplot_ClusterID_GeneSetsFileName_GeneSetName.png **(置信区间图)
+┊　 ┊　 ├─ **GeneDCplot_ClusterID_GeneSetsFileName_GeneSetName.png **(概率密度曲线图)
+┊　 ┊　 ├─ **GeneInfo_ClusterID_GeneSetsFileName_GeneSetName.txt **(基因数据表)
+┊　 ┊　 ├─ ...
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
+┊　 ┊　 ├─ ...
 ├─ <font color=#00BFFF>**QuSAGE_for_heatmap **</font>(热图及热图绘制用矩阵表文件目录，每个基因集合文件对应3个文件) 
-┊   ├─ **GeneSetsFileName1_heatmap.png/pdf **(png/pdf格式热图) 
-┊   ├─ **GeneSetsFileName2_heatmap.png/pdf **
-┊   ├─ **GeneSetsFileName1_heatmap_input.txt **(热图用矩阵表)
-┊   ├─ **GeneSetsFileName2_heatmap_input.txt**
-┊   ├─ ...
+┊　 ├─ **GeneSetsFileName1_heatmap.png/pdf **(png/pdf格式热图) 
+┊　 ├─ **GeneSetsFileName2_heatmap.png/pdf **
+┊　 ├─ **GeneSetsFileName1_heatmap_input.txt **(热图用矩阵表)
+┊　 ├─ **GeneSetsFileName2_heatmap_input.txt**
+┊　 ├─ ...
+
 
 
 　  
@@ -189,7 +190,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因集合数据表**
 <div style="text-align:center">
-<img data-src="4.png" height="360px" ></img>
+<img data-src="4.png" height="px" ></img>
 </div>
 说明：
 表中每行对应1个基因集合。表头含义分别为：基因集合名称，表达量差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。
@@ -213,7 +214,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因集合数据表**
 <div style="text-align:center">
-<img data-src="7.png" height="300px" ></img>
+<img data-src="7.png" height="px" ></img>
 </div>
 说明：
 表中每行对应1个基因。表头含义分别为：基因名称，均值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序。
@@ -221,7 +222,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **热图用矩阵表**
 <div style="text-align:center">
-<img data-src="8.png" height="300px" ></img>
+<img data-src="8.png" height="px" ></img>
 </div>
 说明：
 表中第1列是基因集合名称，第1行是细胞类群名称，矩阵中数值是对应基因集合在对应细胞类群中相较其它所有细胞类群的表达量差异倍数对数值。
