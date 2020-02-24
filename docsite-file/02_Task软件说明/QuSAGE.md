@@ -6,7 +6,7 @@
 　  
 #### **功能概述**
 
-QuSAGE（Quantitative Set Analysis for Gene Expression, 基因表达定量集合分析），是一种以基因集合为单位，定量分析不同基因集合在不同样本中差异表达的分析方法。在QuSAGE算法中，生物学意义上有关联的基因组成基因集合作为一个整体，有别于每一个基因作为独立的个体进行数据分析。QuSAGE以概率密度函数（Probability Density Function, PDF）的形式量化基因集合的表达活跃程度，并通过概率密度曲线图（Probability Density Curve Plot）、置信区间图（Confidence Interval Plot）等数据可视化方式，展示不同的基因集合在不同的样本间的表达情况。
+QuSAGE（Quantitative Set Analysis for Gene Expression, 基因表达定量集合分析），是一种以基因集合为单位，定量分析不同基因集合在不同样本中差异表达的分析方法。在QuSAGE算法中，生物学意义上有关联的基因组成基因集合作为一个整体，有别于每一个基因作为独立的个体进行数据分析。QuSAGE以概率密度函数（Probability Density Function, PDF）的形式量化基因集合的表达活跃程度，并通过概率密度曲线图（Probability Density Curve Plot）、置信区间图（Confidence Interval Plot），以及热图（Heatmap）等数据可视化方式，展示不同的基因集合在不同的样本间的表达情况。
 
 #### **软件特点**
 
@@ -146,30 +146,27 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 
 　  
 #### **结果文件结构**
-├─ <font color=#00BFFF>**QuSAGE_GeneSet_result **</font>(基因集合分析结果目录，每个基因集合文件对应1个子目录)
-┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每个Cluster对应3个文件) 
+├─ <font color=#00BFFF>**QuSAGE_GeneSet_figures **</font>(基因集合分析结果图片目录，每个基因集合文件对应1个子目录)
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每个Cluster对应2个文件) 
 ┊　 ┊　 ├─ **GeneSetCIplot_ClusterID_GeneSetsFileName.png **(置信区间图)
 ┊　 ┊　 ├─ **GeneSetDCplot_ClusterID_GeneSetsFileName.png **(概率密度曲线图)
-┊　 ┊　 ├─ **GeneSetInfo_ClusterID_GeneSetsFileName.txt **(基因集合数据表)
 ┊　 ┊　 ├─ ...
 ┊　 ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
 ┊　 ┊　 ├─ ...
-├─ <font color=#00BFFF>**QuSAGE_Gene_result **</font>(基因分析结果目录，每个基因集合文件对应1个子目录)
-┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每3个文件一组) 
-┊　 ┊　 ├─ **GeneCIplot_ClusterID_GeneSetsFileName_GeneSetName.png **(置信区间图)
-┊　 ┊　 ├─ **GeneDCplot_ClusterID_GeneSetsFileName_GeneSetName.png **(概率密度曲线图)
-┊　 ┊　 ├─ **GeneInfo_ClusterID_GeneSetsFileName_GeneSetName.txt **(基因数据表)
+├─ <font color=#00BFFF>**QuSAGE_Gene_figures **</font>(基因分析结果图片目录，每个基因集合文件对应1个子目录)
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每2个文件一组) 
+┊　 ┊　 ├─ **GeneCIplot_ClusterID_GeneSetName.png **(置信区间图)
+┊　 ┊　 ├─ **GeneDCplot_ClusterID_GeneSetName.png **(概率密度曲线图)
 ┊　 ┊　 ├─ ...
 ┊　 ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
 ┊　 ┊　 ├─ ...
-├─ <font color=#00BFFF>**QuSAGE_for_heatmap **</font>(热图及热图绘制用矩阵表文件目录，每个基因集合文件对应3个文件) 
-┊　 ├─ **GeneSetsFileName1_heatmap.png/pdf **(png/pdf格式热图) 
-┊　 ├─ **GeneSetsFileName2_heatmap.png/pdf **
-┊　 ├─ **GeneSetsFileName1_heatmap_input.txt **(热图用矩阵表)
-┊　 ├─ **GeneSetsFileName2_heatmap_input.txt**
+├─ <font color=#00BFFF>**QuSAGE_results **</font>(QuSAGE结果文件目录，每个基因集合文件对应6个文件) 
+┊　 ├─ **GeneSetsFileName.heatmap.png/pdf **(png/pdf格式热图)
+┊　 ├─ **GeneSetsFileName.heatmap.matrix.txt **(热图用矩阵表)
+┊　 ├─ **GeneSetsFileName.heatmap.config.txt **(热图聚类结构)
+┊　 ├─ **GeneSetsFileName.GeneSetInfoSummary.tsv **(基因集合信息汇总表)
+┊　 ├─ **GeneSetsFileName.GeneInfoSummary.tsv **(基因信息汇总表)
 ┊　 ├─ ...
-
-
 
 　  
 #### **基因集合概率密度曲线图**
@@ -188,12 +185,12 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 图中，横轴是基因集合的名称，代表基因集合的竖线的中点对应纵轴上的位置表示这个基因集合的活跃度。活跃度大于零，表示这群基因在本细胞类群中较其它细胞类群整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。每条竖线两端的短线表示概率密度曲线的95%置信区间。竖线的颜色表示P值大小，颜色越亮，P值越小，表达上下调分别用红绿表示。
 
 　  
-#### **基因集合数据表**
+#### **基因集合信息汇总表**
 <div style="text-align:center">
 <img data-src="4.png" height="240px" ></img>
 </div>
 说明：
-表中每行对应1个基因集合。表头含义分别为：基因集合名称，表达量差异倍数对数值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。
+表中每行对应1个基因集合。表头含义分别为：基因集合名称，表达量差异倍数对数值，P值，FDR，细胞类群，置信区间下限，置信区间上限。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。
 
 　  
 #### **基因概率密度曲线图**
@@ -212,12 +209,12 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 图中，横轴是基因名称，代表基因的竖线的中点对应纵轴上的位置表示这个基因的活跃度。活跃度大于零，表示对应基因在本细胞类群中较其它细胞类群表达上调；反之，表达下调。每条竖线两端的短线表示概率密度曲线的95%置信区间。蓝色虚线和灰色长条表示基因集合整体的活跃度和置信区间
 
 　  
-#### **基因集合数据表**
+#### **基因信息汇总表**
 <div style="text-align:center">
 <img data-src="7.png" height="200px" ></img>
 </div>
 说明：
-表中每行对应1个基因。表头含义分别为：基因名称，均值，P值，FDR校正P值。条目默认排序规则是按P值从小到大排序。
+表中每行对应1个基因。表头含义分别为：基因名称，均值，P值，FDR，置信区间下限，置信区间上限，细胞类群，从属基因集合名称，基因集合表达量差异倍数对数值，基因集合P值。条目默认排序规则是按P值从小到大排序。
 
 　  
 #### **热图用矩阵表**
@@ -237,5 +234,5 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 纵轴标签表示基因集合名称。
 色块从蓝到红渐变表示基因集合在不同的细胞类群中激活程度从低到高。
 　  
-文档更新 2020.02.12 技术部 李亚当
+文档更新 2020.02.22 技术部 李亚当
 文档整理 2019.04.19 技术部 李亚当
