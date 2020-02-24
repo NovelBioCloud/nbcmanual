@@ -187,7 +187,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因集合信息汇总表**
 <div style="text-align:center">
-<img data-src="4.png" height="240px" ></img>
+<img data-src="4.png" height="120px" ></img>
 </div>
 说明：
 表中每行对应1个基因集合。表头含义分别为：基因集合名称，表达量差异倍数对数值，P值，FDR，细胞类群，置信区间下限，置信区间上限。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。
@@ -211,7 +211,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **基因信息汇总表**
 <div style="text-align:center">
-<img data-src="7.png" height="200px" ></img>
+<img data-src="7.png" height="120px" ></img>
 </div>
 说明：
 表中每行对应1个基因。表头含义分别为：基因名称，均值，P值，FDR，置信区间下限，置信区间上限，细胞类群，从属基因集合名称，基因集合表达量差异倍数对数值，基因集合P值。条目默认排序规则是按P值从小到大排序。
@@ -219,7 +219,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 　  
 #### **热图用矩阵表**
 <div style="text-align:center">
-<img data-src="8.png" height="200px" ></img>
+<img data-src="8.png" height="220px" ></img>
 </div>
 说明：
 表中第1列是基因集合名称，第1行是细胞类群名称，矩阵中数值是对应基因集合在对应细胞类群中相较其它所有细胞类群的表达量差异倍数对数值。
