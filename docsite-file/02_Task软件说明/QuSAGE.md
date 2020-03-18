@@ -146,43 +146,49 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 
 　  
 #### **结果文件结构**
-├─ <font color=#00BFFF>**QuSAGE_GeneSet_figures **</font>(基因集合分析结果图片目录，每个基因集合文件对应1个子目录)
-┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每个Cluster对应2个文件) 
+├─ <font color=#00BFFF>**QuSAGE_results **</font>(QuSAGE结果文件路径) 
+┊　 ├─ **GeneSetsFileName.heatmap.png/pdf **(热图)
+┊　 ├─ **GeneSetsFileName.heatmap.matrix.tsv **(热图用矩阵表)
+┊　 ├─ **GeneSetsFileName.GeneSetInfoSummary.tsv **(基因集合信息汇总表) 
+┊　 ├─ ...
+├─ <font color=#00BFFF>**QuSAGE_GeneSet_details **</font>(基因集合分析结果路径)
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录)
 ┊　 ┊　 ├─ **GeneSetCIplot_ClusterID_GeneSetsFileName.png **(置信区间图)
 ┊　 ┊　 ├─ **GeneSetDCplot_ClusterID_GeneSetsFileName.png **(概率密度曲线图)
 ┊　 ┊　 ├─ ...
 ┊　 ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
 ┊　 ┊　 ├─ ...
-├─ <font color=#00BFFF>**QuSAGE_Gene_figures **</font>(基因分析结果图片目录，每个基因集合文件对应1个子目录)
-┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录，每2个文件一组) 
+├─ <font color=#00BFFF>**QuSAGE_Gene_details **</font>(基因分析结果路径)
+┊　 ├─ <font color=#00BFFF>**GeneSetsFileName1 **</font>(基因集合文件名子目录) 
+┊　 ┊　 ├─ **ClusterID_GeneInfoSummary.tsv **(基因信息汇总表)
 ┊　 ┊　 ├─ **GeneCIplot_ClusterID_GeneSetName.png **(置信区间图)
 ┊　 ┊　 ├─ **GeneDCplot_ClusterID_GeneSetName.png **(概率密度曲线图)
 ┊　 ┊　 ├─ ...
 ┊　 ├─ <font color=#00BFFF>**GeneSetsFileName2**</font>
 ┊　 ┊　 ├─ ...
-├─ <font color=#00BFFF>**QuSAGE_results **</font>(QuSAGE结果文件目录，每个基因集合文件对应6个文件) 
-┊　 ├─ **GeneSetsFileName.heatmap.png/pdf **(png/pdf格式热图)
-┊　 ├─ **GeneSetsFileName.heatmap.matrix.txt **(热图用矩阵表)
-┊　 ├─ **GeneSetsFileName.heatmap.config.txt **(热图聚类结构)
-┊　 ├─ **GeneSetsFileName.GeneSetInfoSummary.tsv **(基因集合信息汇总表)
-┊　 ├─ **GeneSetsFileName.GeneInfoSummary.tsv **(基因信息汇总表)
+├─ <font color=#00BFFF>**for_CellBrowser **</font>(对接CellBrowser文件路径) 
+┊　 ├─ **GeneSetsFileName.heatmap.top10.matrix.tsv **(浏览器热图矩阵表)
+┊　 ├─ **GeneSetsFileName.heatmap.config.txt **(浏览器热图聚类结构)
+┊　 ├─ **GeneSetsFileName.heatmap.GeneInfoSummary.tsv **(浏览器热图基因信息表)
 ┊　 ├─ ...
 
 　  
-#### **基因集合概率密度曲线图**
+#### **热图**
 <div style="text-align:center">
 <img data-src="2.png" width="660px" ></img>
 </div>
-说明：
-图中，每条曲线代表一个基因集合，曲线顶点在横轴上的位置表示对应基因集合的活跃度。活跃度大于零，表示相对于其它细胞类群，这群基因在本细胞类群中整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。
+说明： 
+横轴标签表示细胞类群名称。
+纵轴标签表示基因集合名称。
+色块从蓝到红渐变表示基因集合在不同的细胞类群中激活程度从低到高。
 
 　  
-#### **基因集合置信区间图**
+#### **热图用矩阵表**
 <div style="text-align:center">
-<img data-src="3.png" width="660px" ></img>
+<img data-src="3.png" height="660px" ></img>
 </div>
 说明：
-图中，横轴是基因集合的名称，代表基因集合的竖线的中点对应纵轴上的位置表示这个基因集合的活跃度。活跃度大于零，表示这群基因在本细胞类群中较其它细胞类群整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。每条竖线两端的短线表示概率密度曲线的95%置信区间。竖线的颜色表示P值大小，颜色越亮，P值越小，表达上下调分别用红绿表示。
+表中第1列是基因集合名称，第1行是细胞类群名称，矩阵中数值是对应基因集合在对应细胞类群中相较其它所有细胞类群的表达量差异倍数对数值。
 
 　  
 #### **基因集合信息汇总表**
@@ -193,46 +199,76 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 表中每行对应1个基因集合。表头含义分别为：基因集合名称，表达量差异倍数对数值，P值，FDR，细胞类群，置信区间下限，置信区间上限。条目默认排序规则是按P值从小到大排序，如果P值相等，按差异倍数对数值从大到小排序。
 
 　  
-#### **基因概率密度曲线图**
+#### **基因集合置信区间图**
 <div style="text-align:center">
 <img data-src="5.png" width="660px" ></img>
 </div>
 说明：
-图中，黑色加粗曲线代表标题中的基因集合，其它曲线代表组成这个基因集合的基因，曲线顶点在横轴上的位置表示对应基因集合或基因的活跃度。活跃度高低反映了对应基因或基因集合的激活程度。
+图中，横轴是基因集合的名称，代表基因集合的竖线的中点对应纵轴上的位置表示这个基因集合的活跃度。活跃度大于零，表示这群基因在本细胞类群中较其它细胞类群整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。每条竖线两端的短线表示概率密度曲线的95%置信区间。竖线的颜色表示P值大小，颜色越亮，P值越小，表达上下调分别用红绿表示。
+
+　  
+#### **基因集合概率密度曲线图**
+<div style="text-align:center">
+<img data-src="6.png" width="660px" ></img>
+</div>
+说明：
+图中，每条曲线代表一个基因集合，曲线顶点在横轴上的位置表示对应基因集合的活跃度。活跃度大于零，表示相对于其它细胞类群，这群基因在本细胞类群中整体表达上调，对应功能加强；反之，整体表达下调，对应功能减弱。
 
 　  
 #### **基因置信区间图**
 <div style="text-align:center">
-<img data-src="6.png" width="660px" ></img>
+<img data-src="7.png" width="120px" ></img>
 </div>
 说明：
 图中，横轴是基因名称，代表基因的竖线的中点对应纵轴上的位置表示这个基因的活跃度。活跃度大于零，表示对应基因在本细胞类群中较其它细胞类群表达上调；反之，表达下调。每条竖线两端的短线表示概率密度曲线的95%置信区间。蓝色虚线和灰色长条表示基因集合整体的活跃度和置信区间
 
 　  
+#### **基因概率密度曲线图**
+<div style="text-align:center">
+<img data-src="8.png" width="220px" ></img>
+</div>
+说明：
+图中，黑色加粗曲线代表标题中的基因集合，其它曲线代表组成这个基因集合的基因，曲线顶点在横轴上的位置表示对应基因集合或基因的活跃度。活跃度高低反映了对应基因或基因集合的激活程度。
+
+　  
 #### **基因信息汇总表**
 <div style="text-align:center">
-<img data-src="7.png" height="120px" ></img>
+<img data-src="9.png" height="660px" ></img>
 </div>
 说明：
 表中每行对应1个基因。表头含义分别为：基因名称，均值，P值，FDR，置信区间下限，置信区间上限，细胞类群，从属基因集合名称，基因集合表达量差异倍数对数值，基因集合P值。条目默认排序规则是按P值从小到大排序。
 
 　  
-#### **热图用矩阵表**
+#### **浏览器热图矩阵表**
 <div style="text-align:center">
-<img data-src="8.png" height="220px" ></img>
+<img data-src="10.png" height="px" ></img>
 </div>
 说明：
-表中第1列是基因集合名称，第1行是细胞类群名称，矩阵中数值是对应基因集合在对应细胞类群中相较其它所有细胞类群的表达量差异倍数对数值。
+本表数据源自/QuSAGE_results/GeneSetsFileName.heatmap.matrix.tsv
+在源文件基础上，进行了每个Cluster取Top10，再取并集的处理。
+
+浏览器热图聚类结构
+
+说明：
+本文件用小括号的形式描述了/QuSAGE_results/GeneSetsFileName.heatmap.png/pdf文件中热图的树形聚类结构。
 
 　  
-#### **热图**
+#### **浏览器热图基因信息表**
 <div style="text-align:center">
-<img data-src="9.png" width="660px" ></img>
+<img data-src="11.png" height="px" ></img>
 </div>
-说明： 
-横轴标签表示细胞类群名称。
-纵轴标签表示基因集合名称。
-色块从蓝到红渐变表示基因集合在不同的细胞类群中激活程度从低到高。
+说明：
+本文件包含了/QuSAGE_results/GeneSetsFileName.heatmap.png/pdf热图文件中涉及的所有基因集合与它们对应的基因信息。文件分为上下两部分用井号隔开，格式如下：
+GeneSetID ClusterID logFC CIlow CIup Pvalue
+GeneSet_0         0   xxx   xxx  xxx   xxx
+GeneSet_1         1   ...
+....
+##########
+Gene.name Mean P.value FDR CIlow CIup Cluster GeneSetName
+Gene1      xxx   xxx   xxx   xxx  xxx       0   GeneSet_0
+Gene2      ...
+...
 　  
-文档更新 2020.02.22 技术部 李亚当
+文档更新 2020.03.18 技术部 李亚当
 文档整理 2019.04.19 技术部 李亚当
+
