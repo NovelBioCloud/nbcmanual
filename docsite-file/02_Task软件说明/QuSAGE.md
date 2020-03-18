@@ -258,7 +258,7 @@ qusage函数返回的R数据结构，可以直接用于生成QuSAGE结果图表�
 说明：
 本文件包含了/QuSAGE_results/GeneSetsFileName.heatmap.png/pdf热图文件中涉及的所有基因集合与它们对应的基因信息。文件分为上下两部分用井号隔开，格式如下：
 <div style="text-align:center">
-<img data-src="10.png" height="90px" ></img>
+<img data-src="10.png" height="180px" ></img>
 </div>
 　  
 文档更新 2020.03.18 技术部 李亚当
